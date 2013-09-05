@@ -1,0 +1,81 @@
+#!/bin/bash -x
+
+# Export important variables for the build scripts
+top=$(pwd)
+root=$top/root
+mirror=http://dl.2f30.org/morpheus-pkgs
+export top root mirror
+
+# Create directory hierarchy
+rm -rf root src
+mkdir -p root/{bin,boot,dev,etc,svc,home,root,var,share,devel}
+mkdir -p root/share/man
+mkdir -p root/devel/{include,lib,src}
+mkdir -p root/{sys,proc}
+pushd $root/
+ln -s /bin sbin
+popd
+mkdir -p src
+mkdir -p kernel
+
+# Fetch packages
+pkglist=$(ls pkgs)
+for pkg in $pkglist; do
+	export pkg
+	. pkgs/$pkg
+done
+
+# Fetch kernel
+wget -c http://dl.2f30.org/morpheus-pkgs/bzImage -O kernel/bzImage
+wget -c http://dl.2f30.org/morpheus-pkgs/bzImage-config -O kernel/bzImage-config
+
+# Dummy hotplug event handler
+cat << EOF > $root/bin/hotplug
+#!/bin/sh
+
+env >> /tmp/hotplug-events
+EOF
+
+chmod +x $root/bin/hotplug
+
+# Our init script
+cat << EOF > $root/init
+#!/bin/sh
+
+export PATH=/bin:/sbin
+
+mount -t sysfs sysfs /sys
+mount -t proc proc /proc
+echo /bin/smdev > /proc/sys/kernel/hotplug
+smdev -s
+hostname morpheus
+ifconfig eth0 up && sdhcp eth0
+
+while :; do
+	sh
+done
+EOF
+
+chmod +x $root/init
+
+# Basic group/passwd files
+cat <<EOF > $root/etc/group
+root:x:0:root
+bin:x:1:root,bin,daemon
+daemon:x:2:root,bin,daemon
+sys:x:3:root,bin
+adm:x:4:root,daemon
+tty:x:5:
+disk:x:6:root
+cdrom:x:7:root
+EOF
+
+cat <<EOF > $root/etc/passwd
+root:x:0:0:root:/root:/bin/mksh
+bin:x:1:1:bin:/bin:/bin/false
+daemon:x:2:2:daemon:/sbin:/bin/false
+EOF
+
+pushd $root
+find . | cpio --quiet -H newc -o | gzip -9 -n > ../rootfs.img
+popd

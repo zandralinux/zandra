@@ -1,0 +1,21 @@
+file=$pkg.tar.gz
+url=$mirror/$file
+
+# Fetch package
+wget -c $url -O src/$file
+
+# Unpack package
+pushd src
+tar xzf $file
+popd
+
+# Build package
+pushd src/mksh
+CC=musl-gcc LDFLAGS+=-static sh Build.sh
+popd
+
+# Install package
+cp src/mksh/mksh $root/bin
+pushd $root/bin
+ln -s /bin/mksh sh
+popd

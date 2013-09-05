@@ -1,0 +1,10 @@
+#!/bin/bash
+
+vdesock="/tmp/sucklessvde"
+
+ps -ef | grep vde_switch | grep "sock $vdesock" | grep -v grep > /dev/null || {
+    vde_switch -sock "$vdesock" -daemon -mod 660 -group kvm &&
+    slirpvde -s "$vdesock" --dhcp --daemon -H '10.1.2.0/24' -L '2223:10.1.2.15:22'
+}
+
+qemu-system-x86_64 -net nic,model=ne2k_pci -net vde,sock="${vdesock}" -kernel kernel/bzImage -initrd rootfs.img -append "quiet"

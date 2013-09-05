@@ -1,0 +1,14 @@
+url=git://git.2f30.org/$pkg
+
+# Fetch package
+git clone $url src/$pkg
+
+# Build package
+pushd src/$pkg
+make CC=musl-gcc LDFLAGS=-static
+popd
+
+# Install package
+pushd src/$pkg
+make PREFIX=$root install
+popd

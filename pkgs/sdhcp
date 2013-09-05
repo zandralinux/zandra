@@ -1,0 +1,18 @@
+file=$pkg.tar.gz
+url=$mirror/$file
+
+# Fetch package
+wget -c $url -O src/$file
+
+# Unpack package
+pushd src
+tar xzf $file
+popd
+
+# Build package
+pushd src/$pkg
+make CC=musl-gcc LDFLAGS=-static
+popd
+
+# Install package
+cp src/$pkg/sdhcp $root/bin
