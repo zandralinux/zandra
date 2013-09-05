@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rm -rf kernel root rootfs.img src
