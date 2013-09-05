@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if test -z "$1"; then
+	echo usage: $0 pkgname 1>&2
+	exit 1
+fi
+
+# Export important variables for the build scripts
+top=$(pwd)
+root=$top/root
+mirror=http://dl.2f30.org/morpheus-pkgs
+export top root mirror
+
+# Create directory hierarchy
+mkdir -p $root/{bin,boot,dev,etc,svc,home,root,var,share,devel}
+mkdir -p $root/share/man
+mkdir -p $root/devel/{include,lib,src}
+mkdir -p $root/{sys,proc}
+pushd $root/
+ln -s /bin sbin
+popd
+mkdir -p src
+
+pkg=$1
+export $pkg
+. pkgs/$pkg
