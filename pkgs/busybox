@@ -10,5 +10,6 @@ cp $pkg $root/bin
 pushd $root/bin
 ln -s busybox ifconfig
 ln -s busybox nc
+ln -s busybox getty
 popd
 popd
