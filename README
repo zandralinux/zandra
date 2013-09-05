@@ -9,4 +9,6 @@ To start the network use `sh /etc/netstart'.
 Some of the packages are pulled from http://dl.2f30.org/morpheus-pkgs/
 others are cloned from http://git.2f30.org.
 
+To build a particular package use `./pkgbuild <package>'.
+
 Enjoy!
