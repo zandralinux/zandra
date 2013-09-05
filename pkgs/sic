@@ -11,6 +11,7 @@ popd
 
 # Build package
 pushd src/$pkg
+make clean
 make CC=musl-gcc LDFLAGS=-static
 popd
 

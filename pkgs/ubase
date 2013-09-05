@@ -5,6 +5,7 @@ git clone $url src/$pkg
 
 # Build package
 pushd src/$pkg
+make clean
 make CC=musl-gcc LDFLAGS=-static
 popd
 
