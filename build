@@ -11,6 +11,8 @@ rm -rf $root src
 mkdir -p $root/{bin,boot,dev,etc,svc,home,root,var,share,devel}
 mkdir -p $root/share/man
 mkdir -p $root/devel/{include,lib,src}
+mkdir -p $root/var/run
+mkdir -p $root/dev/shm
 mkdir -p $root/{sys,proc}
 pushd $root/
 ln -s /bin sbin
