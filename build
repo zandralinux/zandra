@@ -91,3 +91,5 @@ EOF
 pushd $root
 find . | cpio --quiet -H newc -o | gzip -9 -n > ../rootfs.img
 popd
+
+echo OK!
