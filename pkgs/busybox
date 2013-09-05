@@ -14,5 +14,6 @@ ln -s busybox getty
 ln -s busybox login
 ln -s busybox find
 ln -s busybox du
+ln -s busybox ping
 popd
 popd
