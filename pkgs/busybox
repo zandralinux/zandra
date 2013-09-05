@@ -1,0 +1,14 @@
+url=$mirror/$pkg
+
+# Fetch package
+wget -c $url -O src/$pkg
+
+# Install package
+pushd src/
+chmod +x $pkg
+cp $pkg $root/bin
+pushd $root/bin
+ln -s busybox ifconfig
+ln -s busybox nc
+popd
+popd
