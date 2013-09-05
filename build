@@ -59,7 +59,7 @@ EOF
 chmod +x $root/init
 
 # Basic group/passwd files
-cat <<EOF > $root/etc/group
+cat << EOF > $root/etc/group
 root:x:0:root
 bin:x:1:root,bin,daemon
 daemon:x:2:root,bin,daemon
@@ -70,7 +70,7 @@ disk:x:6:root
 cdrom:x:7:root
 EOF
 
-cat <<EOF > $root/etc/passwd
+cat << EOF > $root/etc/passwd
 root:x:0:0:root:/root:/bin/mksh
 bin:x:1:1:bin:/bin:/bin/false
 daemon:x:2:2:daemon:/sbin:/bin/false
