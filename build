@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 # Export important variables for the build scripts
 top=$(pwd)
