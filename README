@@ -1,0 +1,12 @@
+To build use `fakeroot ./build'
+
+Run `qemu-run' (you will need vde_switch and slirpvde).
+
+Login with `root' and an empty password.
+
+To start the network use `sh /etc/netstart'.
+
+Some of the packages are pulled from http://dl.2f30.org/morpheus-pkgs/
+others are cloned from http://git.2f30.org.
+
+Enjoy!
