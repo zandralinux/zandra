@@ -1,6 +1,6 @@
 #!/bin/bash
 
-vdesock="/tmp/sucklessvde"
+vdesock="/tmp/morpheus-vde"
 
 ps -ef | grep vde_switch | grep "sock $vdesock" | grep -v grep > /dev/null || {
     vde_switch -sock "$vdesock" -daemon -mod 660 -group kvm &&
