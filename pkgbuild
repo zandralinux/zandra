@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if test -z "$1"; then
 	echo usage: $0 pkgname 1>&2
