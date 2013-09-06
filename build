@@ -1,4 +1,22 @@
 #!/bin/sh
+#
+# Only meant to be executed from within the stage0 script
+
+fetch() {
+	return
+}
+
+unpack() {
+	return
+}
+
+build() {
+	return
+}
+
+install() {
+	return
+}
 
 . $1
 (

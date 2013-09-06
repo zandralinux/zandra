@@ -12,15 +12,14 @@ mirror=http://dl.2f30.org/morpheus-pkgs
 export top root mirror
 
 # Create directory hierarchy
-mkdir -p $root/{bin,boot,dev,etc,svc,home,root,var,share,devel}
-mkdir -p $root/share/man
-mkdir -p $root/devel/{include,lib,src}
-mkdir -p $root/var/run
+rm -rf $root src
+mkdir -p src
+mkdir -p $root/{bin,boot,dev,etc,svc,home,root,var,share,devel,sys,proc}
 mkdir -p $root/dev/shm
-mkdir -p $root/{sys,proc}
+mkdir -p $root/devel/{include,lib,src}
+mkdir -p $root/share/man
 pushd $root/
 ln -s /bin sbin
 popd
-mkdir -p src
 
 ./build pkgs/"$1"

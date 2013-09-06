@@ -1,0 +1,12 @@
+url=http://dl.2f30.org/morpheus-pkgs/bzImage
+urlconfig=http://dl.2f30.org/morpheus-pkgs/bzImage.config
+
+fetch() {
+	wget -c $url -O src/bzImage
+	wget -c $urlconfig -O src/bzImage.config
+}
+
+install() {
+	cp src/bzImage $root/boot
+	cp src/bzImage.config $root/boot
+}
