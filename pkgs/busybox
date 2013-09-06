@@ -22,6 +22,7 @@ install() {
 	ln -s busybox vi
 	ln -s busybox top
 	ln -s busybox pkill
+	ln -s busybox less
 	popd
 	popd
 }
