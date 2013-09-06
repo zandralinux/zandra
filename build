@@ -20,14 +20,8 @@ popd
 mkdir -p src
 mkdir -p kernel
 
-# Build and install musl-gcc
-pushd cross
-tar xzf musl-0.9.13.tar.gz
-pushd musl-0.9.13
-./configure --prefix=$top/cross
-make -j2 && make install
-popd
-popd
+export pkg=musl
+. cross-scripts/$pkg
 
 PATH=$top/cross/bin:$PATH
 export PATH
