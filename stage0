@@ -14,6 +14,9 @@ mkdir -p $root/{bin,boot,dev,etc,home,root,var,share,sys,proc}
 mkdir -p $root/dev/shm
 mkdir -p $root/share/man
 pushd $root/
+if [ -e sbin ]; then
+        unlink sbin
+fi
 ln -s /bin sbin
 popd
 

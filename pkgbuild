@@ -18,6 +18,9 @@ mkdir -p $root/dev/shm
 mkdir -p $root/devel/{include,lib,src}
 mkdir -p $root/share/man
 pushd $root/
+if [ -e sbin ]; then
+        unlink sbin
+fi
 ln -s /bin sbin
 popd
 
