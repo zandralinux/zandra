@@ -3,8 +3,9 @@
 # Export important variables for the build scripts
 top=$(pwd)
 root=$top/root
+nprocs=4
 mirror=http://dl.2f30.org/morpheus-pkgs
-export top root mirror
+export top root nprocs mirror
 
 ./clean
 # Create directory hierarchy
