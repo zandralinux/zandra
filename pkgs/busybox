@@ -20,6 +20,8 @@ install() {
 	ln -s busybox ping
 	ln -s busybox wget
 	ln -s busybox vi
+	ln -s busybox top
+	ln -s busybox pkill
 	popd
 	popd
 }
