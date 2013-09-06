@@ -26,5 +26,8 @@ install() {
 	pushd src/dropbear-2013.56
 	make CC=musl-gcc SCPPROGRESS=1 PROGRAMS="dropbear dbclient scp dropbearkey" prefix=$root \
 		sbindir=$root/bin -j$nprocs install STATIC=1
+	pushd $root/bin
+	ln -s dbclient ssh
+	popd
 	popd
 }
