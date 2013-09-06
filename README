@@ -1,4 +1,4 @@
-To build use `fakeroot ./build'
+To build use `fakeroot ./stage0'
 
 Run `qemu-run' (you will need vde_switch and slirpvde).
 
