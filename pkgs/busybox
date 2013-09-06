@@ -15,5 +15,7 @@ ln -s busybox login
 ln -s busybox find
 ln -s busybox du
 ln -s busybox ping
+ln -s busybox wget
+ln -s busybox vi
 popd
 popd
