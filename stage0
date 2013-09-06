@@ -32,6 +32,9 @@ for pkg in $pkglist; do
 	./build pkgs/$pkg
 done
 
+# Strip all executables
+find $root/bin -executable -type f -exec strip {} \; &>/dev/null
+
 pushd $root
 find . | cpio --quiet -H newc -o | gzip -9 -n > ../rootfs.img
 popd
