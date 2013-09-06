@@ -12,7 +12,6 @@ mirror=http://dl.2f30.org/morpheus-pkgs
 export top root mirror
 
 # Create directory hierarchy
-rm -rf $root src
 mkdir -p src
 mkdir -p $root/{bin,boot,dev,etc,svc,home,root,var,share,devel,sys,proc}
 mkdir -p $root/dev/shm
