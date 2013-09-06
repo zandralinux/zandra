@@ -11,18 +11,31 @@ install() {
 	chmod +x busybox
 	cp busybox $root/bin
 	pushd $root/bin
-	ln -s busybox ifconfig
-	ln -s busybox nc
-	ln -s busybox getty
-	ln -s busybox login
-	ln -s busybox find
+	ln -s busybox addgroup
+	ln -s busybox adduser
+	ln -s busybox bzip2
+	ln -s busybox delgroup
+	ln -s busybox deluser
+	ln -s busybox diff
 	ln -s busybox du
-	ln -s busybox ping
-	ln -s busybox wget
-	ln -s busybox vi
-	ln -s busybox top
-	ln -s busybox pkill
+	ln -s busybox find
+	ln -s busybox fuser
+	ln -s busybox getty
+	ln -s busybox gzip
+	ln -s busybox hexdump
+	ln -s busybox ifconfig
+	ln -s busybox kbd_mode
 	ln -s busybox less
+	ln -s busybox login
+	ln -s busybox nc
+	ln -s busybox passwd
+	ln -s busybox ping
+	ln -s busybox pkill
+	ln -s busybox telnet
+	ln -s busybox tftp
+	ln -s busybox top
+	ln -s busybox vi
+	ln -s busybox wget
 	popd
 	popd
 }
