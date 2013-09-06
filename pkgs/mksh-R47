@@ -1,21 +1,24 @@
-file=$pkg.tar.gz
-url=$mirror/$file
+url=$mirror/mksh-R47.tar.gz
 
-# Fetch package
-wget -c $url -O src/$file
+fetch() {
+	wget -c $url -O src/mksh-R47.tar.gz
+}
 
-# Unpack package
-pushd src
-[ -d mksh ] || tar xzf $file
-popd
+unpack() {
+	pushd src
+	[ -d mksh ] || tar xzf mksh-R47.tar.gz
+	popd
+}
 
-# Build package
-pushd src/mksh
-CC=musl-gcc LDFLAGS+=-static sh Build.sh
-popd
+build() {
+	pushd src/mksh
+	CC=musl-gcc LDFLAGS+=-static sh Build.sh
+	popd
+}
 
-# Install package
-cp src/mksh/mksh $root/bin
-pushd $root/bin
-ln -s /bin/mksh sh
-popd
+install() {
+	cp src/mksh/mksh $root/bin
+	pushd $root/bin
+	ln -s /bin/mksh sh
+	popd
+}

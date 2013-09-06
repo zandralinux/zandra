@@ -1,19 +1,22 @@
-file=$pkg.tar.gz
-url=$mirror/$file
+url=$mirror/sic.tar.gz
 
-# Fetch package
-wget -c $url -O src/$file
+fetch() {
+	wget -c $url -O src/sic.tar.gz
+}
 
-# Unpack package
-pushd src
-[ -d $pkg ] || tar xzf $file
-popd
+unpack() {
+	pushd src
+	[ -d sic ] || tar xzf sic.tar.gz
+	popd
+}
 
-# Build package
-pushd src/$pkg
-make clean
-make CC=musl-gcc LDFLAGS=-static
-popd
+build() {
+	pushd src/sic
+	make clean
+	make CC=musl-gcc LDFLAGS=-static
+	popd
+}
 
-# Install package
-cp src/$pkg/sic $root/bin
+install() {
+	cp src/sic/sic $root/bin
+}

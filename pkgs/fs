@@ -1,13 +1,16 @@
-file=$pkg.tar.gz
-url=$mirror/$file
+url=$mirror/fs.tar.gz
 
-# Fetch package
-wget -c $url -O src/$file
+fetch() {
+	# Fetch package
+	wget -c $url -O src/fs.tar.gz
+}
 
-# Unpack package
-pushd src
-[ -d $pkg ] || tar xzf $file
-popd
+unpack() {
+	pushd src
+	[ -d fs ] || tar xzf fs.tar.gz
+	popd
+}
 
-# Install package
-cp -r src/$pkg/* $root/
+install() {
+	cp -r src/fs/* $root/
+}

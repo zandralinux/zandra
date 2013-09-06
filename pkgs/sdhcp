@@ -1,19 +1,22 @@
-file=$pkg.tar.gz
-url=$mirror/$file
+url=$mirror/sdhcp.tar.gz
 
-# Fetch package
-wget -c $url -O src/$file
+fetch() {
+	wget -c $url -O src/sdhcp.tar.gz
+}
 
-# Unpack package
-pushd src
-[ -d $pkg ] || tar xzf $file
-popd
+unpack() {
+	pushd src
+	[ -d sdhcp ] || tar xzf sdhcp.tar.gz
+	popd
+}
 
-# Build package
-pushd src/$pkg
-make clean
-make CC=musl-gcc LDFLAGS=-static
-popd
+build() {
+	pushd src/sdhcp
+	make clean
+	make CC=musl-gcc LDFLAGS=-static
+	popd
+}
 
-# Install package
-cp src/$pkg/sdhcp $root/bin
+install() {
+	cp src/sdhcp/sdhcp $root/bin
+}

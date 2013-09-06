@@ -1,21 +1,25 @@
-url=$mirror/$pkg
+url=$mirror/busybox
 
 # Fetch package
-wget -c $url -O src/$pkg
+fetch() {
+	wget -c $url -O src/busybox
+}
 
-# Install package
-pushd src/
-chmod +x $pkg
-cp $pkg $root/bin
-pushd $root/bin
-ln -s busybox ifconfig
-ln -s busybox nc
-ln -s busybox getty
-ln -s busybox login
-ln -s busybox find
-ln -s busybox du
-ln -s busybox ping
-ln -s busybox wget
-ln -s busybox vi
-popd
-popd
+install() {
+	# Install package
+	pushd src/
+	chmod +x busybox
+	cp busybox $root/bin
+	pushd $root/bin
+	ln -s busybox ifconfig
+	ln -s busybox nc
+	ln -s busybox getty
+	ln -s busybox login
+	ln -s busybox find
+	ln -s busybox du
+	ln -s busybox ping
+	ln -s busybox wget
+	ln -s busybox vi
+	popd
+	popd
+}

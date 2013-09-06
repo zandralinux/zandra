@@ -23,6 +23,4 @@ ln -s /bin sbin
 popd
 mkdir -p src
 
-pkg=$1
-export $pkg
-. pkgs/$pkg
+./build pkgs/"$1"

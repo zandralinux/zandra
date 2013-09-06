@@ -1,15 +1,18 @@
-url=git://git.2f30.org/$pkg
+url=git://git.2f30.org/smdev
 
-# Fetch package
-git clone $url src/$pkg
+fetch() {
+	git clone $url src/smdev
+}
 
-# Build package
-pushd src/$pkg
-make clean
-make CC=musl-gcc LDFLAGS=-static
-popd
+build() {
+	pushd src/smdev
+	make clean
+	make CC=musl-gcc LDFLAGS=-static
+	popd
+}
 
-# Install package
-pushd src/$pkg
-make PREFIX=$root install
-popd
+install() {
+	pushd src/smdev
+	make PREFIX=$root install
+	popd
+}

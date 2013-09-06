@@ -1,15 +1,18 @@
-url=git://git.2f30.org/$pkg
+url=git://git.2f30.org/ubase
 
-# Fetch package
-git clone $url src/$pkg
+fetch() {
+	git clone $url src/ubase
+}
 
-# Build package
-pushd src/$pkg
-make clean
-make CC=musl-gcc LDFLAGS=-static
-popd
+build() {
+	pushd src/ubase
+	make clean
+	make CC=musl-gcc LDFLAGS=-static
+	popd
+}
 
-# Install package
-pushd src/$pkg
-make PREFIX=$root install
-popd
+install() {
+	pushd src/ubase
+	make PREFIX=$root install
+	popd
+}
