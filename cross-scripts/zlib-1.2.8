@@ -1,0 +1,24 @@
+url=$mirror/zlib-1.2.8.tar.gz
+
+fetch() {
+	wget -c $url -O src/zlib-1.2.8.tar.gz
+}
+
+unpack() {
+	pushd src
+	[ -d zlib-1.2.8 ] || tar xzf zlib-1.2.8.tar.gz
+	popd
+}
+
+build() {
+	pushd src/zlib-1.2.8
+	CC=musl-gcc ./configure --prefix=$top/cross --static
+	make CC=musl-gcc -j$nprocs
+	popd
+}
+
+install() {
+	pushd src/zlib-1.2.8
+	make install
+	popd
+}

@@ -21,6 +21,7 @@ ln -s /bin sbin
 popd
 
 ./build cross-scripts/musl-0.9.13
+./build cross-scripts/zlib-1.2.8
 
 PATH=$top/cross/bin:$PATH
 export PATH
