@@ -10,7 +10,7 @@ export top root nprocs mirror
 ./clean
 # Create directory hierarchy
 mkdir -p src cross
-mkdir -p $root/{bin,boot,dev,etc,home,root,var,share,sys,proc}
+mkdir -p $root/{bin,boot,dev,etc,home,root,var,share,tmp,sys,proc}
 mkdir -p $root/dev/shm
 mkdir -p $root/share/man
 pushd $root/
