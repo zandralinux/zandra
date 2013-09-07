@@ -24,4 +24,7 @@ fi
 ln -s /bin sbin
 popd
 
+PATH=$top/cross/bin:$PATH
+export PATH
+
 ./build "$1"
