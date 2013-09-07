@@ -12,7 +12,9 @@ unpack() {
 
 build() {
 	pushd src/ncurses-5.9
-	CC=musl-gcc ./configure --prefix=$top/cross
+	wget -c $mirror/ncurses-fallback.c -O ncurses/fallback.c
+	CC=musl-gcc ./configure --without-tests --prefix=$top/cross \
+		--with-fallbacks="vt100"
 	make CC=musl-gcc -j$nprocs
 	popd
 }
