@@ -2,7 +2,7 @@ Morpheus is a statically linked musl based distro.
 
 To build the world use `fakeroot ./stage0'.
 
-To build a particular package use `fakeroot ./pkgbuild <package>'.
+To build a particular package use `fakeroot ./pkgbuild <pkg-path>'.
 You will then need to repack the rootfs with `fakeroot ./repack'.
 
 Execute `qemu-run' (you will need vde_switch and slirpvde).
