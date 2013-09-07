@@ -24,4 +24,4 @@ fi
 ln -s /bin sbin
 popd
 
-./build pkgs/"$1"
+./build "$1"
