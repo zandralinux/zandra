@@ -1,0 +1,24 @@
+url=$mirror/ncurses.tar.gz
+
+fetch() {
+	wget -c $url -O src/ncurses.tar.gz
+}
+
+unpack() {
+	pushd src
+	[ -d ncurses-5.9 ] || tar xzf ncurses.tar.gz
+	popd
+}
+
+build() {
+	pushd src/ncurses-5.9
+	CC=musl-gcc ./configure --prefix=$top/cross
+	make CC=musl-gcc -j$nprocs
+	popd
+}
+
+install() {
+	pushd src/ncurses-5.9
+	make install
+	popd
+}

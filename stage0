@@ -21,6 +21,8 @@ ln -s /bin sbin
 popd
 
 ./build cross-scripts/musl-0.9.13
+./build cross-scripts/libevent-2.0.21
+./build cross-scripts/ncurses-5.9
 ./build cross-scripts/zlib-1.2.8
 
 PATH=$top/cross/bin:$PATH

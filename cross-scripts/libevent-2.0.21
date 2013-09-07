@@ -1,0 +1,24 @@
+url=$mirror/libevent-2.0.21-stable.tar.gz
+
+fetch() {
+	wget -c $url -O src/libevent-2.0.21-stable.tar.gz
+}
+
+unpack() {
+	pushd src
+	[ -d libevent-2.0.21-stable ] || tar xzf libevent-2.0.21-stable.tar.gz
+	popd
+}
+
+build() {
+	pushd src/libevent-2.0.21-stable
+	CC=musl-gcc ./configure --prefix=$top/cross
+	make CC=musl-gcc -j$nprocs
+	popd
+}
+
+install() {
+	pushd src/libevent-2.0.21-stable
+	make install
+	popd
+}
