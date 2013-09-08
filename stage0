@@ -38,7 +38,7 @@ done
 find $root/bin -executable -type f -exec strip {} \; &>/dev/null
 
 pushd $root
-find . | cpio --quiet -H newc -o | gzip -9 -n > ../rootfs.img
+find . | cpio --quiet -H newc -o | gzip -9 -n > ../morpheus.img
 popd
 
 echo OK!
