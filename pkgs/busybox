@@ -33,6 +33,7 @@ install() {
 	ln -s busybox pkill
 	ln -s busybox telnet
 	ln -s busybox tftp
+	ln -s busybox tftpd
 	ln -s busybox top
 	ln -s busybox vi
 	ln -s busybox wget
