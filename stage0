@@ -13,6 +13,7 @@ mkdir -p src cross
 mkdir -p $root/{bin,boot,dev,etc,home,root,var,share,tmp,sys,proc}
 mkdir -p $root/dev/shm
 mkdir -p $root/share/man
+mkdir -p $root/var/run
 pushd $root/
 if [ -e sbin ]; then
         unlink sbin
