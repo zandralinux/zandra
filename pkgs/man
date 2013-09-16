@@ -1,0 +1,23 @@
+url=$mirror/man.tar.gz
+
+fetch() {
+	wget -c $url -O src/man.tar.gz
+}
+
+unpack() {
+	pushd src
+	[ -d man ] || tar xzf man.tar.gz
+	popd
+}
+
+build() {
+	pushd src/man
+	musl-gcc -std=gnu99 -o man man.c -static
+	popd
+}
+
+install() {
+	pushd src/man
+	cp man $root/bin
+	popd
+}
