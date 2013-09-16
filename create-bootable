@@ -2,7 +2,7 @@
 #
 # Ensure you've loaded the loop module with max_part=15
 
-dd if=/dev/zero of=morpheus-boot.img bs=256MB count=1
+dd if=/dev/zero of=morpheus-boot.img bs=128M count=1
 fdisk morpheus-boot.img <<< '
 o
 n
@@ -19,7 +19,7 @@ mkfs.ext4 $partition || exit 1
 mount $partition /mnt || exit 1
 
 cp -dar root/* /mnt
-extlinux --install /mnt/boot
+extlinux --install /mnt/boot || exit 1
 
 dd if=data/mbr.bin conv=notrunc bs=440 count=1 of=$lodev
 
