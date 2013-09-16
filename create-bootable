@@ -11,6 +11,7 @@ p
 
 
 a
+1
 w'
 
 lodev=$(losetup -f --show morpheus-boot.img) || exit 1
