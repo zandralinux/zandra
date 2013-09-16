@@ -1,0 +1,50 @@
+#!/bin/sh
+#
+# Ensure you've loaded the loop module with max_part=15
+
+dd if=/dev/zero of=morpheus-boot.img bs=256MB count=1
+fdisk morpheus-boot.img <<< '
+o
+n
+p
+1
+
+
+a
+w'
+
+lodev=$(losetup -f --show morpheus-boot.img) || exit 1
+partition="$lodev"p1
+mkfs.ext4 $partition || exit 1
+mount $partition /mnt || exit 1
+
+cp -dar root/* /mnt
+extlinux --install /mnt/boot
+cp data/syslinux/* /mnt/boot
+
+dd if=data/mbr.bin conv=notrunc bs=440 count=1 of=$lodev
+
+cat << EOF > /mnt/boot/extlinux.conf
+DEFAULT morpheus
+PROMPT 0
+TIMEOUT 50
+
+UI menu.c32
+
+MENU TITLE Morpheus
+
+LABEL morpheus
+	MENU LABEL Morpheus
+	LINUX /boot/bzImage
+	APPEND root=/dev/sda1 init=/init quiet rw
+LABEL hdt
+	MENU LABEL HDT (Hardware Detection Tool)
+	COM32 hdt.c32
+LABEL reboot
+	MENU LABEL Reboot
+	COM32 reboot.c32
+EOF
+
+umount /mnt
+sleep 3
+losetup -d $lodev

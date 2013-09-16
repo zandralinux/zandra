@@ -12,4 +12,7 @@ Login with `root' and an empty password.
 Some of the packages are pulled from http://dl.2f30.org/morpheus-pkgs/
 others are cloned from http://git.2f30.org.
 
+After you've created the rootfs you can build a bootable image
+with `sudo ./build-bootable'.
+
 Enjoy!
