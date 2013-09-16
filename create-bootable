@@ -20,30 +20,8 @@ mount $partition /mnt || exit 1
 
 cp -dar root/* /mnt
 extlinux --install /mnt/boot
-cp data/syslinux/* /mnt/boot
 
 dd if=data/mbr.bin conv=notrunc bs=440 count=1 of=$lodev
-
-cat << EOF > /mnt/boot/extlinux.conf
-DEFAULT morpheus
-PROMPT 0
-TIMEOUT 50
-
-UI menu.c32
-
-MENU TITLE Morpheus
-
-LABEL morpheus
-	MENU LABEL Morpheus
-	LINUX /boot/bzImage
-	APPEND root=/dev/sda1 init=/init quiet rw
-LABEL hdt
-	MENU LABEL HDT (Hardware Detection Tool)
-	COM32 hdt.c32
-LABEL reboot
-	MENU LABEL Reboot
-	COM32 reboot.c32
-EOF
 
 umount /mnt
 sleep 3

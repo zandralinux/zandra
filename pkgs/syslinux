@@ -1,0 +1,16 @@
+url=$mirror/syslinux.tar.gz
+
+fetch() {
+	# Fetch package
+	wget -c $url -O src/syslinux.tar.gz
+}
+
+unpack() {
+	pushd src
+	[ -d syslinux ] || tar xzf syslinux.tar.gz
+	popd
+}
+
+install() {
+	cp -r src/syslinux/* $root/
+}
