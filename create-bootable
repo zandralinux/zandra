@@ -22,6 +22,7 @@ fakeroot cp -dar root/* /mnt
 extlinux --install /mnt/boot || exit 1
 
 dd if=data/mbr.bin conv=notrunc bs=440 count=1 of=$lodev
+sync
 
 umount /mnt
 sleep 3
