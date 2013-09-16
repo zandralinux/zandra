@@ -22,7 +22,7 @@ mount $partition /mnt || exit 1
 fakeroot cp -dar root/* /mnt
 extlinux --install /mnt/boot || exit 1
 
-dd if=data/mbr.bin of=$lodev conv=notrunc bs=440 count=1
+dd if=stuff/mbr.bin of=$lodev conv=notrunc bs=440 count=1
 sync
 
 umount /mnt
