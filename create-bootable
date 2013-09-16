@@ -16,13 +16,13 @@ w'
 
 lodev=$(losetup -f --show morpheus-boot.img) || exit 1
 partition="$lodev"p1
-mkfs.ext2 $partition || exit 1
+mkfs.ext2 -L MORPHEUS $partition || exit 1
 mount $partition /mnt || exit 1
 
 fakeroot cp -dar root/* /mnt
 extlinux --install /mnt/boot || exit 1
 
-dd if=data/mbr.bin conv=notrunc bs=440 count=1 of=$lodev
+dd if=data/mbr.bin of=$lodev conv=notrunc bs=440 count=1
 sync
 
 umount /mnt
