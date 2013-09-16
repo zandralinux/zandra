@@ -3,4 +3,4 @@
 top=$(pwd)
 root=$top/root
 
-pushd $root && find . | cpio --quiet -H newc -o | gzip -9 -n > ../rootfs.img && popd
+pushd $root && find . | cpio --quiet -H newc -o | gzip -9 -n > ../morpheus.img && popd
