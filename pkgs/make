@@ -1,0 +1,24 @@
+url=$mirror/make-3.82.tar.bz2
+
+fetch() {
+	wget -c $url -O src/make-3.82.tar.bz2
+}
+
+unpack() {
+	pushd src
+	[ -d make-3.82 ] || tar xjf make-3.82.tar.bz2
+	popd
+}
+
+build() {
+	pushd src/make-3.82
+	CC="musl-gcc -static" ./configure --prefix=$root --disable-nls
+	make CC="musl-gcc -static" -j$nprocs
+	popd
+}
+
+install() {
+	pushd src/make-3.82
+	make install
+	popd
+}
