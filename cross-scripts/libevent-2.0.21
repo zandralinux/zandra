@@ -12,7 +12,7 @@ unpack() {
 
 build() {
 	pushd src/libevent-2.0.21-stable
-	CC=musl-gcc ./configure --prefix=$top/cross
+	CC=musl-gcc ./configure --prefix=$top/cross --disable-shared
 	make CC=musl-gcc -j$nprocs
 	popd
 }

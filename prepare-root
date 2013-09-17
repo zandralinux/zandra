@@ -1,0 +1,9 @@
+mkdir -p src cross
+mkdir -p $root/{bin,boot,dev,etc,home,root,lib,var,share,tmp,sys,proc}
+mkdir -p $root/dev/shm
+mkdir -p $root/share/{doc,man}
+mkdir -p $root/var/run
+cd $root
+ln -s . usr
+ln -s bin sbin
+cd -

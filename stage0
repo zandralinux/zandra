@@ -8,18 +8,7 @@ mirror=http://dl.2f30.org/morpheus-pkgs
 export top root nprocs mirror
 
 ./clean
-# Create directory hierarchy
-mkdir -p src cross
-mkdir -p $root/{bin,boot,dev,etc,home,root,lib,var,share,tmp,sys,proc}
-mkdir -p $root/dev/shm
-mkdir -p $root/share/{doc,man}
-mkdir -p $root/var/run
-pushd $root/
-if [ -e sbin ]; then
-        unlink sbin
-fi
-ln -s /bin sbin
-popd
+. ./prepare-root
 
 ./build cross-scripts/musl-0.9.13
 ./build cross-scripts/libevent-2.0.21
