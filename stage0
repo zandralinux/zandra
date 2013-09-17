@@ -8,6 +8,7 @@ mirror=http://dl.2f30.org/morpheus-pkgs
 export top root nprocs mirror
 
 ./clean
+mkdir -p src cross
 . ./prepare-root
 
 ./build cross-scripts/musl-0.9.13

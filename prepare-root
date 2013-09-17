@@ -1,5 +1,4 @@
-mkdir -p src cross
-mkdir -p $root/{bin,boot,dev,etc,home,root,lib,var,share,devel,tmp,sys,proc}
+mkdir -p $root/{bin,boot,dev,etc,home,root,var,share,devel,tmp,sys,proc}
 mkdir -p $root/dev/shm
 mkdir -p $root/share/{doc,man}
 mkdir -p $root/var/run
