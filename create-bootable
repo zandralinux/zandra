@@ -2,7 +2,7 @@
 #
 # Ensure you've loaded the loop module with max_part=15
 
-dd if=/dev/zero of=morpheus-boot.img bs=16M count=1
+dd if=/dev/zero of=morpheus-boot.img bs=256M count=1
 fdisk morpheus-boot.img <<< '
 o
 n

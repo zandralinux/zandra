@@ -1,0 +1,9 @@
+url=$mirror/crossx86-x86_64-linux-musl-0.9.11.tar.xz
+
+fetch() {
+	wget -c $url -O src/crossx86-x86_64-linux-musl-0.9.11.tar.xz
+}
+
+install() {
+	tar xJf src/crossx86-x86_64-linux-musl-0.9.11.tar.xz -C $root/devel
+}
