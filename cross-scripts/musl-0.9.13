@@ -1,4 +1,4 @@
-url=http://dl.2f30.org/morpheus-pkgs/musl-0.9.13.tar.gz
+url=$mirror/musl-0.9.13.tar.gz
 
 fetch() {
 	wget -c $url -O src/musl-0.9.13.tar.gz
