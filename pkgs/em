@@ -1,20 +1,27 @@
-url=git://git.kernel.org/pub/scm/editors/uemacs/uemacs.git
+url=$mirror/em.tar.gz
 
 fetch() {
-	git clone $url src/em
+	wget -c $url -O src/em.tar.gz
+}
+
+unpack() {
+	pushd src
+	[ -d em ] || tar xzf em.tar.gz
+	popd
 }
 
 build() {
-	mkdir -p $root/share/doc/uemacs
 	pushd src/em
 	make clean
 	sed -i "s@BINDIR=/usr/bin@BINDIR=${root}/bin@;s@LIBDIR=/usr/lib@LIBDIR=${root}/share/doc/uemacs@" Makefile
-	make -j$nprocs LDFLAGS="-static"
+	make -j$nprocs CC="musl-gcc -I$top/cross/include -I$top/cross/include/ncurses" \
+		LDFLAGS="-static -L$top/cross/lib"
 	popd
 }
 
 install() {
 	pushd src/em
+	mkdir -p $root/share/doc/uemacs
 	make install
 	popd
 }
