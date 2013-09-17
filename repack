@@ -1,6 +1,5 @@
 #!/bin/sh
 
-top=$(pwd)
-root=$top/root
+. ./prepare-env
 
 pushd $root && find . | cpio --quiet -H newc -o | gzip -9 -n > ../morpheus.img && popd

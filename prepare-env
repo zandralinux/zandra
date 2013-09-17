@@ -1,0 +1,8 @@
+top=$(pwd)
+root=$top/root
+nprocs=4
+mirror=http://dl.2f30.org/morpheus-pkgs
+export top root nprocs mirror
+
+PATH=$top/cross/bin:$PATH
+export PATH

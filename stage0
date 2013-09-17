@@ -1,28 +1,19 @@
 #!/bin/sh
 
-# Export important variables for the build scripts
-top=$(pwd)
-root=$top/root
-nprocs=4
-mirror=http://dl.2f30.org/morpheus-pkgs
-export top root nprocs mirror
-
 ./clean
-mkdir -p src cross
+. ./prepare-env
 . ./prepare-root
 
-./build cross-scripts/musl-0.9.13
+mkdir -p src cross
 
-PATH=$top/cross/bin:$PATH
-export PATH
-
-# These are ordered
-./build cross-scripts/libevent-2.0.21
-./build cross-scripts/ncurses-5.9
-./build cross-scripts/zlib-1.2.8
-# ./build cross-scripts/libsigc++-2.3.1
-# ./build cross-scripts/curl-7.32.0
-# ./build cross-scripts/libtorrent-0.13.3
+# Deps list
+./build cross-scripts/musl
+./build cross-scripts/libevent
+./build cross-scripts/ncurses
+./build cross-scripts/zlib
+#./build cross-scripts/libsigc++
+#./build cross-scripts/curl
+#./build cross-scripts/libtorrent
 
 # Build stage0 packages
 pkglist=$(ls pkgs)

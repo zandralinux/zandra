@@ -5,13 +5,6 @@ if test -z "$1"; then
 	exit 1
 fi
 
-# Export important variables for the build scripts
-top=$(pwd)
-root=$top/root
-mirror=http://dl.2f30.org/morpheus-pkgs
-export top root mirror
-
-PATH=$top/cross/bin:$PATH
-export PATH
+. ./prepare-env
 
 ./build "$1"
