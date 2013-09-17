@@ -11,9 +11,6 @@ mkdir -p src cross
 ./build cross-scripts/libevent
 ./build cross-scripts/ncurses
 ./build cross-scripts/zlib
-#./build cross-scripts/libsigc++
-#./build cross-scripts/curl
-#./build cross-scripts/libtorrent
 
 # Build stage0 packages
 pkglist=$(ls pkgs)
