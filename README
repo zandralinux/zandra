@@ -1,11 +1,14 @@
 Morpheus is a statically linked musl based distro.
 
+The base system includes sbase[1], ubase[2], sdhcp[3], smdev[4]
+as well as other tools.
+
 To build the world use `fakeroot ./stage0'.
 
-To build  a particular  package use `fakeroot  ./pkgbuild <pkg-path>'.
-You will then need to repack the rootfs with `fakeroot ./repack'.
+To build a particular package  use `fakeroot ./pkgbuild pkgpath'.  You
+might then need to repack the ramdisk with `fakeroot ./repack'.
 
-After you've  created the rootfs you  can build a bootable  image with
+After you've created  the ramdisk you can build a  bootable image with
 `sudo ./create-bootable'.  You can dd this image to a USB stick if you
 need to.
 
@@ -14,3 +17,8 @@ Execute `qemu-run' (you will need vde_switch and slirpvde).
 Login with `root' and an empty password.
 
 Enjoy!
+
+[1] http://git.suckless.org/sbase
+[2] http://git.suckless.org/ubase
+[3] http://galos.no-ip.org/sdhcp
+[4] http://git.2f30.org/smdev
