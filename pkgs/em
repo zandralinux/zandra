@@ -1,0 +1,20 @@
+url=git://git.kernel.org/pub/scm/editors/uemacs/uemacs.git
+
+fetch() {
+	git clone $url src/em
+}
+
+build() {
+	mkdir -p $root/share/doc/uemacs
+	pushd src/em
+	make clean
+	sed -i "s@BINDIR=/usr/bin@BINDIR=${root}/bin@;s@LIBDIR=/usr/lib@LIBDIR=${root}/share/doc/uemacs@" Makefile
+	make -j$nprocs LDFLAGS="-static"
+	popd
+}
+
+install() {
+	pushd src/em
+	make install
+	popd
+}
