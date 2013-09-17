@@ -10,6 +10,10 @@ unpack() {
 	return
 }
 
+patch() {
+	return
+}
+
 build() {
 	return
 }
@@ -22,6 +26,7 @@ install() {
 (
 	fetch
 	unpack
+	patch
 	build
 	install
 )
