@@ -13,6 +13,7 @@ install() {
 	pushd $root/bin
 	ln -s busybox addgroup
 	ln -s busybox adduser
+	ln -s busybox awk
 	ln -s busybox bzip2
 	ln -s busybox delgroup
 	ln -s busybox deluser
@@ -31,6 +32,8 @@ install() {
 	ln -s busybox passwd
 	ln -s busybox ping
 	ln -s busybox pkill
+	ln -s busybox sed
+	ln -s busybox tac
 	ln -s busybox telnet
 	ln -s busybox tftp
 	ln -s busybox tftpd
