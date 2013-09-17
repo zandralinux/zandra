@@ -1,0 +1,24 @@
+url=$mirror/libsigc++-2.3.1.tar.xz
+
+fetch() {
+	wget -c $url -O src/libsigc++-2.3.1.tar.xz
+}
+
+unpack() {
+	pushd src
+	[ -d libsigc++-2.3.1.tar.xz ] || tar xJf libsigc++-2.3.1.tar.xz
+	popd
+}
+
+build() {
+	pushd src/libsigc++-2.3.1
+	CC=musl-gcc ./configure --prefix=$top/cross --disable-shared --enable-static
+	make CC=musl-gcc -j$nprocs
+	popd
+}
+
+install() {
+	pushd src/libsigc++-2.3.1
+	make install
+	popd
+}

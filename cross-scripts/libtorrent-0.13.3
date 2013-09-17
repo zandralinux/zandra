@@ -1,0 +1,24 @@
+url=$mirror/libtorrent-0.13.3.tar.gz
+
+fetch() {
+	wget -c $url -O src/libtorrent-0.13.3.tar.gz
+}
+
+unpack() {
+	pushd src
+	[ -d libtorrent-0.13.3 ] || tar xzf libtorrent-0.13.3.tar.gz
+	popd
+}
+
+build() {
+	pushd src/libtorrent-0.13.3
+	CC=musl-gcc ./configure --prefix=$top/cross --disable-shared
+	make CC=musl-gcc -j$nprocs
+	popd
+}
+
+install() {
+	pushd src/libtorrent-0.13.3
+	make install
+	popd
+}

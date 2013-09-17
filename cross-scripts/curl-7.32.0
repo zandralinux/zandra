@@ -1,0 +1,25 @@
+url=$mirror/curl-7.32.0.tar.gz
+
+fetch() {
+	wget -c $url -O src/curl-7.32.0.tar.gz
+}
+
+unpack() {
+	pushd src
+	[ -d curl-7.32.0 ] || tar xzf curl-7.32.0.tar.gz
+	popd
+}
+
+build() {
+	pushd src/curl-7.32.0
+	CC=musl-gcc ./configure --prefix=$top/cross --with-ssl \
+		--with-random=/dev/urandom --disable-shared
+	make CC=musl-gcc -j$nprocs
+	popd
+}
+
+install() {
+	pushd src/curl-7.32.0
+	make install
+	popd
+}
