@@ -1,5 +1,5 @@
-url=http://dl.2f30.org/morpheus-pkgs/bzImage
-urlconfig=http://dl.2f30.org/morpheus-pkgs/bzImage.config
+url=$mirror/bzImage
+urlconfig=$mirror/bzImage.config
 
 fetch() {
 	wget -c $url -O src/bzImage
