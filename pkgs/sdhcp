@@ -13,10 +13,10 @@ unpack() {
 build() {
 	pushd src/sdhcp
 	make clean
-	make CC=musl-gcc LDFLAGS=-static
+	make CC=musl-gcc LDFLAGS=-static || return 1
 	popd
 }
 
 install() {
-	cp src/sdhcp/sdhcp $root/bin
+	cp src/sdhcp/sdhcp $root/bin || return 1
 }

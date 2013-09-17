@@ -13,13 +13,13 @@ unpack() {
 build() {
 	pushd src/curl-7.32.0
 	CC=musl-gcc ./configure --prefix=$top/cross --with-ssl \
-		--with-random=/dev/urandom --disable-shared
-	make CC=musl-gcc -j$nprocs
+		--with-random=/dev/urandom --disable-shared || return 1
+	make CC=musl-gcc -j$nprocs || return 1
 	popd
 }
 
 install() {
 	pushd src/curl-7.32.0
-	make install
+	make install || return 1
 	popd
 }

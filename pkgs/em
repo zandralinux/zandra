@@ -13,15 +13,15 @@ unpack() {
 build() {
 	pushd src/em
 	make clean
-	sed -i "s@BINDIR=/usr/bin@BINDIR=${root}/bin@;s@LIBDIR=/usr/lib@LIBDIR=${root}/share/doc/uemacs@" Makefile
+	sed -i "s@BINDIR=/usr/bin@BINDIR=${root}/bin@;s@LIBDIR=/usr/lib@LIBDIR=${root}/share/doc/uemacs@" Makefile || return 1
 	make -j$nprocs CC="musl-gcc -I$top/cross/include -I$top/cross/include/ncurses" \
-		LDFLAGS="-static -L$top/cross/lib"
+		LDFLAGS="-static -L$top/cross/lib" || return 1
 	popd
 }
 
 install() {
 	pushd src/em
 	mkdir -p $root/share/doc/uemacs
-	make install
+	make install || return 1
 	popd
 }

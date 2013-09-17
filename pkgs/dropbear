@@ -13,19 +13,19 @@ unpack() {
 build() {
 	pushd src/dropbear-2013.56
 	CC=musl-gcc ./configure CFLAGS="-I$top/cross/include" \
-		LDFLAGS="-static -L$top/cross/lib" --prefix=$root
+		LDFLAGS="-static -L$top/cross/lib" --prefix=$root || return 1
 	for i in UTMP WTMP PUTUTLINE PUTUTXLINE SYSLOG LASTLOG; do
 		echo "#define DISABLE_$i" >> config.h
 	done
 	make CC=musl-gcc SCPPROGRESS=1 PROGRAMS="dropbear dbclient scp dropbearkey" \
-		prefix=$root sbindir=$root/bin -j$nprocs STATIC=1
+		prefix=$root sbindir=$root/bin -j$nprocs STATIC=1 || return 1
 	popd
 }
 
 install() {
 	pushd src/dropbear-2013.56
 	make CC=musl-gcc SCPPROGRESS=1 PROGRAMS="dropbear dbclient scp dropbearkey" prefix=$root \
-		sbindir=$root/bin -j$nprocs install STATIC=1
+		sbindir=$root/bin -j$nprocs install STATIC=1 || return 1
 	pushd $root/bin
 	ln -s dbclient ssh
 	popd

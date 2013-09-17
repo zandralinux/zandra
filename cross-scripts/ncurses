@@ -15,13 +15,13 @@ build() {
 	wget -c $mirror/ncurses-fallback.c -O ncurses/fallback.c
 	CC=musl-gcc ./configure --prefix=$top/cross --without-tests \
 		--with-normal --enable-sigwinch --disable-nls --without-dlsym \
-		--without-cxx-binding --with-fallbacks="vt100"
-	make CC=musl-gcc -j$nprocs
+		--without-cxx-binding --with-fallbacks="vt100" || return 1
+	make CC=musl-gcc -j$nprocs || return 1
 	popd
 }
 
 install() {
 	pushd src/ncurses-5.9
-	make install
+	make install || return 1
 	popd
 }

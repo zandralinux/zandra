@@ -13,7 +13,7 @@ unpack() {
 build() {
 	pushd src/sic
 	make clean
-	make CC=musl-gcc LDFLAGS=-static
+	make CC=musl-gcc LDFLAGS=-static || return 1
 	popd
 }
 

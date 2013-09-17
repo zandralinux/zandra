@@ -12,13 +12,13 @@ unpack() {
 
 build() {
 	pushd src/make-3.82
-	CC="musl-gcc -static" ./configure --prefix=$root --disable-nls
-	make CC="musl-gcc -static" -j$nprocs
+	CC="musl-gcc -static" ./configure --prefix=$root --disable-nls || return 1
+	make CC="musl-gcc -static" -j$nprocs || return 1
 	popd
 }
 
 install() {
 	pushd src/make-3.82
-	make install
+	make install || return 1
 	popd
 }

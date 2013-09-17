@@ -27,6 +27,6 @@ install() {
 	fetch
 	unpack
 	patch
-	build
-	install
+	build || echo "Failed to build $1" >> $top/morpheus.log
+	install || echo "Failed to install $1" >> $top/morpheus.log
 )

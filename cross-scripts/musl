@@ -12,13 +12,13 @@ unpack() {
 
 build() {
 	pushd src/musl-0.9.13
-	./configure --prefix=$top/cross --syslibdir=$top/cross/lib --disable-shared
-	make -j$nprocs
+	./configure --prefix=$top/cross --syslibdir=$top/cross/lib --disable-shared || return 1
+	make -j$nprocs || return 1
 	popd
 }
 
 install() {
 	pushd src/musl-0.9.13
-	make install
+	make install || return 1
 	popd
 }

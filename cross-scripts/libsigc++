@@ -12,13 +12,13 @@ unpack() {
 
 build() {
 	pushd src/libsigc++-2.3.1
-	CC=musl-gcc ./configure --prefix=$top/cross --disable-shared --enable-static
-	make CC=musl-gcc -j$nprocs
+	CC=musl-gcc ./configure --prefix=$top/cross --disable-shared --enable-static || return 1
+	make CC=musl-gcc -j$nprocs || return 1
 	popd
 }
 
 install() {
 	pushd src/libsigc++-2.3.1
-	make install
+	make install || return 1
 	popd
 }
