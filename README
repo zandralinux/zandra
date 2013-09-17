@@ -2,17 +2,15 @@ Morpheus is a statically linked musl based distro.
 
 To build the world use `fakeroot ./stage0'.
 
-To build a particular package use `fakeroot ./pkgbuild <pkg-path>'.
+To build  a particular  package use `fakeroot  ./pkgbuild <pkg-path>'.
 You will then need to repack the rootfs with `fakeroot ./repack'.
+
+After you've  created the rootfs you  can build a bootable  image with
+`sudo ./create-bootable'.  You can dd this image to a USB stick if you
+need to.
 
 Execute `qemu-run' (you will need vde_switch and slirpvde).
 
 Login with `root' and an empty password.
-
-Some of the packages are pulled from http://dl.2f30.org/morpheus-pkgs/
-others are cloned from http://git.2f30.org.
-
-After you've created the rootfs you can build a bootable image
-with `sudo ./build-bootable'.
 
 Enjoy!
