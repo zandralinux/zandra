@@ -1,6 +1,6 @@
 #!/bin/sh
 
-./clean
+rm -rf root cross morpheus.log
 . ./prepare-env
 . ./prepare-root
 
