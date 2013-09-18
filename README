@@ -6,14 +6,11 @@ as well as other tools.
 To build the  world use `fakeroot ./stage0'.  You need  an x86_64 host
 to build morpheus.
 
-To build a particular package  use `fakeroot ./pkgbuild pkgpath'.  You
-might then need to repack the ramdisk with `fakeroot ./repack'.
+To build a particular package  use `fakeroot ./pkgbuild pkgpath'.
 
 After you've created  the ramdisk you can build a  bootable image with
 `sudo ./create-bootable'.  You can dd this image to a USB stick if you
 need to.
-
-Execute `qemu-run' (you will need vde_switch and slirpvde).
 
 Login with `root' and an empty password.
 

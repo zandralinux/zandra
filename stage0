@@ -18,9 +18,4 @@ for pkg in $pkglist; do
 	./build pkgs/$pkg
 done
 
-pushd $root
-echo Creating ramdisk
-find . | cpio --quiet -H newc -o | gzip -9 -n > ../morpheus.img
-popd
-
 echo OK!
