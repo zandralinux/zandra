@@ -3,7 +3,8 @@ Morpheus is a statically linked musl based distro.
 The base system includes sbase[1], ubase[2], sdhcp[3], smdev[4]
 as well as other tools.
 
-To build the world use `fakeroot ./stage0'.
+To build the  world use `fakeroot ./stage0'.  You need  an x86_64 host
+to build morpheus.
 
 To build a particular package  use `fakeroot ./pkgbuild pkgpath'.  You
 might then need to repack the ramdisk with `fakeroot ./repack'.
