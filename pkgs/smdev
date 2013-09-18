@@ -1,7 +1,7 @@
 url=git://git.2f30.org/smdev
 
 fetch() {
-	git clone $url src/smdev
+	[ -d src/smdev ] || git clone $url src/smdev
 }
 
 build() {

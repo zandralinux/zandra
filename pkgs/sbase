@@ -1,7 +1,7 @@
 url=git://git.2f30.org/sbase
 
 fetch() {
-	git clone $url src/sbase
+	[ -d src/base ] || git clone $url src/sbase
 }
 
 build() {
