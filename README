@@ -4,13 +4,15 @@ The base system includes sbase[1], ubase[2], sdhcp[3], smdev[4]
 as well as other tools.
 
 To build the  world use `fakeroot ./stage0'.  You need  an x86_64 host
-to build morpheus.
+to  build  morpheus.   Please  review the  stage0  script  and  adjust
+anything needed.
 
 To build a particular package  use `fakeroot ./pkgbuild pkgpath'.
 
 After you've created  the ramdisk you can build a  bootable image with
-`sudo ./create-bootable'.  You can dd this image to a USB stick if you
-need to.
+`sudo ./create-bootable'.  You'll  first need to load  the loop module
+with with the  parameter max_part=15.  You can dd this  image to a USB
+stick if you need to.
 
 Login with `root' and an empty password.
 
