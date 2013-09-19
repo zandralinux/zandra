@@ -13,8 +13,8 @@ unpack() {
 build() {
 	pushd src/linux-3.11.1
 	cp $top/stuff/kernel-config .config
-#	make menuconfig
-	make bzImage -j$nprocs
+	make menuconfig
+	make bzImage -j$nprocs || return 1
 	popd
 }
 
