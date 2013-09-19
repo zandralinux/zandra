@@ -12,7 +12,7 @@ unpack() {
 
 build() {
 	pushd src/ncurses-5.9
-	wget -c $mirror/ncurses-fallback.c -O ncurses/fallback.c
+	cp $top/stuff/ncurses-fallback.c ncurses/fallback.c
 	CC=musl-gcc ./configure --prefix=$top/cross --without-tests \
 		--with-normal --enable-sigwinch --disable-nls --without-dlsym \
 		--without-cxx-binding --with-fallbacks="vt100" || return 1
