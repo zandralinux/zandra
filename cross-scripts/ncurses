@@ -15,7 +15,8 @@ build() {
 	cp $top/stuff/ncurses-fallback.c ncurses/fallback.c
 	CC=musl-gcc ./configure --prefix=$top/cross --without-tests \
 		--with-normal --enable-sigwinch --disable-nls --without-dlsym \
-		--without-cxx-binding --with-fallbacks="vt100" || return 1
+		--without-cxx-binding \
+		--with-fallbacks="linux vt100 xterm xterm256-color" </dev/ptmx || return 1
 	make CC=musl-gcc -j$nprocs || return 1
 	popd
 }
