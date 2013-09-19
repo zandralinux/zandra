@@ -1,12 +1,25 @@
-url=$mirror/bzImage
-urlconfig=$mirror/bzImage-config
+url=$mirror/kernel.tar.gz
 
 fetch() {
-	wget -c $url -O src/bzImage
-	wget -c $urlconfig -O src/bzImage-config
+	wget -c $url -O src/kernel.tar.gz
+}
+
+unpack() {
+	pushd src
+	[ -d linux-3.11.1 ] || tar xzf kernel.tar.gz
+	popd
+}
+
+build() {
+	pushd src/linux-3.11.1
+	cp $top/stuff/kernel-config .config
+#	make menuconfig
+	make bzImage -j$nprocs
+	popd
 }
 
 install() {
-	cp src/bzImage $root/boot
-	cp src/bzImage-config $root/boot
+	pushd src/linux-3.11.1
+	cp arch/x86/boot/bzImage $root/boot
+	popd
 }
