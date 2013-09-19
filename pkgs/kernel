@@ -21,5 +21,7 @@ build() {
 install() {
 	pushd src/linux-3.11.1
 	cp arch/x86/boot/bzImage $root/boot
+	cp .config $root/boot/bzImage.config
+	cp System.map $root/boot
 	popd
 }
