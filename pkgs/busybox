@@ -25,6 +25,7 @@ install() {
 	ln -s busybox getty
 	ln -s busybox gzip
 	ln -s busybox hexdump
+	ln -s busybox hwclock
 	ln -s busybox ifconfig
 	ln -s busybox kbd_mode
 	ln -s busybox less
