@@ -8,3 +8,5 @@ export top root nprocs mirror
 
 PATH=$top/cross/bin:$PATH
 export PATH
+
+mkdir -p $root
