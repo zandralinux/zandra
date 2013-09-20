@@ -2,7 +2,9 @@
 #
 # Ensure you've loaded the loop module with max_part=15
 
-img=morpheus-x86_64-0.0.img
+. ./prepare-env
+
+img=morpheus-$arch-$version.img
 
 dd if=/dev/zero of=$img bs=256M count=1
 fdisk $img <<< '
