@@ -1,6 +1,5 @@
 url=$mirror/busybox
 
-# Fetch package
 fetch() {
 	wget -c $url -O src/busybox
 }
