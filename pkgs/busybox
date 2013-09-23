@@ -22,6 +22,7 @@ install() {
 	ln -s busybox deluser
 	ln -s busybox diff
 	ln -s busybox du
+	ln -s busybox dd
 	ln -s busybox ed
 	ln -s busybox find
 	ln -s busybox fsck
