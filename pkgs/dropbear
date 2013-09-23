@@ -30,4 +30,5 @@ install() {
 	ln -s dbclient ssh
 	popd
 	popd
+	cp $top/stuff/dropbearkeys $root/etc
 }
