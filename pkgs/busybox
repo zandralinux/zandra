@@ -9,6 +9,9 @@ install() {
 	pushd src/
 	chmod +x busybox
 	cp busybox $root/bin
+	pushd $root
+	ln -s bin/busybox init
+	popd
 	pushd $root/bin
 	ln -s busybox addgroup
 	ln -s busybox adduser
