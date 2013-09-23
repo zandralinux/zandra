@@ -20,6 +20,7 @@ install() {
 	ln -s busybox du
 	ln -s busybox ed
 	ln -s busybox find
+	ln -s busybox fsck
 	ln -s busybox fuser
 	ln -s busybox getty
 	ln -s busybox gzip
