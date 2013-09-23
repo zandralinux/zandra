@@ -10,13 +10,20 @@ mkdir -p src cross
 
 # Deps list
 ./build cross-scripts/musl
-./build cross-scripts/libevent
-./build cross-scripts/ncurses
-./build cross-scripts/zlib
 
 # Build stage0 packages
 pkglist=$(ls pkgs)
 for pkg in $pkglist; do
+	while read line; do
+		if [ $(echo $line | cut -d' ' -f1) != $pkg ]; then
+			continue
+		fi
+		deps=$(echo $line | cut -d' ' -f2-)
+		# Build dependencies for package in order
+		for d in $deps; do
+			./build cross-scripts/$d
+		done
+	done < DEPS
 	./build pkgs/$pkg
 done
 
