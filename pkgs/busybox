@@ -29,6 +29,7 @@ install() {
 	ln -s busybox hwclock
 	ln -s busybox ifconfig
 	ln -s busybox kbd_mode
+	ln -s busybox killall5
 	ln -s busybox less
 	ln -s busybox login
 	ln -s busybox nc
