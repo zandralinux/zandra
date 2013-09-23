@@ -12,6 +12,7 @@ install() {
 	pushd $root/bin
 	ln -s busybox addgroup
 	ln -s busybox adduser
+	ln -s getty agetty
 	ln -s busybox awk
 	ln -s busybox bzip2
 	ln -s busybox delgroup
