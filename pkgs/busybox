@@ -39,6 +39,8 @@ install() {
 	ln -s busybox passwd
 	ln -s busybox ping
 	ln -s busybox pkill
+	ln -s busybox poweroff
+	ln -s busybox reboot
 	ln -s busybox sed
 	ln -s busybox sysctl
 	ln -s busybox tac
