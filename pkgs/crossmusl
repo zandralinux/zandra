@@ -6,19 +6,11 @@ fetch() {
 
 install() {
 	tar xJf src/crossx86-x86_64-linux-musl-0.9.11.tar.xz -C $root/devel
-	pushd $root/devel/x86_64-linux-musl/bin
-	for i in *; do
-		if [ -L $i ]; then
-			continue
-		fi
-		link=$(echo $i | sed 's/x86_64-linux-musl-//g')
-		pushd $root/bin
-		unlink $link &>/dev/null
-		ln -s /devel/x86_64-linux-musl/bin/$i $link
-		popd
-	done
-	popd
 	pushd $root/bin
+	targets="ar as c++ g++ gcc ld ld.bfd nm objcopy objdump ranlib strip"
+	for t in $targets; do
+		ln -s /devel/x86_64-linux-musl/x86_64-linux-musl/bin/$t $t
+	done
 	ln -s gcc cc
 	popd
 }
