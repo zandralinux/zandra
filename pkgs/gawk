@@ -14,7 +14,7 @@ build() {
 	pushd src/gawk-4.1.0
 	CC="musl-gcc -static" ./configure --prefix=$root --disable-nls \
 		--libdir=$root/devel/x86_64-linux-musl/lib \
-		--libexecdir=$root/deve/x86_64-linux-musl/libexec || return 1
+		--libexecdir=$root/devel/x86_64-linux-musl/libexec || return 1
 	make -j$nprocs || return 1
 	popd
 }
