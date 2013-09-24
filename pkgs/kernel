@@ -1,4 +1,5 @@
 url=$mirror/kernel.tar.gz
+version=3.10.12
 
 fetch() {
 	wget -c $url -O src/kernel.tar.gz
@@ -6,12 +7,12 @@ fetch() {
 
 unpack() {
 	pushd src
-	[ -d linux-3.11.1 ] || tar xzf kernel.tar.gz
+	[ -d linux-$version ] || tar xzf kernel.tar.gz
 	popd
 }
 
 build() {
-	pushd src/linux-3.11.1
+	pushd src/linux-$version
 	cp $top/stuff/kernel-config .config
 	make menuconfig
 	make bzImage -j$nprocs || return 1
@@ -19,7 +20,7 @@ build() {
 }
 
 install() {
-	pushd src/linux-3.11.1
+	pushd src/linux-$version
 	cp arch/x86/boot/bzImage $root/boot
 	cp .config $root/boot/bzImage.config
 	cp System.map $root/boot
