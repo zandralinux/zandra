@@ -38,5 +38,3 @@ for pkg in $pkglist; do
 	done < DEPS
 	./build pkgs/$pkg
 done
-
-echo OK!
