@@ -12,6 +12,7 @@ mkdir -p src cross
 ./build cross-scripts/musl
 
 # Build stage0 packages
+installed_deps=
 pkglist=$(ls pkgs)
 for pkg in $pkglist; do
 	while read line; do
@@ -21,7 +22,18 @@ for pkg in $pkglist; do
 		deps=$(echo $line | cut -d' ' -f2-)
 		# Build dependencies for package in order
 		for d in $deps; do
-			./build cross-scripts/$d
+			install=1
+			for i in $installed_deps; do
+				if [ $i == $d ]; then
+					# If already installed, then skip it
+					install=0
+					break
+				fi
+			done
+			if [ $install -eq 1 ]; then
+				./build cross-scripts/$d
+				installed_deps="$installed_deps $d"
+			fi
 		done
 	done < DEPS
 	./build pkgs/$pkg
