@@ -1,0 +1,24 @@
+url=$mirror/sed-4.2.tar.gz
+
+fetch() {
+	wget -c $url -O src/sed-4.2.tar.gz
+}
+
+unpack() {
+	pushd src
+	[ -d sed-4.2 ] || tar xzf sed-4.2.tar.gz
+	popd
+}
+
+build() {
+	pushd src/sed-4.2
+	CC="musl-gcc -static" ./configure --prefix=$root --disable-nls || return 1
+	make -j$nprocs || return 1
+	popd
+}
+
+install() {
+	pushd src/sed-4.2
+	make install || return 1
+	popd
+}
