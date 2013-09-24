@@ -1,4 +1,7 @@
 #!/bin/sh
+#
+# This is the stage0 script, it prepares a basic usable system
+# in $root.
 
 set -e -x
 
@@ -8,33 +11,46 @@ rm -rf root cross morpheus.log
 
 mkdir -p src cross
 
-# Deps list
 ./build cross-scripts/musl
 
-# Build stage0 packages
 installed_deps=
-pkglist=$(ls pkgs)
-for pkg in $pkglist; do
+build_pkg_dep() {
+	pkg=$1; deps=$2
+	# Build dependencies for package in order
+	for d in $deps; do
+		install=1
+		for i in $installed_deps; do
+			if [ $i == $d ]; then
+				# If already installed, then skip it
+				install=0
+				break
+			fi
+		done
+		if [ $install -eq 1 ]; then
+			./build cross-scripts/$d
+			installed_deps="$installed_deps $d"
+		fi
+	done
+}
+
+build_pkg_deps() {
+	pkg=$1
 	while read line; do
 		if [ $(echo $line | cut -d' ' -f1) != $pkg ]; then
 			continue
 		fi
 		deps=$(echo $line | cut -d' ' -f2-)
-		# Build dependencies for package in order
-		for d in $deps; do
-			install=1
-			for i in $installed_deps; do
-				if [ $i == $d ]; then
-					# If already installed, then skip it
-					install=0
-					break
-				fi
-			done
-			if [ $install -eq 1 ]; then
-				./build cross-scripts/$d
-				installed_deps="$installed_deps $d"
-			fi
-		done
+		build_pkg_dep $pkg $deps
+		break
 	done < DEPS
-	./build pkgs/$pkg
+}
+
+build_pkg() {
+	build_pkg_deps $1 && ./build pkgs/$1
+}
+
+# Build stage0 packages
+pkglist=$(ls pkgs)
+for pkg in $pkglist; do
+	build_pkg $pkg
 done
