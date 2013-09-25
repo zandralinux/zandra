@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ./prepare-env
+
 vdesock="/tmp/morpheus-vde"
 
 ps -ef | grep vde_switch | grep "sock $vdesock" | grep -v grep > /dev/null || {
@@ -8,4 +10,4 @@ ps -ef | grep vde_switch | grep "sock $vdesock" | grep -v grep > /dev/null || {
 }
 
 qemu-system-x86_64 -enable-kvm -smp 2 -m 1024 -net nic,model=ne2k_pci \
-	-net vde,sock="${vdesock}" -kernel root/boot/bzImage -initrd morpheus.img -append "quiet"
+	-net vde,sock="${vdesock}" -kernel $root/boot/bzImage -initrd morpheus-initrd.img -append "quiet"

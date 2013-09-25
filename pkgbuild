@@ -5,8 +5,6 @@ if test -z "$1"; then
 	exit 1
 fi
 
-set -e -x
-
 . ./prepare-env
 
 if [ $(uname -m) != $arch ]; then
