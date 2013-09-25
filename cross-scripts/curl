@@ -12,9 +12,9 @@ unpack() {
 
 build() {
 	pushd src/curl-7.32.0
-	CC=musl-gcc ./configure --prefix=$top/cross --with-ssl \
+	CC=x86_64-linux-musl-gcc ./configure --prefix=$libcroot --with-ssl \
 		--with-random=/dev/urandom --disable-shared || return 1
-	make CC=musl-gcc -j$nprocs || return 1
+	make -j$nprocs || return 1
 	popd
 }
 

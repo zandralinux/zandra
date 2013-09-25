@@ -14,7 +14,7 @@ rm -rf root cross morpheus.log
 . ./prepare-root
 mkdir -p src cross
 
-# Build musl-gcc
+# Fetch and install our musl cross-compiler
 ./build cross-scripts/musl
 
 installed_deps=

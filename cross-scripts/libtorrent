@@ -12,8 +12,10 @@ unpack() {
 
 build() {
 	pushd src/libtorrent-0.13.3
-	CC=musl-gcc ./configure --prefix=$top/cross --disable-shared || return 1
-	make CC=musl-gcc -j$nprocs || return 1
+	CXX=x86_64-linux-musl-g++ ./configure --prefix=$libcroot \
+		--disable-openssl --disable-shared || return 1
+	sed -i 's/#define USE_EXECINFO 1//g' config.h
+	make -j$nprocs || return 1
 	popd
 }
 

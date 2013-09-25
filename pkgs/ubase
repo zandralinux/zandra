@@ -7,7 +7,7 @@ fetch() {
 build() {
 	pushd src/ubase
 	make clean
-	make -j$nprocs CC=musl-gcc LDFLAGS=-static || return 1
+	make -j$nprocs CC=x86_64-linux-musl-gcc LDFLAGS=-static || return 1
 	popd
 }
 

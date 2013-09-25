@@ -12,8 +12,8 @@ unpack() {
 
 build() {
 	pushd src/rsync-3.0.9
-	CC=musl-gcc ./configure --prefix=$root LDFLAGS="-static" || return 1
-	make CC=musl-gcc -j$nprocs || return 1
+	CC=x86_64-linux-musl-gcc ./configure --prefix=$root LDFLAGS="-static" || return 1
+	make -j$nprocs || return 1
 	popd
 }
 
