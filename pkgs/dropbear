@@ -17,14 +17,14 @@ build() {
 	for i in UTMP WTMP PUTUTLINE PUTUTXLINE SYSLOG LASTLOG; do
 		echo "#define DISABLE_$i" >> config.h
 	done
-	make CC=x86_64-linux-musl-gcc SCPPROGRESS=1 PROGRAMS="dropbear dbclient scp dropbearkey" \
+	make SCPPROGRESS=1 PROGRAMS="dropbear dbclient scp dropbearkey" \
 		prefix=$root sbindir=$root/bin -j$nprocs STATIC=1 || return 1
 	popd
 }
 
 install() {
 	pushd src/dropbear-2013.56
-	make CC=x86_64-linux-musl-gcc SCPPROGRESS=1 PROGRAMS="dropbear dbclient scp dropbearkey" prefix=$root \
+	make SCPPROGRESS=1 PROGRAMS="dropbear dbclient scp dropbearkey" prefix=$root \
 		sbindir=$root/bin -j$nprocs install STATIC=1 || return 1
 	pushd $root/bin
 	ln -s dbclient ssh
