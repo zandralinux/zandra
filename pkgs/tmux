@@ -12,10 +12,10 @@ unpack() {
 
 build() {
 	pushd src/tmux-1.8
-	CC=musl-gcc ./configure --prefix=$root \
+	CC=x86_64-linux-musl-gcc ./configure --prefix=$root \
 		CFLAGS="-I$top/cross/include -I$top/cross/include/ncurses" \
 		LDFLAGS="-static -L$top/cross/lib" || return 1
-	make CC=musl-gcc -j$nprocs || return 1
+	make -j$nprocs || return 1
 	popd
 }
 

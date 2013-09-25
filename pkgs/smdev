@@ -7,7 +7,7 @@ fetch() {
 build() {
 	pushd src/smdev
 	make clean
-	make CC=musl-gcc LDFLAGS=-static || return 1
+	make CC=x86_64-linux-musl-gcc LDFLAGS=-static || return 1
 	popd
 }
 
