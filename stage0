@@ -3,8 +3,6 @@
 # This is the stage0 script, it prepares a basic usable system
 # in $root.
 
-set -e -x
-
 . ./prepare-env
 
 if [ $(uname -m) != $arch ]; then
