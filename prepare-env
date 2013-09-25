@@ -1,10 +1,11 @@
 top=$(pwd)
 root=$top/root
+libcroot=$top/cross/x86_64-linux-musl
 nprocs=4
 arch=x86_64
 version=0.0
 mirror=http://dl.2f30.org/morpheus-pkgs/$arch/$version
-export top root nprocs mirror
+export top root libcroot nprocs mirror
 
-PATH=$top/cross/x86_64-linux-musl/bin:$PATH
+PATH=$libcroot/bin:$PATH
 export PATH

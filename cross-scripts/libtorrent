@@ -12,8 +12,8 @@ unpack() {
 
 build() {
 	pushd src/libtorrent-0.13.3
-	CC=x86_64-linux-musl-gcc ./configure --prefix=$top/cross --disable-shared || return 1
-	make CC=x86_64-linux-musl-gcc -j$nprocs || return 1
+	CC=x86_64-linux-musl-gcc ./configure --prefix=$libcroot --disable-shared || return 1
+	make -j$nprocs || return 1
 	popd
 }
 

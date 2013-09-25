@@ -46,7 +46,7 @@ build_pkg_deps() {
 			continue
 		fi
 		deps=$(echo $line | cut -d' ' -f2-)
-		build_pkg_dep $pkg $deps
+		build_pkg_dep "$pkg" "$deps"
 		break
 	done < DEPS
 }

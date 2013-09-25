@@ -12,8 +12,8 @@ unpack() {
 
 build() {
 	pushd src/dropbear-2013.56
-	CC=x86_64-linux-musl-gcc ./configure CFLAGS="-I$top/cross/include" \
-		LDFLAGS="-static -L$top/cross/lib" --prefix=$root || return 1
+	CC=x86_64-linux-musl-gcc ./configure CFLAGS="-I$libcroot/include" \
+		LDFLAGS="-static -L$libcroot/lib" --prefix=$root || return 1
 	for i in UTMP WTMP PUTUTLINE PUTUTXLINE SYSLOG LASTLOG; do
 		echo "#define DISABLE_$i" >> config.h
 	done
