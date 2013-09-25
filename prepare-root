@@ -1,3 +1,4 @@
+mkdir -p $root
 cd $root
 mkdir -p boot bin dev devel etc home proc root share sys tmp var
 mkdir -p share/doc share/man var/empty var/log var/run

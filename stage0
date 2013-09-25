@@ -5,12 +5,18 @@
 
 set -e -x
 
-rm -rf root cross morpheus.log
 . ./prepare-env
-. ./prepare-root
 
+if [ $(uname -m) != $arch ]; then
+	echo You need an $arch host to build morpheus 1>&2
+	exit 1
+fi
+
+rm -rf root cross morpheus.log
+. ./prepare-root
 mkdir -p src cross
 
+# Build musl-gcc
 ./build cross-scripts/musl
 
 installed_deps=
