@@ -2,6 +2,8 @@
 #
 # Only meant to be executed from within the stage0 script
 
+set -e -x
+
 fetch() {
 	return
 }
