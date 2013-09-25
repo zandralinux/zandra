@@ -12,7 +12,7 @@ unpack() {
 
 build() {
 	pushd src/libevent-2.0.21-stable
-	CC=x86_64-linux-musl-gcc ./configure --prefix=$libcroot --disable-shared || return 1
+	CC="x86_64-linux-musl-gcc -static" ./configure --prefix=$libcroot --disable-shared || return 1
 	make -j$nprocs || return 1
 	popd
 }
