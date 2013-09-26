@@ -6,4 +6,9 @@ fetch() {
 
 install() {
 	tar xJf src/crossx86-x86_64-linux-musl-0.9.11.tar.xz -C $top/cross
+	mv $libcroot/lib64/* $libcroot/lib
+	sed -i 's/libdir=.*//g' $libcroot/lib/libstdc++.la
+	sed -i 's/libdir=.*//g' $libcroot/lib/libsupc++.la
+	echo "libdir='$libcroot/lib'" >> $libcroot/lib/libstdc++.la
+	echo "libdir='$libcroot/lib'" >> $libcroot/lib/libsupc++.la
 }
