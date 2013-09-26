@@ -13,7 +13,7 @@ if [ $(uname -m) != $arch ]; then
 fi
 
 . ./prepare-root
-mkdir -p src cross
+mkdir -p src
 
 while [ $# -gt 0 ]; do
 	./build "$1"

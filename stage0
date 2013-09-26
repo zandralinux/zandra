@@ -10,12 +10,12 @@ if [ $(uname -m) != $arch ]; then
 	exit 1
 fi
 
-rm -rf root cross morpheus.log
+rm -rf morpheus.log
 . ./prepare-root
-mkdir -p src cross
+mkdir -p src
 
 # Fetch and install our musl cross-compiler
-./build cross-scripts/musl
+./build cross-scripts/crossmusl
 
 installed_deps=
 build_pkg_dep() {

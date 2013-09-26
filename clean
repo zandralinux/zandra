@@ -1,3 +1,3 @@
 #!/bin/sh
 
-rm -rf root src cross morpheus.log
+rm -rf root src morpheus.log

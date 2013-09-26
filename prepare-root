@@ -1,6 +1,6 @@
 mkdir -p $root
 cd $root
-mkdir -p boot bin dev etc home opt proc root share sys tmp var
+mkdir -p boot bin dev etc home opt proc root share src sys tmp var
 mkdir -p opt/cross share/doc share/man var/empty var/log var/run
 ln -sf . usr
 ln -sf bin sbin
