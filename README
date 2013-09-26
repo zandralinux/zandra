@@ -14,7 +14,7 @@ After you've built  stage0 you can create a bootable  image with
 
   `sudo ./create-bootable'.
 
-You'll first  need to  load the  loop module  with with  the parameter
+You'll  first  need  to  load  the  loop  module  with  the  parameter
 max_part=15.  You  can dd this  image to a USB  stick if you  need to.
 Make sure to change  the kernel command line to point  it to your root
 device.
