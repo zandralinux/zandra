@@ -6,6 +6,11 @@ fetch() {
 
 install() {
 	tar xJf src/crossx86-x86_64-linux-musl-0.9.11.tar.xz -C $root/devel
+	mv $root/devel/x86_64-linux-musl/x86_64-linux-musl/lib64/* $root/devel/x86_64-linux-musl/x86_64-linux-musl/lib
+	sed -i 's/libdir=.*//g' $root/devel/x86_64-linux-musl/x86_64-linux-musl/lib/libstdc++.la
+	sed -i 's/libdir=.*//g' $root/devel/x86_64-linux-musl/x86_64-linux-musl/lib/libsupc++.la
+	echo "libdir='/devel/x86_64-linux-musl/x86_64-linux-musl/lib'" >> $root/devel/x86_64-linux-musl/x86_64-linux-musl/lib/libstdc++.la
+	echo "libdir='/devel/x86_64-linux-musl/x86_64-linux-musl/lib'" >> $root/devel/x86_64-linux-musl/x86_64-linux-musl/lib/libsupc++.la
 	pushd $root/bin
 	targets="ar as c++ g++ gcc ld ld.bfd nm objcopy objdump ranlib strip"
 	for t in $targets; do
