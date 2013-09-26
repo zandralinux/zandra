@@ -26,7 +26,7 @@ install() {
 	make SCPPROGRESS=1 PROGRAMS="dropbear dbclient scp dropbearkey" prefix=$root \
 		sbindir=$root/bin -j$nprocs install STATIC=1 || return 1
 	pushd $root/bin
-	ln -s dbclient ssh
+	ln -sf dbclient ssh
 	popd
 	popd
 	cp $top/stuff/dropbearkeys $root/etc

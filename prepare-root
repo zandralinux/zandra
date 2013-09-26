@@ -2,9 +2,9 @@ mkdir -p $root
 cd $root
 mkdir -p boot bin dev devel etc home proc root share sys tmp var
 mkdir -p share/doc share/man var/empty var/log var/run
-ln -s . usr
-ln -s bin sbin
-ln -s ../tmp var/tmp
+ln -sf . usr
+ln -sf bin sbin
+ln -sf ../tmp var/tmp
 chmod 1777 tmp
 chmod 700 root
 cd -

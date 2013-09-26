@@ -9,8 +9,8 @@ install() {
 	pushd $root/bin
 	targets="ar as c++ g++ gcc ld ld.bfd nm objcopy objdump ranlib strip"
 	for t in $targets; do
-		ln -s /devel/x86_64-linux-musl/x86_64-linux-musl/bin/$t $t
+		ln -sf /devel/x86_64-linux-musl/x86_64-linux-musl/bin/$t $t
 	done
-	ln -s gcc cc
+	ln -sf gcc cc
 	popd
 }

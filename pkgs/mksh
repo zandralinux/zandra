@@ -19,6 +19,6 @@ build() {
 install() {
 	cp src/mksh/mksh $root/bin
 	pushd $root/bin
-	ln -s /bin/mksh sh
+	ln -sf /bin/mksh sh
 	popd
 }

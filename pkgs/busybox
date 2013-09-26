@@ -10,45 +10,45 @@ install() {
 	chmod +x busybox
 	cp busybox $root/bin
 	pushd $root
-	ln -s bin/busybox init
+	ln -sf bin/busybox init
 	popd
 	pushd $root/bin
-	ln -s busybox addgroup
-	ln -s busybox adduser
-	ln -s getty agetty
-	ln -s busybox bzip2
-	ln -s busybox delgroup
-	ln -s busybox deluser
-	ln -s busybox diff
-	ln -s busybox du
-	ln -s busybox dd
-	ln -s busybox ed
-	ln -s busybox find
-	ln -s busybox fsck
-	ln -s busybox fuser
-	ln -s busybox getty
-	ln -s busybox gzip
-	ln -s busybox hexdump
-	ln -s busybox hwclock
-	ln -s busybox ifconfig
-	ln -s busybox kbd_mode
-	ln -s busybox killall5
-	ln -s busybox less
-	ln -s busybox login
-	ln -s busybox nc
-	ln -s busybox passwd
-	ln -s busybox ping
-	ln -s busybox pkill
-	ln -s busybox poweroff
-	ln -s busybox reboot
-	ln -s busybox sysctl
-	ln -s busybox tac
-	ln -s busybox telnet
-	ln -s busybox tftp
-	ln -s busybox tftpd
-	ln -s busybox top
-	ln -s busybox vi
-	ln -s busybox wget
+	ln -sf busybox addgroup
+	ln -sf busybox adduser
+	ln -sf getty agetty
+	ln -sf busybox bzip2
+	ln -sf busybox delgroup
+	ln -sf busybox deluser
+	ln -sf busybox diff
+	ln -sf busybox du
+	ln -sf busybox dd
+	ln -sf busybox ed
+	ln -sf busybox find
+	ln -sf busybox fsck
+	ln -sf busybox fuser
+	ln -sf busybox getty
+	ln -sf busybox gzip
+	ln -sf busybox hexdump
+	ln -sf busybox hwclock
+	ln -sf busybox ifconfig
+	ln -sf busybox kbd_mode
+	ln -sf busybox killall5
+	ln -sf busybox less
+	ln -sf busybox login
+	ln -sf busybox nc
+	ln -sf busybox passwd
+	ln -sf busybox ping
+	ln -sf busybox pkill
+	ln -sf busybox poweroff
+	ln -sf busybox reboot
+	ln -sf busybox sysctl
+	ln -sf busybox tac
+	ln -sf busybox telnet
+	ln -sf busybox tftp
+	ln -sf busybox tftpd
+	ln -sf busybox top
+	ln -sf busybox vi
+	ln -sf busybox wget
 	popd
 	popd
 }
