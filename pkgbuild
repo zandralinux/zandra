@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if test -z "$1"; then
-	echo usage: $0 pkgpath 1>&2
+	echo usage: $0 pkgpath... 1>&2
 	exit 1
 fi
 
@@ -15,4 +15,7 @@ fi
 . ./prepare-root
 mkdir -p src cross
 
-./build "$1"
+while [ $# -gt 0 ]; do
+	./build "$1"
+	shift
+done
