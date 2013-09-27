@@ -1,0 +1,13 @@
+fetch() {
+	cp $top/stuff/irc.c src
+}
+
+build() {
+	pushd src
+	x86_64-linux-musl-gcc -o irc irc.c -static -I$libcroot/include/ncurses -lncurses || return 1
+	popd
+}
+
+install() {
+	cp src/irc $root/bin
+}
