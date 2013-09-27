@@ -13,7 +13,9 @@ unpack() {
 build() {
 	pushd src/gzip-1.4
 	gnulibfix lib
-	CC="x86_64-linux-musl-gcc -static" ./configure --prefix=$root --libdir=$libcroot/lib || return 1
+	CC="x86_64-linux-musl-gcc -static" ./configure --prefix=$root \
+		--libdir=$libcroot/lib \
+		--libexecdir=$libcroot/libexec || return 1
 	echo "#define __printf__ printf" >> lib/config.h
 	echo "#define rpl_fprintf fprintf" >> lib/config.h
 	make -j$nprocs || return 1

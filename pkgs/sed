@@ -13,7 +13,8 @@ unpack() {
 build() {
 	pushd src/sed-4.2
 	CC="x86_64-linux-musl-gcc -static" ./configure --prefix=$root --disable-nls \
-		--libdir=$libcroot/lib || return 1
+		--libdir=$libcroot/lib \
+		--libexecdir=$libcroot/libexec || return 1
 	make -j$nprocs || return 1
 	popd
 }
