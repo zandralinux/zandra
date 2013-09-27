@@ -1,0 +1,27 @@
+url=$mirror/gzip-1.4.tar.xz
+
+fetch() {
+	wget -c $url -O src/gzip-1.4.tar.xz
+}
+
+unpack() {
+	pushd src
+	[ -d gzip-1.4 ] || tar xJf gzip-1.4.tar.xz
+	popd
+}
+
+build() {
+	pushd src/gzip-1.4
+	gnulibfix lib
+	CC="x86_64-linux-musl-gcc -static" ./configure --prefix=$root --libdir=$libcroot/lib || return 1
+	echo "#define __printf__ printf" >> lib/config.h
+	echo "#define rpl_fprintf fprintf" >> lib/config.h
+	make -j$nprocs || return 1
+	popd
+}
+
+install() {
+	pushd src/gzip-1.4
+	make install || return 1
+	popd
+}

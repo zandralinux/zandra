@@ -27,7 +27,6 @@ install() {
 	ln -sf busybox fsck
 	ln -sf busybox fuser
 	ln -sf busybox getty
-	ln -sf busybox gzip
 	ln -sf busybox hexdump
 	ln -sf busybox hwclock
 	ln -sf busybox ifconfig

@@ -7,5 +7,5 @@ version=0.0
 mirror=http://dl.2f30.org/morpheus-pkgs/$arch/$version
 export top root libcroot nprocs mirror
 
-PATH=$root/opt/cross/x86_64-linux-musl/bin:$PATH
+PATH=$root/opt/cross/x86_64-linux-musl/bin:$top/stuff/bin:$PATH
 export PATH
