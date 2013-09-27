@@ -7,5 +7,9 @@ version=0.0
 mirror=http://dl.2f30.org/morpheus-pkgs/$arch/$version
 export top root libcroot nprocs mirror
 
+optldflags="-s -Wl,--gc-sections -Wl,-z,relro,-z,now"
+optcflags="-fdata-sections -ffunction-sections -Os -g0 -fno-unwind-tables -fno-asynchronous-unwind-tables -Wa,--noexecstack"
+export optldflags optcflags
+
 PATH=$root/opt/cross/x86_64-linux-musl/bin:$top/stuff/bin:$PATH
 export PATH
