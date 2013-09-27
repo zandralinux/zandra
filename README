@@ -1,25 +1,29 @@
-Morpheus is a statically linked musl based distro.
+Morpheus is a statically linked musl based toy distro.
 
 The base system includes  sbase[1], ubase[2], sdhcp[3], smdev[4], mksh
 as well as other tools.
 
 To build the  world use `./stage0'.  You need an  x86_64 host to build
-morpheus.  Please review the stage0 script and adjust anything needed.
+morpheus.  Please review the  `prepare-env' script and adjust anything
+needed.
 
-To build a particular package:
+Morpheus has been build-tested on Debian 7.0 and Archlinux.
 
-  ./pkgbuild <pkgpath>
+To build specific packages:
 
-After you've built  stage0 you can create a bootable  image with
+  ./pkgbuild pkgpath1 pkgpath2 ...
 
-  `sudo ./create-bootable'.
+After you've built stage0 you can create a bootable image:
 
-You'll  first  need  to  load  the  loop  module  with  the  parameter
-max_part=15.  You  can dd this  image to a USB  stick if you  need to.
-Make sure to change  the kernel command line to point  it to your root
-device.
+  sudo modprobe -r loop
+  sudo modprobe loop max_part=15 # to be done only once
+  sudo ./create-bootable
 
-Login with `root' and an empty password.
+This creates a 512MB  image.  You can dd this image to  a USB stick if
+you want to.  Make sure to change  the kernel command line to point it
+to your root device.
+
+Login with root and an empty password.
 
 Enjoy!
 
