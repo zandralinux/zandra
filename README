@@ -7,8 +7,8 @@ To build the  world use `./stage0'.  You need an  x86_64 host to build
 morpheus.  Please review the  `prepare-env' script and adjust anything
 needed.
 
-Morpheus has  been build-tested  on Debian  7.0, Archlinux  and Ubuntu
-13.04.
+Morpheus has been build-tested on Debian 7.0, Archlinux, Slackware and
+Ubuntu 13.04.  It does *not* build with dash.
 
 To build specific packages:
 
