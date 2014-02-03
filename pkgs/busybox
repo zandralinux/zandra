@@ -10,7 +10,7 @@ install() {
 	chmod +x busybox
 	cp busybox $root/bin
 	pushd $root
-	ln -sf bin/busybox init
+	ln -sf /bin/busybox init
 	popd
 	pushd $root/bin
 	ln -sf busybox addgroup
