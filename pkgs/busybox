@@ -42,6 +42,7 @@ install() {
 	ln -sf busybox pkill
 	ln -sf busybox poweroff
 	ln -sf busybox reboot
+	ln -sf busybox sed
 	ln -sf busybox sysctl
 	ln -sf busybox tac
 	ln -sf busybox telnet
