@@ -20,7 +20,6 @@ install() {
 	ln -sf busybox delgroup
 	ln -sf busybox deluser
 	ln -sf busybox diff
-	ln -sf busybox du
 	ln -sf busybox dd
 	ln -sf busybox ed
 	ln -sf busybox expr
