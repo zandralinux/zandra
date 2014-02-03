@@ -1,11 +1,11 @@
-url=$mirror/crossx86-x86_64-linux-musl-0.9.11.tar.xz
+url=$mirror/crossx86-x86_64-linux-musl-0.9.15.tar.xz
 
 fetch() {
-	wget -c $url -O src/crossx86-x86_64-linux-musl-0.9.11.tar.xz
+	wget -c $url -O src/crossx86-x86_64-linux-musl-0.9.15.tar.xz
 }
 
 install() {
-	tar xJf src/crossx86-x86_64-linux-musl-0.9.11.tar.xz -C $root/opt/cross
+	tar xJf src/crossx86-x86_64-linux-musl-0.9.15.tar.xz -C $root/opt/cross
 	mv $root/opt/cross/x86_64-linux-musl/x86_64-linux-musl/lib64/* $root/opt/cross/x86_64-linux-musl/x86_64-linux-musl/lib
 	pushd $root/bin
 	targets="ar as c++ g++ gcc ld ld.bfd nm objcopy objdump ranlib strip"
