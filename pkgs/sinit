@@ -4,7 +4,7 @@ fetch() {
 
 build() {
 	pushd src
-	x86_64-linux-musl-gcc -o init sinit.c -static -I$libcroot/include/ncurses -lncurses || return 1
+	x86_64-linux-musl-gcc -o init sinit.c -static || return 1
 	popd
 }
 
