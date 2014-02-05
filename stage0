@@ -50,10 +50,10 @@ build_pkg_deps() {
 }
 
 build_pkg() {
-	build_pkg_deps $1 && ./build pkgs/$1
+	build_pkg_deps $(basename $1) && ./build $1
 }
 
 # Build stage0 packages
 for pkg in pkgs/*; do
-	build_pkg $(basename $pkg)
+	build_pkg $pkg
 done
