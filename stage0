@@ -50,11 +50,10 @@ build_pkg_deps() {
 }
 
 build_pkg() {
-	build_pkg_deps $1 && ./build pkgs/$1
+	build_pkg_deps $1 && ./build $1
 }
 
 # Build stage0 packages
-pkglist=$(ls pkgs)
-for pkg in $pkglist; do
+for pkg in pkgs/*; do
 	build_pkg $pkg
 done
