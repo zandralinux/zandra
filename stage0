@@ -24,7 +24,7 @@ build_pkg_dep() {
 	for d in $deps; do
 		install=1
 		for i in $installed_deps; do
-			if [ $i == $d ]; then
+			if [ "$i" = "$d" ]; then
 				# If already installed, then skip it
 				install=0
 				break
