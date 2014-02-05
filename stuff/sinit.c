@@ -59,7 +59,7 @@ main(void)
 
 	sigprocmask(SIG_UNBLOCK, &set, 0);
 
-	spawn("/bin/sh", (char *[]){ "sh", "-c", "/etc/rc", NULL });
+	spawn("/bin/rc", (char *[]){ "rc", NULL });
 
 	unlink(fifopath);
 	umask(0);
@@ -85,23 +85,13 @@ main(void)
 static void
 cmdpoweroff(const Arg *arg)
 {
-	spawn("/bin/sh", (char *[]){
-			"sh",
-			"-c",
-			"/etc/rc.shutdown poweroff",
-			NULL
-	});
+	spawn("/bin/rc.shutdown", (char *[]) { "rc", "poweroff", NULL });
 }
 
 static void
 cmdreboot(const Arg *arg)
 {
-	spawn("/bin/sh", (char *[]){
-			"sh",
-			"-c",
-			"/etc/rc.shutdown reboot",
-			NULL
-	});
+	spawn("/bin/rc.shutdown", (char *[]) { "rc", "reboot", NULL });
 }
 
 static void
