@@ -9,9 +9,6 @@ install() {
 	pushd src/
 	chmod +x busybox
 	cp busybox $root/bin
-	pushd $root
-	ln -sf /bin/busybox init
-	popd
 	pushd $root/bin
 	ln -sf busybox addgroup
 	ln -sf busybox adduser
@@ -40,8 +37,6 @@ install() {
 	ln -sf busybox passwd
 	ln -sf busybox ping
 	ln -sf busybox pkill
-	ln -sf busybox poweroff
-	ln -sf busybox reboot
 	ln -sf busybox sed
 	ln -sf busybox sysctl
 	ln -sf busybox tac
