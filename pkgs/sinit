@@ -15,7 +15,7 @@ install() {
 	pushd src/sinit
 	make PREFIX=$root install
 	popd
-	pushd $root/bin
-	ln -sf sinit init
+	pushd $root
+	ln -sf /bin/sinit init
 	popd
 }
