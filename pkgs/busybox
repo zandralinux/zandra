@@ -12,7 +12,6 @@ install() {
 	pushd $root/bin
 	ln -sf busybox addgroup
 	ln -sf busybox adduser
-	ln -sf getty agetty
 	ln -sf busybox awk
 	ln -sf busybox bzip2
 	ln -sf busybox delgroup
@@ -24,7 +23,6 @@ install() {
 	ln -sf busybox find
 	ln -sf busybox fsck
 	ln -sf busybox fuser
-	ln -sf busybox getty
 	ln -sf busybox gzip
 	ln -sf busybox hexdump
 	ln -sf busybox hwclock
