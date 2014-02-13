@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cp /etc/resolv.conf /emul/etc/resolv.conf
+mount -B /proc /emul/proc
+mount -B /sys /emul/sys
+mount -B /dev /emul/dev
+mount -B /dev/pts /emul/dev/pts
+
+chroot /emul /bin/sh -l

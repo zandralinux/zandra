@@ -1,0 +1,18 @@
+url=$mirror/arch-rootfs.tar.gz
+
+fetch() {
+	wget -c $url -O src/arch-rootfs.tar.gz
+}
+
+unpack() {
+	pushd src
+	[ -d root.x86_64 ] || tar xzf arch-rootfs.tar.gz
+	popd
+}
+
+install() {
+	pushd src
+	cp -arP root.x86_64/* $root/emul
+	popd
+	cp stuff/enter-emul $root/bin
+}
