@@ -6,7 +6,7 @@
 
 img=morpheus-$arch-$version.img
 
-dd if=/dev/zero of=$img bs=512M count=1
+dd if=/dev/zero of=$img bs=512M count=8
 fdisk $img <<< '
 o
 n
