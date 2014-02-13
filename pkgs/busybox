@@ -35,6 +35,7 @@ install() {
 	ln -sf busybox passwd
 	ln -sf busybox ping
 	ln -sf busybox pkill
+	ln -sf busybox printf
 	ln -sf busybox sed
 	ln -sf busybox sysctl
 	ln -sf busybox tac
