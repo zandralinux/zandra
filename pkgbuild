@@ -7,7 +7,7 @@ fi
 
 . ./prepare-env
 
-if [ $(uname -m) != $arch ]; then
+if test "$(uname -m)" != "$arch"; then
 	echo You need an $arch host to build morpheus 1>&2
 	exit 1
 fi
