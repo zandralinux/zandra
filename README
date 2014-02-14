@@ -8,7 +8,7 @@ morpheus.  Please review the  `prepare-env' script and adjust anything
 needed.
 
 Morpheus has been build-tested on Debian 7.0, Archlinux, Slackware and
-Ubuntu 13.04.  It does *not* build with dash.
+Ubuntu 13.04.
 
 To build specific packages:
 
