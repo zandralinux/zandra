@@ -5,20 +5,20 @@ fetch() {
 }
 
 unpack() {
-	pushd src
+	cd src
 	[ -d libevent-2.0.21-stable ] || tar xzf libevent-2.0.21-stable.tar.gz
-	popd
+	cd -
 }
 
 build() {
-	pushd src/libevent-2.0.21-stable
+	cd src/libevent-2.0.21-stable
 	CC="x86_64-linux-musl-gcc -static" ./configure --prefix=$libcroot --disable-shared --enable-static || return 1
 	make -j$nprocs || return 1
-	popd
+	cd -
 }
 
 install() {
-	pushd src/libevent-2.0.21-stable
+	cd src/libevent-2.0.21-stable
 	make install || return 1
-	popd
+	cd -
 }

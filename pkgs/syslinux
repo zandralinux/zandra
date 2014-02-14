@@ -6,9 +6,9 @@ fetch() {
 }
 
 unpack() {
-	pushd src
+	cd src
 	[ -d syslinux ] || tar xzf syslinux.tar.gz
-	popd
+	cd -
 }
 
 install() {

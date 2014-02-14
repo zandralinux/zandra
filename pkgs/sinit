@@ -5,17 +5,17 @@ fetch() {
 }
 
 build() {
-	pushd src/sinit
+	cd src/sinit
 	make clean
 	make -j$nprocs CC=x86_64-linux-musl-gcc LDFLAGS=-static || return 1
-	popd
+	cd -
 }
 
 install() {
-	pushd src/sinit
+	cd src/sinit
 	make PREFIX=$root install
-	popd
-	pushd $root
+	cd -
+	cd $root
 	ln -sf /bin/sinit init
-	popd
+	cd -
 }

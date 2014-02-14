@@ -5,16 +5,16 @@ fetch() {
 }
 
 unpack() {
-	pushd src
+	cd src
 	[ -d sic ] || tar xzf sic.tar.gz
-	popd
+	cd -
 }
 
 build() {
-	pushd src/sic
+	cd src/sic
 	make clean
 	make CC=x86_64-linux-musl-gcc LDFLAGS=-static || return 1
-	popd
+	cd -
 }
 
 install() {

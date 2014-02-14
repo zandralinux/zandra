@@ -5,7 +5,7 @@ fetch() {
 }
 
 install() {
-	pushd src/fs
+	cd src/fs
 	cp -r * $root/
-	popd
+	cd -
 }

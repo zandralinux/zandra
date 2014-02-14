@@ -5,19 +5,19 @@ fetch() {
 }
 
 unpack() {
-	pushd src
+	cd src
 	[ -d man ] || tar xzf man.tar.gz
-	popd
+	cd -
 }
 
 build() {
-	pushd src/man
+	cd src/man
 	x86_64-linux-musl-gcc -std=gnu99 -o man man.c -static || return 1
-	popd
+	cd -
 }
 
 install() {
-	pushd src/man
+	cd src/man
 	cp man $root/bin
-	popd
+	cd -
 }

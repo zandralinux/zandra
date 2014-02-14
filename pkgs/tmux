@@ -5,21 +5,21 @@ fetch() {
 }
 
 unpack() {
-	pushd src
+	cd src
 	[ -d tmux-1.8 ] || tar xzf tmux-1.8.tar.gz
-	popd
+	cd -
 }
 
 build() {
-	pushd src/tmux-1.8
+	cd src/tmux-1.8
 	CC=x86_64-linux-musl-gcc ./configure --prefix=$root LDFLAGS=-static \
 		CFLAGS="-I$libcroot/include/ncurses" || return 1
 	make -j$nprocs || return 1
-	popd
+	cd -
 }
 
 install() {
-	pushd src/tmux-1.8
+	cd src/tmux-1.8
 	make install || return 1
-	popd
+	cd -
 }

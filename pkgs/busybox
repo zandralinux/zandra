@@ -6,10 +6,11 @@ fetch() {
 
 install() {
 	# Install package
-	pushd src/
+	cd src/
 	chmod +x busybox
 	cp busybox $root/bin
-	pushd $root/bin
+	cd -
+	cd $root/bin
 	ln -sf busybox addgroup
 	ln -sf busybox adduser
 	ln -sf busybox awk
@@ -45,6 +46,5 @@ install() {
 	ln -sf busybox top
 	ln -sf busybox vi
 	ln -sf busybox wget
-	popd
-	popd
+	cd -
 }

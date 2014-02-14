@@ -6,23 +6,23 @@ fetch() {
 }
 
 unpack() {
-	pushd src
+	cd src
 	[ -d linux-$version ] || tar xzf kernel.tar.gz
-	popd
+	cd -
 }
 
 build() {
-	pushd src/linux-$version
+	cd src/linux-$version
 	cp $top/stuff/kernel-config .config
 	make menuconfig
 	make bzImage -j$nprocs || return 1
-	popd
+	cd -
 }
 
 install() {
-	pushd src/linux-$version
+	cd src/linux-$version
 	cp arch/x86/boot/bzImage $root/boot
 	cp .config $root/boot/bzImage.config
 	cp System.map $root/boot
-	popd
+	cd -
 }

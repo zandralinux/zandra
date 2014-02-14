@@ -5,20 +5,20 @@ fetch() {
 }
 
 unpack() {
-	pushd src
+	cd src
 	[ -d make-3.82 ] || tar xjf make-3.82.tar.bz2
-	popd
+	cd -
 }
 
 build() {
-	pushd src/make-3.82
+	cd src/make-3.82
 	CC="x86_64-linux-musl-gcc -static" ./configure --prefix=$root --disable-nls || return 1
 	make -j$nprocs || return 1
-	popd
+	cd -
 }
 
 install() {
-	pushd src/make-3.82
+	cd src/make-3.82
 	make install || return 1
-	popd
+	cd -
 }

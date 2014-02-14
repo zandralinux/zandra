@@ -5,20 +5,20 @@ fetch() {
 }
 
 unpack() {
-	pushd src
+	cd src
 	[ -d mksh ] || tar xzf mksh-R47.tar.gz
-	popd
+	cd -
 }
 
 build() {
-	pushd src/mksh
+	cd src/mksh
 	CC=x86_64-linux-musl-gcc LDFLAGS+=-static sh Build.sh || return 1
-	popd
+	cd -
 }
 
 install() {
 	cp src/mksh/mksh $root/bin
-	pushd $root/bin
+	cd $root/bin
 	ln -sf /bin/mksh sh
-	popd
+	cd -
 }

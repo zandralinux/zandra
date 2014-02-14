@@ -5,14 +5,14 @@ fetch() {
 }
 
 unpack() {
-	pushd src
+	cd src
 	[ -d root.x86_64 ] || tar xzf arch-rootfs.tar.gz
-	popd
+	cd -
 }
 
 install() {
-	pushd src
+	cd src
 	cp -arP root.x86_64/* $root/emul
-	popd
+	cd -
 	cp stuff/enter-emul $root/bin
 }

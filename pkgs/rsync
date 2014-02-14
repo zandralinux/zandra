@@ -5,20 +5,20 @@ fetch() {
 }
 
 unpack() {
-	pushd src
+	cd src
 	[ -d rsync-3.0.9 ] || tar xzf rsync-3.0.9.tar.gz
-	popd
+	cd -
 }
 
 build() {
-	pushd src/rsync-3.0.9
+	cd src/rsync-3.0.9
 	CC=x86_64-linux-musl-gcc ./configure --prefix=$root LDFLAGS="-static" || return 1
 	make -j$nprocs || return 1
-	popd
+	cd -
 }
 
 install() {
-	pushd src/rsync-3.0.9
+	cd src/rsync-3.0.9
 	make install || return 1
-	popd
+	cd -
 }

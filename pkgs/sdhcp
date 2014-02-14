@@ -5,16 +5,16 @@ fetch() {
 }
 
 unpack() {
-	pushd src
+	cd src
 	[ -d sdhcp ] || tar xzf sdhcp.tar.gz
-	popd
+	cd -
 }
 
 build() {
-	pushd src/sdhcp
+	cd src/sdhcp
 	make clean
 	make CC=x86_64-linux-musl-gcc LDFLAGS=-static || return 1
-	popd
+	cd -
 }
 
 install() {

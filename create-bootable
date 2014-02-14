@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Ensure you've loaded the loop module with max_part=15
 

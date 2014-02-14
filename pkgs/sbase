@@ -5,14 +5,14 @@ fetch() {
 }
 
 build() {
-	pushd src/sbase
+	cd src/sbase
 	make clean
 	make -j$nprocs CC=x86_64-linux-musl-gcc LDFLAGS=-static || return 1
-	popd
+	cd -
 }
 
 install() {
-	pushd src/sbase
+	cd src/sbase
 	make PREFIX=$root install
-	popd
+	cd -
 }

@@ -5,14 +5,14 @@ fetch() {
 }
 
 build() {
-	pushd src/smdev
+	cd src/smdev
 	make clean
 	make CC=x86_64-linux-musl-gcc LDFLAGS=-static || return 1
-	popd
+	cd -
 }
 
 install() {
-	pushd src/smdev
+	cd src/smdev
 	make PREFIX=$root install || return 1
-	popd
+	cd -
 }
