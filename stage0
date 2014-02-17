@@ -3,59 +3,29 @@
 # This is the stage0 script, it prepares a basic usable system
 # in $root.
 
-umask 022
-
-. ./prepare-env
-
-if test "$(uname -m)" != "$arch"; then
-	echo You need an $arch host to build morpheus 1>&2
-	exit 1
-fi
-
 rm -rf root morpheus.log
-. ./prepare-root
-mkdir -p src
 
-# Fetch and install our musl cross-compiler
-./build cross-scripts/crossmusl
+packages="crossmusl
+          ncurses
+          libevent
+          zlib
+          tinyxlib
+          kernel
+          emul
+          busybox
+          fs
+          make
+          man
+          mksh
+          rsync
+          sbase
+          sdhcp
+          sic
+          sinit
+          smdev
+          syslinux
+          tinyxserver
+          tmux
+          ubase"
 
-installed_deps=
-build_pkg_dep() {
-	pkg=$1; deps=$2
-	# Build dependencies for package in order
-	for d in $deps; do
-		install=1
-		for i in $installed_deps; do
-			if [ "$i" = "$d" ]; then
-				# If already installed, then skip it
-				install=0
-				break
-			fi
-		done
-		if [ $install -eq 1 ]; then
-			./build cross-scripts/$d
-			installed_deps="$installed_deps $d"
-		fi
-	done
-}
-
-build_pkg_deps() {
-	pkg=$1
-	while read line; do
-		if test "$(echo $line | cut -d' ' -f1)" != "$pkg"; then
-			continue
-		fi
-		deps=$(echo $line | cut -d' ' -f2-)
-		build_pkg_dep "$pkg" "$deps"
-		break
-	done < DEPS
-}
-
-build_pkg() {
-	build_pkg_deps $(basename $1) && ./build $1
-}
-
-# Build stage0 packages
-for pkg in pkgs/*; do
-	build_pkg $pkg
-done
+./pkgbuild $packages
