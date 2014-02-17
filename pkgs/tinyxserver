@@ -23,4 +23,8 @@ install() {
 	cd src/tinyxserver
 	make DESTDIR="$root" BINDIR="/bin" install
 	cd -
+	cd $root/usr/share/fonts/misc
+	mkfontscale
+	mkfontdir
+	cd -
 }
