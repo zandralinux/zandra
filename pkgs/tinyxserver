@@ -1,0 +1,26 @@
+url=$mirror/tinyxserver.tar.gz
+
+fetch() {
+	wget -c $url -O src/tinyxserver.tar.gz
+}
+
+unpack() {
+	cd src
+	[ -d tinyxserver ] || tar xzf tinyxserver.tar.gz
+	cd -
+}
+
+build() {
+	cd src/tinyxserver
+	make clean
+	make CC=x86_64-linux-musl-gcc EXTRA_CFLAGS="-D_XSERVER64=1 -I$libcroot/include" \
+		LDFLAGS="-static -L$libcroot/lib" \
+		FONTDIR="/usr/share/fonts"
+	cd -
+}
+
+install() {
+	cd src/tinyxserver
+	make DESTDIR="$root" BINDIR="/bin" install
+	cd -
+}

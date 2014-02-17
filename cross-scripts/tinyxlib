@@ -1,0 +1,25 @@
+url=$mirror/tinyxlib.tar.gz
+
+fetch() {
+	wget -c $url -O src/tinyxlib.tar.gz
+}
+
+unpack() {
+	cd src
+	[ -d tinyxlib ] || tar xzf tinyxlib.tar.gz
+	cd -
+}
+
+build() {
+	cd src/tinyxlib
+	make clean
+	make CC=x86_64-linux-musl-gcc BINDIR="/bin" LIBDIR="/lib" STATIC=1 \
+		FONT_ENCODINGS_DIRECTORY="/usr/share/fonts/encodings/encodings.dir"
+	cd -
+}
+
+install() {
+	cd src/tinyxlib
+	make DESTDIR="$libcroot" BINDIR="/bin" LIBDIR="/lib" STATIC=1 install
+	cd -
+}

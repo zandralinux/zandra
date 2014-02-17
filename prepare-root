@@ -1,7 +1,7 @@
 mkdir -p $root
 cd $root
 mkdir -p boot bin dev emul etc home opt proc root share src sys tmp var
-mkdir -p dev/pts dev/shm opt/cross share/doc share/man var/empty var/log var/run
+mkdir -p dev/pts dev/shm opt/cross share/doc share/fonts/encodings share/man var/empty var/log var/run
 ln -sf . usr
 ln -sf bin sbin
 ln -sf ../tmp var/tmp
