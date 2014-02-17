@@ -10,7 +10,7 @@ install() {
 	cd $root/bin
 	targets="ar as c++ g++ gcc ld ld.bfd nm objcopy objdump ranlib strip"
 	for t in $targets; do
-		ln -sf /opt/cross/x86_64-linux-musl/bin/x86_64-linux-musl-$t $t
+		ln -sf ../opt/cross/x86_64-linux-musl/bin/x86_64-linux-musl-$t $t
 	done
 	ln -sf gcc cc
 	cd -
