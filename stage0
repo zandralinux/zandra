@@ -3,7 +3,6 @@
 # This is the stage0 script, it prepares a basic usable system
 # in $root.
 
-set +h
 umask 022
 
 . ./prepare-env
