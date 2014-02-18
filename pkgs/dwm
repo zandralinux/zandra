@@ -1,0 +1,30 @@
+url=$mirror/dwm-6.0.tar.gz
+
+fetch() {
+	wget -c $url -O src/dwm-6.0.tar.gz
+}
+
+unpack() {
+	cd src
+	[ -d dwm-6.0 ] || tar xzf dwm-6.0.tar.gz
+	cd -
+}
+
+build() {
+	cd src/dwm-6.0
+	sed -i "s@X11INC = /usr/X11R6/include@X11INC = $libcroot/include@" config.mk
+	sed -i "s@X11LIB = /usr/X11R6/lib@X11LIB = $libcroot/lib@" config.mk
+	sed -i 's@INCS = -I. -I/usr/include -I${X11INC}@INCS = -I. -I${X11INC}@' config.mk
+	sed -i 's@LIBS = -L/usr/lib -lc -L${X11LIB} -lX11 ${XINERAMALIBS}@LIBS = -lc -L${X11LIB} -lX11 ${XINERAMALIBS}@' config.mk
+	sed -i 's@LDFLAGS = -s ${LIBS}@LDFLAGS = -s ${LIBS} -static@' config.mk
+	sed -i 's@CC = cc@CC = x86_64-linux-musl-gcc@' config.mk
+	make || return 1
+	cd -
+}
+
+install() {
+	cd src/dwm-6.0
+	cp dwm $root/bin
+	cp dwm.1 $root/share/man/man1
+	cd -
+}
