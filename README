@@ -12,7 +12,7 @@ Ubuntu 13.04.
 
 To build specific packages:
 
-  ./pkgbuild pkgpath1 pkgpath2 ...
+  ./pkgbuild pkg1 pkg2 ...
 
 After you've built stage0 you can create a bootable image:
 
