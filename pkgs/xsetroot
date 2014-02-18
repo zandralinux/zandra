@@ -1,0 +1,11 @@
+build() {
+	cd stuff
+	x86_64-musl-linux-gcc -I$libcroot/include -L$libcroot/lib xsetroot.c -o xsetroot -lX11 -static || return 1
+	cd -
+}
+
+install() {
+	cd stuff
+	cp xsetroot $root/bin
+	cd -
+}

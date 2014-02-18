@@ -27,6 +27,8 @@ packages="crossmusl
           tinyxserver
           tmux
           ubase
-          uuterm"
+          uuterm
+          tinywm
+          xsetroot"
 
 ./pkgbuild $packages
