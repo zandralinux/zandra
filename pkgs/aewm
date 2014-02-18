@@ -12,6 +12,7 @@ unpack() {
 
 build() {
 	cd src/aewm-1.2.7
+	make clean
 	make CC=x86_64-linux-musl-gcc DESTDIR=$root BINDIR=/bin \
 		INCLUDES="-I../lib -I$libcroot/include" LDPATH="-L$libcroot/lib -static" || return 1
 	cd -
