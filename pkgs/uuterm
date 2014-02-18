@@ -1,0 +1,21 @@
+url=$mirror/uuterm.tar.gz
+
+fetch() {
+	wget -c $url -O src/uuterm.tar.gz
+}
+
+unpack() {
+	cd src
+	[ -d uuterm ] || tar xzf uuterm.tar.gz
+	cd -
+}
+
+build() {
+	cd src/uuterm
+	make CC=x86_64-linux-musl-gcc LDFLAGS_X11="-L$libcroot/lib -static" uuterm-x11
+	cd -
+}
+
+install() {
+	cp src/uuterm/uuterm-x11 $root/bin
+}
