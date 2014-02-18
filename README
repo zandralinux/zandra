@@ -20,9 +20,9 @@ After you've built stage0 you can create a bootable image:
   sudo modprobe loop max_part=15 # to be done only once
   sudo ./create-bootable
 
-This creates a 512MB  image.  You can dd this image to  a USB stick if
-you want to.  Make sure to change  the kernel command line to point it
-to your root device.
+This creates a 4GB image.  You can dd this image to a USB stick if you
+want to.  Make sure  to change the kernel command line  to point it to
+your root device.
 
 Login with root and an empty password.
 
