@@ -15,13 +15,13 @@ build() {
 	make clean
 	make CC=x86_64-linux-musl-gcc EXTRA_CFLAGS="-D_XSERVER64=1 -I$libcroot/include" \
 		LDFLAGS="-static -L$libcroot/lib" \
-		FONTDIR="/usr/share/fonts"
+		FONTDIR="/usr/share/fonts" || return 1
 	cd -
 }
 
 install() {
 	cd src/tinyxserver
-	make DESTDIR="$root" BINDIR="/bin" install
+	make DESTDIR="$root" BINDIR="/bin" install || return 1
 	cd -
 	cd $root/usr/share/fonts/misc
 	mkfontscale

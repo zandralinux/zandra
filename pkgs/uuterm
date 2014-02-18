@@ -12,7 +12,7 @@ unpack() {
 
 build() {
 	cd src/uuterm
-	make CC=x86_64-linux-musl-gcc LDFLAGS_X11="-L$libcroot/lib -static" uuterm-x11
+	make CC=x86_64-linux-musl-gcc LDFLAGS_X11="-L$libcroot/lib -static" uuterm-x11 || return 1
 	cd -
 }
 
