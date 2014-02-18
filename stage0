@@ -30,6 +30,7 @@ packages="crossmusl
           uuterm
           tinywm
           xsetroot
-          aewm"
+          aewm
+          terminus"
 
 ./pkgbuild $packages
