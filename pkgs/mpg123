@@ -1,0 +1,25 @@
+url=$mirror/mpg123-1.18.0.tar.bz2
+
+fetch() {
+	wget -c $url -O src/mpg123-1.18.0.tar.bz2
+}
+
+unpack() {
+	cd src
+	[ -d mpg123-1.18.0 ] || tar xjf mpg123-1.18.0.tar.bz2
+	cd -
+}
+
+build() {
+	cd src/mpg123-1.18.0
+	CC=x86_64-linux-musl-gcc ./configure --prefix="$root" --with-default-audio=tinyalsa \
+		CFLAGS="-I$libcroot/include" LDFLAGS="-L$libcroot/lib -static" || return 1
+	make || return 1
+	cd -
+}
+
+install() {
+	cd src/mpg123-1.18.0
+	make install || return 1
+	cd -
+}

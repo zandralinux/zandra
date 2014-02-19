@@ -10,6 +10,7 @@ packages="crossmusl
           libevent
           zlib
           tinyxlib
+          tinyalsa
           kernel
           kernel-headers
           emul
@@ -33,6 +34,6 @@ packages="crossmusl
           xsetroot
           terminus
           dwm
-          tinyalsa"
+          mpg123"
 
 ./pkgbuild $packages
