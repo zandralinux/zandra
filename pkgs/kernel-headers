@@ -1,0 +1,19 @@
+url=$mirror/kernel.tar.gz
+version=3.10.12
+
+fetch() {
+	wget -c $url -O src/kernel.tar.gz
+}
+
+unpack() {
+	cd src
+	[ -d linux-$version ] || tar xzf kernel.tar.gz
+	cd -
+}
+
+install() {
+	cd src/linux-$version
+	make ARCH="$arch" INSTALL_HDR_PATH="$root" headers_install
+	unlink "$root/include/include" # I don't know why it creates this bogus link
+	cd -
+}

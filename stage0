@@ -11,6 +11,7 @@ packages="crossmusl
           zlib
           tinyxlib
           kernel
+          kernel-headers
           emul
           busybox
           fs
