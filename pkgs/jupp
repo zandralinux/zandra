@@ -12,7 +12,8 @@ unpack() {
 
 build() {
 	cd src/jupp
-	CC=x86_64-linux-musl-gcc sh configure --prefix="$root" CFLAGS="-I$libcroot/include" \
+	make clean
+	CC=x86_64-linux-musl-gcc sh configure --prefix="/" CFLAGS="-I$libcroot/include" \
 		LDFLAGS="-L$libcroot/lib -static" || return 1
 	make || return 1
 	cd -
@@ -20,6 +21,21 @@ build() {
 
 install() {
 	cd src/jupp
-	make install || return 1
+	cp joe termidx "$root/bin"
+	mkdir -p "$root/share/man/man1"
+	cp joe.1 "$root/share/man/man1"
+	mkdir -p "$root/etc/joe/charmaps"
+	cp charmaps/klingon "$root/etc/joe/charmaps"
+	cp joerc jmacsrc "$root/etc/joe"
+	mkdir -p "$root/etc/joe/syntax"
+	cp syntax/* "$root/etc/joe/syntax"
+	cd -
+
+	cd "$root/bin"
+	ln -sf joe jmacs
+	cd -
+
+	cd "$root/share/man/man1"
+	ln -sf joe.1 jmacs.1
 	cd -
 }
