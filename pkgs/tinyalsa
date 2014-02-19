@@ -1,0 +1,24 @@
+url=$mirror/tinyalsa.tar.gz
+
+fetch() {
+	wget -c $url -O src/tinyalsa.tar.gz
+}
+
+unpack() {
+	cd src
+	[ -d tinyalsa ] || tar xzf tinyalsa.tar.gz
+	cd -
+}
+
+build() {
+	cd src/tinyalsa
+	make CC=x86_64-linux-musl-gcc || return 1
+	cd -
+}
+
+install() {
+	cd src/tinyalsa
+	cp tinycap tinymix tinypcminfo tinyplay "$root/bin"
+	cp libtinyalsa.a "$root/lib"
+	cd -
+}
