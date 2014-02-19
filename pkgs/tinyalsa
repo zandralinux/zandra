@@ -20,5 +20,6 @@ install() {
 	cd src/tinyalsa
 	cp tinycap tinymix tinypcminfo tinyplay "$root/bin"
 	cp libtinyalsa.a "$root/lib"
+	cp -r include/tinyalsa "$root/include"
 	cd -
 }
