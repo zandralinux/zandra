@@ -1,0 +1,25 @@
+url=$mirror/joe-3.1jupp26.tgz
+
+fetch() {
+	wget -c $url -O src/joe-3.1jupp26.tgz
+}
+
+unpack() {
+	cd src
+	[ -d jupp ] || tar xzf joe-3.1jupp26.tgz
+	cd -
+}
+
+build() {
+	cd src/jupp
+	CC=x86_64-linux-musl-gcc sh configure --prefix="$root" CFLAGS="-I$libcroot/include" \
+		LDFLAGS="-L$libcroot/lib -static" || return 1
+	make || return 1
+	cd -
+}
+
+install() {
+	cd src/jupp
+	make install || return 1
+	cd -
+}

@@ -34,6 +34,7 @@ packages="crossmusl
           xsetroot
           terminus
           dwm
-          mpg123"
+          mpg123
+          jupp"
 
 ./pkgbuild $packages
