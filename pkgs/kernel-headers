@@ -14,6 +14,6 @@ unpack() {
 install() {
 	cd src/linux-$version
 	make ARCH="$arch" INSTALL_HDR_PATH="$root" headers_install
-	unlink "$root/include/include" # I don't know why it creates this bogus link
+	unlink "$root/include/include" 2>/dev/null # I don't know why it creates this bogus link
 	cd -
 }
