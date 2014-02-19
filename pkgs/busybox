@@ -22,6 +22,7 @@ install() {
 	ln -sf busybox ed
 	ln -sf busybox expr
 	ln -sf busybox find
+	ln -sf busybox fdisk
 	ln -sf busybox fuser
 	ln -sf busybox gzip
 	ln -sf busybox hexdump
