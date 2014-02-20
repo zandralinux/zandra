@@ -13,9 +13,9 @@ build() {
 
 install() {
 	cd src/sinit
-	make PREFIX=$root install
+	make PREFIX="$root" install
 	cd -
-	cd $root
+	cd "$root"
 	ln -sf /bin/sinit init
 	cd -
 }

@@ -13,6 +13,6 @@ build() {
 
 install() {
 	cd src/smdev
-	make PREFIX=$root install || return 1
+	make PREFIX="$root" install || return 1
 	cd -
 }

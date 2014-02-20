@@ -22,7 +22,7 @@ build() {
 
 install() {
 	cd src/dwm
-	cp dwm $root/bin
-	cp dwm.1 $root/share/man/man1
+	cp dwm "$root/bin"
+	cp dwm.1 "$root/share/man/man1"
 	cd -
 }

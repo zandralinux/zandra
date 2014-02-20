@@ -13,6 +13,6 @@ build() {
 
 install() {
 	cd src/sbase
-	make PREFIX=$root install
+	make PREFIX="$root" install
 	cd -
 }

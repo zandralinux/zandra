@@ -6,6 +6,6 @@ fetch() {
 
 install() {
 	cd src/fs
-	cp -r * $root/
+	cp -r * "$root/"
 	cd -
 }

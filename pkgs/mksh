@@ -17,8 +17,8 @@ build() {
 }
 
 install() {
-	cp src/mksh/mksh $root/bin
-	cd $root/bin
+	cp src/mksh/mksh "$root/bin"
+	cd "$root/bin"
 	ln -sf /bin/mksh sh
 	cd -
 }

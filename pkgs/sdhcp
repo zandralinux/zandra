@@ -18,5 +18,5 @@ build() {
 }
 
 install() {
-	cp src/sdhcp/sdhcp $root/bin || return 1
+	cp src/sdhcp/sdhcp "$root/bin" || return 1
 }

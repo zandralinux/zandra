@@ -5,9 +5,9 @@ fetch() {
 }
 
 install() {
-	tar xJf src/crossx86-x86_64-linux-musl-0.9.15.tar.xz -C $root/opt/cross
-	mv $root/opt/cross/x86_64-linux-musl/x86_64-linux-musl/lib64/* $root/opt/cross/x86_64-linux-musl/x86_64-linux-musl/lib
-	cd $root/bin
+	tar xJf src/crossx86-x86_64-linux-musl-0.9.15.tar.xz -C "$root/opt/cross"
+	mv "$root/opt/cross/x86_64-linux-musl/x86_64-linux-musl/lib64/*" "$root/opt/cross/x86_64-linux-musl/x86_64-linux-musl/lib"
+	cd "$root/bin"
 	targets="ar as c++ g++ gcc ld ld.bfd nm objcopy objdump ranlib strip"
 	for t in $targets; do
 		ln -sf ../opt/cross/x86_64-linux-musl/bin/x86_64-linux-musl-$t $t

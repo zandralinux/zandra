@@ -12,7 +12,7 @@ unpack() {
 
 build() {
 	cd src/make-3.82
-	CC="x86_64-linux-musl-gcc -static" ./configure --prefix=$root --disable-nls || return 1
+	CC="x86_64-linux-musl-gcc -static" ./configure --prefix="$root" --disable-nls || return 1
 	make -j$nprocs || return 1
 	cd -
 }

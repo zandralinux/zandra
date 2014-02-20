@@ -21,8 +21,8 @@ build() {
 
 install() {
 	cd src/linux-$version
-	cp arch/x86/boot/bzImage $root/boot
-	cp .config $root/boot/bzImage.config
-	cp System.map $root/boot
+	cp arch/x86/boot/bzImage "$root/boot"
+	cp .config "$root/boot/bzImage.config"
+	cp System.map "$root/boot"
 	cd -
 }

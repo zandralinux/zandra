@@ -12,8 +12,8 @@ unpack() {
 
 build() {
 	cd src/terminus-font-4.38
-	sh configure --psfdir=$root/share/fonts/console \
-		--x11dir=$root/share/fonts/misc || return 1
+	sh configure --psfdir="$root/share/fonts/console" \
+		--x11dir="$root/share/fonts/misc" || return 1
 	make || return 1
 	cd -
 }
@@ -22,12 +22,12 @@ install() {
 	cd src/terminus-font-4.38
 	make DESTDIR=/ install || return 1
 	cd -
-	cd $root/share/fonts/misc
+	cd "$root/share/fonts/misc"
 	gzip -d *.gz
 	mkfontscale
 	mkfontdir
 	cd -
-	cd $root/share/fonts/console
+	cd "$root/share/fonts/console"
 	gzip -d *.gz
 	cd -
 }

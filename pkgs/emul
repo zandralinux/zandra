@@ -12,7 +12,7 @@ unpack() {
 
 install() {
 	cd src
-	cp -arP root.x86_64/* $root/emul
+	cp -arP root.x86_64/* "$root/emul"
 	cd -
-	cp stuff/enter-emul $root/bin
+	cp stuff/enter-emul "$root/bin"
 }

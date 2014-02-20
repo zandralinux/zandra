@@ -17,5 +17,5 @@ build() {
 }
 
 install() {
-	cp src/uuterm/uuterm-x11 $root/bin
+	cp src/uuterm/uuterm-x11 "$root/bin"
 }

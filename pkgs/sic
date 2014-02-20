@@ -18,5 +18,5 @@ build() {
 }
 
 install() {
-	cp src/sic/sic $root/bin
+	cp src/sic/sic "$root/bin"
 }

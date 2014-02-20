@@ -13,7 +13,7 @@ unpack() {
 build() {
 	cd src/ncurses-5.9
 	cp $top/stuff/ncurses-fallback.c ncurses/fallback.c
-	CC="x86_64-linux-musl-gcc -static" ./configure --prefix=$libcroot --without-tests \
+	CC="x86_64-linux-musl-gcc -static" ./configure --prefix="$libcroot" --without-tests \
 		--with-normal --enable-sigwinch --disable-nls --without-dlsym \
 		--without-cxx-binding \
 		--with-fallbacks="linux vt100 xterm xterm256-color" </dev/ptmx || return 1

@@ -8,9 +8,9 @@ install() {
 	# Install package
 	cd src/
 	chmod +x busybox
-	cp busybox $root/bin
+	cp busybox "$root/bin"
 	cd -
-	cd $root/bin
+	cd "$root/bin"
 	ln -sf busybox addgroup
 	ln -sf busybox adduser
 	ln -sf busybox awk
