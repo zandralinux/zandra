@@ -27,6 +27,10 @@ at the boot prompt as follows:
 
   bzImage root=/dev/sd[X]1 rootwait init=/init ro
 
+To experiment with the image in qemu:
+
+  qemu-system-x86_64 -hda morpheus-x86_64-0.0.img -enable-kvm -vga cirrus
+
 Login with root and an empty password.
 
 To obtain binary images go to http://dl.2f30.org/morpheus-img/
