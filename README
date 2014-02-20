@@ -22,7 +22,10 @@ After you've built stage0 you can create a bootable image:
 
 This creates a 4GB image.  You can dd this image to a USB stick if you
 want to.  Make sure  to change the kernel command line  to point it to
-your root device.
+your root device.  You can either do this before creating the image or
+at the boot prompt as follows:
+
+  bzImage root=/dev/sd[X]1 rootwait init=/init ro
 
 Login with root and an empty password.
 
