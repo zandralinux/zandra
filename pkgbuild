@@ -1,4 +1,14 @@
 #!/bin/sh
+#
+# Simple package build script.
+# For example to build the kernel do: ./pkgbuild kernel
+#
+# Please note that if the package has already been unpacked in src/
+# then it will not be unpacked again.  This is to make it easy
+# to build new packages by first hacking src/<pkg> until it can be
+# successfully compiled.  If you want to force unpacking of the package
+# simply rm the unpacked directory.  Similarly if you want to force
+# re-downloading of the package, simply rm the packed version as well.
 
 umask 022
 
