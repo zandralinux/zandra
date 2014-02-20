@@ -2,6 +2,8 @@
 #
 # Ensure you've loaded the loop module with max_part=15
 
+set -e -x
+
 . ./prepare-env
 
 img=morpheus-$arch-$version.img
