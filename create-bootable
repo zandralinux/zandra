@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # Ensure you've loaded the loop module with max_part=15
 
@@ -7,7 +7,8 @@
 img=morpheus-$arch-$version.img
 
 dd if=/dev/zero of=$img bs=512M count=8
-fdisk $img <<< '
+(
+cat << EOF
 o
 n
 p
@@ -16,7 +17,9 @@ p
 
 a
 1
-w'
+w
+EOF
+) | fdisk $img
 
 lodev=$(losetup -f --show $img) || exit 1
 partition="$lodev"p1
