@@ -26,24 +26,24 @@ install() {
 
 . $1
 (
-	if ! fetch; then
+	fetch || {
 		echo "Failed to fetch $1" >> "$top/morpheus.log"
 		exit 1
-	fi
-	if ! unpack; then
+	}
+	unpack || {
 		echo "Failed to unpack $1" >> "$top/morpheus.log"
 		exit 1
-	fi
-	if ! patch; then
+	}
+	patch || {
 		echo "Failed to patch $1" >> "$top/morpheus.log"
 		exit 1
-	fi
-	if ! build; then
+	}
+	build || {
 		echo "Failed to build $1" >> "$top/morpheus.log"
 		exit 1
-	fi
-	if ! install; then
+	}
+	install || {
 		echo "Failed to install $1" >> "$top/morpheus.log"
 		exit 1
-	fi
+	}
 )
