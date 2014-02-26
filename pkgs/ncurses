@@ -15,7 +15,7 @@ build() {
 	cp $top/stuff/ncurses-fallback.c ncurses/fallback.c
 	CC="x86_64-linux-musl-gcc -static" ./configure --prefix="$libcroot" --without-tests \
 		--with-normal --enable-sigwinch --disable-nls --without-dlsym \
-		--without-cxx-binding \
+		--without-cxx-binding --enable-widec \
 		--with-fallbacks="linux vt100 xterm xterm256-color" </dev/ptmx || return 1
 	make -j$nprocs || return 1
 	cd -
@@ -24,5 +24,9 @@ build() {
 install() {
 	cd src/ncurses-5.9
 	make install || return 1
+	cd -
+	cd $root/lib
+	ln -s libncursesw_g.a libncurses_g.a
+	ln -s libncursesw.a libncurses.a
 	cd -
 }

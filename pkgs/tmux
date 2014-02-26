@@ -13,7 +13,7 @@ unpack() {
 build() {
 	cd src/tmux-1.8
 	CC=x86_64-linux-musl-gcc ./configure --prefix="$root" LDFLAGS=-static \
-		CFLAGS="-I$libcroot/include/ncurses" || return 1
+		CFLAGS="-I$libcroot/include/ncursesw" || return 1
 	make -j$nprocs || return 1
 	cd -
 }
