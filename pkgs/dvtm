@@ -1,0 +1,28 @@
+url=http://www.brain-dump.org/projects/dvtm/dvtm-0.10.tar.gz
+
+fetch() {
+	wget -c $url -O src/dvtm-0.10.tar.gz
+}
+
+unpack() {
+	cd src
+	[ -d dvtm-0.10 ] || tar -xzf dvtm-0.10.tar.gz
+	cd -
+}
+
+build() {
+	cd src/dvtm-0.10
+	sed -i "s@PREFIX = /usr/local@PREFIX = /@" config.mk
+	sed -i "s@INCS = -I. -I/usr/include -I/usr/local/include@INCS = -I. -I$libcroot/include -I$libcroot/include/ncursesw@" config.mk
+	sed -i "s@LDFLAGS += -L/usr/lib -L/usr/local/lib ${LIBS}@LDFLAGS += -L$libcroot/lib ${LIBS} -static @" config.mk
+	sed -i 's@CC = cc@CC = x86_64-linux-musl-gcc@' config.mk
+	make || return 1
+	cd -
+}
+
+install() {
+	cd src/dvtm-0.10
+	make DESTDIR="$root" install
+	cd -
+}
+
