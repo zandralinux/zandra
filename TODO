@@ -2,3 +2,4 @@
 * Don't hardcode the cross-compiler name in the package files.
 * Factor out unpacking of packages in the generic build script.
 * Makefile based build system.
+* Make morpheus self-hosting.
