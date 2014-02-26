@@ -14,7 +14,7 @@ build() {
 	cd src/vim74
 	CC=x86_64-linux-musl-gcc CFLAGS="-I$libcroot/include" LDFLAGS="-L$libcroot/lib -static" ./configure --prefix=/ \
 		--enable-multibyte --disable-gui --with-x=no \
-		--disable-nls || return 1
+		--disable-nls --disable-netbeans || return 1
 	make -j$nprocs || return 1
 	cd -
 }
