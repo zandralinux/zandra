@@ -35,6 +35,9 @@ packages="crossmusl
           terminus
           dwm
           mpg123
-          jupp"
+          jupp
+          vim
+          dvtm
+          abduco"
 
 ./pkgbuild $packages
