@@ -1,22 +1,9 @@
-url=$mirror/sic.tar.gz
-
-fetch() {
-	wget -c $url -O src/sic.tar.gz
-}
-
-unpack() {
+build: crossmusl
+	url="$mirror/sic.tar.gz"
 	cd src
+	wget -c $url
 	[ -d sic ] || tar xzf sic.tar.gz
-	cd -
-}
-
-build() {
-	cd src/sic
+	cd sic
 	make clean
-	make CC=x86_64-linux-musl-gcc LDFLAGS=-static || return 1
-	cd -
-}
-
-install() {
-	cp src/sic/sic "$root/bin"
-}
+	make CC=$CC LDFLAGS=-static || return 1
+	cp sic "$root/bin"

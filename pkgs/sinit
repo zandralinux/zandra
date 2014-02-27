@@ -1,21 +1,10 @@
-url=git://git.2f30.org/sinit
-
-fetch() {
-	[ -d src/sinit ] || git clone $url src/sinit
-}
-
-build() {
-	cd src/sinit
+build: crossmusl
+	url="git://git.2f30.org/sinit"
+	cd src
+	[ -d sinit ] || git clone $url
+	cd sinit
 	make clean
-	make -j$nprocs CC=x86_64-linux-musl-gcc LDFLAGS=-static || return 1
-	cd -
-}
-
-install() {
-	cd src/sinit
+	make -j$nprocs CC=$CC LDFLAGS=-static || return 1
 	make PREFIX="$root" install
-	cd -
 	cd "$root"
 	ln -sf /bin/sinit init
-	cd -
-}

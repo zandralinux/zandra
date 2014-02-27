@@ -1,28 +1,14 @@
-url=$mirror/kernel.tar.gz
-version=3.10.32
-
-fetch() {
-	wget -c $url -O src/kernel.tar.gz
-}
-
-unpack() {
+build: crossmusl
+	v="3.10.32"
+	url="$mirror/kernel.tar.gz"
 	cd src
-	[ -d linux-$version ] || tar xzf kernel.tar.gz
-	cd -
-}
-
-build() {
-	cd src/linux-$version
+	wget -c $url
+	[ -d linux-$v ] || tar xzf kernel.tar.gz
+	cd linux-$v
 	cp $top/stuff/kernel-config .config
-	make menuconfig
+	#make menuconfig
+	make oldconfig
 	make bzImage -j$nprocs || return 1
-	cd -
-}
-
-install() {
-	cd src/linux-$version
 	cp arch/x86/boot/bzImage "$root/boot"
 	cp .config "$root/boot/bzImage.config"
 	cp System.map "$root/boot"
-	cd -
-}

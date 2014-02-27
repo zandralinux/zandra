@@ -1,32 +1,19 @@
-url=$mirror/ncurses.tar.gz
-
-fetch() {
-	wget -c $url -O src/ncurses.tar.gz
-}
-
-unpack() {
+build: crossmusl
+	v="5.9"
+	url="$mirror/ncurses.tar.gz"
 	cd src
-	[ -d ncurses-5.9 ] || tar xzf ncurses.tar.gz
-	cd -
-}
-
-build() {
-	cd src/ncurses-5.9
+	wget -c $url
+	[ -d ncurses-$v ] || tar xzf ncurses.tar.gz
+	cd ncurses-$v
 	cp $top/stuff/ncurses-fallback.c ncurses/fallback.c
-	CC="x86_64-linux-musl-gcc -static" ./configure --prefix="$libcroot" --without-tests \
+	CC="$CC -static" ./configure --prefix="${libcroot}" --without-tests \
 		--with-normal --enable-sigwinch --disable-nls --without-dlsym \
 		--without-cxx-binding --enable-widec \
 		--with-fallbacks="linux vt100 xterm xterm256-color" </dev/ptmx || return 1
 	make -j$nprocs || return 1
-	cd -
-}
-
-install() {
-	cd src/ncurses-5.9
 	make install || return 1
-	cd -
 	cd $root/lib
-	ln -s libncursesw_g.a libncurses_g.a
-	ln -s libncursesw.a libncurses.a
-	cd -
-}
+	for lib in ncurses form panel menu ; do
+		ln -sf lib${lib}w_g.a lib${lib}_g.a
+		ln -sf lib${lib}w.a lib${lib}.a
+	done

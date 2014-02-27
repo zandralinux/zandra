@@ -1,0 +1,4 @@
+#!/bin/sh
+
+val=`cmp -s .state/$1 pkgs/$1`
+return $val

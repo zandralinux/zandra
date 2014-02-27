@@ -1,16 +1,10 @@
-url=$mirror/busybox
-
-fetch() {
-	wget -c $url -O src/busybox
-}
-
-install() {
-	# Install package
-	cd src/
+build: crossmusl
+	url="$mirror/busybox"
+	cd src
+	wget -c ${url}
 	chmod +x busybox
-	cp busybox "$root/bin"
-	cd -
-	cd "$root/bin"
+	cp busybox "${root}/bin"
+	cd "${root}/bin"
 	ln -sf busybox addgroup
 	ln -sf busybox adduser
 	ln -sf busybox awk
@@ -47,5 +41,3 @@ install() {
 	ln -sf busybox top
 	ln -sf busybox vi
 	ln -sf busybox wget
-	cd -
-}

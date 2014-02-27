@@ -1,19 +1,9 @@
-url=git://git.2f30.org/ubase
-
-fetch() {
-	[ -d src/ubase ] || git clone $url src/ubase
-}
-
-build() {
-	cd src/ubase
+build: crossmusl
+	url="git://git.2f30.org/ubase"
+	cd src
+	[ -d ubase ] || git clone $url
+	cd ubase
 	make clean
-	make -j$nprocs CC=x86_64-linux-musl-gcc LDFLAGS=-static || return 1
-	cd -
-}
-
-install() {
-	cd src/ubase
+	make -j$nprocs CC=$CC LDFLAGS=-static || return 1
 	make PREFIX="$root" install || return 1
 	chmod 4755 "$root/bin/su"
-	cd -
-}

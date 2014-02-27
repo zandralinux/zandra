@@ -1,26 +1,11 @@
-url=$mirror/tinyalsa.tar.gz
-
-fetch() {
-	wget -c $url -O src/tinyalsa.tar.gz
-}
-
-unpack() {
+build: crossmusl
+	url="$mirror/tinyalsa.tar.gz"
 	cd src
+	wget -c $url
 	[ -d tinyalsa ] || tar xzf tinyalsa.tar.gz
-	cd -
-}
-
-build() {
-	cd src/tinyalsa
+	cd tinyalsa
 	make clean 2>/dev/null
-	make CC=x86_64-linux-musl-gcc LDFLAGS="-static" || return 1
-	cd -
-}
-
-install() {
-	cd src/tinyalsa
+	make CC=$CC LDFLAGS="-static" || return 1
 	cp tinycap tinymix tinypcminfo tinyplay "$root/bin"
 	cp libtinyalsa.a "$root/lib"
 	cp -r include/tinyalsa "$root/include"
-	cd -
-}

@@ -1,26 +1,13 @@
-url=$mirror/joe-3.1jupp26.tgz
-
-fetch() {
-	wget -c $url -O src/joe-3.1jupp26.tgz
-}
-
-unpack() {
+build: crossmusl
+	v="3.1jupp26"
+	url="$mirror/joe-$v.tgz"
 	cd src
-	[ -d jupp ] || tar xzf joe-3.1jupp26.tgz
-	cd -
-}
-
-build() {
-	cd src/jupp
-	make clean
-	CC=x86_64-linux-musl-gcc sh configure --prefix="/" CFLAGS="-I$libcroot/include" \
+	wget -c $url
+	[ -d jupp ] || tar xzf joe-$v.tgz
+	cd jupp
+	CC=$CC sh configure --prefix="/" CFLAGS="-I$libcroot/include" \
 		LDFLAGS="-L$libcroot/lib -static" || return 1
 	make || return 1
-	cd -
-}
-
-install() {
-	cd src/jupp
 	cp joe termidx "$root/bin"
 	mkdir -p "$root/share/man/man1"
 	cp joe.1 "$root/share/man/man1"
@@ -29,13 +16,7 @@ install() {
 	cp joerc jmacsrc "$root/etc/joe"
 	mkdir -p "$root/etc/joe/syntax"
 	cp syntax/* "$root/etc/joe/syntax"
-	cd -
-
 	cd "$root/bin"
 	ln -sf joe jmacs
-	cd -
-
 	cd "$root/share/man/man1"
 	ln -sf joe.1 jmacs.1
-	cd -
-}

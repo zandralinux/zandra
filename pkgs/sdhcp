@@ -1,22 +1,11 @@
-url=$mirror/sdhcp.tar.gz
-
-fetch() {
-	wget -c $url -O src/sdhcp.tar.gz
-}
-
-unpack() {
+build: crossmusl
+	url="$mirror/sdhcp.tar.gz"
 	cd src
+	wget -c $url
 	[ -d sdhcp ] || tar xzf sdhcp.tar.gz
-	cd -
-}
-
-build() {
-	cd src/sdhcp
+	cd sdhcp
 	make clean
-	make CC=x86_64-linux-musl-gcc LDFLAGS=-static || return 1
-	cd -
-}
-
-install() {
-	cp src/sdhcp/sdhcp "$root/bin" || return 1
-}
+	make CC=$CC LDFLAGS=-static || return 1
+	cp sdhcp "$root/bin" || return 1
+	mkdir -p "$root/share/man/man8"
+	cp sdhcp.8 "$root/share/man/man8/sdhcp.8"

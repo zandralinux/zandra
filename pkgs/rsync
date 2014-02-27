@@ -1,24 +1,10 @@
-url=$mirror/rsync-3.0.9.tar.gz
-
-fetch() {
-	wget -c $url -O src/rsync-3.0.9.tar.gz
-}
-
-unpack() {
+build: crossmusl
+	v="3.0.9"
+	url="$mirror/rsync-$v.tar.gz"
 	cd src
-	[ -d rsync-3.0.9 ] || tar xzf rsync-3.0.9.tar.gz
-	cd -
-}
-
-build() {
-	cd src/rsync-3.0.9
-	CC=x86_64-linux-musl-gcc ./configure --prefix="$root" LDFLAGS="-static" || return 1
+	wget -c $url
+	[ -d rsync-$v ] || tar xzf rsync-$v.tar.gz
+	cd rsync-$v
+	CC=$CC ./configure --prefix="$root" LDFLAGS="-static" || return 1
 	make -j$nprocs || return 1
-	cd -
-}
-
-install() {
-	cd src/rsync-3.0.9
 	make install || return 1
-	cd -
-}

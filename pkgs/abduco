@@ -1,22 +1,12 @@
-url=git://repo.or.cz/abduco.git
-
-fetch() {
-	[ -d src/abduco ] || git clone $url src/abduco
-}
-
-build() {
-	cd src/abduco
+build: crossmusl
+	url="git://repo.or.cz/abduco.git"
+	cd src
+	[ -d abduco ] || git clone $url
+	cd abduco
 	make clean
 	sed -i "s@PREFIX = /usr/local@PREFIX = /@" config.mk
 	sed -i "s@INCS = -I. -I/usr/include -I/usr/local/include@INCS = -I. -I$libcroot/include@" config.mk
 	sed -i "s@LDFLAGS += -L/usr/lib -L/usr/local/lib ${LIBS}@LDFLAGS += -L$libcroot/lib ${LIBS} -static @" config.mk
-	sed -i 's@CC = cc@CC = x86_64-linux-musl-gcc@' config.mk
+	sed -i "s@CC = cc@CC = $CC@" config.mk
 	make || return 1
-	cd -
-}
-
-install() {
-	cd src/abduco
 	make DESTDIR="$root" install
-	cd -
-}

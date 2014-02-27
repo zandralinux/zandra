@@ -1,11 +1,6 @@
-url=git://git.2f30.org/fs
-
-fetch() {
-	[ -d src/fs ] || git clone $url src/fs
-}
-
-install() {
-	cd src/fs
-	cp -r * "$root/"
-	cd -
-}
+build: prepare-root
+	url="git://git.2f30.org/fs"
+	cd src
+	[ -d fs ] || git clone ${url}
+	cd fs
+	cp -r * "${root}/"

@@ -1,26 +1,12 @@
-url=http://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
-
-fetch() {
-	wget -c $url -O src/vim-7.4.tar.bz2
-}
-
-unpack() {
+build: ncurses
+	v="7.4"
+	url="http://ftp.vim.org/pub/vim/unix/vim-$v.tar.bz2"
 	cd src
-	[ -d vim-7.4 ] || tar xjf vim-7.4.tar.bz2
-	cd -
-}
-
-build() {
-	cd src/vim74
-	CC=x86_64-linux-musl-gcc CFLAGS="-I$libcroot/include" LDFLAGS="-L$libcroot/lib -static" ./configure --prefix=/ \
+	wget -c $url
+	[ -d vim74 ] || tar xjf vim-$v.tar.bz2
+	cd vim74
+	CC=$CC CFLAGS="-I$libcroot/include" LDFLAGS="-L$libcroot/lib -static" ./configure --prefix=/ \
 		--enable-multibyte --disable-gui --with-x=no \
 		--disable-nls --disable-netbeans || return 1
 	make -j$nprocs || return 1
-	cd -
-}
-
-install() {
-	cd src/vim74
 	make DESTDIR="$root" install || return 1
-	cd -
-}
