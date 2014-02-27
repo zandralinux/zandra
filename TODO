@@ -11,3 +11,9 @@ Packages
 --------
 
   * e2fsprogs
+  * Use latest 3.10 lts kernel.
+  * Install tic as part of ncurses.
+  * Create an hwclock service file.
+  * Create a tinyalsa service file.
+  * Build musl from source.
+  * Build busybox from source.
