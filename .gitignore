@@ -1,3 +1,5 @@
 .state
 pkgs.mk
 *.img
+root
+src
