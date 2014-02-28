@@ -2,7 +2,6 @@ Generic stuff
 -------------
 
   * Make morpheus self-hosting.
-  * Use $optcflags and $optldflags.
 
 Packages
 --------
