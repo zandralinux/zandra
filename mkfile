@@ -16,7 +16,7 @@ clean:V:
 `{ mkdir -p src }
 `{ mkdir -p .state }
 `{ echo '# auto-generated file, do not edit' > pkgs.mk }
-`{ cd pkgs && for pkg in *; do cat $pkg | sed -e "s,^build:,$pkg:QP./stuff/cmp-pkgs: pkgs/$pkg," >> ../pkgs.mk && echo '\tcd $top && cp pkgs/$target .state/$target\n' >> ../pkgs.mk; done }
+`{ cd pkgs && for pkg in *; do cat $pkg | sed -e "s,^build:,$pkg:QP./stuff/cmp-pkgs: pkgs/$pkg," >> ../pkgs.mk && echo -e '\tcd $top && cp pkgs/$target .state/$target\n' >> ../pkgs.mk; done }
 
 <pkgs.mk
 
