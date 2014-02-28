@@ -1,8 +1,7 @@
+git="git://repo.or.cz/abduco.git"
+
 build: crossmusl
-	url="git://repo.or.cz/abduco.git"
-	cd src
-	[ -d abduco ] || git clone $url
-	cd abduco
+	cd src/abduco
 	make clean
 	sed -i "s@PREFIX = /usr/local@PREFIX = /@" config.mk
 	sed -i "s@INCS = -I. -I/usr/include -I/usr/local/include@INCS = -I. -I$libcroot/include@" config.mk

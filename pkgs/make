@@ -1,10 +1,8 @@
+v="3.82"
+url="$mirror/make-$v.tar.bz2"
+
 build: crossmusl
-	v="3.82"
-	url="$mirror/make-$v.tar.bz2"
-	cd src
-	wget -c $url
-	[ -d make-$v ] || tar xjf make-$v.tar.bz2
-	cd make-$v
+	cd src/make-$v
 	CC="$CC -static" ./configure --prefix="$root" --disable-nls || return 1
 	make -j$nprocs || return 1
 	make install || return 1

@@ -1,10 +1,8 @@
+v="7.4"
+url="http://ftp.vim.org/pub/vim/unix/vim-$v.tar.bz2"
+
 build: ncurses
-	v="7.4"
-	url="http://ftp.vim.org/pub/vim/unix/vim-$v.tar.bz2"
-	cd src
-	wget -c $url
-	[ -d vim74 ] || tar xjf vim-$v.tar.bz2
-	cd vim74
+	cd src/vim74
 	make clean
 	CC=$CC ./configure --prefix=/ \
 		--enable-multibyte --disable-gui --with-x=no \

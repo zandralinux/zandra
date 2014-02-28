@@ -1,7 +1,7 @@
+url="$mirror/busybox"
+
 build: crossmusl
-	url="$mirror/busybox"
 	cd src
-	wget -c ${url}
 	chmod +x busybox
 	cp busybox "${root}/bin"
 	cd "${root}/bin"

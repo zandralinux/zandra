@@ -1,10 +1,10 @@
-build: prepare-root
-	v="0.9.15"
-	url="$mirror/crossx86-$arch-linux-musl-$v.tar.xz"
+v="0.9.15"
+url="$mirror/crossx86-$arch-linux-musl-$v.tar.xz"
+
+build: prepare_root
 	targets="ar as c++ g++ gcc ld ld.bfd nm objcopy objdump ranlib strip"
 	cd src
-	wget -c $url
-	tar xJf crossx86-$arch-linux-musl-$v.tar.xz -C "$root/opt/cross"
+	cp -r $arch-linux-musl "$root/opt/cross/"
 	if test "$arch" = "x86_64"; then
 		mv "$root/opt/cross/$arch-linux-musl/$arch-linux-musl/lib64"/* "$root/opt/cross/$arch-linux-musl/$arch-linux-musl/lib"
 	fi

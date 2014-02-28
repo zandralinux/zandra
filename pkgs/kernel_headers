@@ -1,10 +1,8 @@
+v="3.10.32"
+url="$mirror/kernel.tar.gz"
+
 build:
-	v="3.10.32"
-	url="$mirror/kernel.tar.gz"
-	cd src
-	wget -c $url
-	[ -d linux-$v ] || tar xzf kernel.tar.gz
-	cd linux-$v
+	cd src/linux-$v
 	if test "$arch" = x86_64; then
 		A=$arch
 	else

@@ -1,8 +1,7 @@
+git="git://git.2f30.org/sinit"
+
 build: crossmusl
-	url="git://git.2f30.org/sinit"
-	cd src
-	[ -d sinit ] || git clone $url
-	cd sinit
+	cd src/sinit
 	make clean
 	make -j$nprocs CC=$CC LDFLAGS="$LDFLAGS" || return 1
 	make PREFIX="$root" install

@@ -1,10 +1,8 @@
+v="3.1jupp26"
+url="$mirror/joe-$v.tgz"
+
 build: crossmusl
-	v="3.1jupp26"
-	url="$mirror/joe-$v.tgz"
-	cd src
-	wget -c $url
-	[ -d jupp ] || tar xzf joe-$v.tgz
-	cd jupp
+	cd src/jupp
 	CC=$CC sh configure --prefix="/" || return 1
 	make || return 1
 	cp joe termidx "$root/bin"

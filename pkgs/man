@@ -1,8 +1,6 @@
+url="$mirror/man.tar.gz"
+
 build: crossmusl
-	url="$mirror/man.tar.gz"
-	cd src
-	wget -c $url
-	[ -d man ] || tar xzf man.tar.gz
-	cd man
+	cd src/man
 	$CC -std=gnu99 -o man man.c -static || return 1
 	cp man "$root/bin"

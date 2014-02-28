@@ -1,10 +1,8 @@
+v="4.38"
+url="$mirror/terminus-font-$v.tar.gz"
+
 build: crossmusl
-	v="4.38"
-	url="$mirror/terminus-font-$v.tar.gz"
-	cd src
-	wget -c $url
-	[ -d terminus-font-$v ] || tar xzf terminus-font-$v.tar.gz
-	cd terminus-font-$v
+	cd src/terminus-font-$v
 	sh configure --psfdir="$root/share/fonts/console" \
 		--x11dir="$root/share/fonts/misc" || return 1
 	make || return 1

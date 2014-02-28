@@ -1,9 +1,7 @@
+url="$mirror/dwm-git.tar.gz"
+
 build: tinyxlib
-	url="$mirror/dwm-git.tar.gz"
-	cd src
-	wget -c $url
-	[ -d dwm ] || tar xzf dwm-git.tar.gz
-	cd dwm
+	cd src/dwm
 	make clean
 	sed -i 's@PREFIX = /usr/local@PREFIX = @' config.mk
 	sed -i "s@X11INC = /usr/X11R6/include@X11INC = $libcroot/include @" config.mk

@@ -1,8 +1,7 @@
+git="git://git.2f30.org/sbase"
+
 build: crossmusl
-	url="git://git.2f30.org/sbase"
-	cd src
-	[ -d sbase ] || git clone $url
-	cd sbase
+	cd src/sbase
 	make clean
 	make -j$nprocs CC=$CC LDFLAGS="$LDFLAGS" || return 1
 	make PREFIX="$root" install

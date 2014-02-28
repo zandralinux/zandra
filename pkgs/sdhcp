@@ -1,9 +1,7 @@
+url="$mirror/sdhcp.tar.gz"
+
 build: crossmusl
-	url="$mirror/sdhcp.tar.gz"
-	cd src
-	wget -c $url
-	[ -d sdhcp ] || tar xzf sdhcp.tar.gz
-	cd sdhcp
+	cd src/sdhcp
 	make clean
 	make CC=$CC || return 1
 	cp sdhcp "$root/bin" || return 1

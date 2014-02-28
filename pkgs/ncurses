@@ -1,10 +1,8 @@
+v="5.9"
+url="$mirror/ncurses.tar.gz"
+
 build: crossmusl
-	v="5.9"
-	url="$mirror/ncurses.tar.gz"
-	cd src
-	wget -c $url
-	[ -d ncurses-$v ] || tar xzf ncurses.tar.gz
-	cd ncurses-$v
+	cd src/ncurses-$v
 	cp $top/stuff/ncurses-fallback.c ncurses/fallback.c
 	CC="$CC -static" ./configure --prefix="${libcroot}" --mandir="$root/share" --without-tests \
 		--with-normal --enable-sigwinch --disable-nls --without-dlsym \

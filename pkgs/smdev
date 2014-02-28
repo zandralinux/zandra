@@ -1,8 +1,7 @@
+git="git://git.2f30.org/smdev"
+
 build: crossmusl
-	url="git://git.2f30.org/smdev"
-	cd src
-	[ -d smdev ] || git clone $url
-	cd smdev
+	cd src/smdev
 	make clean
 	make CC=$CC LDFLAGS="$LDFLAGS" || return 1
 	make PREFIX="$root" install || return 1

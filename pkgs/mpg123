@@ -1,10 +1,8 @@
+v="1.18.0"
+url="$mirror/mpg123-$v.tar.bz2"
+
 build: tinyalsa
-	v="1.18.0"
-	url="$mirror/mpg123-$v.tar.bz2"
-	cd src
-	wget -c $url
-	[ -d mpg123-$v ] || tar xjf mpg123-$v.tar.bz2
-	cd mpg123-$v
+	cd src/mpg123-$v
 	CC=$CC ./configure --prefix="$root" --with-default-audio=tinyalsa \
 		--enable-static=yes --enable-shared=no || return 1
 	make || return 1

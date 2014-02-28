@@ -1,6 +1,5 @@
-build: prepare-root
-	url="$mirror/syslinux.tar.gz"
+url="$mirror/syslinux.tar.gz"
+
+build: prepare_root
 	cd src
-	wget -c $url
-	[ -d syslinux ] || tar xzf syslinux.tar.gz
 	cp -r syslinux/* $root/

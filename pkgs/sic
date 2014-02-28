@@ -1,9 +1,7 @@
+url="$mirror/sic.tar.gz"
+
 build: crossmusl
-	url="$mirror/sic.tar.gz"
-	cd src
-	wget -c $url
-	[ -d sic ] || tar xzf sic.tar.gz
-	cd sic
+	cd src/sic
 	make clean
 	make CC=$CC LDFLAGS="$LDFLAGS" || return 1
 	cp sic "$root/bin"

@@ -1,9 +1,7 @@
+url="$mirror/tinyalsa.tar.gz"
+
 build: crossmusl
-	url="$mirror/tinyalsa.tar.gz"
-	cd src
-	wget -c $url
-	[ -d tinyalsa ] || tar xzf tinyalsa.tar.gz
-	cd tinyalsa
+	cd src/tinyalsa
 	make clean 2>/dev/null
 	make CC=$CC || return 1
 	cp tinycap tinymix tinypcminfo tinyplay "$root/bin"

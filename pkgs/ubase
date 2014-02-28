@@ -1,8 +1,7 @@
+git="git://git.2f30.org/ubase"
+
 build: crossmusl
-	url="git://git.2f30.org/ubase"
-	cd src
-	[ -d ubase ] || git clone $url
-	cd ubase
+	cd src/ubase
 	make clean
 	make -j$nprocs CC=$CC LDFLAGS="$LDFLAGS" || return 1
 	make PREFIX="$root" install || return 1

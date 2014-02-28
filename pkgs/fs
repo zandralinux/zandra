@@ -1,6 +1,5 @@
-build: prepare-root
-	url="git://git.2f30.org/fs"
-	cd src
-	[ -d fs ] || git clone ${url}
-	cd fs
+git="git://git.2f30.org/fs"
+
+build: prepare_root
+	cd src/fs
 	cp -r * "${root}/"

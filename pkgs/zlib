@@ -1,10 +1,8 @@
+v="1.2.8"
+url="$mirror/zlib-$v.tar.gz"
+
 build: crossmusl
-	v="1.2.8"
-	url="$mirror/zlib-$v.tar.gz"
-	cd src
-	wget -c $url
-	[ -d zlib-$v ] || tar xzf zlib-$v.tar.gz
-	cd zlib-$v
+	cd src/zlib-$v
 	CC=$CC ./configure --prefix="$libcroot" --static || return 1
 	make -j$nprocs || return 1
 	make install || return 1

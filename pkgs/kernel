@@ -1,10 +1,7 @@
-build: crossmusl
-	v="3.10.32"
-	url="$mirror/kernel.tar.gz"
-	cd src
-	wget -c $url
-	[ -d linux-$v ] || tar xzf kernel.tar.gz
-	cd linux-$v
+v="3.10.32"
+
+build: crossmusl kernel_headers
+	cd src/linux-$v
 	cp $top/stuff/kernel-config .config
 	#make menuconfig
 	make oldconfig
