@@ -13,7 +13,6 @@ packages="crossmusl
           tinyalsa
           kernel
           kernel-headers
-          emul
           busybox
           fs
           make
