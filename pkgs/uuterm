@@ -5,5 +5,5 @@ build: tinyxlib
 	[ -d uuterm ] || tar xzf uuterm.tar.gz
 	cd uuterm
 	make clean
-	make CC=$CC LDFLAGS_X11="-L$libcroot/lib -static" uuterm-x11 || return 1
+	make CC=$CC LDFLAGS_X11="$LDFLAGS" uuterm-x11 || return 1
 	cp uuterm-x11 "$root/bin"

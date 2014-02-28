@@ -5,8 +5,7 @@ build: crossmusl
 	wget -c $url
 	[ -d jupp ] || tar xzf joe-$v.tgz
 	cd jupp
-	CC=$CC sh configure --prefix="/" CFLAGS="-I$libcroot/include" \
-		LDFLAGS="-L$libcroot/lib -static" || return 1
+	CC=$CC sh configure --prefix="/" || return 1
 	make || return 1
 	cp joe termidx "$root/bin"
 	mkdir -p "$root/share/man/man1"

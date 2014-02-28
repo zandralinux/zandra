@@ -5,7 +5,7 @@ build: crossmusl
 	[ -d tinyalsa ] || tar xzf tinyalsa.tar.gz
 	cd tinyalsa
 	make clean 2>/dev/null
-	make CC=$CC LDFLAGS="-static" || return 1
+	make CC=$CC || return 1
 	cp tinycap tinymix tinypcminfo tinyplay "$root/bin"
 	cp libtinyalsa.a "$root/lib"
 	cp -r include/tinyalsa "$root/include"

@@ -5,5 +5,5 @@ build: crossmusl
 	[ -d sic ] || tar xzf sic.tar.gz
 	cd sic
 	make clean
-	make CC=$CC LDFLAGS=-static || return 1
+	make CC=$CC || return 1
 	cp sic "$root/bin"

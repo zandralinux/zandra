@@ -5,7 +5,7 @@ build: ncurses libevent
 	wget -c $url
 	[ -d tmux-$v ] || tar xzf tmux-$v.tar.gz
 	cd tmux-$v
-	CC=$CC ./configure --prefix="$root" LDFLAGS="$optldflags -static" \
-		CFLAGS="$optcflags -I$libcroot/include/ncursesw" || return 1
+	CC=$CC ./configure --prefix="$root" \
+		CFLAGS="-I$libcroot/include/ncursesw $CFLAGS" || return 1
 	make -j$nprocs || return 1
 	make install || return 1

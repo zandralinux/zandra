@@ -5,6 +5,6 @@ build: crossmusl
 	wget -c $url
 	[ -d rsync-$v ] || tar xzf rsync-$v.tar.gz
 	cd rsync-$v
-	CC=$CC ./configure --prefix="$root" LDFLAGS="-static" || return 1
+	CC=$CC ./configure --prefix="$root" || return 1
 	make -j$nprocs || return 1
 	make install || return 1

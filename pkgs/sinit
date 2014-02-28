@@ -4,7 +4,7 @@ build: crossmusl
 	[ -d sinit ] || git clone $url
 	cd sinit
 	make clean
-	make -j$nprocs CC=$CC LDFLAGS=-static || return 1
+	make -j$nprocs CC=$CC || return 1
 	make PREFIX="$root" install
 	cd "$root"
 	ln -sf /bin/sinit init

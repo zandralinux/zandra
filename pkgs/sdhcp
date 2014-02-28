@@ -5,7 +5,7 @@ build: crossmusl
 	[ -d sdhcp ] || tar xzf sdhcp.tar.gz
 	cd sdhcp
 	make clean
-	make CC=$CC LDFLAGS=-static || return 1
+	make CC=$CC || return 1
 	cp sdhcp "$root/bin" || return 1
 	mkdir -p "$root/share/man/man8"
 	cp sdhcp.8 "$root/share/man/man8/sdhcp.8"
