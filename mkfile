@@ -10,7 +10,7 @@ help:VQ:
 all world:VQ: $pkgs
 
 clean:V:
-	rm -f .state/*
+	rm -f .state/* pkgs.mk
 
 # generate a pkgs.mk file with the tarkets for all packages in pkgs/
 `{ mkdir -p src }
@@ -22,4 +22,3 @@ clean:V:
 
 bootable:V:
 	stuff/create-bootable "$root" morpheus-$arch-$version.img
-
