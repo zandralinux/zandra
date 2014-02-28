@@ -5,7 +5,7 @@ build: ncurses
 	wget -c $url
 	[ -d vim74 ] || tar xjf vim-$v.tar.bz2
 	cd vim74
-	CC=$CC CFLAGS="-I$libcroot/include" LDFLAGS="-L$libcroot/lib -static" ./configure --prefix=/ \
+	CC=$CC ./configure --prefix=/ CFLAGS="-I$libcroot/include" LDFLAGS="-L$libcroot/lib -static" \
 		--enable-multibyte --disable-gui --with-x=no \
 		--disable-nls --disable-netbeans || return 1
 	make -j$nprocs || return 1
