@@ -1,5 +1,5 @@
 url=$mirror/kernel.tar.gz
-version=3.10.12
+version=3.10.32
 
 fetch() {
 	wget -c $url -O src/kernel.tar.gz
