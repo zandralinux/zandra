@@ -6,7 +6,7 @@ build: crossmusl
 	[ -d ncurses-$v ] || tar xzf ncurses.tar.gz
 	cd ncurses-$v
 	cp $top/stuff/ncurses-fallback.c ncurses/fallback.c
-	CC="$CC -static" ./configure --prefix="${libcroot}" --without-tests \
+	CC="$CC -static" ./configure --prefix="${libcroot}" --mandir="$root/share" --without-tests \
 		--with-normal --enable-sigwinch --disable-nls --without-dlsym \
 		--without-cxx-binding --enable-widec \
 		--with-fallbacks="linux vt100 xterm xterm256-color" </dev/ptmx || return 1
