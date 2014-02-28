@@ -1,4 +1,4 @@
-build: ncurses
+build: ncurses libevent
 	v="1.8"
 	url="$mirror/tmux-$v.tar.gz"
 	cd src
