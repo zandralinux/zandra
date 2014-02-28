@@ -3,7 +3,6 @@ Generic stuff
 
   * Make morpheus self-hosting.
   * Use $optcflags and $optldflags.
-  * Allow forcing a pkg build even if it is not out of date.
 
 Packages
 --------
