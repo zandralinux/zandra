@@ -6,6 +6,7 @@ Generic stuff
   * Factor out unpacking of packages in the generic build script.
   * Makefile based build system.
   * Make morpheus self-hosting.
+  * Use $optcflags and $optldflags.
 
 Packages
 --------
