@@ -13,6 +13,7 @@ clean:V:
 	rm -f .state/*
 
 # generate a pkgs.mk file with the tarkets for all packages in pkgs/
+`{ mkdir -p src }
 `{ mkdir -p .state }
 `{ echo '# auto-generated file, do not edit' > pkgs.mk }
 `{ cd pkgs && for pkg in *; do cat $pkg | sed -e "s,^build:,$pkg:QP./stuff/cmp-pkgs: pkgs/$pkg," >> ../pkgs.mk && echo '\tcd $top && cp pkgs/$target .state/$target\n' >> ../pkgs.mk; done }
