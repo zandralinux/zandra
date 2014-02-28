@@ -3,6 +3,7 @@ build: tinyxlib
 	cd src
 	wget -c $url
 	[ -d dwm ] || tar xzf dwm-git.tar.gz
+	make -C dwm clean
 	sed -i "s@X11INC = /usr/X11R6/include@X11INC = $libcroot/include @" dwm/config.mk
 	sed -i "s@X11LIB = /usr/X11R6/lib@X11LIB = $libcroot/lib @" dwm/config.mk
 	sed -i 's@LDFLAGS  = -s ${LIBS}@LDFLAGS = -s ${LIBS} -static @' dwm/config.mk

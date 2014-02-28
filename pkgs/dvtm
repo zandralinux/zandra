@@ -5,6 +5,7 @@ build: ncurses
 	wget -c $url
 	[ -d dvtm-$v ] || tar -xzf dvtm-$v.tar.gz
 	cd dvtm-$v
+	make clean
 	sed -i "s@PREFIX = /usr/local@PREFIX = /@" config.mk
 	sed -i "s@INCS = -I. -I/usr/include -I/usr/local/include@INCS = -I. -I$libcroot/include -I$libcroot/include/ncursesw@" config.mk
 	sed -i "s@LDFLAGS += -L/usr/lib -L/usr/local/lib ${LIBS}@LDFLAGS += -L$libcroot/lib ${LIBS} -static @" config.mk
