@@ -3,7 +3,7 @@ url="$mirror/sdhcp.tar.gz"
 build: crossmusl
 	cd src/sdhcp
 	make clean
-	make CC=$CC || return 1
-	cp sdhcp "$root/bin" || return 1
+	make CC=$CC
+	cp sdhcp "$root/bin"
 	mkdir -p "$root/share/man/man8"
 	cp sdhcp.8 "$root/share/man/man8/sdhcp.8"

@@ -2,5 +2,5 @@ url="$mirror/man.tar.gz"
 
 build: crossmusl
 	cd src/man
-	$CC -std=gnu99 -o man man.c -static || return 1
+	$CC -std=gnu99 -o man man.c -static
 	cp man "$root/bin"

@@ -3,5 +3,5 @@ url="$mirror/sic.tar.gz"
 build: crossmusl
 	cd src/sic
 	make clean
-	make CC=$CC LDFLAGS="$LDFLAGS" || return 1
+	make CC=$CC LDFLAGS="$LDFLAGS"
 	cp sic "$root/bin"

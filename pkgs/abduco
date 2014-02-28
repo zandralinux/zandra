@@ -7,5 +7,5 @@ build: crossmusl
 	sed -i "s@INCS = -I. -I/usr/include -I/usr/local/include@INCS = -I. -I$libcroot/include@" config.mk
 	sed -i "s@LDFLAGS += -L/usr/lib -L/usr/local/lib ${LIBS}@LDFLAGS += $LDFLAGS ${LIBS} @" config.mk
 	sed -i "s@CC = cc@CC = $CC@" config.mk
-	make || return 1
+	make
 	make DESTDIR="$root" install

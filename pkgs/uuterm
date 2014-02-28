@@ -3,5 +3,5 @@ url="$mirror/uuterm.tar.gz"
 build: tinyxlib
 	cd src/uuterm
 	make clean
-	make CC=$CC LDFLAGS_X11="$LDFLAGS" uuterm-x11 || return 1
+	make CC=$CC LDFLAGS_X11="$LDFLAGS" uuterm-x11
 	cp uuterm-x11 "$root/bin"

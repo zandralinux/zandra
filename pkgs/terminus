@@ -4,9 +4,9 @@ url="$mirror/terminus-font-$v.tar.gz"
 build: crossmusl
 	cd src/terminus-font-$v
 	sh configure --psfdir="$root/share/fonts/console" \
-		--x11dir="$root/share/fonts/misc" || return 1
-	make || return 1
-	make DESTDIR=/ install || return 1
+		--x11dir="$root/share/fonts/misc"
+	make
+	make DESTDIR=/ install
 	cd "$root/share/fonts/misc"
 	gzip -d *.gz
 	mkfontscale

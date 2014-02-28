@@ -3,8 +3,8 @@ url="$mirror/joe-$v.tgz"
 
 build: crossmusl
 	cd src/jupp
-	CC=$CC sh configure --prefix="/" || return 1
-	make || return 1
+	CC=$CC sh configure --prefix="/"
+	make
 	cp joe termidx "$root/bin"
 	mkdir -p "$root/share/man/man1"
 	cp joe.1 "$root/share/man/man1"

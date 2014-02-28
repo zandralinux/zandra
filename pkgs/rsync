@@ -3,6 +3,6 @@ url="$mirror/rsync-$v.tar.gz"
 
 build: crossmusl
 	cd src/rsync-$v
-	CC=$CC ./configure --prefix="$root" || return 1
-	make -j$nprocs || return 1
-	make install || return 1
+	CC=$CC ./configure --prefix="$root"
+	make -j$nprocs
+	make install

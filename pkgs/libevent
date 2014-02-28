@@ -3,6 +3,6 @@ url="$mirror/libevent-$v-stable.tar.gz"
 
 build: crossmusl
 	cd src/libevent-$v-stable
-	CC="$CC -static" ./configure --prefix="$libcroot" --disable-shared --enable-static || return 1
-	make -j$nprocs || return 1
-	make install || return 1
+	CC="$CC -static" ./configure --prefix="$libcroot" --disable-shared --enable-static
+	make -j$nprocs
+	make install

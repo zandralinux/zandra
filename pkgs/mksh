@@ -3,7 +3,7 @@ url="$mirror/mksh-$v.tar.gz"
 
 build: crossmusl
 	cd src/mksh
-	CC=$CC sh Build.sh || return 1
+	CC=$CC sh Build.sh
 	mkdir -p "$root/share/man/man1" "$root/share/man/cat1"
 	cp mksh "$root/bin"
 	cp mksh.1 "$root/share/man/man1/mksh.1"

@@ -7,9 +7,9 @@ build: crossmusl
 	CC="$CC -static" ./configure --prefix="${libcroot}" --mandir="$root/share" --without-tests \
 		--with-normal --enable-sigwinch --disable-nls --without-dlsym \
 		--without-cxx-binding --enable-widec \
-		--with-fallbacks="linux vt100 xterm xterm256-color" </dev/ptmx || return 1
-	make -j$nprocs || return 1
-	make install || return 1
+		--with-fallbacks="linux vt100 xterm xterm256-color" </dev/ptmx
+	make -j$nprocs
+	make install
 	cd $root/lib
 	for lib in ncurses form panel menu ; do
 		ln -sf lib${lib}w_g.a lib${lib}_g.a

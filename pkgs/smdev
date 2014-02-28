@@ -3,5 +3,5 @@ git="git://git.2f30.org/smdev"
 build: crossmusl
 	cd src/smdev
 	make clean
-	make CC=$CC LDFLAGS="$LDFLAGS" || return 1
-	make PREFIX="$root" install || return 1
+	make CC=$CC LDFLAGS="$LDFLAGS"
+	make PREFIX="$root" install

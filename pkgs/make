@@ -3,6 +3,6 @@ url="$mirror/make-$v.tar.bz2"
 
 build: crossmusl
 	cd src/make-$v
-	CC="$CC -static" ./configure --prefix="$root" --disable-nls || return 1
-	make -j$nprocs || return 1
-	make install || return 1
+	CC="$CC -static" ./configure --prefix="$root" --disable-nls
+	make -j$nprocs
+	make install

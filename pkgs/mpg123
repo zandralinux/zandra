@@ -4,6 +4,6 @@ url="$mirror/mpg123-$v.tar.bz2"
 build: tinyalsa
 	cd src/mpg123-$v
 	CC=$CC ./configure --prefix="$root" --with-default-audio=tinyalsa \
-		--enable-static=yes --enable-shared=no || return 1
-	make || return 1
-	make install || return 1
+		--enable-static=yes --enable-shared=no
+	make
+	make install

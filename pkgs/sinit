@@ -3,7 +3,7 @@ git="git://git.2f30.org/sinit"
 build: crossmusl
 	cd src/sinit
 	make clean
-	make -j$nprocs CC=$CC LDFLAGS="$LDFLAGS" || return 1
+	make -j$nprocs CC=$CC LDFLAGS="$LDFLAGS"
 	make PREFIX="$root" install
 	cd "$root"
 	ln -sf /bin/sinit init

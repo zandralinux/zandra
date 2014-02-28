@@ -3,6 +3,6 @@ git="git://git.2f30.org/ubase"
 build: crossmusl
 	cd src/ubase
 	make clean
-	make -j$nprocs CC=$CC LDFLAGS="$LDFLAGS" || return 1
-	make PREFIX="$root" install || return 1
+	make -j$nprocs CC=$CC LDFLAGS="$LDFLAGS"
+	make PREFIX="$root" install
 	chmod 4755 "$root/bin/su"

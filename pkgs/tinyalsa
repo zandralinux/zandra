@@ -3,7 +3,7 @@ url="$mirror/tinyalsa.tar.gz"
 build: crossmusl
 	cd src/tinyalsa
 	make clean 2>/dev/null
-	make CC=$CC || return 1
+	make CC=$CC
 	cp tinycap tinymix tinypcminfo tinyplay "$root/bin"
 	cp libtinyalsa.a "$root/lib"
 	cp -r include/tinyalsa "$root/include"

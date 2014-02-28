@@ -3,6 +3,6 @@ url="$mirror/zlib-$v.tar.gz"
 
 build: crossmusl
 	cd src/zlib-$v
-	CC=$CC ./configure --prefix="$libcroot" --static || return 1
-	make -j$nprocs || return 1
-	make install || return 1
+	CC=$CC ./configure --prefix="$libcroot" --static
+	make -j$nprocs
+	make install

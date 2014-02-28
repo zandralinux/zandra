@@ -4,5 +4,5 @@ build: crossmusl
 	cd src/tinyxlib
 	make clean
 	make CC=$CC BINDIR="/bin" LIBDIR="/lib" STATIC=1 \
-		FONT_ENCODINGS_DIRECTORY="/share/fonts/encodings/encodings.dir" || return 1
-	make DESTDIR="$libcroot" BINDIR="/bin" LIBDIR="/lib" STATIC=1 install || return 1
+		FONT_ENCODINGS_DIRECTORY="/share/fonts/encodings/encodings.dir"
+	make DESTDIR="$libcroot" BINDIR="/bin" LIBDIR="/lib" STATIC=1 install

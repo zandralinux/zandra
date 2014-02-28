@@ -6,6 +6,6 @@ build: ncurses
 	make clean
 	CC=$CC ./configure --prefix=/ \
 		--enable-multibyte --disable-gui --with-x=no \
-		--disable-nls --disable-netbeans || return 1
-	make -j$nprocs || return 1
-	make DESTDIR="$root" install || return 1
+		--disable-nls --disable-netbeans
+	make -j$nprocs
+	make DESTDIR="$root" install
