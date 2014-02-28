@@ -4,6 +4,6 @@ build: crossmusl
 	[ -d ubase ] || git clone $url
 	cd ubase
 	make clean
-	make -j$nprocs CC=$CC || return 1
+	make -j$nprocs CC=$CC LDFLAGS="$LDFLAGS" || return 1
 	make PREFIX="$root" install || return 1
 	chmod 4755 "$root/bin/su"

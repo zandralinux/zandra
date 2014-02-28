@@ -8,7 +8,7 @@ build: tinyxlib
 	sed -i 's@PREFIX = /usr/local@PREFIX = @' config.mk
 	sed -i "s@X11INC = /usr/X11R6/include@X11INC = $libcroot/include @" config.mk
 	sed -i "s@X11LIB = /usr/X11R6/lib@X11LIB = $libcroot/lib @" config.mk
-	sed -i 's@LDFLAGS  = -s ${LIBS}@LDFLAGS = -s ${LIBS} -static @' config.mk
+	sed -i 's@LDFLAGS  = -s ${LIBS}@LDFLAGS = $LDFLAGS ${LIBS} @' config.mk
 	sed -i "s@CC = cc@CC = $CC@" config.mk
 	make || return 1
 	make DESTDIR=${root} install || return 1

@@ -4,5 +4,5 @@ build: crossmusl
 	[ -d sbase ] || git clone $url
 	cd sbase
 	make clean
-	make -j$nprocs CC=$CC || return 1
+	make -j$nprocs CC=$CC LDFLAGS="$LDFLAGS" || return 1
 	make PREFIX="$root" install

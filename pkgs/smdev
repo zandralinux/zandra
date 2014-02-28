@@ -4,5 +4,5 @@ build: crossmusl
 	[ -d smdev ] || git clone $url
 	cd smdev
 	make clean
-	make CC=$CC || return 1
+	make CC=$CC LDFLAGS="$LDFLAGS" || return 1
 	make PREFIX="$root" install || return 1
