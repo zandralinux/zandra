@@ -1,5 +1,0 @@
-#!/bin/sh
-
-. ./prepare-env
-
-cd $root && find . | cpio --quiet -H newc -o | gzip -9 -n > ../morpheus-initrd.img
