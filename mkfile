@@ -16,7 +16,7 @@ fetchpkgs = ${pkgs:%=%-fetch}
 
 fetch-all fetch-world:VQ: ${fetchpkgs}
 
-# generate a pkgs.mk file with the tarkets for all packages in pkgs/
+# generate a pkgs.mk file with the targets for all packages in pkgs/
 `{ mkdir -p src }
 `{ mkdir -p .cache }
 `{ printf '# auto-generated file, do not edit\n' > pkgs.mk }
