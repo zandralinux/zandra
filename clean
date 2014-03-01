@@ -1,3 +1,0 @@
-#!/bin/sh
-
-rm -rf root src morpheus.log stuff/tinywm stuff/xsetroot

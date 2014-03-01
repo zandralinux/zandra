@@ -1,24 +1,8 @@
-url=$mirror/make-3.82.tar.bz2
+v="3.82"
+url="$mirror/make-$v.tar.bz2"
 
-fetch() {
-	wget -c $url -O src/make-3.82.tar.bz2
-}
-
-unpack() {
-	cd src
-	[ -d make-3.82 ] || tar xjf make-3.82.tar.bz2
-	cd -
-}
-
-build() {
-	cd src/make-3.82
-	CC="x86_64-linux-musl-gcc -static" ./configure --prefix="$root" --disable-nls || return 1
-	make -j$nprocs || return 1
-	cd -
-}
-
-install() {
-	cd src/make-3.82
-	make install || return 1
-	cd -
-}
+build: crossmusl
+	cd src/make-$v
+	CC="$CC -static" ./configure --prefix="$root" --disable-nls
+	make -j$nprocs
+	make install

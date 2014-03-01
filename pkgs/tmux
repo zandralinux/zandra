@@ -1,25 +1,9 @@
-url=$mirror/tmux-1.8.tar.gz
+v="1.8"
+url="$mirror/tmux-$v.tar.gz"
 
-fetch() {
-	wget -c $url -O src/tmux-1.8.tar.gz
-}
-
-unpack() {
-	cd src
-	[ -d tmux-1.8 ] || tar xzf tmux-1.8.tar.gz
-	cd -
-}
-
-build() {
-	cd src/tmux-1.8
-	CC=x86_64-linux-musl-gcc ./configure --prefix="$root" LDFLAGS=-static \
-		CFLAGS="-I$libcroot/include/ncursesw" || return 1
-	make -j$nprocs || return 1
-	cd -
-}
-
-install() {
-	cd src/tmux-1.8
-	make install || return 1
-	cd -
-}
+build: ncurses libevent
+	cd src/tmux-$v
+	CC=$CC ./configure --prefix="$root" \
+		CFLAGS="-I$libcroot/include/ncursesw $CFLAGS"
+	make -j$nprocs
+	make install

@@ -1,18 +1,7 @@
-url=git://git.2f30.org/smdev
+git="git://git.2f30.org/smdev"
 
-fetch() {
-	[ -d src/smdev ] || git clone $url src/smdev
-}
-
-build() {
+build: crossmusl
 	cd src/smdev
 	make clean
-	make CC=x86_64-linux-musl-gcc LDFLAGS=-static || return 1
-	cd -
-}
-
-install() {
-	cd src/smdev
-	make PREFIX="$root" install || return 1
-	cd -
-}
+	make CC=$CC LDFLAGS="$LDFLAGS"
+	make PREFIX="$root" install

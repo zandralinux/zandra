@@ -1,0 +1,7 @@
+.cache
+pkgs.mk
+*.img
+root
+src
+stuff/tinywm
+stuff/xsetroot

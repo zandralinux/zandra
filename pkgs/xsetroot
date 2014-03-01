@@ -1,11 +1,4 @@
-build() {
+build: tinyxlib
 	cd stuff
-	x86_64-musl-linux-gcc -I"$libcroot/include" -L"$libcroot/lib" xsetroot.c -o xsetroot -lX11 -static || return 1
-	cd -
-}
-
-install() {
-	cd stuff
+	$CC -I"$libcroot/include" -L"$libcroot/lib" xsetroot.c -o xsetroot -lX11 -static
 	cp xsetroot "$root/bin"
-	cd -
-}

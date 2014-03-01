@@ -1,33 +1,15 @@
-url=$mirror/terminus-font-4.38.tar.gz
+v="4.38"
+url="$mirror/terminus-font-$v.tar.gz"
 
-fetch() {
-	wget -c $url -O src/terminus-font-4.38.tar.gz
-}
-
-unpack() {
-	cd src
-	[ -d terminus-font-4.38 ] || tar xzf terminus-font-4.38.tar.gz
-	cd -
-}
-
-build() {
-	cd src/terminus-font-4.38
+build: crossmusl
+	cd src/terminus-font-$v
 	sh configure --psfdir="$root/share/fonts/console" \
-		--x11dir="$root/share/fonts/misc" || return 1
-	make || return 1
-	cd -
-}
-
-install() {
-	cd src/terminus-font-4.38
-	make DESTDIR=/ install || return 1
-	cd -
+		--x11dir="$root/share/fonts/misc"
+	make
+	make DESTDIR=/ install
 	cd "$root/share/fonts/misc"
 	gzip -d *.gz
 	mkfontscale
 	mkfontdir
-	cd -
 	cd "$root/share/fonts/console"
 	gzip -d *.gz
-	cd -
-}

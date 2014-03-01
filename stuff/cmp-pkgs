@@ -1,0 +1,3 @@
+#!/bin/sh
+
+cmp -s .cache/$1 pkgs/$1

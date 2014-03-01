@@ -1,28 +1,12 @@
-url=$mirror/dwm-git.tar.gz
+url="$mirror/dwm-git.tar.gz"
 
-fetch() {
-	wget -c $url -O src/dwm-git.tar.gz
-}
-
-unpack() {
-	cd src
-	[ -d dwm ] || tar xzf dwm-git.tar.gz
-	cd -
-}
-
-build() {
+build: tinyxlib
 	cd src/dwm
-	sed -i "s@X11INC = /usr/X11R6/include@X11INC = $libcroot/include@" config.mk
-	sed -i "s@X11LIB = /usr/X11R6/lib@X11LIB = $libcroot/lib@" config.mk
-	sed -i 's@LDFLAGS  = -s ${LIBS}@LDFLAGS = -s ${LIBS} -static@' config.mk
-	sed -i 's@CC = cc@CC = x86_64-linux-musl-gcc@' config.mk
-	make || return 1
-	cd -
-}
-
-install() {
-	cd src/dwm
-	cp dwm "$root/bin"
-	cp dwm.1 "$root/share/man/man1"
-	cd -
-}
+	make clean
+	sed -i 's@PREFIX = /usr/local@PREFIX = @' config.mk
+	sed -i "s@X11INC = /usr/X11R6/include@X11INC = $libcroot/include @" config.mk
+	sed -i "s@X11LIB = /usr/X11R6/lib@X11LIB = $libcroot/lib @" config.mk
+	sed -i "s@LDFLAGS  = -s ${LIBS}@LDFLAGS = $LDFLAGS ${LIBS} @" config.mk
+	sed -i "s@CC = cc@CC = $CC@" config.mk
+	make
+	make DESTDIR=${root} install

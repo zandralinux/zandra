@@ -1,0 +1,4 @@
+#!/bin/sh
+
+pkg=`echo $1 | sed -e 's,-fetch$,,'`
+cmp -s .cache/$1 pkgs/$pkg

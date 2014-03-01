@@ -1,18 +1,7 @@
-url=git://git.2f30.org/sbase
+git="git://git.2f30.org/sbase"
 
-fetch() {
-	[ -d src/sbase ] || git clone $url src/sbase
-}
-
-build() {
+build: crossmusl
 	cd src/sbase
 	make clean
-	make -j$nprocs CC=x86_64-linux-musl-gcc LDFLAGS=-static || return 1
-	cd -
-}
-
-install() {
-	cd src/sbase
+	make -j$nprocs CC=$CC LDFLAGS="$LDFLAGS"
 	make PREFIX="$root" install
-	cd -
-}

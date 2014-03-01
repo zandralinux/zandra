@@ -1,0 +1,11 @@
+v="3.10.32"
+url="$mirror/kernel.tar.gz"
+
+build:
+	cd src/linux-$v
+	if test "$arch" = x86_64; then
+		A=$arch
+	else
+		A=x86
+	fi
+	make ARCH="$A" INSTALL_HDR_PATH="$root" headers_install

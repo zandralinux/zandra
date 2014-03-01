@@ -1,24 +1,8 @@
-url=$mirror/libevent-2.0.21-stable.tar.gz
+v="2.0.21"
+url="$mirror/libevent-$v-stable.tar.gz"
 
-fetch() {
-	wget -c $url -O src/libevent-2.0.21-stable.tar.gz
-}
-
-unpack() {
-	cd src
-	[ -d libevent-2.0.21-stable ] || tar xzf libevent-2.0.21-stable.tar.gz
-	cd -
-}
-
-build() {
-	cd src/libevent-2.0.21-stable
-	CC="x86_64-linux-musl-gcc -static" ./configure --prefix="$libcroot" --disable-shared --enable-static || return 1
-	make -j$nprocs || return 1
-	cd -
-}
-
-install() {
-	cd src/libevent-2.0.21-stable
-	make install || return 1
-	cd -
-}
+build: crossmusl
+	cd src/libevent-$v-stable
+	CC="$CC -static" ./configure --prefix="$libcroot" --disable-shared --enable-static
+	make -j$nprocs
+	make install

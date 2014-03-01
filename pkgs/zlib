@@ -1,24 +1,8 @@
-url=$mirror/zlib-1.2.8.tar.gz
+v="1.2.8"
+url="$mirror/zlib-$v.tar.gz"
 
-fetch() {
-	wget -c $url -O src/zlib-1.2.8.tar.gz
-}
-
-unpack() {
-	cd src
-	[ -d zlib-1.2.8 ] || tar xzf zlib-1.2.8.tar.gz
-	cd -
-}
-
-build() {
-	cd src/zlib-1.2.8
-	CC=x86_64-linux-musl-gcc ./configure --prefix="$libcroot" --static || return 1
-	make -j$nprocs || return 1
-	cd -
-}
-
-install() {
-	cd src/zlib-1.2.8
-	make install || return 1
-	cd -
-}
+build: crossmusl
+	cd src/zlib-$v
+	CC=$CC ./configure --prefix="$libcroot" --static
+	make -j$nprocs
+	make install

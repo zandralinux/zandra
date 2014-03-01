@@ -1,23 +1,6 @@
-url=$mirror/man.tar.gz
+url="$mirror/man.tar.gz"
 
-fetch() {
-	wget -c $url -O src/man.tar.gz
-}
-
-unpack() {
-	cd src
-	[ -d man ] || tar xzf man.tar.gz
-	cd -
-}
-
-build() {
+build: crossmusl
 	cd src/man
-	x86_64-linux-musl-gcc -std=gnu99 -o man man.c -static || return 1
-	cd -
-}
-
-install() {
-	cd src/man
+	$CC -std=gnu99 -o man man.c -static
 	cp man "$root/bin"
-	cd -
-}
