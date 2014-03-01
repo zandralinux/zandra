@@ -12,6 +12,9 @@ all world:VQ: $pkgs
 clean:V:
 	rm -f .cache/* pkgs.mk
 
+clean-all:V: clean
+	rm -rf ${root} src
+
 fetchpkgs = ${pkgs:%=%-fetch}
 
 fetch-all fetch-world:VQ: ${fetchpkgs}
