@@ -4,7 +4,7 @@ allpkgs = `{ls pkgs/*}
 pkgs = ${allpkgs:pkgs/%=%}
 
 help:VQ:
-	printf 'Usage: mk <pkg>\n'
+	printf 'Usage: mk pkg...\n'
 	printf '\nTo build all the targets in pkgs/, run `mk world´\n'
 
 all world:VQ: $pkgs
