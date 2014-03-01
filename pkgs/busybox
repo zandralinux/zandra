@@ -1,8 +1,10 @@
-url="$mirror/busybox"
+v="1.22.1"
+url="http://www.busybox.net/downloads/busybox-$v.tar.bz2"
 
 build: crossmusl
-	cd src
-	chmod +x busybox
+	cd src/busybox-$v
+	cp $top/stuff/busybox.config .config
+	make CC=$CC LDFLAGS="$LDFLAGS" CFLAGS="$CFLAGS" busybox
 	cp busybox "${root}/bin"
 	cd "${root}/bin"
 	ln -sf busybox addgroup
