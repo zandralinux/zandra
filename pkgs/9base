@@ -1,0 +1,17 @@
+git="git://git.suckless.org/9base"
+
+build: crossmusl
+	targets="mk sed awk"
+	cd src/9base
+	make clean
+	for t in lib9 yacc; do
+		cd $t
+		make CC=$CC LDFLAGS="$LDFLAGS"
+		cd ..
+	done
+	for t in $targets; do
+		cd $t
+		make CC=$CC LDFLAGS="$LDFLAGS"
+		cp $t $root/bin/
+		cd ..
+	done
