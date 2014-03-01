@@ -4,8 +4,8 @@ allpkgs = `{ls pkgs/*}
 pkgs = ${allpkgs:pkgs/%=%}
 
 help:VQ:
-	echo 'Usage: mk <pkg>'
-	echo '\nTo build all the targets in pkgs/, run `mk world´'
+	printf 'Usage: mk <pkg>\n'
+	printf '\nTo build all the targets in pkgs/, run `mk world´\n'
 
 all world:VQ: $pkgs
 
@@ -19,7 +19,7 @@ fetch-all fetch-world:VQ: ${fetchpkgs}
 # generate a pkgs.mk file with the tarkets for all packages in pkgs/
 `{ mkdir -p src }
 `{ mkdir -p .cache }
-`{ echo '# auto-generated file, do not edit' > pkgs.mk }
+`{ printf '# auto-generated file, do not edit' > pkgs.mk }
 `{ cd pkgs && for pkg in *; do cat $pkg ../stuff/fetch-pkg.mk |\
 	sed -e "s,^build:,$pkg:QP./stuff/cmp-pkgs: $pkg-fetch pkgs/$pkg," |\
 	sed -e "s,^fetch-target:,$pkg-fetch:," |\
@@ -34,7 +34,7 @@ fetch-all fetch-world:VQ: ${fetchpkgs}
 <pkgs.mk
 
 test:VQ:
-	echo test
+	printf test
 
 bootable:V:
 	stuff/create-bootable "$root" morpheus-$arch-$version.img
