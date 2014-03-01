@@ -4,7 +4,7 @@ url="$mirror/joe-$v.tgz"
 build: crossmusl
 	cd src/jupp
 	CC=$CC sh configure --prefix="/"
-	make
+	make -j$nprocs
 	cp joe termidx "$root/bin"
 	mkdir -p "$root/share/man/man1"
 	cp joe.1 "$root/share/man/man1"

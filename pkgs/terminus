@@ -5,7 +5,7 @@ build: crossmusl
 	cd src/terminus-font-$v
 	sh configure --psfdir="$root/share/fonts/console" \
 		--x11dir="$root/share/fonts/misc"
-	make
+	make -j$nprocs
 	make DESTDIR=/ install
 	cd "$root/share/fonts/misc"
 	gzip -d *.gz

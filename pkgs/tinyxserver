@@ -3,7 +3,7 @@ url="$mirror/tinyxserver.tar.gz"
 build: tinyxlib zlib
 	cd src/tinyxserver
 	make clean
-	make CC=$CC EXTRA_CFLAGS="-D_XSERVER64=1 $CFLAGS" \
+	make -j$nprocs CC=$CC EXTRA_CFLAGS="-D_XSERVER64=1 $CFLAGS" \
 		FONTDIR="/usr/share/fonts"
 	make DESTDIR="$root" BINDIR="/bin" install
 	cd "$root/usr/share/fonts/misc"

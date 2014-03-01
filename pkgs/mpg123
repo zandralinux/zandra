@@ -5,5 +5,5 @@ build: tinyalsa
 	cd src/mpg123-$v
 	CC=$CC ./configure --prefix="$root" --with-default-audio=tinyalsa \
 		--enable-static=yes --enable-shared=no
-	make
+	make -j$nprocs
 	make install
