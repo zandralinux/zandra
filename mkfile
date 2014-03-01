@@ -26,13 +26,13 @@ fetch-all fetch-world:VQ: ${fetchpkgs}
 `{ cd pkgs && for pkg in *; do cat $pkg ../stuff/fetch-pkg.mk |\
 	sed -e "s,^build:,$pkg:QP./stuff/cmp-pkgs: $pkg-fetch pkgs/$pkg," |\
 	sed -e "s,^fetch-target:,$pkg-fetch:," |\
-	sed -e "s,^v=,${pkg}_v=," |\
-	sed -e "s,\$v,\${${pkg}_v}," |\
-	sed -e "s,\$url,\${${pkg}_url}," |\
-	sed -e "s, url=, ${pkg}_url=," |\
-	sed -e "s,\$git,\${${pkg}_git}," |\
-	sed -e "s,^git=,${pkg}_git=," |\
-	sed -e "s,^url=,${pkg}_url=," >> ../pkgs.mk; done }
+	sed -e "s,^v=,_${pkg}_v=," |\
+	sed -e "s,\$v,\${_${pkg}_v}," |\
+	sed -e "s,\$url,\${_${pkg}_url}," |\
+	sed -e "s, url=, _${pkg}_url=," |\
+	sed -e "s,\$git,\${_${pkg}_git}," |\
+	sed -e "s,^git=,_${pkg}_git=," |\
+	sed -e "s,^url=,_${pkg}_url=," >> ../pkgs.mk; done }
 
 <pkgs.mk
 
