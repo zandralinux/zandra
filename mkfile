@@ -33,8 +33,5 @@ fetch-all fetch-world:VQ: ${fetchpkgs}
 
 <pkgs.mk
 
-test:VQ:
-	printf test
-
 bootable:V:
 	stuff/create-bootable "$root" morpheus-$arch-$version.img
