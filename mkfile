@@ -19,7 +19,7 @@ fetch-all fetch-world:VQ: ${fetchpkgs}
 # generate a pkgs.mk file with the tarkets for all packages in pkgs/
 `{ mkdir -p src }
 `{ mkdir -p .cache }
-`{ printf '# auto-generated file, do not edit' > pkgs.mk }
+`{ printf '# auto-generated file, do not edit\n' > pkgs.mk }
 `{ cd pkgs && for pkg in *; do cat $pkg ../stuff/fetch-pkg.mk |\
 	sed -e "s,^build:,$pkg:QP./stuff/cmp-pkgs: $pkg-fetch pkgs/$pkg," |\
 	sed -e "s,^fetch-target:,$pkg-fetch:," |\
