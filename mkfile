@@ -10,7 +10,7 @@ help:VQ:
 all world:VQ: $pkgs
 
 clean:V:
-	rm -f .state/* pkgs.mk
+	rm -f .cache/* pkgs.mk
 
 fetchpkgs = ${pkgs:%=%-fetch}
 
@@ -18,7 +18,7 @@ fetch-all fetch-world:VQ: ${fetchpkgs}
 
 # generate a pkgs.mk file with the tarkets for all packages in pkgs/
 `{ mkdir -p src }
-`{ mkdir -p .state }
+`{ mkdir -p .cache }
 `{ echo '# auto-generated file, do not edit' > pkgs.mk }
 `{ cd pkgs && for pkg in *; do cat $pkg ../stuff/fetch-pkg.mk |\
 	sed -e "s,^build:,$pkg:QP./stuff/cmp-pkgs: $pkg-fetch pkgs/$pkg," |\

@@ -1,4 +1,4 @@
-	cp $top/pkgs/$target $top/.state/$target
+	cp $top/pkgs/$target $top/.cache/$target
 
 fetch-target:QP./stuff/cmp-fetch: .
 	cd src
@@ -22,5 +22,5 @@ fetch-target:QP./stuff/cmp-fetch: .
 			tar -xJf $file
 		fi
 	fi
-	cp $top/pkgs/$pkg $top/.state/$target
+	cp $top/pkgs/$pkg $top/.cache/$target
 

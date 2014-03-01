@@ -1,4 +1,4 @@
-.state
+.cache
 pkgs.mk
 *.img
 root
