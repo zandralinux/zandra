@@ -2,7 +2,7 @@ v="3.10.32"
 
 build: crossmusl kernel_headers
 	cd src/linux-$v
-	cp $top/stuff/kernel-config .config
+	cp "$top/stuff/kernel-config-$arch" .config
 	#make menuconfig
 	make oldconfig
 	make bzImage -j$nprocs
