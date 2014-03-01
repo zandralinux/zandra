@@ -32,7 +32,8 @@ fetch-all fetch-world:VQ: ${fetchpkgs}
 	sed -e "s, url=, _${pkg}_url=,g" |\
 	sed -e "s,\$git,\${_${pkg}_git},g" |\
 	sed -e "s,^git=,_${pkg}_git=," |\
-	sed -e "s,^url=,_${pkg}_url=," >> ../pkgs.mk; done }
+	sed -e "s,^url=,_${pkg}_url=," >> ../pkgs.mk; \
+	echo >> ../pkgs.mk; done }
 
 <pkgs.mk
 
