@@ -7,7 +7,6 @@ build: crossmusl
 	cd "${root}/bin"
 	ln -sf busybox addgroup
 	ln -sf busybox adduser
-	ln -sf busybox awk
 	ln -sf busybox bzip2
 	ln -sf busybox delgroup
 	ln -sf busybox deluser
@@ -32,7 +31,6 @@ build: crossmusl
 	ln -sf busybox pkill
 	ln -sf busybox printf
 	ln -sf busybox reset
-	ln -sf busybox sed
 	ln -sf busybox sysctl
 	ln -sf busybox tac
 	ln -sf busybox telnet
