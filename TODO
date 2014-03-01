@@ -12,3 +12,4 @@ Packages
   * Create a tinyalsa service file.
   * Build musl from source.
   * Build busybox from source.
+  * Build kernel with our cross-compiler.
