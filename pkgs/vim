@@ -9,3 +9,4 @@ build: ncurses
 		--disable-nls --disable-netbeans
 	make -j$nprocs
 	make DESTDIR="$root" install
+	ln -sf vim $root/bin/vi

@@ -39,5 +39,4 @@ build: crossmusl
 	ln -sf busybox tftp
 	ln -sf busybox tftpd
 	ln -sf busybox top
-	ln -sf busybox vi
 	ln -sf busybox wget
