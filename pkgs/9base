@@ -6,12 +6,12 @@ build: crossmusl
 	make clean
 	for t in lib9 yacc; do
 		cd $t
-		make CC=$CC
+		make -j$nprocs CC=$CC
 		cd ..
 	done
 	for t in $targets; do
 		cd $t
-		make CC=$CC
+		make -j$nprocs CC=$CC
 		cp $t $root/bin/
 		cd ..
 	done
