@@ -4,7 +4,7 @@ url="http://www.busybox.net/downloads/busybox-$v.tar.bz2"
 build: crossmusl
 	cd src/busybox-$v
 	cp $top/stuff/busybox.config .config
-	make CC=$CC LDFLAGS="$LDFLAGS" CFLAGS="$CFLAGS" busybox
+	make CC=$CC busybox
 	cp busybox "${root}/bin"
 	cd "${root}/bin"
 	ln -sf busybox addgroup
