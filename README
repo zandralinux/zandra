@@ -8,7 +8,7 @@ To  build  morpheus you  currently  need  an  x86_64 based  host  with
 multilib support  or an x86  host.  You will  need to have  mk(1) from
 9base or plan9port.
 
-Please review `config.mk' prior to building and adjust any parameters.
+Please review config.mk prior to building and adjust any parameters.
 
 To build everything:
 
@@ -62,5 +62,16 @@ To experiment with the x86_64 image in qemu:
 Login with root and an empty password.
 
 To obtain binary images go to http://dl.2f30.org/morpheus-img/
+
+Debugging
+---------
+
+In some  cases you may  want to set  NPROC to 1  in order to  get sane
+build output.  You may also have to set nprocs to 1.  You can then use
+something like the following:
+
+  mk world 2>&1 | tee -a output.log
+
+or similarly if you are trying to build an individual package.
 
 Enjoy!
