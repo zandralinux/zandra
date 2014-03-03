@@ -1,7 +1,7 @@
 v="3.10.32"
 url="$mirror/kernel.tar.gz"
 
-build:
+build: crossmusl
 	cd src/linux-$v
 	if test "$arch" = x86_64; then
 		A=$arch
