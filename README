@@ -55,7 +55,7 @@ boot prompt as follows:
 Testing
 -------
 
-To experiment with the image in qemu:
+To experiment with the x86_64 image in qemu:
 
   qemu-system-x86_64 -hda morpheus-x86_64-0.0.img -enable-kvm -vga cirrus
 
