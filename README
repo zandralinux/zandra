@@ -30,6 +30,10 @@ To clean everything including the downloaded files and the rootfs:
 
   mk clean-world
 
+To fetch all packages without building anything:
+
+  mk fetch-world
+
 Installing
 ----------
 
