@@ -3,9 +3,12 @@ v="3.10.32"
 build: crossmusl kernel_headers
 	cd src/linux-$v
 	cp "$top/stuff/kernel-config-$arch" .config
-	#make menuconfig
-	make oldconfig
-	make bzImage -j$nprocs
+	if test "$arch" = "x86_64"; then
+		A=x86_64
+	else
+		A=x86
+	fi
+	make ARCH="$A" bzImage -j$nprocs
 	cp arch/x86/boot/bzImage "$root/boot"
 	cp .config "$root/boot/bzImage.config"
 	cp System.map "$root/boot"
