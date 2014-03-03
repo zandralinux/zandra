@@ -1,6 +1,6 @@
 git="git://git.suckless.org/9base"
 
-build: crossmusl
+build: crossmusl kernel_headers
 	targets="mk sed awk"
 	cd src/9base
 	make clean
