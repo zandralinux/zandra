@@ -3,9 +3,8 @@ Morpheus is a statically linked musl based toy distro.
 The base system includes  sbase[1], ubase[2], sdhcp[3], smdev[4], mksh
 as well as other tools.
 
-To build the world  use `mk world'.  You need an  x86_64 host to build
-morpheus.   Please review  the  `config.mk' file  and adjust  anything
-needed.
+To build the world use `mk world'.  Please review the `config.mk' file
+and adjust anything needed.
 
 Morpheus has  been build-tested on CRUX,  Debian, Archlinux, Slackware
 and Ubuntu 13.04.
