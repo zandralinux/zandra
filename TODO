@@ -11,3 +11,4 @@ Packages
   * Create an hwclock service file.
   * Create a tinyalsa service file.
   * Build musl from source.
+  * Build kernel with our cross-compiler.

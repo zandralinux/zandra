@@ -5,7 +5,7 @@ build: crossmusl kernel_headers
 	cp "$top/stuff/kernel-config-$arch" .config
 	#make menuconfig
 	make oldconfig
-	make CC=$CC bzImage -j$nprocs
+	make bzImage -j$nprocs
 	cp arch/x86/boot/bzImage "$root/boot"
 	cp .config "$root/boot/bzImage.config"
 	cp System.map "$root/boot"
