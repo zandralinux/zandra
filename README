@@ -1,13 +1,18 @@
-Morpheus is a statically linked musl based toy distro.
+morpheus - a statically linked musl based Linux distro
+======================================================
 
-The base system includes  sbase[1], ubase[2], sdhcp[3], smdev[4], mksh
-as well as other tools.
+Building
+--------
 
-To build the world use `mk world'.  Please review the `config.mk' file
-and adjust anything needed.
+To  build  morpheus you  currently  need  an  x86_64 based  host  with
+multilib support  or an x86  host.  You will  need to have  mk(1) from
+9base or plan9port.
 
-Morpheus has  been build-tested on CRUX,  Debian, Archlinux, Slackware
-and Ubuntu 13.04.
+Please review `config.mk' prior to building and adjust any parameters.
+
+To build everything:
+
+  mk world
 
 To build specific packages:
 
@@ -17,18 +22,34 @@ To force build packages and all their dependencies:
 
   mk -a pkg1 pkg2 ...
 
-After you've built stage0 you can create a bootable image:
+To clean the build system's cache:
+
+  mk clean
+
+To clean everything including the downloaded files and the rootfs:
+
+  mk clean-world
+
+Installing
+----------
+
+There is currently no installer.  There is a script that creates a 4GB
+image file that is suitable to dd to a usb stick.
+
+To create a bootable image:
 
   sudo modprobe -r loop
   sudo modprobe loop max_part=15 # to be done only once
-  sudo mk bootable
+  sudo mk bootable # this invokes stuff/create-bootable
 
-This creates a 4GB image.  You can dd this image to a USB stick if you
-want to.  Make sure  to change the kernel command line  to point it to
-your root device.  You can either do this before creating the image or
-at the boot prompt as follows:
+Make sure to change  the kernel command line to point  it to your root
+device.  You  can either do this  before creating the image  or at the
+boot prompt as follows:
 
   bzImage root=/dev/sd[X]1 rootwait init=/init ro
+
+Testing
+-------
 
 To experiment with the image in qemu:
 
@@ -39,8 +60,3 @@ Login with root and an empty password.
 To obtain binary images go to http://dl.2f30.org/morpheus-img/
 
 Enjoy!
-
-[1] http://git.suckless.org/sbase
-[2] http://git.suckless.org/ubase
-[3] http://galos.no-ip.org/sdhcp
-[4] http://git.2f30.org/smdev
