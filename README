@@ -4,6 +4,8 @@ morpheus - a statically linked musl based Linux distro
 Building
 --------
 
+*** HIGHLY EXPERIMENTAL SOFTWARE - READ THE CODE FIRST! ***
+
 To build  morpheus you  currently need an  x86_64/x86 host.   You will
 need to have mk(1) from 9base or plan9port.
 
