@@ -7,3 +7,5 @@ build: crossmusl
 	make PREFIX="$root" install
 	cd "$root"
 	ln -sf /bin/sinit init
+	cd bin
+	ln -sf sinit init
