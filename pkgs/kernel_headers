@@ -3,9 +3,4 @@ url="$mirror/kernel.tar.gz"
 
 build: crossmusl
 	cd src/linux-$v
-	if test "$arch" = x86_64; then
-		A=$arch
-	else
-		A=x86
-	fi
-	make ARCH="$A" INSTALL_HDR_PATH="$root" headers_install
+	cp -a include/* "$root/include/"
