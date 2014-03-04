@@ -4,11 +4,14 @@ url="$mirror/kernel.tar.gz"
 build: crossmusl
 	cd src/linux-$v
 	cp "$top/stuff/kernel-config-$arch" .config
-	if test "$arch" = "x86_64"; then
+	case "$arch" in
+	x86_64)
 		A=x86_64
-	else
+		;;
+	i486)
 		A=x86
-	fi
+		;;
+	esac
 	make ARCH="$A" bzImage -j$nprocs
 	cp arch/x86/boot/bzImage "$root/boot"
 	cp .config "$root/boot/bzImage.config"

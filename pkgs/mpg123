@@ -3,11 +3,14 @@ url="$mirror/mpg123-$v.tar.bz2"
 
 build: tinyalsa
 	cd src/mpg123-$v
-	if test "$arch" = "x86_64"; then
+	case "$arch" in
+	x86_64)
 		A=x86-64
-	else
+		;;
+	i486)
 		A=x86
-	fi
+		;;
+	esac
 	CC=$CC ./configure --prefix="$root" --with-default-audio=tinyalsa \
 		--enable-static=yes --enable-shared=no --with-cpu="$A"
 	make -j$nprocs
