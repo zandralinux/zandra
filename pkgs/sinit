@@ -5,7 +5,5 @@ build: crossmusl
 	make clean
 	make -j$nprocs CC=$CC LDFLAGS="$LDFLAGS"
 	make PREFIX="$root" install
-	cd "$root"
-	ln -sf /bin/sinit init
-	cd bin
+	cd "$root/bin"
 	ln -sf sinit init
