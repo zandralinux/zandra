@@ -14,13 +14,20 @@ fetch-target:QP./stuff/cmp-fetch: .
 		wget -c $url
 		file=`basename $url`
 		type=`file -b $file | cut -d ' ' -f 1`
-		if test "$type" = "gzip"; then
+		case "$type" in
+		gzip)
 			tar -xzf $file
-		elif test "$type" = "bzip2"; then
+			;;
+		bzip2)
 			tar -xjf $file
-		elif test "$type" = "XZ"; then
+			;;
+		XZ)
 			tar -xJf $file
-		fi
+			;;
+		*)
+			echo "Unknown file type $type" 1>&2
+			exit 1
+			;;
+		esac
 	fi
 	cp $top/pkgs/$pkg $top/.cache/$target
-
