@@ -26,14 +26,14 @@ w
 EOF
 ) | fdisk $img
 
-lodev=$(losetup -f --show $img) || exit 1
+lodev=$(losetup -f --show $img)
 partition="$lodev"p1
-mkfs.ext2 -L MORPHEUS $partition || exit 1
-mount $partition /mnt || exit 1
+mkfs.ext2 -L MORPHEUS $partition
+mount $partition /mnt
 rmdir /mnt/lost+found
 
 fakeroot cp -arP "$root"/* /mnt
-extlinux --install /mnt/boot || exit 1
+extlinux --install /mnt/boot
 
 dd if=stuff/mbr.bin of=$lodev conv=notrunc bs=440 count=1
 sync
