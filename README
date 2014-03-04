@@ -46,7 +46,7 @@ $root/boot.
 Installing
 ----------
 
-There is currently no installer.  There is a script that creates a 4GB
+There is currently no installer.  There is a script that creates a 2GB
 image file that is suitable to dd to a usb stick.
 
 To create a bootable image:
