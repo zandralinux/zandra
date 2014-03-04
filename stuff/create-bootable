@@ -11,7 +11,7 @@ img=$2
 
 set -e -x
 
-dd if=/dev/zero of=$img bs=512M count=8
+dd if=/dev/zero of=$img bs=512M count=4
 (
 cat << EOF
 o
