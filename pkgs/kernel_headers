@@ -1,6 +1,0 @@
-v="3.10.32"
-url="$mirror/kernel.tar.gz"
-
-build: crossmusl
-	cd src/linux-$v
-	cp -a include/* "$root/include/"

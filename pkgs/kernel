@@ -1,6 +1,7 @@
 v="3.10.32"
+url="$mirror/kernel.tar.gz"
 
-build: crossmusl kernel_headers
+build: crossmusl
 	cd src/linux-$v
 	cp "$top/stuff/kernel-config-$arch" .config
 	if test "$arch" = "x86_64"; then

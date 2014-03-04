@@ -1,7 +1,7 @@
 v="1.22.1"
 url="http://www.busybox.net/downloads/busybox-$v.tar.bz2"
 
-build: crossmusl kernel_headers
+build: crossmusl
 	cd src/busybox-$v
 	cp $top/stuff/busybox.config .config
 	make -j$nprocs CC=$CC busybox
