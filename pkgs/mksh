@@ -4,9 +4,8 @@ url="$mirror/mksh-$v.tar.gz"
 build: crossmusl
 	cd src/mksh
 	CC=$CC sh Build.sh
-	mkdir -p "$root/share/man/man1" "$root/share/man/cat1"
+	mkdir -p "$root/share/man/man1"
 	cp mksh "$root/bin"
 	cp mksh.1 "$root/share/man/man1/mksh.1"
-	cp mksh.cat1 "$root/share/man/cat1/mksh.0"
 	cd "$root/bin"
 	ln -sf mksh sh
