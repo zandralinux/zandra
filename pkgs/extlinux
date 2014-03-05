@@ -1,0 +1,2 @@
+build: prepare_root
+	cp "$top/stuff/extlinux.conf" "$root/boot"

@@ -1,5 +1,0 @@
-url="$mirror/syslinux.tar.gz"
-
-build: prepare_root
-	cd src
-	cp -r syslinux/* "$root/"
