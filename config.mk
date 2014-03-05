@@ -13,7 +13,8 @@ CC = ${arch}-linux-musl-gcc
 optldflags = -s -Wl,--gc-sections -Wl,-z,relro,-z,now
 optcflags = -fdata-sections -ffunction-sections -Os -g0 -fno-unwind-tables -fno-asynchronous-unwind-tables -Wa,--noexecstack
 
-CFLAGS = -I${libcroot}/include -static # ${optcflags}
+CPPFLAGS = -D_BSD_SOURCE -D_GNU_SOURCE
+CFLAGS = -I${libcroot}/include -static ${CPPFLAGS} # ${optcflags}
 LDFLAGS = -L${libcroot}/lib -static # ${optldflags}
 
 PATH = ${root}/opt/cross/${arch}-linux-musl/bin:${PATH}

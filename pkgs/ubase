@@ -1,8 +1,30 @@
 git="git://git.2f30.org/ubase"
 
 build: crossmusl
+	set -x
 	cd src/ubase
-	make clean
-	make -j$nprocs CC=$CC LDFLAGS="$LDFLAGS"
-	make PREFIX="$root" install
-	chmod 4755 "$root/bin/su"
+	cp config.def.h config.h
+	for f in util/*.c; do
+		$CC -c $f -o "${f%%.c}.o" $CFLAGS
+	done
+	for f in util/*.o; do
+		ar -r -c util.a $f
+	done
+	ranlib util.a
+	for f in *.c; do
+		$CC -c $f $CFLAGS
+	done
+	for f in *.o; do
+		$CC -o "${f%.*}" $f util.a $LDFLAGS
+	done
+	for f in *.o; do
+		cp "${f%.*}" "$root/bin"
+	done
+	mkdir -p "$root/share/man/man1"
+	for f in *.1; do
+		cp $f "$root/share/man/man1"
+	done
+	mkdir -p "$root/share/man/man8"
+	for f in *.8; do
+		cp $f "$root/share/man/man8"
+	done
