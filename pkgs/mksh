@@ -72,8 +72,8 @@ build: crossmusl
 		$CC -c $f -o "${f%%.c}.o" $CFLAGS $LOCAL_CFLAGS
 	done
 	$CC -o mksh *.o $LDFLAGS
-	mkdir -p "$root/share/man/man1"
 	cp mksh "$root/bin"
+	mkdir -p "$root/share/man/man1"
 	cp mksh.1 "$root/share/man/man1/mksh.1"
 	cd "$root/bin"
 	ln -sf mksh sh
