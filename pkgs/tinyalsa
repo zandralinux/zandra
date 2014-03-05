@@ -1,9 +1,16 @@
 url="$mirror/tinyalsa.tar.gz"
 
 build: crossmusl
+	set -x
 	cd src/tinyalsa
-	make clean 2>/dev/null
-	make CC=$CC
+	$CC -c mixer.c -Iinclude $CFLAGS
+	$CC -c pcm.c -Iinclude $CFLAGS
+	ar -r -c libtinyalsa.a mixer.o pcm.o
+	ranlib libtinyalsa.a
+	$CC tinyplay.c -o tinyplay -Iinclude $CFLAGS -L. -ltinyalsa $LDFLAGS
+	$CC tinycap.c -o tinycap -Iinclude $CFLAGS -L. -ltinyalsa $LDFLAGS
+	$CC tinymix.c -o tinymix -Iinclude $CFLAGS -L. -ltinyalsa $LDFLAGS
+	$CC tinypcminfo.c -o tinypcminfo -Iinclude $CFLAGS -L. -ltinyalsa $LDFLAGS
 	cp tinycap tinymix tinypcminfo tinyplay "$root/bin"
 	cp libtinyalsa.a "$root/lib"
 	cp -r include/tinyalsa "$root/include"
