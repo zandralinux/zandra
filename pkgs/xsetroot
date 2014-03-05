@@ -1,4 +1,4 @@
 build: tinyxlib
 	cd stuff
-	$CC -I"$libcroot/include" -L"$libcroot/lib" xsetroot.c -o xsetroot -lX11 -static
+	$CC xsetroot.c -o xsetroot -lX11 $CFLAGS $LDFLAGS
 	cp xsetroot "$root/bin"

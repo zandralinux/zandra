@@ -1,4 +1,4 @@
 build: tinyxlib
 	cd stuff
-	$CC -I"$libcroot/include" -L"$libcroot/lib" tinywm.c -o tinywm -lX11 -static
+	$CC tinywm.c -o tinywm -lX11 $CFLAGS $LDFLAGS
 	cp tinywm "$root/bin"
