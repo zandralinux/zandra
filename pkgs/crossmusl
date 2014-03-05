@@ -9,6 +9,6 @@ build: prepare_root
 		mv "$root/opt/cross/$arch-linux-musl/$arch-linux-musl/lib64"/* "$root/opt/cross/$arch-linux-musl/$arch-linux-musl/lib"
 	fi
 	for t in ${targets}; do
-		ln -sf ../opt/cross/$arch-linux-musl/bin/$arch-linux-musl-$t $root/bin/$t
+		ln -sf ../opt/cross/$arch-linux-musl/bin/$arch-linux-musl-$t "$root/bin/$t"
 	done
-	ln -sf gcc ${root}/bin/cc
+	ln -sf gcc "$root/bin/cc"

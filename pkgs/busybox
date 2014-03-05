@@ -5,8 +5,8 @@ build: crossmusl
 	cd src/busybox-$v
 	cp $top/stuff/busybox.config .config
 	make -j$nprocs CC=$CC busybox
-	cp busybox "${root}/bin"
-	cd "${root}/bin"
+	cp busybox "$root/bin"
+	cd "$root/bin"
 	ln -sf busybox addgroup
 	ln -sf busybox adduser
 	ln -sf busybox bzip2

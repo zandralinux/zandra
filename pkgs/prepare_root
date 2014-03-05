@@ -1,12 +1,12 @@
 build:
-	mkdir -p ${root}
-	cd ${root}
+	mkdir -p "$root"
+	cd "$root"
 	mkdir -p boot bin dev emul etc home mnt opt proc root share src sys tmp var
 	mkdir -p dev/pts dev/shm opt/cross share/doc share/fonts/encodings share/man share/terminfo var/empty var/log var/run
 	rm -f include
-	ln -s opt/cross/${arch}-linux-musl/${arch}-linux-musl/include include
+	ln -s "opt/cross/$arch-linux-musl/$arch-linux-musl/include" include
 	rm -f lib
-	ln -s opt/cross/${arch}-linux-musl/${arch}-linux-musl/lib lib
+	ln -s "opt/cross/$arch-linux-musl/$arch-linux-musl/lib" lib
 	rm -f usr
 	ln -s . usr
 	rm -f sbin

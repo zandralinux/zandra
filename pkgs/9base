@@ -12,6 +12,6 @@ build: crossmusl
 	for t in $targets; do
 		cd $t
 		make -j$nprocs CC=$CC
-		cp $t $root/bin/
+		cp $t "$root/bin/"
 		cd ..
 	done
