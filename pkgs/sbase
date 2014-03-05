@@ -16,8 +16,10 @@ build: crossmusl
 	for f in *.o; do
 		$CC -o "${f%.*}" $f util.a $LDFLAGS
 	done
-	mkdir -p "$root/share/man/man1"
 	for f in *.o; do
 		cp "${f%.*}" "$root/bin"
-		cp "${f%%.o}.1" "$root/share/man/man1"
+	done
+	mkdir -p "$root/share/man/man1"
+	for f in *.1; do
+		cp $f "$root/share/man/man1"
 	done
