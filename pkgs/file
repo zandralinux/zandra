@@ -1,5 +1,5 @@
 v="5.17"
-url="ftp://ftp.astron.com/pub/file/file-$v.tar.gz"
+url="$mirror/file-$v.tar.gz"
 
 build: crossmusl zlib
 	cd src/file-$v/src
