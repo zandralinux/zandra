@@ -29,7 +29,6 @@ build: crossmusl
 	ln -sf busybox ip
 	ln -sf busybox kbd_mode
 	ln -sf busybox killall
-	ln -sf busybox killall5
 	ln -sf busybox less
 	ln -sf busybox login
 	ln -sf busybox losetup
