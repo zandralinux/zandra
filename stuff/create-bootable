@@ -2,12 +2,13 @@
 #
 # Ensure you've loaded the loop module with max_part=15
 
-set -e -x
-
 if test "$2" = ""; then
 	echo "Usage: $0 <rootdir> <imgfile>"
 	exit
 fi
+
+set -e -x
+
 root=$1
 img=$2
 mnt="/mnt/morpheus"
