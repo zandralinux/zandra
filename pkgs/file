@@ -2,6 +2,7 @@ v="5.17"
 url="$mirror/file-$v.tar.gz"
 
 build: crossmusl zlib
+	set -x
 	cd src/file-$v/src
 	CFLAGS="-DBUILTIN_ELF=1 \
 	-DELFCORE=1 \
