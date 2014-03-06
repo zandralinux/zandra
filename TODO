@@ -4,6 +4,8 @@ Generic stuff
   * Make morpheus self-hosting.
   * Enable booting the image without editing the root partition name
       (this is needed to easily boot from usb from different machines)
+  * Separate out packages in their own directories.  For the kernel this
+      would be pkgs/kernel/build and pkgs/kernel/config-$arch etc.
 
 Packages
 --------
