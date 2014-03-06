@@ -9,6 +9,8 @@ build: crossmusl
 	cd "$root/bin"
 	ln -sf busybox addgroup
 	ln -sf busybox adduser
+	ln -sf busybox bunzip2
+	ln -sf busybox bzcat
 	ln -sf busybox bzip2
 	ln -sf busybox delgroup
 	ln -sf busybox deluser
@@ -19,6 +21,7 @@ build: crossmusl
 	ln -sf busybox find
 	ln -sf busybox fdisk
 	ln -sf busybox fuser
+	ln -sf busybox gunzip
 	ln -sf busybox gzip
 	ln -sf busybox hexdump
 	ln -sf busybox hwclock
@@ -44,3 +47,6 @@ build: crossmusl
 	ln -sf busybox tftpd
 	ln -sf busybox top
 	ln -sf busybox wget
+	ln -sf busybox xz
+	ln -sf busybox xzcat
+	ln -sf busybox zcat
