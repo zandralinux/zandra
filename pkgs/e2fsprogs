@@ -14,6 +14,7 @@ build: crossmusl
 	rm -f $root/sbin/mkfs.ext3
 	rm -f $root/sbin/mkfs.ext4
 	rm -f $root/sbin/mkfs.ext4dev
+	rm -f $root/sbin/fsck.ext2
 	rm -f $root/sbin/fsck.ext3
 	rm -f $root/sbin/fsck.ext4
 	rm -f $root/sbin/fsck.ext4dev
@@ -22,6 +23,7 @@ build: crossmusl
 	ln -s mke2fs mkfs.ext3
 	ln -s mke2fs mkfs.ext4
 	ln -s mke2fs mkfs.ext4dev
+	ln -s e2fsck fsck.ext2
 	ln -s e2fsck fsck.ext3
 	ln -s e2fsck fsck.ext4
 	ln -s e2fsck fsck.ext4dev
