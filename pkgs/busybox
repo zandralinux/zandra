@@ -39,6 +39,7 @@ build: crossmusl
 	ln -sf busybox printf
 	ln -sf busybox reset
 	ln -sf busybox route
+	ln -sf busybox stty
 	ln -sf busybox sysctl
 	ln -sf busybox tac
 	ln -sf busybox telnet
