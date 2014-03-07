@@ -13,6 +13,7 @@ build: crossmusl
 	ln -sf busybox bunzip2
 	ln -sf busybox bzcat
 	ln -sf busybox bzip2
+	ln -sf busybox cp
 	ln -sf busybox delgroup
 	ln -sf busybox deluser
 	ln -sf busybox diff
@@ -22,6 +23,7 @@ build: crossmusl
 	ln -sf busybox find
 	ln -sf busybox fdisk
 	ln -sf busybox fuser
+	ln -sf busybox grep
 	ln -sf busybox gunzip
 	ln -sf busybox gzip
 	ln -sf busybox hexdump
@@ -45,6 +47,7 @@ build: crossmusl
 	ln -sf busybox stty
 	ln -sf busybox sysctl
 	ln -sf busybox tac
+	ln -sf busybox tar
 	ln -sf busybox telnet
 	ln -sf busybox tftp
 	ln -sf busybox tftpd
