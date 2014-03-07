@@ -1,6 +1,6 @@
 git="git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git"
 
-build: prepare_root
+build: crossmusl prepare_root
 	cd src/linux_fw
 	mkdir -p "$root/lib/firmware"
 	cp -r * "$root/lib/firmware"
