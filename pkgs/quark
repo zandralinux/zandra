@@ -1,0 +1,8 @@
+git="git://git.suckless.org/quark"
+
+build: crossmusl
+	set -x
+	cd src/quark
+	cp config.def.h config.h
+	$CC -o quark quark.c -DVERSION=\"0.1\" $CFLAGS $LDFLAGS
+	cp quark "$root/bin"
