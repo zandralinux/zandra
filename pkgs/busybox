@@ -34,6 +34,7 @@ build: crossmusl
 	ln -sf busybox login
 	ln -sf busybox losetup
 	ln -sf busybox nc
+	ln -sf busybox od
 	ln -sf busybox passwd
 	ln -sf busybox ping
 	ln -sf busybox pkill
