@@ -23,3 +23,8 @@ build: crossmusl
 	for f in *.1; do
 		cp $f "$root/share/man/man1"
 	done
+	# these are still buggy
+	for f in grep cp tar ; do
+		rm "$root/bin/$f"
+		rm "$root/share/man/man1/$f.1"
+	done
