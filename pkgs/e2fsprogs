@@ -1,9 +1,8 @@
-n="e2fsprogs"
 v="1.42.9"
-url="https://www.kernel.org/pub/linux/kernel/people/tytso/e2fsprogs/v$v/$n-$v.tar.gz"
+url="https://www.kernel.org/pub/linux/kernel/people/tytso/e2fsprogs/v$v/e2fsprogs-$v.tar.gz"
 
 build: crossmusl
-	cd src/$n-$v
+	cd src/e2fsprogs-$v
 	CC="$CC -static" CFLAGS="-D__uint64_t=u_int64_t" ./configure --prefix="" --mandir="$root/share/man" \
 		--disable-nls
 	make -j$nprocs
