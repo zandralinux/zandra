@@ -9,6 +9,7 @@ build: crossmusl
 	cd "$root/bin"
 	ln -sf busybox addgroup
 	ln -sf busybox adduser
+	ln -sf busybox awk
 	ln -sf busybox bunzip2
 	ln -sf busybox bzcat
 	ln -sf busybox bzip2
@@ -39,6 +40,7 @@ build: crossmusl
 	ln -sf busybox printf
 	ln -sf busybox reset
 	ln -sf busybox route
+	ln -sf busybox sed
 	ln -sf busybox stty
 	ln -sf busybox sysctl
 	ln -sf busybox tac

@@ -1,7 +1,7 @@
 git="git://git.suckless.org/9base"
 
 build: crossmusl
-	targets="mk sed awk"
+	targets="mk"
 	cd src/9base
 	make clean
 	for t in lib9 yacc; do
