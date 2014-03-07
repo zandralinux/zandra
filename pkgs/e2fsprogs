@@ -6,7 +6,22 @@ build: crossmusl
 	CC="$CC -static" CFLAGS="-D__uint64_t=u_int64_t" ./configure --prefix="" --mandir="$root/share/man" \
 		--disable-nls
 	make -j$nprocs
-	make DESTDIR=$root install install-libs
+	make DESTDIR="$root" install install-libs
 	# ripped from sabotage: install libuuid, needed for cryptsetup
 	cd lib/uuid
 	make DESTDIR=$root install
+	rm -f $root/sbin/mkfs.ext2
+	rm -f $root/sbin/mkfs.ext3
+	rm -f $root/sbin/mkfs.ext4
+	rm -f $root/sbin/mkfs.ext4dev
+	rm -f $root/sbin/fsck.ext3
+	rm -f $root/sbin/fsck.ext4
+	rm -f $root/sbin/fsck.ext4dev
+	cd "$root/bin"
+	ln -s mke2fs mkfs.ext2
+	ln -s mke2fs mkfs.ext3
+	ln -s mke2fs mkfs.ext4
+	ln -s mke2fs mkfs.ext4dev
+	ln -s e2fsck fsck.ext3
+	ln -s e2fsck fsck.ext4
+	ln -s e2fsck fsck.ext4dev
