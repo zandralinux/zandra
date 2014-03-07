@@ -58,10 +58,13 @@ To create a bootable image:
   sudo mk bootable # this invokes stuff/create-bootable
 
 Make sure to change  the kernel command line to point  it to your root
-device.  You  can either do this  before creating the image  or at the
-boot prompt as follows:
+device.  You can do this at the boot prompt:
 
   bzImage root=/dev/sd[X]1 rootwait init=/init ro
+
+Otherwise modify stuff/extlinux.conf and rebuild the extlinux package.
+
+You will also want to modify the fstab file.
 
 Testing
 -------
