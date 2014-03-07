@@ -83,7 +83,7 @@ build: crossmusl zlib
 	printf "\n#ifndef _INTPTR_T_DEFINED\n#define _INTPTR_T_DEFINED\n#define intptr_t int\n#endif\n" > strcasestr.c.tmp
 	cat strcasestr.c >> strcasestr.c.tmp
 	mv strcasestr.c.tmp strcasestr.c
-	sed -e "s/X.YY/$(echo $v | tr -d .)/" < magic.h.in > magic.h
+	sed -e "s/X.YY/$(echo $v | sed -e "s|\.||g")/" < magic.h.in > magic.h
 	MAGIC='"/share/file/magic"'
 	for f in *.c; do
 		$CC -c $f $LOCAL_CFLAGS $CFLAGS -DPACKAGE_STRING="file $v" -DMAGIC="$MAGIC"
