@@ -3,6 +3,8 @@ git="git://git.suckless.org/quark"
 build: crossmusl
 	set -x
 	cd src/quark
+	git am -3 "$top/stuff/0002-remove-unused-code.patch"
+	git am -3 "$top/stuff/0003-implement-http-not-modified.patch"
 	cp config.def.h config.h
 	$CC -o quark quark.c -DVERSION=\"0.1\" $CFLAGS $LDFLAGS
 	cp quark "$root/bin"
