@@ -4,21 +4,7 @@ build: crossmusl
 	set -x
 	cd src/sinit
 	cp config.def.h config.h
-	for f in util/*.c; do
-		$CC -c $f -o "${f%%.c}.o" $CFLAGS
-	done
-	for f in util/*.o; do
-		ar -r -c util.a $f
-	done
-	ranlib util.a
-	for f in *.c; do
-		$CC -c $f $CFLAGS
-	done
-	for f in *.o; do
-		$CC -o "${f%.*}" $f util.a $LDFLAGS
-	done
-	for f in *.o; do
-		cp "${f%.*}" "$root/bin"
-	done
+	$CC -o sinit sinit.c $CFLAGS $LDFLAGS
+	cp sinit "$root/bin"
 	cd "$root/bin"
 	ln -sf sinit init
