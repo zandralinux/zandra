@@ -4,6 +4,7 @@ url="$mirror/file-$v.tar.gz"
 build: crossmusl zlib
 	set -x
 	cd src/file-$v/src
+	rm -rf *.o file ../magic/magic.mgc ../magic/magic
 	CFLAGS="-DBUILTIN_ELF=1 \
 	-DELFCORE=1 \
 	-DHAVE_ASCTIME_R=1 \
