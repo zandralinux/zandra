@@ -1,5 +1,5 @@
 v="1.22.1"
-url="http://www.busybox.net/downloads/busybox-$v.tar.bz2"
+url="$mirror/busybox-$v.tar.bz2"
 
 build: crossmusl sbase
 	cd src/busybox-$v
