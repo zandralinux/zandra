@@ -2,7 +2,7 @@
 
 pkgdir=
 
-fetch-target:QP./stuff/cmp-fetch: .
+fetch-target:
 	cd src
 	pkg=`echo $target | sed -e 's,-fetch$,,'`
 	eval url=$url

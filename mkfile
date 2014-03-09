@@ -23,9 +23,11 @@ fetch-all fetch-world:VQ: ${fetchpkgs}
 `{ mkdir -p src }
 `{ mkdir -p .cache }
 `{ printf '# auto-generated file, do not edit\n' > pkgs.mk }
-`{ cd pkgs && for pkg in *; do cat $pkg/build ../stuff/fetch-pkg.mk |\
+`{ cd pkgs && for pkg in *; do \
+	fdeps=`$top/stuff/get-fetch-deps $pkg` &&\
+	cat $pkg/build ../stuff/fetch-pkg.mk |\
 	sed -e "s,^build:,$pkg:QP./stuff/cmp-pkgs: $pkg-fetch pkgs/$pkg/build," |\
-	sed -e "s,^fetch-target:,$pkg-fetch:," |\
+	sed -e "s,^fetch-target:,$pkg-fetch:QP./stuff/cmp-fetch: $fdeps," |\
 	sed -e "s,^v=,_${pkg}_v=," |\
 	sed -e "s,^pkgdir=,_${pkg}_pkgdir=$top/pkgs/$pkg," |\
 	sed -e "s,\$v,\${_${pkg}_v},g" |\
