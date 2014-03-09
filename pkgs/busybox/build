@@ -3,7 +3,7 @@ url="$mirror/busybox-$v.tar.bz2"
 
 build: crossmusl sbase
 	cd src/busybox-$v
-	cp $top/stuff/busybox.config .config
+	cp $pkgdir/busybox.config .config
 	make -j$nprocs HOSTCC="$CC -static" CC=$CC busybox
 	cp busybox "$root/bin"
 	cd "$root/bin"

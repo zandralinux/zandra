@@ -3,7 +3,7 @@ url="$mirror/kernel.tar.gz"
 
 build: crossmusl
 	cd src/linux-$v
-	cp "$top/stuff/kernel-config-$arch" .config
+	cp "$pkgdir/kernel-config-$arch" .config
 	case "$arch" in
 	x86_64)
 		A=x86_64
