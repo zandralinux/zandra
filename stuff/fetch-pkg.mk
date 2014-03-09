@@ -1,4 +1,6 @@
-	cp $top/pkgs/$target $top/.cache/$target
+	cp $pkgdir/build $top/.cache/$target
+
+pkgdir=
 
 fetch-target:QP./stuff/cmp-fetch: .
 	cd src
@@ -30,4 +32,4 @@ fetch-target:QP./stuff/cmp-fetch: .
 			;;
 		esac
 	fi
-	cp $top/pkgs/$pkg $top/.cache/$target
+	cp $pkgdir/build $top/.cache/$target
