@@ -1,4 +1,0 @@
-#!/bin/sh
-
-deps=$(cat $1/build | sed -n '1{x;d};${H;x;s/\\\n\t/ /g;p};{H}' | grep ^build: | cut -d ':' -f 2-)
-for d in $deps; do echo -n "$d-fetch "; done
