@@ -1,6 +1,6 @@
 <config.mk
 
-allpkgs = `{ls pkgs/*}
+allpkgs = `{ls -d pkgs/*}
 pkgs = ${allpkgs:pkgs/%=%}
 
 help:VQ:
@@ -24,7 +24,7 @@ fetch-all fetch-world:VQ: ${fetchpkgs}
 `{ mkdir -p .cache }
 `{ printf '# auto-generated file, do not edit\n' > pkgs.mk }
 `{ cd pkgs && for pkg in *; do cat $pkg/build ../stuff/fetch-pkg.mk |\
-	sed -e "s,^build:,$pkg:QP./stuff/cmp-pkgs: $pkg-fetch pkgs/$pkg," |\
+	sed -e "s,^build:,$pkg:QP./stuff/cmp-pkgs: $pkg-fetch pkgs/$pkg/build," |\
 	sed -e "s,^fetch-target:,$pkg-fetch:," |\
 	sed -e "s,^v=,_${pkg}_v=," |\
 	sed -e "s,^pkgdir=,_${pkg}_pkgdir=$top/pkgs/$pkg," |\
