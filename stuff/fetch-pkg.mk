@@ -7,9 +7,7 @@ fetch-target:
 	pkg=`echo $target | sed -e 's,-fetch$,,'`
 	eval url=$url
 	if test "$url" = ""; then
-		if test "$git" = ""; then
-			echo $target: nothing to download
-		else
+		if test "$git" != ""; then
 			[ -d $pkg ] || git clone $git $pkg
 		fi
 	else
