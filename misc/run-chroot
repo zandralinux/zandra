@@ -1,0 +1,16 @@
+#!/bin/sh
+
+echo -n "Mounting dev... "
+sudo mount -o bind /dev root/dev
+echo "done."
+echo -n "Mounting proc... "
+sudo mount -t proc proc root/proc
+echo "done."
+echo "Chrooting..."
+sudo chroot root /bin/sh
+echo -n "Unmounting dev... "
+sudo umount root/dev
+echo "done."
+echo -n "Unmounting proc... "
+sudo umount root/proc
+echo "done."
