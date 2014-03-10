@@ -1,4 +1,5 @@
 top = `{pwd}
+`{ test -e config.mk || cp config.def.mk config.mk }
 <config.mk
 
 allpkgs = `{ls -d pkgs/*}
