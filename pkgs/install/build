@@ -1,0 +1,6 @@
+git="https://github.com/mit-athena/install.git"
+
+build: crossmusl
+	cd src/install
+	$CC -DSTRIP="\"/bin/strip\"" $CFLAGS $LDFLAGS install.c -o install
+	cp install $root/bin/
