@@ -77,3 +77,4 @@ build: crossmusl
 	cp mksh.1 "$root/share/man/man1/mksh.1"
 	cd "$root/bin"
 	ln -sf mksh sh
+	ln -sf mksh ksh
