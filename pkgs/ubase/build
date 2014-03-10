@@ -1,3 +1,4 @@
+v=0.0
 git="git://git.2f30.org/ubase"
 
 build: crossmusl
@@ -22,7 +23,7 @@ build: crossmusl
 	done
 	mkdir -p "$root/share/man/man1"
 	for f in *.1; do
-		cp $f "$root/share/man/man1"
+		sed -e "s/VERSION/$v/g" $f > $root/share/man/man1/$f
 	done
 	mkdir -p "$root/share/man/man8"
 	for f in *.8; do
