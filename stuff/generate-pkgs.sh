@@ -8,7 +8,7 @@ printf '# auto-generated file, do not edit\n'
 cd $p
 
 for pkg in *; do
-	deps=$(cat $pkg/build | sed -n '1{x;d};${H;x;s/\\\n\t/ /g;p};{H}' | grep ^build: | cut -d ':' -f 2-)
+	deps=$(cat $pkg/build | sed -e 'N;s,\\\n, ,' | grep ^build: | cut -d ':' -f 2-)
 	fdeps=`for d in $deps; do echo -n "$d-fetch "; done`
 	cat $pkg/build $f/fetch-pkg.mk |
 		sed -e "s,^build:,$pkg:QP${f}/cmp-pkgs: $pkg-fetch `pwd`/$pkg/build," \
