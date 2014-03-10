@@ -1,7 +1,6 @@
 .cache
+config.mk
 pkgs.mk
 *.img
 root
 src
-stuff/tinywm
-stuff/xsetroot
