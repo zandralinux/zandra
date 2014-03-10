@@ -1,10 +1,10 @@
-top = `{pwd}
-root = ${top}/root
 #arch = i486
 arch = x86_64
-libcroot = ${root}/opt/cross/${arch}-linux-musl/${arch}-linux-musl
+root = ${top}/root
 nprocs = 4   # number of processes for building separate packages
 NPROC = 4    # number of processes for mk concurrency
+
+libcroot = ${root}/opt/cross/${arch}-linux-musl/${arch}-linux-musl
 version = 0.0
 mirror = http://dl.2f30.org/morpheus-pkgs/${arch}/${version}
 CC = ${arch}-linux-musl-gcc

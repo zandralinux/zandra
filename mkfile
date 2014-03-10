@@ -1,3 +1,4 @@
+top = `{pwd}
 <config.mk
 
 allpkgs = `{ls -d pkgs/*}
