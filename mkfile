@@ -15,7 +15,7 @@ clean:V:
 	rm -f .cache/* pkgs.mk
 
 clean-all clean-world:V: clean
-	rm -rf ${root} src
+	rm -rf ${root}
 
 fetchpkgs = ${pkgs:%=%-fetch}
 

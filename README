@@ -27,7 +27,7 @@ To clean the build system's cache:
 
   mk clean
 
-To clean everything including the downloaded files and the rootfs:
+To clean everything including the rootfs:
 
   mk clean-world
 
