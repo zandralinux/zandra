@@ -13,7 +13,7 @@ root=$1
 img=$2
 mnt="/mnt/morpheus"
 
-fallocate -l 2G $img
+fallocate -l 2G $img || dd if=/dev/zero of=$img bs=512M count=4
 (
 cat << EOF
 o
