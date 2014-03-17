@@ -3,7 +3,7 @@ url="https://www.kernel.org/pub/linux/kernel/people/tytso/e2fsprogs/v$v/e2fsprog
 
 build: crossmusl
 	cd src/e2fsprogs-$v
-	CC="$CC -static" CFLAGS="-D__uint64_t=u_int64_t" ./configure --prefix="" --mandir="/usr/share/man" \
+	CC="$CC -static" CFLAGS="-D__uint64_t=u_int64_t" ./configure --prefix="" --mandir="/share/man" \
 		--disable-nls
 	make -j$nprocs
 	make DESTDIR="$root" install install-libs
