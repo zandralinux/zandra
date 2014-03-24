@@ -1,4 +1,4 @@
-v="0.9.15"
+v="1.0.0"
 url="$mirror/crossx86-$arch-linux-musl-$v.tar.xz"
 
 build: prepare_root
