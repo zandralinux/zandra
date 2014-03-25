@@ -62,7 +62,8 @@ device.  You can do this at the boot prompt:
 
   bzImage root=/dev/sd[X]1 rootwait init=/init ro
 
-Otherwise modify stuff/extlinux.conf and rebuild the extlinux package.
+Otherwise modify pkgs/extlinux/extlinux.conf  and rebuild the extlinux
+package.
 
 You will also want to modify the fstab file.
 
