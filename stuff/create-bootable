@@ -39,7 +39,7 @@ rmdir "$mnt/lost+found"
 fakeroot cp -arP "$root"/* "$mnt"
 extlinux --install "$mnt/boot"
 
-dd if=stuff/mbr.bin of=$lodev conv=notrunc bs=440 count=1
+cat stuff/mbr.bin > $lodev
 sync
 
 umount "$mnt"
