@@ -38,11 +38,11 @@ To fetch all packages without building anything:
 Rebuilding the kernel
 ---------------------
 
-There is a default config for the kernel in stuff/kernel-config-$arch.
-The  default  config is  copied  over  .config  in the  kernel  source
-directory every  time you do a  build via mk(1).  You  can adjust your
-local .config  and copy it  over stuff/kernel-config-$arch or  you can
-just manually  compile the kernel  and copy System.map and  bzImage to
+There is a default config for  the kernel in pkgs/kernel.  The default
+config is  copied over  .config in the  kernel source  directory every
+time you do a build via mk(1).   You can adjust your local .config and
+copy  it over  the  relevant config  in pkgs/kernel  or  you can  just
+manually  compile  the  kernel  and copy  System.map  and  bzImage  to
 $root/boot.
 
 Installing
