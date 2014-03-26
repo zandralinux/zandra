@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+v = 1.2.8
+src = zlib-$v
+url = $mirror/zlib-$v.tar.gz
+mkfile = ../zlib.mk

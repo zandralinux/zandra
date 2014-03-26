@@ -1,0 +1,3 @@
+
+DEPS_CFLAGS = $DEPS_CFLAGS -I$zlib_DEPDIR/zlib-1.2.8
+DEPS_LDFLAGS = $DEPS_LDFLAGS -L$zlib_DEPDIR/zlib-1.2.8 -lz

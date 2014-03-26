@@ -1,0 +1,40 @@
+INSTALL_DIRS = \
+	/boot \
+	/bin \
+	/dev \
+	/etc \
+	/home \
+	/mnt \
+	/opt \
+	/proc \
+	/root \
+	/share \
+	/src \
+	/sys \
+	/tmp \
+	/var \
+	/var/empty \
+	/var/log \
+	/var/run \
+	/bin/svc.d/avail \
+	/bin/svc.d/default
+
+INSTALL_BIN = `{ls bin}
+
+INSTALL_SYMLINKS = \
+	. /usr \
+	bin /sbin \
+	../tmp /var/tmp
+
+INSTALL_OTHER1 = `{ls svc.d}
+INSTALL_OTHER1_DIR = /bin/svc.d
+INSTALL_OTHER2 = `{ls etc/}
+INSTALL_OTHER2_DIR = /etc
+INSTALL_OTHER3 = `{ls skel}
+INSTALL_OTHER3_DIR = /etc/skel
+
+INSTALL_PERMISSIONS = \
+	1777 /tmp \
+	700 /root
+
+<$mkbuild/mk.common

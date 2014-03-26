@@ -1,0 +1,5 @@
+<$mkbuild/mk.3rdparty
+
+src = sinit
+git = git://git.2f30.org/sinit
+mkfile = ../sinit.mk

@@ -1,0 +1,29 @@
+#!/bin/sh
+
+usage() {
+	echo "usage $(basename $0) [-d delay] cmd arg..." 1>&2
+	exit 1
+}
+
+delay=0
+while getopts ":d:" opt; do
+	case $opt in
+	d)
+		delay=$OPTARG
+		;;
+	\?|:)
+		usage
+		;;
+	esac
+done
+
+shift $((OPTIND-1))
+
+if test -z $1; then
+	usage
+fi
+
+while :; do
+	$*
+	sleep $delay
+done

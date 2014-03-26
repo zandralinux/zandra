@@ -1,0 +1,144 @@
+#!/bin/sh
+#
+#MIT/X Consortium License
+#
+#© 2012-14 Christoph Lohmann <20h@r-36.net>
+#
+#Permission is hereby granted, free of charge, to any person obtaining a
+#copy of this software and associated documentation files (the "Software"),
+#to deal in the Software without restriction, including without limitation
+#the rights to use, copy, modify, merge, publish, distribute, sublicense,
+#and/or sell copies of the Software, and to permit persons to whom the
+#Software is furnished to do so, subject to the following conditions:
+#
+#The above copyright notice and this permission notice shall be included in
+#all copies or substantial portions of the Software.
+#
+#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+#THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#DEALINGS IN THE SOFTWARE.
+#
+#	% svc -a	# list all links in /bin/svc.d/run (all activated services)
+#	% svc -a ser	# activate service to be run on startup
+#	% svc -c	# create the basic directories of svc (configure)
+#	% svc -d ser	# deactivate service
+#	% svc -k	# kill all services linked to /bin/svc.d/run
+#	% svc -k ser	# kill service
+#	% svc -s	# run all services linked to /bin/svc.d/run
+#	% svc -s ser	# run service
+#	% svc -l	# list all services in /bin/svc.d/avail
+#	% svc -r ser	# restart service
+
+BASEDIR="/bin/svc.d"
+BASENAME="$(basename $0)"
+
+[ -d "$BASEDIR" ] || mkdir -p "$BASEDIR"
+cd $BASEDIR
+
+usage() {
+	printf "usage: %s [-acdklrs] [service]\n" "$BASENAME" >&2
+	exit 1
+}
+
+if [ $# -lt 1 ];
+then
+	usage
+fi
+
+runservice() {
+	service="$1"
+	dir="$2"
+	cmd="$3"
+
+	if [ $(ls -la "$dir/$service" | awk '{print $5}') -eq 0 ];
+	then
+		"./bare.sh" "$service" "$cmd" 2>&1 >/dev/null &
+	else
+		"$dir/$service" "$cmd" 2>&1 >/dev/null &
+	fi
+}
+
+doservice() {
+	cmd="$1"
+	service="$2"
+
+	if [ -z "${service}" ];
+	then
+		services=$(ls run)
+		for s in ${services};
+		do
+			runservice "$s" run "$cmd"
+			printf "%s: '%s' %s.\n" \
+				"$BASENAME" "$s" "$cmd"
+		done
+	else
+		if [ -x "avail/$service" ];
+		then	
+			runservice "$service" avail "$cmd"
+			printf "%s: '%s' %s.\n" \
+				"$BASENAME" "$service" "$cmd"
+		else
+			printf "%s: '%s' is not available or executable.\n" \
+				"$BASENAME" "$service" >&2
+			exit 1
+		fi
+	fi
+}
+
+case "$1" in
+	-a)
+		if [ $# -gt 1 ] && [ -e "avail/$2" ];
+		then
+			ln -sf "../avail/$2" "run/$2"
+			printf "%s: '%s' activated.\n" \
+				"$BASENAME" "$2"
+		else
+			cd run
+			ls .
+		fi 
+		;;	
+	-c)
+		[ -d "$BASEDIR" ] || mkdir -p "$BASEDIR"
+		[ -d "$BASEDIR/avail" ] || mkdir -p "$BASEDIR/avail"
+		[ -d "$BASEDIR/default" ] || mkdir -p "$BASEDIR/default"
+		[ -d "$BASEDIR/run" ] || mkdir -p "$BASEDIR/run"
+		;;
+	-d)
+		if [ $# -gt 1 ] && [ -e "run/$2" ];
+		then
+			rm -f "run/$2"
+			printf "%s: '%s' deactivated.\n" \
+				"$BASENAME" "$2"
+		else
+			printf "%s: No service given or service is not marked as to run.\n" \
+				"$BASENAME" >&2
+			exit 1
+		fi
+		;;
+	-k|-s)
+		doservice "$1" "$2"
+		;;
+	-l)
+		cd avail
+		ls .
+		;;
+	-r)
+		if [ $# -gt 1 ];
+		then
+			set -x
+			svc -k "$2"
+			svc -s "$2"
+		else
+			printf "%s: please give a service name.\n" \
+				"$BASENAME" >&2
+			exit 1
+		fi
+		;;
+	*)
+		usage
+		;;
+esac

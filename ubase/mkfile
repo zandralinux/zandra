@@ -1,0 +1,5 @@
+<$mkbuild/mk.3rdparty
+
+src = ubase
+git = git://git.2f30.org/ubase
+mkfile = ../ubase.mk

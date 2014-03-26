@@ -1,0 +1,5 @@
+<$mkbuild/mk.3rdparty
+
+src = sbase
+git = git://git.2f30.org/sbase
+mkfile = ../sbase.mk

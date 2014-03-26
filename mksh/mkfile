@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+src = mksh
+url = $mirror/mksh-R47.tar.gz
+mkfile = ../mksh.mk
+

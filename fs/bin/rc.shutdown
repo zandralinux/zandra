@@ -1,0 +1,74 @@
+#!/bin/sh
+
+PATH=/bin
+export PATH
+
+umask 022
+
+. /etc/rc.conf
+
+case "$1" in
+reboot|poweroff)
+	;;
+*)
+	echo "Invalid action '$1' for rc.shutdown" 1>&2
+	exit 1
+	;;
+esac
+
+# Set linefeed mode to avoid staircase effect
+echo; stty onlcr
+
+echo Shutting down
+
+HWCLOCK_PARAMS="-w"
+case $HARDWARECLOCK in
+	"")
+		;;
+	UTC)
+		HWCLOCK_PARAMS="-u $HWCLOCK_PARAMS"
+		;;
+	localtime)
+		HWCLOCK_PARAMS="-l $HWCLOCK_PARAMS"
+		;;
+	*)
+		HWCLOCK_PARAMS=""
+		;;
+esac
+
+if [ -n "$HWCLOCK_PARAMS" ]; then
+	echo Saving system clock
+	[ -n "$TIMEZONE" ] && export TZ="$TIMEZONE"
+	hwclock $HWCLOCK_PARAMS
+	unset TZ
+fi
+
+echo Storing random seed
+dd if=/dev/urandom of=/etc/random-seed count=1 bs=512 2>/dev/null
+
+svc -k
+
+killall5 -s TERM
+sleep 3
+killall5 -s KILL
+
+echo Remounting root as read-only
+mount -o remount,ro /
+
+echo Unmounting filesystems
+umount -a
+
+sync
+sleep 3
+wait
+
+echo bye
+
+case "$1" in
+reboot)
+	halt -r
+	;;
+poweroff)
+	halt -p
+	;;
+esac
