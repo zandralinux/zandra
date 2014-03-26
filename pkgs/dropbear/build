@@ -1,8 +1,0 @@
-v="2014.63"
-url="https://matt.ucc.asn.au/dropbear/releases/dropbear-$v.tar.bz2"
-
-build: crossmusl zlib
-	cd src/dropbear-$v
-	CC="$CC -static" ./configure --prefix="$root" --mandir="$root/share/man"
-	make -j$nprocs
-	make install

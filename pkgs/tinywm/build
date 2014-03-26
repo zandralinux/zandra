@@ -1,5 +1,0 @@
-build: tinyxlib
-	set -x
-	cd src
-	$CC $pkgdir/tinywm.c -o tinywm -lX11 $CFLAGS $LDFLAGS
-	cp tinywm "$root/bin"

@@ -1,9 +1,0 @@
-git="git://git.2f30.org/sdhcp"
-
-build: crossmusl
-	set -x
-	cd src/sdhcp
-	$CC -o sdhcp sdhcp.c $CFLAGS $LDFLAGS
-	cp sdhcp "$root/bin"
-	mkdir -p "$root/share/man/man8"
-	cp sdhcp.8 "$root/share/man/man8"

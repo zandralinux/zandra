@@ -1,0 +1,27 @@
+all:QV: $DEPS $TARG $BIN $LIB
+	
+TARG = `{ if test "$TARG" != ""; then echo $TARG; else echo "NOTARG"; fi }
+BIN = `{ if test "$BIN" != ""; then echo $BIN; else echo "NOBIN"; fi }
+LIB = `{ if test "$LIB" != ""; then echo $LIB; else echo "NOLIB"; fi }
+
+`{ printf "# Auto-generated file by mk, do not edit\n\n" > .targs.mk }
+`{ for i in $BIN; do printf "$i:Q: \$"$i"_OBJ\n\techo LD \$target\n\t\$LD \$prereq \$LDFLAGS \$DEPS_LDFLAGS \$LOCAL_LDFLAGS \$LOCAL_BIN_LDFLAGS -o \$target\n\n" ; done >> .targs.mk }
+<.targs.mk
+
+<$mkbuild/mk.deps
+
+&.a:Q:
+	echo AR $target
+	$AR -rv $target $prereq
+	echo RANLIB $target
+	$RANLIB $target
+
+%.o:Q: %.c
+	echo CC $stem.o
+	$CC $CFLAGS $DEPS_CFLAGS $LOCAL_CFLAGS $CPPFLAGS -c $stem.c -o $stem.o
+
+%.c:Q: %.y
+	echo YACC $stem.y
+	$YACC $stem.y
+	mv -f y.tab.c $stem.c
+

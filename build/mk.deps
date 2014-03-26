@@ -1,0 +1,21 @@
+
+`{ printf "# Auto-generated file by mk, do not edit\n\n" > .deps.mk }
+
+paths = `{ find $mkbuild/../src -type f -name mkfile }
+`{ for i in $DEPS; do \
+	for path in $paths; do \
+		dir=$(dirname $path); \
+		pkg=$(basename $dir); \
+		if test "$i" = "$pkg"; then \
+			printf "${i}_DEPDIR = $dir\n\n"; \
+			printf "<$dir/depsinc.mk\n\n"; \
+			printf "$pkg:QV:\n\tcd $dir\n\tenv -i PATH=\"$PATH\" mkbuild=\"$mkbuild\" mk\n\n"; \
+		fi; \
+	done; \
+done >> .deps.mk }
+
+<.deps.mk
+
+
+deps:V: $DEPS
+

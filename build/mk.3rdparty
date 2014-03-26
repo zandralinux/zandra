@@ -1,0 +1,28 @@
+<$mkbuild/../config.mk
+
+all:QV: build
+	
+
+build:QV: fetch
+	cd $src
+	if test "${targ}" != ""; then
+		env -i PATH="$PATH" mkbuild="$mkbuild" TARG="${targ}" mk -f $mkfile
+	else
+		env -i PATH="$PATH" mkbuild="$mkbuild" mk -f $mkfile
+	fi
+
+install:QV: all
+	cd $src
+	if test "${targ}" != ""; then
+		env -i PATH="$PATH" mkbuild="$mkbuild" mk -f $mkfile install TARG="${targ}" ROOT="${ROOT}"
+	else
+		env -i PATH="$PATH" mkbuild="$mkbuild" mk -f $mkfile install ROOT="${ROOT}"
+	fi
+
+clean:QV:
+	if test -d $src; then
+		cd $src
+		env -i PATH="$PATH" mkbuild="$mkbuild" mk -f $mkfile clean
+	fi
+
+<$mkbuild/mk.fetch

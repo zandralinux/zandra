@@ -1,8 +1,0 @@
-v="3.82"
-url="$mirror/make-$v.tar.bz2"
-
-build: crossmusl
-	cd src/make-$v
-	CC="$CC -static" ./configure --prefix="$root" --disable-nls
-	make -j$nprocs
-	make install

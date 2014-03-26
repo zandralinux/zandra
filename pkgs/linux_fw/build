@@ -1,9 +1,0 @@
-git="git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git"
-
-build: crossmusl
-	cd src/linux_fw
-	mkdir -p "$root/lib/firmware"
-	cp -r * "$root/lib/firmware"
-	rm -f "$root/lib/firmware/WHENCE"
-	rm -f "$root/lib/firmware/"LICENSE.*
-	rm -f "$root/lib/firmware/"LICENCE.*

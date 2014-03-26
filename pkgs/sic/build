@@ -1,7 +1,0 @@
-url="$mirror/sic.tar.gz"
-
-build: crossmusl
-	set -x
-	cd src/sic
-	$CC -o sic sic.c -DVERSION=\"1.3\" $CFLAGS $LDFLAGS
-	cp sic "$root/bin"

@@ -1,5 +1,0 @@
-build: tinyxlib
-	set -x
-	cd src
-	$CC $pkgdir/xsetroot.c -o xsetroot -lX11 $CFLAGS $LDFLAGS
-	cp xsetroot "$root/bin"

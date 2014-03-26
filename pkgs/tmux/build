@@ -1,9 +1,0 @@
-v="1.8"
-url="$mirror/tmux-$v.tar.gz"
-
-build: ncurses libevent
-	cd src/tmux-$v
-	CC=$CC ./configure --prefix="$root" \
-		CFLAGS="-I$libcroot/include/ncursesw $CFLAGS"
-	make -j$nprocs
-	make install

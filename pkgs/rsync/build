@@ -1,8 +1,0 @@
-v="3.0.9"
-url="$mirror/rsync-$v.tar.gz"
-
-build: crossmusl
-	cd src/rsync-$v
-	CC=$CC ./configure --prefix="$root"
-	make -j$nprocs
-	make install

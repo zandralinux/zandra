@@ -1,8 +1,0 @@
-v="2.0.21"
-url="$mirror/libevent-$v-stable.tar.gz"
-
-build: crossmusl
-	cd src/libevent-$v-stable
-	CC="$CC -static" ./configure --prefix="$libcroot" --disable-shared --enable-static
-	make -j$nprocs
-	make install

@@ -1,0 +1,15 @@
+
+fetch:QV: fetch-git fetch-http
+
+fetch-git:QV:
+	if test "$git" = ""; then
+		return
+	fi
+	test -d $src || git clone $git $src
+
+fetch-http:QV:
+	if test "$url" = ""; then
+		return
+	fi
+	wget -c $url
+	tar -xf `basename $url`

@@ -1,2 +1,0 @@
-build: 9base busybox crossmusl file fs make man mksh \
-	prepare_root sbase sinit smdev ubase zlib

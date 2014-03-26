@@ -1,8 +1,0 @@
-url="$mirror/tinyxlib.tar.gz"
-
-build: crossmusl
-	cd src/tinyxlib
-	make clean
-	make -j$nprocs CC=$CC BINDIR="/bin" LIBDIR="/lib" STATIC=1 \
-		FONT_ENCODINGS_DIRECTORY="/share/fonts/encodings/encodings.dir"
-	make DESTDIR="$libcroot" BINDIR="/bin" LIBDIR="/lib" STATIC=1 install

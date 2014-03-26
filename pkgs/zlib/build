@@ -1,8 +1,0 @@
-v="1.2.8"
-url="$mirror/zlib-$v.tar.gz"
-
-build: crossmusl
-	cd src/zlib-$v
-	CC=$CC ./configure --prefix="$root" --libdir="$libcroot/lib" --static
-	make -j$nprocs
-	make install
