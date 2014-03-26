@@ -1,7 +1,7 @@
 
 `{ printf "# Auto-generated file by mk, do not edit\n\n" > .deps.mk }
 
-paths = `{ find $mkbuild/../ports -type f -name mkfile }
+paths = `{ find $ports -type f -name mkfile }
 `{ for i in $DEPS; do \
 	for path in $paths; do \
 		dir=$(dirname $path); \
