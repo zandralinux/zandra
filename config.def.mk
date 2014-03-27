@@ -2,6 +2,7 @@ arch = i486
 version = 0.0
 mirror = http://dl.2f30.org/morpheus-pkgs/${arch}/${version}
 ports = $mkbuild/../ports
+nprocs = 2
 
 TOOL_BASE = ${arch}-musl-linux-
 CC = ${TOOL_BASE}gcc
