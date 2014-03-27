@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = make-$v
+url = $mirror/make-$v.tar.bz2
+mkfile = ../make.mk
