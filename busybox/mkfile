@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+v = 1.22.1
+src = busybox-$v
+url = $mirror/busybox-$v.tar.bz2
+mkfile = ../busybox.mk
