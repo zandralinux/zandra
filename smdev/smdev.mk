@@ -3,7 +3,7 @@ OBJ = smdev.o
 LIB = util.a
 LOBJ = `{ls util/*.c | sed 's/.$/o/'}
 INSTALL_BIN = smdev
-NPROC = 2
+NPROC = $nprocs
 
 <$mkbuild/mk.common
 

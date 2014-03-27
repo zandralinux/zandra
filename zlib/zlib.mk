@@ -1,6 +1,6 @@
 LIB = libz.a
 LOBJ = `{ls *.c | sed 's/.$/o/'}
-NPROC = 2
+NPROC = $nprocs
 
 <$mkbuild/mk.default
 
