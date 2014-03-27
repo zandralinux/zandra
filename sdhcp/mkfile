@@ -1,0 +1,5 @@
+<$mkbuild/mk.3rdparty
+
+src = sdhcp
+git = git://git.2f30.org/sdhcp
+mkfile = ../sdhcp.mk
