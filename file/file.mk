@@ -1,4 +1,4 @@
-v = 5.17
+<../../v.mk
 BIN = file
 OBJ = `{ls *.c | sed 's/.$/o/'}
 TARG = magic.mgc

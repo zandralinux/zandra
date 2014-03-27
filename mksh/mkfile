@@ -1,6 +1,7 @@
 <$mkbuild/mk.3rdparty
 
+<v.mk
 src = mksh
-url = $mirror/mksh-R47.tar.gz
+url = $mirror/mksh-$v.tar.gz
 mkfile = ../mksh.mk
 

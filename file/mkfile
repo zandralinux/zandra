@@ -1,6 +1,6 @@
 <$mkbuild/mk.3rdparty
 
-v = 5.17
+<v.mk
 src = file-$v/src
 url = $mirror/file-$v.tar.gz
 mkfile = ../../file.mk
