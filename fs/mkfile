@@ -32,6 +32,8 @@ INSTALL_OTHER2 = `{find etc -type f}
 INSTALL_OTHER2_DIR = /etc
 INSTALL_OTHER3 = `{find skel -type f}
 INSTALL_OTHER3_DIR = /etc/skel
+INSTALL_OTHER4 = `{find skel -type f}
+INSTALL_OTHER4_DIR = /root
 
 INSTALL_PERMISSIONS = \
 	1777 /tmp \
