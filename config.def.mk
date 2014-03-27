@@ -4,12 +4,12 @@ mirror = http://dl.2f30.org/morpheus-pkgs/${arch}/${version}
 ports = $mkbuild/../ports
 nprocs = 2
 
-TOOL_BASE = ${arch}-musl-linux-
-CC = ${TOOL_BASE}gcc
+TOOLCHAIN_TRIPLET = ${arch}-musl-linux
+CC = ${TOOLCHAIN_TRIPLET}-gcc
 LD = $CC
-AR = ${TOOL_BASE}ar
-RANLIB = ${TOOL_BASE}ranlib
-STRIP = ${TOOL_BASE}strip
+AR = ${TOOLCHAIN_TRIPLET}-ar
+RANLIB = ${TOOLCHAIN_TRIPLET}-ranlib
+STRIP = ${TOOLCHAIN_TRIPLET}-strip
 #STRIP = true
 SHELL = /bin/sh
 
