@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+v = 3.10.32
+src = linux-$v
+url = $mirror/linux-$v.tar.gz
+mkfile = ../linux.mk
