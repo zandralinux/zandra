@@ -4,6 +4,7 @@ all:QV: build
 	
 
 build:QV: fetch
+	mkdir -p $src
 	cd $src
 	if test "${targ}" != ""; then
 		env -i PATH="$PATH" mkbuild="$mkbuild" TARG="${targ}" mk -f $mkfile
