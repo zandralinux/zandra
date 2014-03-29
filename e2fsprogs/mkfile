@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = e2fsprogs-$v
+url = https://www.kernel.org/pub/linux/kernel/people/tytso/e2fsprogs/v$v/e2fsprogs-$v.tar.gz
+mkfile = ../e2fsprogs.mk
