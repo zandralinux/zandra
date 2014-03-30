@@ -5,11 +5,16 @@ all:QV: build
 
 build:QV: fetch
 	mkdir -p $src
+	oldpwd=`pwd`
 	cd $src
-	if test "${targ}" != ""; then
-		env -i PATH="$PATH" mkbuild="$mkbuild" TARG="${targ}" mk -f $mkfile
-	else
-		env -i PATH="$PATH" mkbuild="$mkbuild" mk -f $mkfile
+	t=$(cmp -s $mkfile $oldpwd/.cache || echo $?)
+	if test "$t" != ""; then
+		if test "${targ}" != ""; then
+			env -i PATH="$PATH" mkbuild="$mkbuild" TARG="${targ}" mk -f $mkfile
+		else
+			env -i PATH="$PATH" mkbuild="$mkbuild" mk -f $mkfile
+		fi
+		cp $mkfile $oldpwd/.cache
 	fi
 
 install:QV: all
@@ -21,6 +26,7 @@ install:QV: all
 	fi
 
 clean:QV:
+	rm -f .cache
 	if test -d $src; then
 		cd $src
 		env -i PATH="$PATH" mkbuild="$mkbuild" mk -f $mkfile clean
