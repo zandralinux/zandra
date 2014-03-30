@@ -1,0 +1,5 @@
+<$mkbuild/mk.3rdparty
+
+src = abduco
+git = git://repo.or.cz/abduco.git
+mkfile = ../abduco.mk
