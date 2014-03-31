@@ -1,0 +1,5 @@
+<$mkbuild/mk.3rdparty
+
+src = dvtm
+git = git://repo.or.cz/dvtm.git
+mkfile = ../dvtm.mk
