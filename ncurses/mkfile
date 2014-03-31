@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = ncurses-$v
+url = $mirror/ncurses.tar.gz
+mkfile = ../ncurses.mk
