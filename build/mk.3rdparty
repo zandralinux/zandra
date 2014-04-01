@@ -26,7 +26,7 @@ install:QV: all
 	fi
 
 clean:QV:
-	rm -rf .cache
+	rm -f .cache
 	if test -d $src; then
 		cd $src
 		env -i PATH="$PATH" mkbuild="$mkbuild" mk -f $mkfile clean
