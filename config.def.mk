@@ -5,8 +5,8 @@ ports = $mkbuild/../ports
 nprocs = 2
 
 TOOLCHAIN_TRIPLET = ${arch}-musl-linux
-HOSTCC = ${TOOLCHAIN_TRIPLET}-gcc
 CC = ${TOOLCHAIN_TRIPLET}-gcc
+HOSTCC = $CC -static
 LD = $CC
 AR = ${TOOLCHAIN_TRIPLET}-ar
 RANLIB = ${TOOLCHAIN_TRIPLET}-ranlib
