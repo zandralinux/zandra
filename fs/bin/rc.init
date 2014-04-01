@@ -101,7 +101,7 @@ if [ -x /bin/rc.svc ]; then
 fi
 
 echo
-sh -c 'respawn getty /dev/tty1 linux' &
-sh -c 'respawn getty /dev/tty2 linux' &
-sh -c 'respawn getty /dev/tty3 linux' &
-sh -c 'respawn getty /dev/tty4 linux' &
+sh -c 'respawn getty /dev/tty1 linux' &>/dev/null &
+sh -c 'respawn getty /dev/tty2 linux' &>/dev/null &
+sh -c 'respawn getty /dev/tty3 linux' &>/dev/null &
+sh -c 'respawn getty /dev/tty4 linux' &>/dev/null &
