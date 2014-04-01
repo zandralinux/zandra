@@ -1,0 +1,5 @@
+<$mkbuild/mk.3rdparty
+
+src = tinyalsa
+url = $mirror/tinyalsa.tar.gz
+mkfile = ../tinyalsa.mk
