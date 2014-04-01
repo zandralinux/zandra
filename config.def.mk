@@ -21,7 +21,7 @@ ETCDIR = ${PREFIX}/etc
 DFLDIR = ${ETCDIR}/default
 MANDIR = ${PREFIX}/share/man
 
-INSTALL = install
+INSTALL = /usr/bin/install
 
 # these don't work for all packages yet...
 optldflags = -s -Wl,--gc-sections -Wl,-z,relro,-z,now
