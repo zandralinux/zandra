@@ -9,6 +9,8 @@ OBJ = bootsect_bin.o ldlinux_bin.o ldlinuxc32_bin.o \
 	  ../extlinux/mountinfo.o
 
 INSTALL_BIN = extlinux
+INSTALL_OTHER1 = ../../extlinux.conf
+INSTALL_OTHER1_DIR = /boot
 LOCAL_CFLAGS = -I../libinstaller -I../extlinux -I../bios -D_FILE_OFFSET_BITS=64
 DEPS = e2fsprogs
 
