@@ -5,8 +5,9 @@ clean:QV:
 	l=`if test "$LIB" = "NOLIB"; then echo; else echo $LIB; fi `
 	bin_obj=
 	for i in $BIN; do
-		bin_obj="$bin_obj \$${i}_OBJ"
+		bobj=$(echo $i|tr '.' '_')
+		bin_obj="$bin_obj \$${bobj}_OBJ"
 	done
-	bin_obj=`eval echo $bin_obj`
+	bin_obj=$(eval echo $bin_obj)
 	echo rm -f $t $b $OBJ $bin_obj $l $LOBJ $CLEAN_FILES .targs.mk .deps.mk
 	rm -f $t $b $OBJ $bin_obj $l $LOBJ $CLEAN_FILES .targs.mk .deps.mk

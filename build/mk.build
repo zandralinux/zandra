@@ -5,7 +5,7 @@ BIN = `{ if test "$BIN" != ""; then echo $BIN; else echo "NOBIN"; fi }
 LIB = `{ if test "$LIB" != ""; then echo $LIB; else echo "NOLIB"; fi }
 
 `{ printf "# Auto-generated file by mk, do not edit\n\n" > .targs.mk }
-`{ for i in $BIN; do printf "$i:Q: \$"$i"_OBJ\n\techo LD \$target\n\t\$LD \$prereq \$LDFLAGS \$DEPS_LDFLAGS \$LOCAL_LDFLAGS \$LOCAL_BIN_LDFLAGS -o \$target\n\n" ; done >> .targs.mk }
+`{ for i in $BIN; do tobj=$(echo $i|tr '.' '_'); printf "$i:Q: \$"$tobj"_OBJ\n\techo LD \$target\n\t\$LD \$prereq \$LDFLAGS \$DEPS_LDFLAGS \$LOCAL_LDFLAGS \$LOCAL_BIN_LDFLAGS -o \$target\n\n" ; done >> .targs.mk }
 <.targs.mk
 
 <$mkbuild/mk.deps
