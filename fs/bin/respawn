@@ -5,19 +5,16 @@ usage() {
 	exit 1
 }
 
-delay=0
-while getopts ":d:" opt; do
-	case $opt in
-	d)
-		delay=$OPTARG
+delay="0"
+case "$1" in
+	-d)
+		delay="$2"
+		shift 2
 		;;
-	\?|:)
+	-h)
 		usage
 		;;
-	esac
-done
-
-shift $((OPTIND-1))
+esac
 
 if test -z $1; then
 	usage
