@@ -19,6 +19,10 @@ clean:QV:
 	cd ports
 	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk clean
 
+distclean:QV:
+	cd ports
+	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk distclean
+
 fetch:QV:
 	cd ports
 	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk fetch
