@@ -1,7 +1,17 @@
 `{ test -e config.mk || cp config.def.mk config.mk }
 
-<$mkbuild/mk.3rdparty
+TARG = stage0
 
-src = ports
-git = git://git.2f30.org/ports
-mkfile = mkfile
+all: $TARG
+
+&:
+	cd ports/stage0
+	mk
+
+clean:
+	cd ports
+	mk clean
+
+submodule:
+	git submodule init
+	git submodule update

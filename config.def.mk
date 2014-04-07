@@ -1,7 +1,7 @@
 arch = i486
 version = 0.0
 mirror = http://dl.2f30.org/morpheus-pkgs/${arch}/${version}
-ports = $mkbuild/../ports
+pkgdirs = $mkbuild/../ports
 nprocs = 2
 
 TOOLCHAIN_TRIPLET = ${arch}-musl-linux
