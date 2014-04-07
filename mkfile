@@ -3,18 +3,23 @@
 configmk = `{pwd}/config.mk
 mkbuild = `{pwd}/mkbuild
 
-TARG = stage0
-
-all: $TARG
-
-&:
-	cd ports/stage0
+all:QV:
+	cd ports
 	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk
 
-clean:
-	cd ports
-	mk configmk="$configmk" mkbuild="$mkbuild" clean
-
-submodule:
+submodule:QV:
 	git submodule init
 	git submodule update --remote
+
+install:QV:
+	cd ports
+	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk install ROOT="${ROOT}"
+
+clean:QV:
+	cd ports
+	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk clean
+
+fetch:QV:
+	cd ports
+	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk fetch
+
