@@ -49,6 +49,8 @@ LOCAL_CFLAGS = \
 	-DHAVE_FLOCK_DECL=1 -DHAVE_REVOKE_DECL=1 -DHAVE_SYS_ERRLIST_DECL=0 \
 	-DHAVE_SYS_SIGLIST_DECL=0 -DHAVE_PERSISTENT_HISTORY=1 -DMKSH_BUILD_R=$BUILD
 
+CLEAN_FILES = signames.inc
+
 histrap.o: signames.inc
 
 signames.inc:
@@ -81,7 +83,7 @@ signames.inc:
                 { "USR2", 12 },
                 { "VTALRM", 26 },
                 { "WINCH", 28 },
-				{ "XCPU", 24 },
+                { "XCPU", 24 },
                 { "XFSZ", 25 },
                 { "STKFLT", 16 },
 	EOF
