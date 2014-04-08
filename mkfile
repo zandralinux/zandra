@@ -7,7 +7,7 @@ all:QV:
 	cd ports
 	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk
 
-submodule:QV:
+init:QV:
 	git submodule init
 	git submodule update --remote
 
