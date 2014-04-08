@@ -1,6 +1,6 @@
 [submodule "mkbuild"]
 	path = mkbuild
-	url = git://git.driftaway.org/mkbuild
+	url = git://git.2f30.org/mkbuild
 	branch = master
 [submodule "ports"]
 	path = ports
