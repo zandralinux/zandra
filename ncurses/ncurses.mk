@@ -1,8 +1,8 @@
-TARG = ncurses
+TARG = libncurses
 
 <$mkbuild/mk.common
 
-ncurses:QV:
+libncurses:QV:
 	cp ../ncurses-fallback.c ncurses/fallback.c
 	CC="$CC -static" ./configure --prefix="$PREFIX" --mandir="$MANDIR" \
 	   --datadir="$PREFIX/share" --without-tests \
