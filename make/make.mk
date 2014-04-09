@@ -1,7 +1,7 @@
 <../v.mk
 
 BIN = make
-OBJ = `{ls *.c glob/*.c | sed 's/.$/o/' | grep -v '^amiga.o$\|^remote-cstms.o$\|^vmsfunctions.o$\|^vmsify.o$\|^vmsjobs.o$'}
+OBJ = `{ls *.c glob/*.c | sed 's/.$/o/' | grep -v '^amiga.o$' | grep -v '^remote-cstms.o$' | grep -v '^vmsfunctions.o$' | grep -v '^vmsify.o$' | grep -v '^vmsjobs.o$'}
 INSTALL_BIN = make
 INSTALL_MAN1 = make.1
 
