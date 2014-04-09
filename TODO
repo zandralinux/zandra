@@ -8,7 +8,6 @@ Generic stuff
 Packages
 --------
 
-  * Install tic as part of ncurses.
   * Create an hwclock service file.
   * Create a tinyalsa service file.
   * Build musl from source.
