@@ -5,7 +5,7 @@ mkbuild = `{pwd}/mkbuild
 
 all:QV:
 	cd ports
-	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk
+	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk TARG="$TARG"
 
 init:QV:
 	git submodule init
@@ -13,17 +13,17 @@ init:QV:
 
 install:QV:
 	cd ports
-	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk install ROOT="${ROOT}"
+	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk install ROOT="${ROOT}" TARG="$TARG"
 
 clean:QV:
 	cd ports
-	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk clean
+	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk clean TARG="$TARG"
 
 distclean:QV:
 	cd ports
-	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk distclean
+	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk distclean TARG="$TARG"
 
 fetch:QV:
 	cd ports
-	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk fetch
+	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk fetch TARG="$TARG"
 
