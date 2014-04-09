@@ -11,6 +11,8 @@ LD = $CC
 AR = ${TOOLCHAIN_TRIPLET}-ar
 RANLIB = ${TOOLCHAIN_TRIPLET}-ranlib
 STRIP = ${TOOLCHAIN_TRIPLET}-strip
+# use STRIP = true instead of the above
+# if you do not want stripped binaries
 #STRIP = true
 SHELL = /bin/sh
 
