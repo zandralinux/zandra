@@ -1,0 +1,2 @@
+export mkbuild=$(pwd)/mkbuild
+export configmk=$(pwd)/config.mk
