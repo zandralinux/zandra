@@ -11,37 +11,47 @@ need to have mk(1) from 9base or plan9port.
 
 Please review config.mk prior to building and adjust any parameters.
 
-To build everything:
+Setting up the environment:
 
-  mk world
+  export mkbuild=$(pwd)/mkbuild
+  export configmk=$(pwd)/config.mk
+  export PATH=/path/to/musl/toolchain/bin:$PATH
+
+To build everything (though this isn't recommended):
+
+  mk
 
 To build specific packages:
 
-  mk pkg1 pkg2 ...
+  mk TARG="pkg1 pkg2 ..."
 
-To force build packages and all their dependencies:
+  or:
 
-  mk -a pkg1 pkg2 ...
+  cd ports/pkg1; mk
+
+To force build packages:
+
+  mk -a
 
 To clean the build system's cache:
 
   mk clean
 
-To clean everything including the rootfs:
+To clean source dirs completely:
 
-  mk clean-world
+  mk distclean
 
 To fetch all packages without building anything:
 
-  mk fetch-world
+  mk fetch
 
 Rebuilding the kernel
 ---------------------
 
-There is a default config for  the kernel in pkgs/kernel.  The default
+There is a default config for  the kernel in ports/linux.  The default
 config is  copied over  .config in the  kernel source  directory every
 time you do a build via mk(1).   You can adjust your local .config and
-copy  it over  the  relevant config  in pkgs/kernel  or  you can  just
+copy  it over  the  relevant config  in ports/linux  or  you can  just
 manually  compile  the  kernel  and copy  System.map  and  bzImage  to
 $root/boot.
 
@@ -62,7 +72,7 @@ device.  You can do this at the boot prompt:
 
   bzImage root=/dev/sd[X]1 rootwait init=/init ro
 
-Otherwise modify pkgs/extlinux/extlinux.conf  and rebuild the extlinux
+Otherwise modify ports/extlinux/extlinux.conf and rebuild the extlinux
 package.
 
 You will also want to modify the fstab file.
@@ -81,13 +91,10 @@ To obtain binary images go to http://dl.2f30.org/morpheus-img/
 Debugging
 ---------
 
-In some  cases you may  want to set  NPROC to 1  in order to  get sane
-build output.  You may also have to set nprocs to 1.  You can then use
-something like the following:
+In some  cases you may  want to set nprocs to 1  in order to  get sane
+build output. You can then use something like the following:
 
-  mk world 2>&1 | tee -a output.log
-
-or similarly if you are trying to build an individual package.
+  mk 2>&1 | tee -a output.log
 
 Props
 -----
