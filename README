@@ -17,6 +17,9 @@ Setting up the environment:
   export configmk=$(pwd)/config.mk
   export PATH=/path/to/musl/toolchain/bin:$PATH
 
+Clone the git submodules, either via git commands or:
+  mk init
+
 To build everything (though this isn't recommended):
 
   mk
