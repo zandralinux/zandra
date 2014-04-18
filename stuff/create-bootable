@@ -2,9 +2,17 @@
 #
 # Ensure you've loaded the loop module with max_part=15
 
-if test "$2" = ""; then
+usage() {
 	echo "Usage: $0 <rootdir> <imgfile>"
 	exit
+}
+
+if test "$1" = ""; then
+	usage
+fi
+
+if test "$2" = ""; then
+	usage
 fi
 
 set -e -x
