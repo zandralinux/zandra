@@ -4,6 +4,7 @@ LIB = util.a
 LOBJ = `{ls util/*.c | sed 's/.$/o/'}
 INSTALL_BIN = `{ls *.c | sed 's/..$//' | grep -v '^ps$'}
 INSTALL_MAN1 = `{ls *.1}
+INSTALL_MAN8 = `{ls *.8}
 NPROC = $nprocs
 
 <$mkbuild/mk.common
