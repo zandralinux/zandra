@@ -7,7 +7,11 @@ mkbuild = `{pwd}/mkbuild
 
 all:QV:
 	cd ports
-	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk TARG="$TARG"
+	if test "$TARG" = ""; then
+		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk
+	else
+		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk TARG="$TARG"
+	fi
 
 init:QV:
 	git submodule init
@@ -31,4 +35,3 @@ distclean:QV:
 fetch:QV:
 	cd ports
 	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk fetch TARG="$TARG"
-
