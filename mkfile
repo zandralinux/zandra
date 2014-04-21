@@ -22,16 +22,32 @@ bootable:V:
 
 install:QV:
 	cd ports
-	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk install ROOT="${ROOT}" TARG="$TARG"
+	if test "$TARG" = ""; then
+		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk install ROOT="${ROOT}"
+	else
+		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk install ROOT="${ROOT}" TARG="$TARG"
+	fi
 
 clean:QV:
 	cd ports
-	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk clean TARG="$TARG"
+	if test "$TARG" = ""; then
+		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk clean
+	else
+		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk clean TARG="$TARG"
+	fi
 
 distclean:QV:
 	cd ports
-	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk distclean TARG="$TARG"
+	if test "$TARG" = ""; then
+		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk distclean
+	else
+		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk distclean TARG="$TARG"
+	fi
 
 fetch:QV:
 	cd ports
-	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk fetch TARG="$TARG"
+	if test "$TARG" = ""; then
+		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk fetch
+	else
+		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk fetch TARG="$TARG"
+	fi
