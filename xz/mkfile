@@ -1,0 +1,7 @@
+<$mkbuild/mk.3rdparty
+
+v = 5.0.5
+src = xz-$v
+url = http://tukaani.org/xz/xz-$v.tar.xz
+mkfile = ../liblzma.mk ../xz.mk
+
