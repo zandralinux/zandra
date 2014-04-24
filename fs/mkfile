@@ -21,7 +21,7 @@ INSTALL_DIRS = \
 
 INSTALL_BIN = `{find bin -type f}
 
-INSTALL_SYMLINKS = \
+INSTALL_SYMLINK = \
 	. /usr \
 	bin /sbin \
 	../tmp /var/tmp
