@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = curl-$v
+url = http://curl.haxx.se/download/curl-$v.tar.gz
+mkfile = ../curl.mk
