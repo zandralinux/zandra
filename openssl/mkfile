@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = openssl-$v
+url = https://www.openssl.org/source/openssl-$v.tar.gz
+mkfile = ../openssl.mk
