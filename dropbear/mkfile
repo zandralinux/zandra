@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = dropbear-$v
+url = https://matt.ucc.asn.au/dropbear/releases/dropbear-$v.tar.bz2
+mkfile = ../dropbear.mk
