@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = libevent-$v
+url = http://dl.2f30.org/morpheus-pkgs/$arch/0.0/libevent-$v.tar.gz
+mkfile = ../libevent.mk
