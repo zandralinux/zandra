@@ -22,11 +22,7 @@ bootable:V:
 
 install:QV:
 	cd ports
-	if test "$TARG" = ""; then
-		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk install ROOT="${ROOT}"
-	else
-		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk install ROOT="${ROOT}" TARG="$TARG"
-	fi
+	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk install ROOT="${ROOT}" TARG="$TARG"
 
 clean:QV:
 	cd ports
