@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = git-$v
+url = https://github.com/git/git/archive/v$v.tar.gz
+mkfile = ../git.mk
