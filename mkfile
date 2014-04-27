@@ -1,6 +1,38 @@
-TARG = fs hbase sbase ubase sinit mksh zlib file \
-	busybox e2fsprogs extlinux linux make smdev sdhcp \
-	linux-firmware abduco dvtm jupp tinyalsa ncurses
+TARG = abduco \
+	busybox \
+	curl \
+	dropbear \
+	dvtm \
+	dwm \
+	e2fsprogs \
+	extlinux \
+	file \
+	fs \
+	git \
+	hbase \
+	ii \
+	jupp \
+	libevent \
+	linux \
+	linux-firmware \
+	make \
+	mksh \
+	ncurses \
+	openssh \
+	openssl \
+	pigz \
+	rsync \
+	sbase \
+	sdhcp \
+	sinit \
+	smdev \
+	stage0 \
+	tinyalsa \
+	tinyxlib \
+	tinyxserver \
+	tmux \
+	ubase \
+	xz \
+	zlib
 
 <$mkbuild/mk.parent
-
