@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = openssh-$v
+url = http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-$v.tar.gz
+mkfile = ../openssh.mk
