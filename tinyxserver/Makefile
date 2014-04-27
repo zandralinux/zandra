@@ -25,8 +25,6 @@ all:
 	cd record; make
 	cd init; make
 	cd fonts; make
-	echo MARKER
-	echo ====
 	#$(CC) $(CFLAGS) $(EXTRA_CFLAGS) $(DEFS) $(LDFLAGS) -o Xvesa dix/libdix.a os/libos.a hw/kdrive/vesa/libvesa.a miext/layer/liblayer.a hw/kdrive/libkdrive.a hw/kdrive/linux/liblinux.a miext/shadow/libshadow.a fb/libfb.a mi/libmi.a Xext/libext.a Xext/extmod/libextmod.a XTrap/libxtrap.a randr/librandr.a render/librender.a record/librecord.a $(LINKDIR) -lXfont -lXinerama -lX11 -lXdmcp -lz -lm
 	$(CC) $(CFLAGS) $(EXTRA_CFLAGS) $(DEFS) $(LDFLAGS) -o Xfbdev dix/libdix.a os/libos.a hw/kdrive/fbdev/libfbdev.a miext/layer/liblayer.a hw/kdrive/libkdrive.a hw/kdrive/linux/liblinux.a miext/shadow/libshadow.a fb/libfb.a mi/libmi.a Xext/libext.a Xext/extmod/libextmod.a XTrap/libxtrap.a randr/librandr.a render/librender.a record/librecord.a $(LINKDIR) -lXfont -lXinerama -lX11 -lXdmcp -lz -lm
 	$(CC) $(CFLAGS) $(EXTRA_CFLAGS) $(DEFS) $(LDFLAGS) -o xinit init/xinit.o -lX11
