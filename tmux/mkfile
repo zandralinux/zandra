@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = tmux-$v
+url = http://kent.dl.sourceforge.net/project/tmux/tmux/tmux-1.9/tmux-$v.tar.gz
+mkfile = ../tmux.mk
