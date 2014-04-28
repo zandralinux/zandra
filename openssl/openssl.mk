@@ -46,7 +46,7 @@ openssl:QV:
 	./config --prefix="$prefix" --openssldir="$prefix"/etc/ssl \
 	  --libdir="$prefix"/lib no-dso $disable_asm zlib enable-md2 $CFLAGS
 		# Clean out hardcoded flags that openssl uses
-		local CFLAG=$(grep ^CFLAG= Makefile | LC_ALL=C sed \
+		CFLAG=$(grep ^CFLAG= Makefile | LC_ALL=C sed \
 			-e 's:^CFLAG=::' \
 			-e 's:-fomit-frame-pointer ::g' \
 			-e 's:-O[0-9] ::g' \
