@@ -1,12 +1,9 @@
 TARG = curl
-DEPS = zlib openssl
+DEPS = zlib openssl cares
 INSTALL_BIN = src/curl
 INSTALL_MAN1 = \
 	docs/curl.1 \
 	docs/curl-config.1
-
-# TODO: add libcurl deps (libcurl.a), and curl deps (/bin/curl).
-# TODO: --with-ca-path="$prefix"/etc/ssl/certs
 
 <$mkbuild/mk.common
 
@@ -27,7 +24,8 @@ curl:QV:
 		--disable-rtsp \
 		--without-nss \
 		--without-libssh2 \
-		--with-ssl=$openssl_libdir \
+		--with-ssl=${openssl_libdir} \
+		--enable-cares=${cares_libdir} \
 		--with-zlib \
 		--enable-static \
 		--enable-ipv6
