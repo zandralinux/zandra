@@ -26,7 +26,6 @@ TARG = abduco \
 	sdhcp \
 	sinit \
 	smdev \
-	stage0 \
 	tinyalsa \
 	tinyxlib \
 	tinyxserver \
