@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = c-ares-$v
+url = http://c-ares.haxx.se/download/c-ares-$v.tar.gz
+mkfile = ../cares.mk
