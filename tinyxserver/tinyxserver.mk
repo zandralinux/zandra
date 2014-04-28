@@ -4,7 +4,6 @@ DEPS = zlib tinyxlib
 <$mkbuild/mk.common-noinst
 
 tinyxserver:QV:
-	return
 	case "$arch" in
 	x86_64)
 		EXTRA_CFLAGS="-D_XSERVER64=1 $CFLAGS"
