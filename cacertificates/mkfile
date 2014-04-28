@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = ca-certificates
+url = http://ftp.debian.org/debian/pool/main/c/ca-certificates/ca-certificates_$v.tar.xz
+mkfile = ../cacertificates.mk
