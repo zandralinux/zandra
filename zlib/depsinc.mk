@@ -1,4 +1,6 @@
 <$zlib_DEPDIR/v.mk
 
-DEPS_CFLAGS = $DEPS_CFLAGS -I$zlib_DEPDIR/zlib-$v
-DEPS_LDFLAGS = $DEPS_LDFLAGS -L$zlib_DEPDIR/zlib-$v -lz
+zlib_libdir = $zlib_DEPDIR/zlib-$v
+zlib_includedir = $zlib_DEPDIR/zlib-$v
+DEPS_CFLAGS = $DEPS_CFLAGS -I${zlib_includedir}
+DEPS_LDFLAGS = $DEPS_LDFLAGS -L${zlib_libdir} -lz
