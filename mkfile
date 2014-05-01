@@ -31,6 +31,7 @@ TARG = abduco \
 	tinyxserver \
 	tmux \
 	ubase \
+	vim \
 	xz \
 	zlib
 
