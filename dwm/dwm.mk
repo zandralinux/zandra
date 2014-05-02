@@ -1,10 +1,11 @@
 TARG = dwm
-DEPS = tinyxlib
+DEPS = xorglibx11 xorgxproto xorglibxinerama xorglibxext xorglibxcb xorglibxau
 
 <$mkbuild/mk.common-noinst
 
 dwm:QV:
 	# overwrite default config.mk to allow overriding some variables.
+	# TODO: use original X11INC, X11LIB override
 	cp ../config.mk config.mk
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
