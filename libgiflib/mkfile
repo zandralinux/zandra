@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = giflib-$v
+url = http://cznic.dl.sourceforge.net/project/giflib/giflib-5.x/giflib-$v.tar.gz
+mkfile = ../libgiflib.mk
