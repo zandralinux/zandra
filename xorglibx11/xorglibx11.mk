@@ -9,6 +9,7 @@ xorglibx11:QV:
 	./configure --prefix="$prefix" \
 		--mandir="$ROOT/share/man" \
 		--disable-loadable-xcursor \
+		--with-keysymdefdir="${xorgxproto_includedir}/X11" \
 		--disable-shared \
 		--enable-static
 	# fix makekeys Makefile to use host cc
