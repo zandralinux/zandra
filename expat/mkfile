@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = expat-$v
+url = http://heanet.dl.sourceforge.net/project/expat/expat/$v/expat-$v.tar.gz
+mkfile = ../expat.mk
