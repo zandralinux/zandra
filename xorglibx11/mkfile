@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = libX11-$v
+url = http://xorg.freedesktop.org/releases/individual/lib/libX11-$v.tar.bz2
+mkfile = ../xorglibx11.mk

@@ -1,0 +1,8 @@
+all:
+	cc makekeys.c -o makekeys -static
+install:
+	true
+uninstall:
+	true
+clean:
+	true

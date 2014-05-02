@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = xcb-proto-$v
+url = http://xcb.freedesktop.org/dist/xcb-proto-$v.tar.bz2
+mkfile = ../xorgxcbproto.mk

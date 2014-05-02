@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = libxcb-$v
+url = http://xcb.freedesktop.org/dist/libxcb-$v.tar.bz2
+mkfile = ../xorglibxcb.mk

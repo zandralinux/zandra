@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = xineramaproto-$v
+url = http://xorg.freedesktop.org/releases/individual/proto/xineramaproto-$v.tar.bz2
+mkfile = ../xorgxineramaproto.mk

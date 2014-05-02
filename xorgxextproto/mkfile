@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = xextproto-$v
+url = http://xorg.freedesktop.org/releases/individual/proto/xextproto-$v.tar.bz2
+mkfile = ../xorgxextproto.mk
