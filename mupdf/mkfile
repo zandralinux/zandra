@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = mupdf-$v-source
+url = http://www.mupdf.com/downloads/mupdf-$v-source.tar.gz
+mkfile = ../mupdf.mk

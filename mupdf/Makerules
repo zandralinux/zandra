@@ -1,0 +1,33 @@
+# Configuration for the Makefile
+
+OS ?= Linux
+
+CFLAGS += -Wall
+
+ifeq "$(build)" "debug"
+CFLAGS += -pipe -g -DDEBUG
+else ifeq "$(build)" "profile"
+CFLAGS += -pipe -O2 -DNDEBUG -pg
+LDFLAGS += -pg
+else ifeq "$(build)" "release"
+CFLAGS += -pipe -O2 -DNDEBUG -fomit-frame-pointer
+else ifeq "$(build)" "coverage"
+CFLAGS += -pipe -g -DDEBUG -pg -fprofile-arcs -ftest-coverage
+LIBS += -lgcov
+else ifeq "$(build)" "native"
+CFLAGS += -pipe -O2 -DNDEBUG -fomit-frame-pointer -march=native -mfpmath=sse
+else ifeq "$(build)" "memento"
+CFLAGS += -pipe -g -DMEMENTO -DDEBUG
+else
+$(error unknown build setting: '$(build)')
+endif
+
+SYS_CURL_DEPS = -lpthread -lrt
+
+SYS_FREETYPE_CFLAGS = 
+SYS_FREETYPE_LIBS = 
+SYS_OPENJPEG_CFLAGS = 
+SYS_OPENJPEG_LIBS = 
+SYS_JBIG2DEC_LIBS = -ljbig2dec
+SYS_JPEG_LIBS = -ljpeg
+SYS_ZLIB_LIBS = -lz
