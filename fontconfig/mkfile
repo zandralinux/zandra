@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = fontconfig-$v
+url = http://fontconfig.org/release/fontconfig-$v.tar.bz2
+mkfile = ../fontconfig.mk
