@@ -18,6 +18,7 @@ TARG = abduco \
 	make \
 	mksh \
 	ncurses \
+	ns-tools \
 	openssh \
 	openssl \
 	pigz \

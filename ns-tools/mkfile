@@ -1,0 +1,5 @@
+<$mkbuild/mk.3rdparty
+
+src = ns-tools
+git = git://git.r-36.net/ns-tools
+mkfile = ../ns-tools.mk
