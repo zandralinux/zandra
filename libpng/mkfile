@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = libpng-$v
+url = http://optimate.dl.sourceforge.net/project/libpng/libpng16/$v/libpng-$v.tar.xz
+mkfile = ../libpng.mk
