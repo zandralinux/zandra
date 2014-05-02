@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = bzip2-$v
+url = http://www.bzip.org/$v/bzip2-$v.tar.gz
+mkfile = ../bzip2.mk
