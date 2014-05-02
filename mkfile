@@ -1,4 +1,5 @@
-TARG = abduco \
+TARG = \
+	abduco \
 	busybox \
 	curl \
 	dropbear \
