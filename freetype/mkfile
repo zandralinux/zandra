@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = freetype-$v
+url = http://download.savannah.gnu.org/releases/freetype/freetype-$v.tar.bz2
+mkfile = ../freetype.mk
