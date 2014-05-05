@@ -6,11 +6,15 @@ nprocs = 2
 
 TOOLCHAIN_TRIPLET = ${arch}-musl-linux
 CC = ${TOOLCHAIN_TRIPLET}-gcc
-HOSTCC = $CC -static
+CXX = ${TOOLCHAIN_TRIPLET}-g++
 LD = $CC
 AR = ${TOOLCHAIN_TRIPLET}-ar
 RANLIB = ${TOOLCHAIN_TRIPLET}-ranlib
 STRIP = ${TOOLCHAIN_TRIPLET}-strip
+CPP = ${TOOLCHAIN_TRIPLET}-cpp
+
+HOST_TOOLCHAIN_TRIPLET = ${arch}-musl-linux
+HOSTCC = $CC -static
 # use STRIP = true instead of the above
 # if you do not want stripped binaries
 #STRIP = true
