@@ -28,6 +28,7 @@ DFLDIR = ${ETCDIR}/default
 MANDIR = ${PREFIX}/share/man
 
 INSTALL = /usr/bin/install
+SUM = sha512sum
 
 # these don't work for all packages yet...
 optldflags = -s -Wl,--gc-sections -Wl,-z,relro,-z,now
