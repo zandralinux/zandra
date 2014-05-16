@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = libpthread-stubs-$v
+url = http://xcb.freedesktop.org/dist/libpthread-stubs-$v.tar.bz2
+mkfile = ../libpthreadstubs.mk
