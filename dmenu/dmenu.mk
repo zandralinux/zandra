@@ -1,5 +1,6 @@
 TARG = dmenu
-DEPS = xorglibx11 xorgxproto xorglibxinerama xorgxineramaproto xorglibxext xorglibxcb xorglibxau
+DEPS = xorglibx11 xorgxproto xorglibxinerama xorgxineramaproto xorglibxext \
+	xorglibxcb xorglibxau xorglibxdmcp
 
 <$mkbuild/mk.common-noinst
 
