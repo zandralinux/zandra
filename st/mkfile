@@ -1,0 +1,5 @@
+<$mkbuild/mk.3rdparty
+
+src = st
+git = git://git.suckless.org/st
+mkfile = ../st.mk

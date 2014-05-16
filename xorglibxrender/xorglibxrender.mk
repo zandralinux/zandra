@@ -6,6 +6,9 @@ DEPS = xorglibx11 xorgxproto xorgrenderproto
 xorglibxrender:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
+	# TODO: includedir, libdir is a bug?
+	export RENDER_CFLAGS="-I${xorgrenderproto_libdir}"
+	export RENDER_LIBS="-L${xorgrenderproto_libdir}"
 	# HAVE__XEATDATAWORDS is set, but it isn't detected with configure
 	# set set it.
 	CC="$CC" CFLAGS="$CFLAGS -DHAVE__XEATDATAWORDS=1" ./configure \

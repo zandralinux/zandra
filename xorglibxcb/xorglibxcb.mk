@@ -1,6 +1,6 @@
 # make deps: python2.7 (with python 3 won't work atm (2014-04-30)).
 TARG = xorglibxcb
-DEPS = xorgxcbproto xorglibxau xorgxproto
+DEPS = xorgxcbproto xorgxproto xorglibxau xorglibxdmcp
 
 <$mkbuild/mk.common-noinst
 
@@ -8,8 +8,15 @@ xorglibxcb:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	export PYTHON="python2.7"
-	# stfu
-	export PKG_CONFIG="/bin/true"
+	export XCBPROTO_CFLAGS="-I${xorgxcbproto_includedir}"
+	export XCBPROTO_LIBS="-L${xorgxcbproto_libdir}"
+	export XDMCP_CFLAGS="-I${xorglibxdmcp_includedir}"
+	export XDMCP_LIBS="-L${xorglibxdmcp_libdir}"
+	export NEEDED_CFLAGS="${CFLAGS}"
+	export NEEDED_LIBS="${LDFLAGS}"
+	# TODO: better flags.
+#	export NEEDED_CFLAGS="-I${xorgxproto_includedir}"
+#	export NEEDED_LIBS="-L${xorgxproto_libdir}"
 	./configure \
 		--prefix="$prefix" \
 		--mandir="$ROOT/share/man" \

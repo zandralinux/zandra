@@ -1,5 +1,6 @@
 TARG = dwm
-DEPS = xorglibx11 xorgxproto xorglibxinerama xorglibxext xorglibxcb xorglibxau
+DEPS = xorglibx11 xorgxproto xorglibxinerama xorglibxext \
+	xorglibxcb xorglibxau xorglibxdmcp
 
 <$mkbuild/mk.common-noinst
 
