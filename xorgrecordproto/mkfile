@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = recordproto-$v
+url = http://xorg.freedesktop.org/releases/individual/proto/recordproto-$v.tar.bz2
+mkfile = ../xorgrecordproto.mk

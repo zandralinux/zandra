@@ -6,6 +6,8 @@ DEPS = xorglibx11 xorgxproto xorgxextproto xorglibxau
 xorglibxext:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
+	export XEXT_CFLAGS="-I${xorgxextproto_libdir}"
+	export XEXT_LIBS="-L${xorgxextproto_libdir}"
 	# HAVE__XEATDATAWORDS is set, but it isn't detected with configure
 	# set set it.
 	CC="$CC" CFLAGS="$CFLAGS -DHAVE__XEATDATAWORDS=1" ./configure \

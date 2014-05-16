@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = xcmiscproto-$v
+url = http://xorg.freedesktop.org/releases/individual/proto/xcmiscproto-$v.tar.bz2
+mkfile = ../xorgxcmiscproto.mk

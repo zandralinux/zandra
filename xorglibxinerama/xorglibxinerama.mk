@@ -6,6 +6,8 @@ DEPS = xorglibx11 xorgxproto xorglibxext xorgxineramaproto xorglibxau
 xorglibxinerama:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
+	export XINERAMA_CFLAGS="-I${xorgxineramaproto_includedir}"
+	export XINERAMA_LIBS="-L${xorgxineramaproto_libdir}"
 	# HAVE__XEATDATAWORDS is set, but it isn't detected with configure
 	# set set it.
 	CC="$CC" CFLAGS="$CFLAGS -DHAVE__XEATDATAWORDS=1" ./configure \
@@ -14,3 +16,5 @@ xorglibxinerama:QV:
 		--disable-shared \
 		--enable-static
 	make -j$nprocs DESTDIR="`pwd`/lib/" install
+	# remove .la files for now ?
+	find `pwd`/lib -iname "*.la" -exec rm {} \;
