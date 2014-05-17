@@ -44,5 +44,7 @@ curl:QV:
 	# remake static, see: http://curl.haxx.se/mail/archive-2003-03/0115.html
 	rm -f src/curl
 	make LDFLAGS="-all-static $LDFLAGS"
+	# install in ./lib for use as a dependency.
+	make install LDFLAGS="-all-static $LDFLAGS" DESTDIR="`pwd`/lib"
 	# remove .la files for now ?
 	find "`pwd`" -iname "*.la" -exec rm {} \;
