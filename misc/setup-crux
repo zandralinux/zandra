@@ -1,0 +1,49 @@
+#!/bin/sh
+# Things you might want to do after setup:
+# - use misc/run-chroot to chroot to it.
+# - remove gcc, binutils, pkg-config etc packages.
+# - remove libraries such as libpng (png-config), these can mess up
+#   the builds.
+# - remove /usr/include or move to /usr/include.old, note that
+#   python for example uses files from /usr/include/python2.7 at runtime (oh oh).
+# - add a separate morpheus user to build stuff.
+# - copy static plan9 mk to /bin.
+# - copy static git to /bin
+
+# wget http://www.mirrorservice.org/sites/crux.nu/crux/latest/iso/crux-3.0.iso
+
+set -e -x
+
+iso="crux-3.0.iso"
+mnt="/mnt/crux"
+installdir="/home/hiltjo/cruxtest"
+
+# mount
+dev=$(losetup -f)
+losetup "${dev}" "${iso}"
+mkdir -p "${mnt}"
+mount -t iso9660 -o ro "${dev}" "${mnt}"
+
+# install
+mkdir -p "${installdir}"
+cd "${installdir}"
+tar -xJf "${mnt}/rootfs.tar.xz"
+
+# copy packages (core only).
+#mkdir -p "${installdir}/pkg/"
+#cp -a "${mnt}/crux/core" "${installdir}/pkg/"
+
+# unmount
+cd /
+umount "${mnt}"
+losetup -d "${dev}"
+
+# make package dir needed by crux.
+mkdir -p "${installdir}/var/lib/pkg"
+touch "${installdir}/var/lib/pkg/db"
+
+# copy etc/resolv.conf
+cp /etc/resolv.conf "${installdir}/etc/resolv.conf"
+chmod 755 "${installdir}/etc/resolv.conf"
+
+# rmdir "${mnt}"
