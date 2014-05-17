@@ -1,6 +1,6 @@
 <$mkbuild/mk.3rdparty
 
-v = 3.1jupp26
+<v.mk
 src = jupp
 url = $mirror/joe-$v.tgz
 mkfile = ../jupp.mk

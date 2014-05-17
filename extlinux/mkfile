@@ -1,6 +1,6 @@
 <$mkbuild/mk.3rdparty
 
-v = 6.02
+<v.mk
 src = syslinux-$v/build
 url = $mirror/syslinux-$v.tar.xz
 mkfile = ../../extlinux.mk
