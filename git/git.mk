@@ -9,6 +9,7 @@ git:QV:
 	# NOTE: "$prefix/" is needed to set the proper mandir.
 	make CURL_LIBCURL="${curl_libdir}/libcurl.a ${openssl_libdir}/libssl.a ${openssl_libdir}/libcrypto.a" \
 	CC="$CC -static" \
+		AR="$AR" \
 		prefix="$prefix/" gitexecdir="$prefix"/lib/git-core \
 		NO_TCLTK=1 NO_PYTHON=1 NO_EXPAT=1 NO_GETTEXT=1 \
 		CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS -static" \
@@ -20,6 +21,7 @@ install:
 	# NOTE: "$prefix/" is needed to set the proper mandir.
 	make CURL_LIBCURL="${curl_libdir}/libcurl.a ${openssl_libdir}/libssl.a ${openssl_libdir}/libcrypto.a" \
 	CC="$CC -static" \
+		AR="$AR" \
 		prefix="$prefix/" gitexecdir="$prefix"/lib/git-core \
 		NO_TCLTK=1 NO_PYTHON=1 NO_EXPAT=1 NO_GETTEXT=1 \
 		CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS -static" \
