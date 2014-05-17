@@ -1,3 +1,5 @@
 .deps.mk
 .targs.mk
 .cache
+.cache*.mk
+*.tar.*
