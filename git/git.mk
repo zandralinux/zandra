@@ -6,8 +6,8 @@ DEPS = curl openssl zlib
 git:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
-	make CURL_LIBCURL="${curl_libdir}/libcurl.a ${openssl_libdir}/libssl.a ${openssl_libdir}/libcrypto.a" \
 	# NOTE: "$prefix/" is needed to set the proper mandir.
+	make CURL_LIBCURL="${curl_libdir}/libcurl.a ${openssl_libdir}/libssl.a ${openssl_libdir}/libcrypto.a" \
 	CC="$CC -static" \
 		prefix="$prefix/" gitexecdir="$prefix"/lib/git-core \
 		NO_TCLTK=1 NO_PYTHON=1 NO_EXPAT=1 NO_GETTEXT=1 \
@@ -17,8 +17,8 @@ git:QV:
 install:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
-	make CURL_LIBCURL="${curl_libdir}/libcurl.a ${openssl_libdir}/libssl.a ${openssl_libdir}/libcrypto.a" \
 	# NOTE: "$prefix/" is needed to set the proper mandir.
+	make CURL_LIBCURL="${curl_libdir}/libcurl.a ${openssl_libdir}/libssl.a ${openssl_libdir}/libcrypto.a" \
 	CC="$CC -static" \
 		prefix="$prefix/" gitexecdir="$prefix"/lib/git-core \
 		NO_TCLTK=1 NO_PYTHON=1 NO_EXPAT=1 NO_GETTEXT=1 \
