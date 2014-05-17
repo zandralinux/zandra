@@ -6,4 +6,4 @@ INSTALL_MAN1 = sdhcp.1
 <$mkbuild/mk.common
 
 sdhcp:QV:
-	make -j$nprocs PREFIX="$prefix" DESTDIR="$ROOT"
+	make -j$nprocs CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS" PREFIX="$prefix" DESTDIR="$ROOT"
