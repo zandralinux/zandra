@@ -69,7 +69,7 @@ To create a bootable image:
 
   sudo modprobe -r loop
   sudo modprobe loop max_part=15 # to be done only once
-  sudo mk bootable # this invokes stuff/create-bootable
+  sudo mk ROOT=$(pwd)/root bootable # set ROOT to point to your rootfs
 
 Make sure to change  the kernel command line to point  it to your root
 device.  You can do this at the boot prompt:
