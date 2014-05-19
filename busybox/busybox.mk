@@ -40,5 +40,5 @@ INSTALL_SYMLINK = \
 
 busybox:Q:
 	cp ../busybox.config .config
-	make -j$nprocs HOSTCC="$HOSTCC -static" CC=$CC busybox
+	make -j$nprocs AR="$AR" STRIP="$STRIP" HOSTCC="$HOSTCC -static" CC="$CC" busybox
 
