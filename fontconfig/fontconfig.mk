@@ -39,3 +39,10 @@ fontconfig:QV:
 	done
 	# remove .la files for now ?
 	find `pwd`/lib -iname "*.la" -exec rm {} \;
+
+install:QV:
+	# TODO: better way to install.
+	mkdir -p "$ROOT"
+	for d in bin etc var; do
+		cp -a "`pwd`/lib/$d" "$ROOT/$d"
+	done
