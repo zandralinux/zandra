@@ -5,11 +5,17 @@ DEPS = ncurses
 
 $TARG:QV:
 	export CPPFLAGS="$DEPS_CFLAGS $CFLAGS" LDFLAGS="$DEPS_LDFLAGS $LDFLAGS"
-	./configure --prefix=$PREFIX/ \
-		--enable-multibyte --disable-gui --with-x=no \
-		--disable-nls --disable-netbeans --without-local-dir
+	./configure \
+		--prefix=$PREFIX/ \
+		--disable-gui \
+		--disable-nls \
+		--disable-netbeans \
+		--without-local-dir \
+		--with-x=no \
+		--enable-multibyte
 	make -j$nprocs
 
 install:QV:
 	make DESTDIR="$ROOT" install
-	ln -s vim $ROOT/$BINDIR/vi
+	install -m 755 -d $ROOT/$BINDIR/vi
+	ln -sf vim $ROOT/$BINDIR/vi
