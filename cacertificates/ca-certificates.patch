@@ -1,5 +1,7 @@
---- ca-certificates.org/Makefile
-+++ ca-certificates/Makefile
+Only in ca-certificates: .deps.mk
+diff -uri ca-certificates.old/Makefile ca-certificates/Makefile
+--- ca-certificates.old/Makefile	2014-03-13 13:43:00.000000000 +0100
++++ ca-certificates/Makefile	2014-05-19 16:55:57.508048517 +0200
 @@ -2,7 +2,7 @@
  # Makefile
  #
@@ -9,29 +11,53 @@
  SUBDIRS = mozilla spi-inc.org
  
  all:
-diff -ur ca-certificates-20120212.orig//mozilla/Makefile ca-certificates-20120212/mozilla/Makefile
---- ca-certificates-20120212.orig//mozilla/Makefile	2011-11-06 19:23:24.000000000 -0600
-+++ ca-certificates-20120212/mozilla/Makefile	2012-04-11 02:45:30.691561468 -0500
-@@ -10,5 +10,5 @@
+@@ -17,7 +17,7 @@
  
  install:
- 	for p in *.crt; do \
--	 install -m 644 $$p $(CERTSDIR)/$$p ; \
-+	 install -D -m 644 $$p $(CERTSDIR)/$$p ; \
+ 	for dir in $(SUBDIRS); do \
+-	  mkdir $(DESTDIR)/$(CERTSDIR)/$$dir; \
++	  mkdir -p $(DESTDIR)/$(CERTSDIR)/$$dir; \
+ 	  $(MAKE) -C $$dir install CERTSDIR=$(DESTDIR)/$(CERTSDIR)/$$dir; \
  	done
-diff -ur ca-certificates-20120212.orig//sbin/Makefile ca-certificates-20120212/sbin/Makefile
---- ca-certificates-20120212.orig//sbin/Makefile	2007-02-02 00:23:19.000000000 -0600
-+++ ca-certificates-20120212/sbin/Makefile	2012-04-11 02:53:36.755557626 -0500
+ 	for dir in sbin; do \
+Only in ca-certificates/mozilla: certdata2pem.c
+diff -uri ca-certificates.old/mozilla/Makefile ca-certificates/mozilla/Makefile
+--- ca-certificates.old/mozilla/Makefile	2013-09-07 09:40:28.000000000 +0200
++++ ca-certificates/mozilla/Makefile	2014-05-19 16:55:57.509048517 +0200
+@@ -1,14 +1,10 @@
+-#
+-# Makefile
+-#
+-
+-all:
+-	python certdata2pem.py
+-
++all: a.out
++	./a.out
++a.out:
++	$(HOSTCC) -static -Wall -Wextra -O0 -g certdata2pem.c
+ clean:
+ 	-rm -f *.crt
+-
+ install:
+-	for p in *.crt; do \
+-	 install -m 644 $$p $(CERTSDIR)/$$p ; \
++	for p in *.crt; do\
++		install -D -m 644 "$$p" "$(CERTSDIR)/$$p";\
+ 	done
+diff -uri ca-certificates.old/sbin/Makefile ca-certificates/sbin/Makefile
+--- ca-certificates.old/sbin/Makefile	2013-09-07 09:40:28.000000000 +0200
++++ ca-certificates/sbin/Makefile	2014-05-19 16:55:57.507048517 +0200
 @@ -8,4 +8,5 @@
  clean:
  
  install:
 -	install -m755 update-ca-certificates $(DESTDIR)/usr/sbin/
-+	mkdir -p $(DESTDIR)/bin
-+	install -m755 update-ca-certificates $(DESTDIR)/bin/
-diff -ur ca-certificates-20120212.orig//sbin/update-ca-certificates ca-certificates-20120212/sbin/update-ca-certificates
---- ca-certificates-20120212.orig//sbin/update-ca-certificates	2011-11-06 19:23:24.000000000 -0600
-+++ ca-certificates-20120212/sbin/update-ca-certificates	2012-04-11 02:35:01.190560840 -0500
++	install -m 755 -d $(DESTDIR)/sbin/
++	install -m 755 update-ca-certificates $(DESTDIR)/sbin/
+diff -uri ca-certificates.old/sbin/update-ca-certificates ca-certificates/sbin/update-ca-certificates
+--- ca-certificates.old/sbin/update-ca-certificates	2014-03-13 13:43:00.000000000 +0100
++++ ca-certificates/sbin/update-ca-certificates	2014-05-19 16:55:57.506048517 +0200
 @@ -38,8 +38,8 @@
  done
  
@@ -43,9 +69,9 @@ diff -ur ca-certificates-20120212.orig//sbin/update-ca-certificates ca-certifica
  CERTBUNDLE=ca-certificates.crt
  ETCCERTSDIR=/etc/ssl/certs
  
-diff -ur ca-certificates-20120212.orig//spi-inc.org/Makefile ca-certificates-20120212/spi-inc.org/Makefile
---- ca-certificates-20120212.orig//spi-inc.org/Makefile	2007-02-02 00:23:19.000000000 -0600
-+++ ca-certificates-20120212/spi-inc.org/Makefile	2012-04-11 02:44:35.435558255 -0500
+diff -uri ca-certificates.old/spi-inc.org/Makefile ca-certificates/spi-inc.org/Makefile
+--- ca-certificates.old/spi-inc.org/Makefile	2013-09-07 09:40:28.000000000 +0200
++++ ca-certificates/spi-inc.org/Makefile	2014-05-19 16:55:57.506048517 +0200
 @@ -8,6 +8,6 @@
  
  install:
@@ -54,3 +80,4 @@ diff -ur ca-certificates-20120212.orig//spi-inc.org/Makefile ca-certificates-201
 +	 install -D -m 644 $$p $(CERTSDIR)/$$p ; \
  	done
  
+Only in ca-certificates: .targs.mk

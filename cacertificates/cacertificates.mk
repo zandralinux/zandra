@@ -1,16 +1,19 @@
+# make deps: run-parts (busybox has this).
 TARG = cacertificates
 
 <$mkbuild/mk.common-noinst
 
 cacertificates:QV:
+	# patch all the things.
 	patch -p1 -N --silent --dry-run < ../ca-certificates.patch &&
 		patch -p1 -N < ../ca-certificates.patch
-	cp ../certdata2pem.c mozilla/
-	cp ../mozilla_Makefile mozilla/Makefile
-	make
+	make -j$nprocs
 
 install:QV:
-	make DESTDIR="$ROOT" install
+	# patch all the things.
+	patch -p1 -N --silent --dry-run < ../ca-certificates.patch &&
+		patch -p1 -N < ../ca-certificates.patch
+	make -j$nprocs DESTDIR="$ROOT" install
 	mkdir -p "$ROOT/etc/ssl/certs"
 	( cd "$ROOT/share/ca-certificates/"
 	  find . -name '*.crt' | sort | cut -b3- > "$ROOT/etc/ca-certificates.conf" )
