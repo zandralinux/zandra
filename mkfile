@@ -47,3 +47,11 @@ fetch:QV:
 	else
 		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk fetch TARG="$TARG"
 	fi
+
+package:QV:
+	cd ports
+	if test "$TARG" = ""; then
+		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk package
+	else
+		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk package TARG="$TARG"
+	fi
