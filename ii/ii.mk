@@ -9,3 +9,4 @@ ii:QV:
 
 install:QV:
 	make -j$nprocs PREFIX="$prefix" DESTDIR="$ROOT" install
+	$STRIP "$ROOT/$BINDIR/ii"
