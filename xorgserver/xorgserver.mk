@@ -59,6 +59,10 @@ xorgserver:QV:
 		--with-sha1=libcrypto
 	# NOTE: "-all-static" is needed.
 	make -j$nprocs LDFLAGS="-all-static $LDFLAGS"
+	# install include files for dependency aswell (xorg-server-devel).
+	make -j$nprocs install LDFLAGS="-all-static $LDFLAGS" DESTDIR="`pwd`/lib"
+	# remove .la files for now ?
+	find "`pwd`/lib" -iname "*.la" -exec rm {} \;
 
 install:QV:
 	# NOTE: "-all-static" is needed.
