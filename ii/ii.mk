@@ -5,8 +5,9 @@ TARG = ii
 ii:QV:
 	# overwrite default config.mk to allow overriding some variables.
 	cp ../config.mk config.mk
-	CC="${CC} -static" make -j$nprocs PREFIX="$prefix" DESTDIR="$ROOT"
+	CC="${CC} -static" make -j$nprocs LDFLAGS="$LDFLAGS" \
+		PREFIX="$prefix" DESTDIR="$ROOT"
 
 install:QV:
-	make -j$nprocs PREFIX="$prefix" DESTDIR="$ROOT" install
-	$STRIP "$ROOT/$BINDIR/ii"
+	make -j$nprocs LDFLAGS="$LDFLAGS" \
+		PREFIX="$prefix" DESTDIR="$ROOT" install

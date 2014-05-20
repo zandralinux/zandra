@@ -18,11 +18,11 @@ VERSION     = 1.7
 #INCLUDES    = -I. -I${INCDIR} -I/usr/include
 #LIBS        = -L${LIBDIR} -L/usr/lib -lc
 # uncomment and comment other variables for compiling on Solaris
-#LIBS = -L${LIBDIR} -L/usr/lib -lc -lsocket -lnsl
+#LIBS        = -L${LIBDIR} -L/usr/lib -lc -lsocket -lnsl
 #CFLAGS      = -g ${INCLUDES} -DVERSION=\"${VERSION}\"
 
 # compiler
 #CC          = cc
 LD          = ${CC}
-CFLAGS      = -g -W -Wall -DVERSION=\"${VERSION}\"
-LDFLAGS     = ${LIBS}
+CFLAGS      = -DVERSION=\"${VERSION}\"
+LDFLAGS     =
