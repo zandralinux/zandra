@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = util-linux-$v
+url = https://www.kernel.org/pub/linux/utils/util-linux/v2.24/util-linux-$v.tar.xz
+mkfile = ../util-linux.mk
