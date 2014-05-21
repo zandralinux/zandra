@@ -1,4 +1,4 @@
-arch = i486
+arch = x86_64
 version = 0.0
 mirror = http://dl.2f30.org/morpheus-pkgs/${arch}/${version}
 pkgdirs = $mkbuild/../ports
