@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = xf86dgaproto-$v
+url = http://xorg.freedesktop.org/releases/individual/proto/xf86dgaproto-$v.tar.bz2
+mkfile = ../xorgxf86dgaproto.mk

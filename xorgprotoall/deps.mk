@@ -18,5 +18,6 @@ DEPS = \
 	xorgxcmiscproto \
 	xorgxextproto \
 	xorgxf86bigfontproto \
+	xorgxf86dgaproto \
 	xorgxineramaproto \
 	xorgxproto

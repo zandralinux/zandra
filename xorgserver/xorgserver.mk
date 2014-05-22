@@ -1,11 +1,7 @@
 # openssl is used for --with-sha1=libcrypto
 TARG = xorgserver
 DEPS = xorglibpixman xorglibx11 openssl xorglibpciaccess \
-	xorgxproto xorginputproto xorgxextproto xorgxineramaproto \
-	xorgresourceproto xorgscrnsaverproto xorgkbproto xorgvideoproto \
-	xorgfontsproto xorgrenderproto xorgdamageproto xorgfixesproto \
-	xorgcompositeproto xorgbigreqsproto xorgxcmiscproto \
-	xorgrecordproto	xorglibxau xorgrandrproto xorglibxkbfile \
+	xorgprotoall xorglibxau  xorglibxkbfile \
 	xorgxtrans xorglibxfont freetype xorglibfontenc libpng zlib
 
 <$mkbuild/mk.common-noinst
@@ -32,10 +28,13 @@ xorgserver:QV:
 	export XSERVERCFLAGS_LIBS="${LDFLAGS}"
 	export XSERVERLIBS_CFLAGS="${CFLAGS}"
 	export XSERVERLIBS_LIBS="${LDFLAGS}"
-	# TODO: delete $ROOT/lib $ROOT/include for packaging only.
+	export XORG_MODULES_CFLAGS="${CFLAGS}"
+	export XORG_MODULES_LIBS="${LDFLAGS}"
+	export DGA_CFLAGS="-I${xorgxf86dgaproto_includedir}"
+	export DGA_LIBS="-L${xorgxf86dgaproto_libdir}"
 	# TODO: make able to run server rootless or setuid binary?
 	export CC="$CC -static"
-	#
+	# NOTE: xorgvideofbdev requires --enable-dga.
 	./configure \
 		--prefix="$prefix" \
 		--mandir="$ROOT/$prefix/share/man" \
@@ -51,6 +50,7 @@ xorgserver:QV:
 		--disable-config-hal \
 		--disable-shared \
 		--enable-static \
+		--enable-dga \
 		--enable-xfbdev \
 		--enable-kdrive \
 		--enable-kdrive-kbd \
