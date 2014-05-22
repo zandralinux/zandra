@@ -2,6 +2,7 @@
 
 <v.mk
 src = mksh
-url = $mirror/mksh-$v.tar.gz
+url = \
+	https://www.mirbsd.org/MirOS/dist/mir/mksh/mksh-$v.tgz \
+	$mirror/mksh-$v.tgz
 mkfile = ../mksh.mk
-
