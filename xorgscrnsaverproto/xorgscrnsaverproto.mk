@@ -2,7 +2,7 @@ TARG = xorgscrnsaverproto
 
 <$mkbuild/mk.common-noinst
 
-xorgscrnsaverproto:QV:
+$TARG:QV:
 	./configure \
 		--prefix="$prefix" \
 		--mandir="$ROOT/share/man"

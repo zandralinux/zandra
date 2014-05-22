@@ -2,7 +2,7 @@ TARG = tinyxlib
 
 <$mkbuild/mk.common
 
-tinyxlib:QV:
+$TARG:QV:
 	make clean
 	make -j$nprocs CC="$CC" BINDIR="/bin" LIBDIR="$prefix/lib" STATIC=1 \
 		FONT_ENCODINGS_DIRECTORY="$prefix/share/fonts/encodings/encodings.dir"

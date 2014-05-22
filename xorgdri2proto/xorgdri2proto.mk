@@ -2,7 +2,7 @@ TARG = xorgdri2proto
 
 <$mkbuild/mk.common-noinst
 
-xorgdri2proto:QV:
+$TARG:QV:
 	CC="$CC" ./configure \
 		--prefix="$prefix" \
 		--mandir="$ROOT/share/man" \

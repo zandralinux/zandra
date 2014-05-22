@@ -4,7 +4,7 @@ DEPS = xorgxcbproto xorgxproto xorglibxau xorglibxdmcp
 
 <$mkbuild/mk.common-noinst
 
-xorglibxcb:QV:
+$TARG:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	export PYTHON="python2.7"

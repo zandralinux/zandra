@@ -2,7 +2,7 @@ TARG = rsync
 
 <$mkbuild/mk.common-noinst
 
-rsync:QV:
+$TARG:QV:
 	CC="$CC" ./configure --prefix="$prefix" --mandir="$ROOT/share/man" \
 	   --disable-locale
 	make -j$nprocs

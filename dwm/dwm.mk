@@ -4,7 +4,7 @@ DEPS = xorglibx11 xorgxproto xorglibxinerama xorglibxext \
 
 <$mkbuild/mk.common-noinst
 
-dwm:QV:
+$TARG:QV:
 	# overwrite default config.mk to allow overriding some variables.
 	# TODO: use original X11INC, X11LIB override
 	cp ../config.mk config.mk

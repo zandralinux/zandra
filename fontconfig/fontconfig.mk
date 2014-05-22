@@ -3,7 +3,7 @@ DEPS = expat freetype libpng zlib
 
 <$mkbuild/mk.common-noinst
 
-fontconfig:QV:
+$TARG:QV:
 	# skip building tests.
 	printf "all:\n\ttrue\n\ninstall:\n\ttrue\n\n" > test/Makefile.in
 #	export CFLAGS="$CFLAGS $DEPS_CFLAGS"

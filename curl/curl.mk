@@ -9,7 +9,7 @@ INSTALL_MAN1 = \
 
 <$mkbuild/mk.common
 
-curl:QV:
+$TARG:QV:
 	# fix: hugehelp is not defined because we use --disable-manual.
 	#      in src/tool_operate.c this is used though, so it's a bug.
 	patch --silent --dry-run -N -p0 < ../curl-fix-hugehelp.patch && \

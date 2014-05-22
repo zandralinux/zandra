@@ -2,7 +2,7 @@ TARG = xorgfontsproto
 
 <$mkbuild/mk.common-noinst
 
-xorgfontsproto:QV:
+$TARG:QV:
 	./configure \
 		--prefix="$prefix" \
 		--mandir="$ROOT/share/man"

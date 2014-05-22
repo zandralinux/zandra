@@ -3,7 +3,7 @@ TARG = cacertificates
 
 <$mkbuild/mk.common-noinst
 
-cacertificates:QV:
+$TARG:QV:
 	# patch all the things.
 	patch -p1 -N --silent --dry-run < ../ca-certificates.patch &&
 		patch -p1 -N < ../ca-certificates.patch

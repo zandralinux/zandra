@@ -2,7 +2,7 @@ TARG = xorgrandrproto
 
 <$mkbuild/mk.common-noinst
 
-xorgrandrproto:QV:
+$TARG:QV:
 	./configure \
 		--prefix="$prefix" \
 		--mandir="$ROOT/share/man"

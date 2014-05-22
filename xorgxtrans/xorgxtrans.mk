@@ -2,7 +2,7 @@ TARG = xorgxtrans
 
 <$mkbuild/mk.common-noinst
 
-xorgxtrans:QV:
+$TARG:QV:
 	./configure \
 		--prefix="$prefix" \
 		--mandir="$ROOT/share/man"

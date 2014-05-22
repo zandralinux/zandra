@@ -3,7 +3,7 @@ DEPS = xorgxproto xorglibxcb xorgxcbproto xorgkbproto xorginputproto xorgxf86big
 
 <$mkbuild/mk.common-noinst
 
-xorglibx11:QV:
+$TARG:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	# set these to make sure these are used.

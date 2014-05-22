@@ -2,7 +2,7 @@ TARG = xorgkbproto
 
 <$mkbuild/mk.common-noinst
 
-xorgkbproto:QV:
+$TARG:QV:
 	./configure --prefix="$prefix" \
 	   --mandir="$ROOT/share/man"
 	make -j$nprocs

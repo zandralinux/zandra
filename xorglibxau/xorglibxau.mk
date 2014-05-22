@@ -3,7 +3,7 @@ DEPS = xorgxproto
 
 <$mkbuild/mk.common-noinst
 
-xorglibxau:QV:
+$TARG:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	export XAU_CFLAGS="-I${xorgxproto_includedir}"

@@ -7,7 +7,7 @@ INSTALL_OTHER1_DIR = /boot
 bzImage.config:Q:
 	cp .config bzImage.config
 
-linux:Q:
+$TARG:Q:
 	cp ../kernel-config-$arch .config
 	case "$arch" in
 	x86_64)

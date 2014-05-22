@@ -4,7 +4,7 @@ DEPS = zlib
 
 <$mkbuild/mk.common-noinst
 
-openssl:QV:
+$TARG:QV:
 	# apply patches
 	patch --silent --dry-run -N -p1 < ../openssl-1.0.0a-ldflags.patch && \
 		patch -p1 < ../openssl-1.0.0a-ldflags.patch #327421

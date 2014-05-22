@@ -4,7 +4,7 @@ DEPS = xorglibx11 xorgxproto xorglibxinerama xorgxineramaproto xorglibxext \
 
 <$mkbuild/mk.common-noinst
 
-dmenu:QV:
+$TARG:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	# overwrite default config.mk to allow overriding some variables.

@@ -3,7 +3,7 @@ DEPS = xorglibx11 xorgxproto freetype fontconfig xorglibxrender xorgrenderproto
 
 <$mkbuild/mk.common-noinst
 
-xorglibxft:QV:
+$TARG:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	#export XRENDER_CFLAGS="-I${xorglibxrender_includedir}"

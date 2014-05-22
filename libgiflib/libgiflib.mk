@@ -2,7 +2,7 @@ TARG = libgiflib
 
 <$mkbuild/mk.common-noinst
 
-libgiflib:QV:
+$TARG:QV:
 	CC="${CC} -static" ./configure \
 		--prefix="$prefix" \
 		--mandir="$ROOT/share/man" \

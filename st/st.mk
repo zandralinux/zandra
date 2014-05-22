@@ -7,7 +7,7 @@ DEPS = \
 
 <$mkbuild/mk.common-noinst
 
-st:QV:
+$TARG:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	# overwrite default config.mk to allow overriding some variables.
