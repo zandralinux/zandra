@@ -66,7 +66,7 @@ entries.
 For a bootable system you need at least the following packages:
 
 	busybox
-	e2fsprog
+	e2fsprogs
 	extlinux
 	file
 	fs
