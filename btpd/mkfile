@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = btpd-$v
+url = https://github.com/btpd/btpd/archive/v$v.tar.gz
+mkfile = ../btpd.mk
