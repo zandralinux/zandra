@@ -25,15 +25,15 @@ To build everything (though this isn't recommended):
 
   mk
 
-To build specific packages:
+To build specific ports:
 
-  mk TARG="pkg1 pkg2 ..."
+  mk TARG="port1 port2 ..."
 
   or:
 
-  cd ports/pkg1; mk
+  cd ports/port1; mk
 
-To force build packages:
+To force build ports:
 
   mk -a
 
@@ -45,9 +45,45 @@ To clean source dirs completely:
 
   mk distclean
 
-To fetch all packages without building anything:
+To fetch all ports without building anything:
 
   mk fetch
+
+To generate a package tarball:
+
+  mk TARG="port1 port2 ..." package
+
+You can then install the package using installpkg(1) from
+http://git.2f30.org/pkgtools.
+
+To install a port to the rootfs:
+
+  mk TARG="port1 port2 ..." ROOT=$(pwd)/root install
+
+Note that this however will *not* create the /var/log/packages
+entries.
+
+For a bootable system you need at least the following packages:
+
+	busybox
+	e2fsprog
+	extlinux
+	file
+	fs
+	hbase
+	linux
+	mksh
+	sbase
+	sdhcp
+	sinit
+	smdev
+	ubase
+
+There are precompiled versions at http://morpheus.2f30.org/0.0 for the
+x86_64 architecture.
+
+We suggest using a stripped-down CRUX rootfs for building ports.  There
+is one prepackaged rootfs at http://morpheus.2f30.org/0.0/emul.tgz.
 
 Rebuilding the kernel
 ---------------------
@@ -57,7 +93,7 @@ config is  copied over  .config in the  kernel source  directory every
 time you do a build via mk(1).   You can adjust your local .config and
 copy  it over  the  relevant config  in ports/linux  or  you can  just
 manually  compile  the  kernel  and copy  System.map  and  bzImage  to
-$root/boot.
+$ROOT/boot.
 
 Installing
 ----------
@@ -74,10 +110,10 @@ To create a bootable image:
 Make sure to change  the kernel command line to point  it to your root
 device.  You can do this at the boot prompt:
 
-  bzImage root=/dev/sd[X]1 rootwait init=/init ro
+  bzImage root=/dev/sd[X]1 rootwait ro
 
 Otherwise modify ports/extlinux/extlinux.conf and rebuild the extlinux
-package.
+port or directly modify $ROOT/boot/extlinux.conf.
 
 You will also want to modify the fstab file.
 
@@ -89,8 +125,6 @@ To experiment with the x86_64 image in qemu:
   qemu-system-x86_64 -hda morpheus-x86_64-0.0.img -enable-kvm -vga cirrus
 
 Login with root and an empty password.
-
-To obtain binary images go to http://dl.2f30.org/morpheus-img/
 
 Debugging
 ---------
