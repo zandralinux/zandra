@@ -17,4 +17,5 @@ $TARG:QV:
 
 install:QV:
 	make DESTDIR="$ROOT" install
+	install -m 755 -d $ROOT/$BINDIR
 	ln -sf vim $ROOT/$BINDIR/vi
