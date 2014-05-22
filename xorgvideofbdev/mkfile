@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = xf86-video-fbdev-$v
+url = http://xorg.freedesktop.org/releases/individual/driver/xf86-video-fbdev-$v.tar.bz2
+mkfile = ../xorgvideofbdev.mk
