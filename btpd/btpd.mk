@@ -1,9 +1,10 @@
 <../v.mk
 
-TARG = btp
+BIN = \
+	btpd/btpd \
+	cli/btinfo \
+	cli/btcli
 LIB = libmisc.a libevloop.a
-CLEAN_FILES = btpd/btpd cli/btinfo cli/btcli
-#NOBIN
 
 libmisc_a_OBJ = `{ ls misc/*.c | sed 's/.$/o/'}
 libmisc_a_CFLAGS = -I`{ echo $(pwd)/misc }
@@ -13,15 +14,15 @@ libevloop_a_OBJ = evloop/timer.o evloop/timeheap.o evloop/epoll.o
 libevloop_a_CFLAGS = -I`{ echo $(pwd)/evloop }
 libevloop_a_LDFLAGS = -L`{ echo $(pwd)/evloop } -levloop
 
-btpd_OBJ = `{ ls btpd/*.c | sed 's/.$/o/'}
-btpd_CFLAGS = -I./btpd $libmisc_a_CFLAGS $libevloop_a_CFLAGS
-btpd_LDFLAGS = -L. $libmisc_a_LDFLAGS $libevloop_a_LDFLAGS
+btpd_btpd_OBJ = `{ ls btpd/*.c | sed 's/.$/o/'}
+btpd_btpd_CFLAGS = -I./btpd $libmisc_a_CFLAGS $libevloop_a_CFLAGS
+btpd_btpd_LDFLAGS = -L. $libmisc_a_LDFLAGS $libevloop_a_LDFLAGS
 
-btinfo_OBJ = cli/btinfo.o
-btinfo_CFLAGS = -I./cli $libmisc_a_CFLAGS
-btinfo_LDFLAGS = -L. $libmisc_a_LDFLAGS
+cli_btinfo_OBJ = cli/btinfo.o
+cli_btinfo_CFLAGS = -I./cli $libmisc_a_CFLAGS
+cli_btinfo_LDFLAGS = -L. $libmisc_a_LDFLAGS
 
-btcli_OBJ = \
+cli_btcli_OBJ = \
 	cli/btcli.o \
 	cli/add.o \
 	cli/del.o \
@@ -30,8 +31,8 @@ btcli_OBJ = \
 	cli/start.o \
 	cli/stop.o \
 	cli/stat.o
-btcli_CFLAGS = -I./cli $libmisc_a_CFLAGS
-btcli_LDFLAGS = -L. $libmisc_a_LDFLAGS
+cli_btcli_CFLAGS = -I./cli $libmisc_a_CFLAGS
+cli_btcli_LDFLAGS = -L. $libmisc_a_LDFLAGS
 
 INSTALL_BIN = \
 	btpd/btpd \
@@ -53,17 +54,6 @@ DEPS = openssl
 
 <$mkbuild/mk.default
 
-btpd:Q: $LIB $btpd_OBJ
-	echo LD $target
-	$LD $prereq $LDFLAGS $DEPS_LDFLAGS $LOCAL_LDFLAGS $btpd_LDFLAGS $LOCAL_BIN_LDFLAGS -o btpd/btpd
-
-btinfo:Q: $LIB $btinfo_OBJ
-	echo LD $target
-	$LD $prereq $LDFLAGS $DEPS_LDFLAGS $LOCAL_LDFLAGS $btinfo_LDFLAGS $LOCAL_BIN_LDFLAGS -o cli/btinfo
-
-btcli:Q: $LIB $btcli_OBJ
-	echo LD $target
-	$LD $prereq $LDFLAGS $DEPS_LDFLAGS $LOCAL_LDFLAGS $btcli_LDFLAGS $LOCAL_BIN_LDFLAGS -o cli/btcli
-
-btp: $LIB btpd btcli btinfo
-	
+btpd_btpd: $LIB
+cli_btcli: $LIB
+cli_btinfo: $LIB

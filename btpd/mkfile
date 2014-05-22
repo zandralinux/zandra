@@ -2,5 +2,6 @@
 
 <v.mk
 src = btpd-$v
+pkgsrc = btpd-$v.tar.gz
 url = https://github.com/btpd/btpd/archive/v$v.tar.gz
 mkfile = ../btpd.mk
