@@ -1,27 +1,25 @@
 <../v.mk
 
-# TODO: mk clean doesn't work because $BIN files are not in base dir?
-TARG = btpd
-BIN = btpd btinfo btcli
+TARG = btp
 LIB = libmisc.a libevloop.a
-# TODO: remove CLEAN_FILES once above works?
 CLEAN_FILES = btpd/btpd cli/btinfo cli/btcli
+#NOBIN
 
-libmisc_a_OBJ = `{ ls misc/*.c }
+libmisc_a_OBJ = `{ ls misc/*.c | sed 's/.$/o/'}
 libmisc_a_CFLAGS = -I`{ echo $(pwd)/misc }
-libmisc_a_LDFLAGS = -L`{ echo $(pwd)/misc } -lmisc
+libmisc_a_LDFLAGS = -L`{ echo $(pwd)/misc } -lmisc -L${openssl_libdir} -lssl -lcrypto
 
-libevloop_a_OBJ = `{ ls evloop/*.c | sed 's/.$/o/'}
+libevloop_a_OBJ = evloop/timer.o evloop/timeheap.o evloop/epoll.o
 libevloop_a_CFLAGS = -I`{ echo $(pwd)/evloop }
 libevloop_a_LDFLAGS = -L`{ echo $(pwd)/evloop } -levloop
 
 btpd_OBJ = `{ ls btpd/*.c | sed 's/.$/o/'}
 btpd_CFLAGS = -I./btpd $libmisc_a_CFLAGS $libevloop_a_CFLAGS
-btpd_LDFLAGS = $libmisc_a_LDFLAGS $libevloop_a_LDFLAGS
+btpd_LDFLAGS = -L. $libmisc_a_LDFLAGS $libevloop_a_LDFLAGS
 
 btinfo_OBJ = cli/btinfo.o
 btinfo_CFLAGS = -I./cli $libmisc_a_CFLAGS
-btinfo_LDFLAGS = $libmisc_a_LDFLAGS
+btinfo_LDFLAGS = -L. $libmisc_a_LDFLAGS
 
 btcli_OBJ = \
 	cli/btcli.o \
@@ -33,7 +31,7 @@ btcli_OBJ = \
 	cli/stop.o \
 	cli/stat.o
 btcli_CFLAGS = -I./cli $libmisc_a_CFLAGS
-btcli_LDFLAGS = $libmisc_a_LDFLAGS
+btcli_LDFLAGS = -L. $libmisc_a_LDFLAGS
 
 INSTALL_BIN = \
 	btpd/btpd \
@@ -46,13 +44,26 @@ LOCAL_CFLAGS = \
 	-DPACKAGE_NAME=\"btpd\" \
 	-DPACKAGE_VERSION=\"$v\" \
 	-D_FILE_OFFSET_BITS=64 -DEVLOOP_EPOLL \
-	-std=c99 -I. -Icli -I./btpd $libmisc_a_CFLAGS $libevloop_a_CFLAGS
-LOCAL_LDFLAGS = -L. -lm
+	-DHAVE_CLOCK_MONOTONIC \
+	-std=c99 -I. -I./cli -I./btpd ${libmisc_a_CFLAGS} ${libevloop_a_CFLAGS} \
+	-I${openssl_includedir}
+LOCAL_LDFLAGS = -L. -lm -lrt -L${openssl_libdir} -lssl -lcrypto
 
 DEPS = openssl
 
 <$mkbuild/mk.default
 
-btcli: libmisc.a
-btinfo: libmisc.a
-btpd: libmisc.a libevloop.a
+btpd:Q: $LIB $btpd_OBJ
+	echo LD $target
+	$LD $prereq $LDFLAGS $DEPS_LDFLAGS $LOCAL_LDFLAGS $btpd_LDFLAGS $LOCAL_BIN_LDFLAGS -o btpd/btpd
+
+btinfo:Q: $LIB $btinfo_OBJ
+	echo LD $target
+	$LD $prereq $LDFLAGS $DEPS_LDFLAGS $LOCAL_LDFLAGS $btinfo_LDFLAGS $LOCAL_BIN_LDFLAGS -o cli/btinfo
+
+btcli:Q: $LIB $btcli_OBJ
+	echo LD $target
+	$LD $prereq $LDFLAGS $DEPS_LDFLAGS $LOCAL_LDFLAGS $btcli_LDFLAGS $LOCAL_BIN_LDFLAGS -o cli/btcli
+
+btp: $LIB btpd btcli btinfo
+	
