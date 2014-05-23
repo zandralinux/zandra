@@ -1,15 +1,44 @@
-TARG = bzip2
-INSTALL_BIN = bzip2 bzip2recover bzgrep bzmore bzdiff
-INSTALL_MAN1 = `ls -1 *.1`
+<../v.mk
 
-<$mkbuild/mk.common
+BIN = \
+	bzip2 \
+	bzip2recover
 
-bzip2:QV:
-	# borrowed from Crux linux.
-	patch --silent --dry-run -N -p1 < ../bzip2.patch && \
-		patch -Np1 < ../bzip2.patch
-	# make everything except doing tests.
-	# NOTE: don't use DESTDIR, it's not used in the Makefile.
-	make libbz2.a bzip2 bzip2recover -j$nprocs \
-		CC="${CC} -static" LDFLAGS="$LDFLAGS" AR="${AR}" \
-		RANLIB="${RANLIB}" PREFIX="$prefix"
+LIB = libbz2.a
+
+libbz2_a_OBJ = \
+	blocksort.o \
+	huffman.o \
+	crctable.o \
+	randtable.o \
+	compress.o \
+	decompress.o \
+	bzlib.o
+libbz2_a_LDFLAGS =
+
+bzip2_OBJ = bzip2.o
+bzip2_LDFLAGS = -L. -lbz2
+
+bzip2recover_OBJ = bzip2recover.o
+bzip2recover_LDFLAGS =
+
+INSTALL_BIN = \
+	bzip2 \
+	bzip2recover \
+	bzless \
+	bzmore \
+	bzdiff \
+	bzgrep \
+	bzcmp
+
+INSTALL_MAN1 = `{ ls *.1 }
+
+LOCAL_CFLAGS = \
+	-D_FILE_OFFSET_BITS=64 \
+	-ansi -I.
+LOCAL_LDFLAGS = -L.
+
+<$mkbuild/mk.default
+
+bzip2: $LIB
+
