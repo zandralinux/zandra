@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = msmtp-$v
+url = http://heanet.dl.sourceforge.net/project/msmtp/msmtp/$v/msmtp-$v.tar.bz2
+mkfile = ../msmtp.mk
