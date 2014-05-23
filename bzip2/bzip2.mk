@@ -25,11 +25,14 @@ bzip2recover_LDFLAGS =
 INSTALL_BIN = \
 	bzip2 \
 	bzip2recover \
-	bzless \
 	bzmore \
-	bzdiff \
 	bzgrep \
-	bzcmp
+	bzdiff
+
+INSTALL_SYMLINK = \
+	bzmore /bin/bzless \
+	bzip2 /bin/bzcat \
+	bzdiff /bin/bzcmp
 
 INSTALL_MAN1 = `{ ls *.1 }
 
