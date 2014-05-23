@@ -15,9 +15,6 @@ CPP = ${TOOLCHAIN_TRIPLET}-cpp
 
 HOST_TOOLCHAIN_TRIPLET = ${arch}-musl-linux
 HOSTCC = $CC -static
-# use STRIP = true instead of the above
-# if you do not want stripped binaries
-#STRIP = true
 SHELL = /bin/sh
 
 PREFIX =
