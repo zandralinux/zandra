@@ -3,7 +3,7 @@ DEPS = zlib openssl
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+openssh:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	# fix implicit declarations

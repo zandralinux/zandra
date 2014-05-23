@@ -3,7 +3,7 @@ DEPS = zlib
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+libpng:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export CPPFLAGS="${CFLAGS}"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"

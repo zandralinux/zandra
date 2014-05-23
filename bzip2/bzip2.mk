@@ -4,7 +4,7 @@ INSTALL_MAN1 = `ls -1 *.1`
 
 <$mkbuild/mk.common
 
-$TARG:QV:
+bzip2:QV:
 	# borrowed from Crux linux.
 	patch --silent --dry-run -N -p1 < ../bzip2.patch && \
 		patch -Np1 < ../bzip2.patch

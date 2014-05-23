@@ -1,12 +1,12 @@
 # openssl is used for --with-sha1=libcrypto
 TARG = xorgserver
 DEPS = xorglibpixman xorglibx11 openssl xorglibpciaccess \
-	xorgprotoall xorglibxau xorglibxkbfile \
+	xorgprotoall xorglibxau  xorglibxkbfile \
 	xorgxtrans xorglibxfont freetype xorglibfontenc libpng zlib
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+xorgserver:QV:
 	# fix termio.h -> termios.h
 	sed 's@termio.h@termios.h@g' -i 'hw/xfree86/os-support/xf86_OSlib.h'
 	# fix __uid_t and __gid_t

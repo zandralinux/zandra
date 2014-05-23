@@ -2,7 +2,7 @@ TARG = cares
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+cares:QV:
 	export CPPFLAGS="-D_BSD_SOURCE -D_GNU_SOURCE"
 	CC="${CC} -static" CFLAGS="" ./configure \
 		--build="${TOOLCHAIN_TRIPLET}" \

@@ -3,7 +3,7 @@ DEPS = xorglibx11 xorgxproto xorglibxext xorgxineramaproto xorglibxau
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+xorglibxinerama:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	export XINERAMA_CFLAGS="-I${xorgxineramaproto_includedir}"

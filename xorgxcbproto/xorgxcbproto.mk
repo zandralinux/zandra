@@ -3,7 +3,7 @@ TARG = xorgxcbproto
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+xorgxcbproto:QV:
 	export PYTHON="python2.7"
 	./configure \
 		--prefix="$prefix" \

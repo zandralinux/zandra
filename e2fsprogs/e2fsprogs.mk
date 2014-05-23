@@ -2,7 +2,7 @@ TARG = e2fsprogs
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+e2fsprogs:QV:
 	CC="$CC -static" CFLAGS="-D__uint64_t=u_int64_t" ./configure --prefix="" \
 		--bindir="$BINDIR" --sbindir="$BINDIR" --libexecdir="$BINDIR" \
 		--mandir="/share/man" --disable-nls

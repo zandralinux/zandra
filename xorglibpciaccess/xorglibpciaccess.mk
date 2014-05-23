@@ -3,7 +3,7 @@ DEPS = zlib
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+xorglibpciaccess:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	# fix missing include for limits.h (PATH_MAX).

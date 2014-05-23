@@ -3,7 +3,7 @@ DEPS = xorgserver xorgprotoall xorglibpixman xorglibpciaccess
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+xorgvideofbdev:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"

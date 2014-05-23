@@ -6,7 +6,7 @@ DEPS = zlib libpng
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+xorglibpixman:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	export PNG_CFLAGS="-I${libpng_includedir}"

@@ -2,7 +2,7 @@ TARG = libpthreadstubs
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+libpthreadstubs:QV:
 	CC="$CC" ./configure \
 		--prefix="$prefix" \
 		--disable-shared \

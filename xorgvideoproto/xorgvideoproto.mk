@@ -2,7 +2,7 @@ TARG = xorgvideoproto
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+xorgvideoproto:QV:
 	./configure \
 		--prefix="$prefix" \
 		--mandir="$ROOT/share/man"

@@ -2,7 +2,7 @@ TARG = libevent
 
 <$mkbuild/mk.common
 
-$TARG:QV:
+libevent:QV:
 	CC="$CC" ./configure --prefix="$prefix" --mandir="$ROOT/share/man" \
 		 --disable-shared \
 		--enable-static

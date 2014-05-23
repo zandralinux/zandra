@@ -3,7 +3,7 @@ DEPS = curl openssl zlib
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+git:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	# NOTE: "$prefix/" is needed to set the proper mandir.

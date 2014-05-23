@@ -2,7 +2,7 @@ TARG = libjpegturbo
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+libjpegturbo:QV:
 	CC="${CC} -static" ./configure \
 		--prefix="$prefix" \
 		--mandir="$ROOT/share/man" \

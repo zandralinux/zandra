@@ -2,7 +2,7 @@ TARG = ii
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+ii:QV:
 	# overwrite default config.mk to allow overriding some variables.
 	cp ../config.mk config.mk
 	CC="${CC} -static" make -j$nprocs LDFLAGS="$LDFLAGS" \

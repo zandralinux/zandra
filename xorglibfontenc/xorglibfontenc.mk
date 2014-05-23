@@ -3,7 +3,7 @@ DEPS = zlib xorgxproto
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+xorglibfontenc:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	export FONTENC_CFLAGS=" "

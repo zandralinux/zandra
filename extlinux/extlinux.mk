@@ -29,5 +29,5 @@ ldlinux_bin.c:Q: bin2c
 ldlinuxc32_bin.c:Q: bin2c
 	./bin2c ../bios/com32/elflink/ldlinux/ldlinux.c32 $target syslinux_ldlinuxc32
 
-$TARG: $OBJ
+extlinux: $OBJ
 

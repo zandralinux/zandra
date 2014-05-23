@@ -91,7 +91,7 @@ LOCAL_CFLAGS = \
 
 <$mkbuild/mk.common
 
-$TARG: $OBJ
+file: $OBJ
 
 strcasestr.c:QV:
 	printf "\n#ifndef _INTPTR_T_DEFINED\n#define _INTPTR_T_DEFINED\n#define intptr_t int\n#endif\n" > strcasestr.c.tmp

@@ -4,7 +4,7 @@ DEPS = openssl xorglibx11 xorglibxext xorgxproto xorgxextproto \
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+mupdf:QV:
 	# default build was "debug", use "release".
 	build="release"
 	# fix for Makerules: hardcoded (X11) paths etc.

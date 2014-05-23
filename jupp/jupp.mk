@@ -13,7 +13,7 @@ INSTALL_OTHER3_DIR = /etc/joe/syntax
 INSTALL_SYMLINK = joe /bin/jmacs \
 	joe.1 $MANDIR/man1/jmacs.1
 
-$TARG:QV:
+jupp:QV:
 	sh configure --prefix="$PREFIX"
 	make -j$nprocs
 	

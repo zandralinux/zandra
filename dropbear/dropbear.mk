@@ -12,7 +12,7 @@ INSTALL_MAN8 = dropbear.8
 
 <$mkbuild/mk.common
 
-$TARG:QV:
+dropbear:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	CC="$CC" ./configure \

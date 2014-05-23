@@ -2,7 +2,7 @@ TARG = xorgcompositeproto
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+xorgcompositeproto:QV:
 	./configure \
 		--prefix="$prefix" \
 		--mandir="$ROOT/share/man"

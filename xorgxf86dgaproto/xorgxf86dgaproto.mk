@@ -2,7 +2,7 @@ TARG = xorgxf86dgaproto
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+xorgxf86dgaproto:QV:
 	./configure \
 		--prefix="$prefix" \
 		--mandir="$ROOT/share/man"

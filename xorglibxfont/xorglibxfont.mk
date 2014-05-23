@@ -3,7 +3,7 @@ DEPS = freetype zlib xorgxproto xorglibfontenc xorgxtrans xorgfontsproto
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+xorglibxfont:QV:
 	# patch "error: conflicting types for ‘CacheFontPattern’"
 	patch -p1 -N --silent --dry-run < ../xorg-libxfont-const.diff && \
 		patch -p1 < ../xorg-libxfont-const.diff

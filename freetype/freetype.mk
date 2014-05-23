@@ -3,7 +3,7 @@ DEPS = zlib libpng
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+freetype:QV:
 	# CCexe is set to build apinames for host (needed in build).
 #	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 #	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"

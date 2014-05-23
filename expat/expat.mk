@@ -2,7 +2,7 @@ TARG = expat
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+expat:QV:
 	# TODO: $ROOT/bin/xmlwf is not staticly linked.
 	./configure --prefix="$prefix" \
 		--mandir="$ROOT/share/man" \

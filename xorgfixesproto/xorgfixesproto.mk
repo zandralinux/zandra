@@ -2,7 +2,7 @@ TARG = xorgfixesproto
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+xorgfixesproto:QV:
 	./configure \
 		--prefix="$prefix" \
 		--mandir="$ROOT/share/man"

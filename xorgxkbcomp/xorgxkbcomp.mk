@@ -4,7 +4,7 @@ DEPS = xorglibxkbfile xorglibx11 xorglibxcb xorglibxau xorgxproto \
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+xorgxkbcomp:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	export XKBCOMP_CFLAGS="${CFLAGS}"

@@ -38,7 +38,7 @@ INSTALL_SYMLINK = \
 
 <$mkbuild/mk.common
 
-$TARG:Q:
+busybox:Q:
 	cp ../busybox.config .config
 	make -j$nprocs AR="$AR" STRIP="$STRIP" HOSTCC="$HOSTCC -static" CC="$CC" busybox
 

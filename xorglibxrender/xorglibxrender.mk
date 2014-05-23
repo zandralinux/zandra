@@ -3,7 +3,7 @@ DEPS = xorglibx11 xorgxproto xorgrenderproto
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+xorglibxrender:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	# TODO: includedir, libdir is a bug?

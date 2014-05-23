@@ -4,5 +4,5 @@ TARG = xorgprotoall
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+xorgprotoall:QV:
 	
