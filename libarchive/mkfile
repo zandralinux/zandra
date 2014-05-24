@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = libarchive-$v
+url = http://www.libarchive.org/downloads/libarchive-$v.tar.gz
+mkfile = ../libarchive.mk
