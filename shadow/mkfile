@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = shadow-$v
+url = http://pkg-shadow.alioth.debian.org/releases/shadow-$v.tar.xz
+mkfile = ../shadow.mk
