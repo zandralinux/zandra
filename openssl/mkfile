@@ -4,3 +4,10 @@
 src = openssl-$v
 url = https://www.openssl.org/source/openssl-$v.tar.gz
 mkfile = ../openssl.mk
+patches = \
+	../openssl-1.0.0a-ldflags.patch \
+	../openssl-1.0.0d-windres.patch \
+	../openssl-1.0.0h-pkg-config.patch \
+	../openssl-1.0.1-parallel-build.patch \
+	../openssl-1.0.1-x32.patch \
+	0 ../openssl-1.0.1e-ipv6.patch

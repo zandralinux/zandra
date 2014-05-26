@@ -5,19 +5,6 @@ DEPS = zlib
 <$mkbuild/mk.common-noinst
 
 openssl:QV:
-	# apply patches
-	patch --silent --dry-run -N -p1 < ../openssl-1.0.0a-ldflags.patch && \
-		patch -p1 < ../openssl-1.0.0a-ldflags.patch #327421
-	patch --silent --dry-run -N  -p1 < ../openssl-1.0.0d-windres.patch && \
-		patch -p1 < ../openssl-1.0.0d-windres.patch #373743
-	patch --silent --dry-run -N  -p1 < ../openssl-1.0.0h-pkg-config.patch && \
-		patch -p1 < ../openssl-1.0.0h-pkg-config.patch
-	patch --silent --dry-run -N -p1 < ../openssl-1.0.1-parallel-build.patch && \
-		patch -p1 < ../openssl-1.0.1-parallel-build.patch
-	patch --silent --dry-run -N -p1 < ../openssl-1.0.1-x32.patch && \
-		patch -p1 < ../openssl-1.0.1-x32.patch
-	patch --silent --dry-run -N -p0 < ../openssl-1.0.1e-ipv6.patch && \
-		patch -p0 < ../openssl-1.0.1e-ipv6.patch
 	# disable fips in the build
 	# make sure the man pages are suffixed #302165
 	# don't bother building man pages if they're disabled
