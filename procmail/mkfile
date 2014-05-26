@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = procmail-$v
+url = ftp://ftp.fu-berlin.de/pub/unix/mail/procmail/procmail-$v.tar.gz
+mkfile = ../procmail.mk
