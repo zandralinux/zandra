@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = iproute2-$v
+url = https://www.kernel.org/pub/linux/utils/net/iproute2/iproute2-$v.tar.xz
+mkfile = ../iproute2.mk
