@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# you need pkgtools from http://git.2f30.org/pkgtools/
+
+mkdir -p root/var/pkg
+mkdir -p pkgs
+searchpkg '\.tgz$' | xargs wget -P pkgs
+installpkg -p root pkgs/busybox#1.22.1.pkg.tgz
+installpkg -p root pkgs/e2fsprogs#1.42.9.pkg.tgz
+installpkg -p root pkgs/extlinux#6.02.pkg.tgz
+installpkg -p root pkgs/file#5.17.pkg.tgz
+installpkg -p root pkgs/fs.pkg.tgz
+installpkg -p root pkgs/hbase.pkg.tgz
+installpkg -p root pkgs/ii.pkg.tgz
+installpkg -p root pkgs/linux#3.10.32.pkg.tgz
+installpkg -p root pkgs/mksh#R47.pkg.tgz
+installpkg -p root pkgs/sbase.pkg.tgz
+installpkg -p root pkgs/sdhcp.pkg.tgz
+installpkg -p root pkgs/sinit.pkg.tgz
+installpkg -p root pkgs/smdev.pkg.tgz
+installpkg -p root pkgs/tmux#1.9a.pkg.tgz
+installpkg -p root pkgs/ubase.pkg.tgz
+installpkg -p root pkgs/vim#7.4.pkg.tgz
