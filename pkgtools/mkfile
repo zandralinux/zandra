@@ -1,0 +1,5 @@
+<$mkbuild/mk.3rdparty
+
+src = pkgtools
+git = git://git.2f30.org/pkgtools
+mkfile = ../pkgtools.mk
