@@ -1,0 +1,34 @@
+#!/bin/sh
+
+if test -z "$1"; then
+	root="/emul"
+else
+	root="$1"
+fi
+
+echo -n "Mounting $root/dev... "
+mount -o bind /dev $root/dev
+echo "done."
+echo -n "Mounting $root/dev/pts... "
+mount -o bind /dev/pts $root/dev/pts
+echo "done."
+echo -n "Mounting $root/proc... "
+mount -t proc proc $root/proc
+echo "done."
+echo -n "Mounting $root/sys... "
+mount -o bind /sys $root/sys
+echo "done."
+echo "Chrooting $root..."
+chroot $root /bin/sh
+echo -n "Unmounting $root/dev/pts... "
+umount $root/dev/pts
+echo "done."
+echo -n "Unmounting $root/dev... "
+umount $root/dev
+echo "done."
+echo -n "Unmounting $root/sys... "
+umount $root/sys
+echo "done."
+echo -n "Unmounting $root/proc... "
+umount $root/proc
+echo "done."
