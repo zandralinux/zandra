@@ -6,6 +6,7 @@ mkdir -p root/var/pkg
 mkdir -p pkgs
 searchpkg '\.tgz$' | xargs wget -P pkgs
 installpkg -p root pkgs/busybox#1.22.1.pkg.tgz
+installpkg -p root pkgs/curl#7.36.0.pkg.tgz
 installpkg -p root pkgs/e2fsprogs#1.42.9.pkg.tgz
 installpkg -p root pkgs/extlinux#6.02.pkg.tgz
 installpkg -p root pkgs/file#5.17.pkg.tgz
