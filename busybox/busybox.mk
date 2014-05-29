@@ -25,7 +25,6 @@ INSTALL_SYMLINK = \
 	busybox /bin/ping \
 	busybox /bin/reset \
 	busybox /bin/route \
-	busybox /bin/sysctl \
 	busybox /bin/tac \
 	busybox /bin/telnet \
 	busybox /bin/tftp \
