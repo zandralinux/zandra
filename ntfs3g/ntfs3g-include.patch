@@ -1,0 +1,22 @@
+diff -uri ntfs-3g_ntfsprogs-2014.2.15/libfuse-lite/fusermount.c patched/libfuse-lite/fusermount.c
+--- ntfs-3g_ntfsprogs-2014.2.15/libfuse-lite/fusermount.c	2014-02-15 15:07:52.000000000 +0100
++++ patched/libfuse-lite/fusermount.c	2014-05-31 16:39:30.783377108 +0200
+@@ -19,6 +19,7 @@
+ #include <errno.h>
+ #include <fcntl.h>
+ #include <pwd.h>
++#include <paths.h>
+ 
+ #ifdef __SOLARIS__
+ #include <sys/mnttab.h>
+diff -uri ntfs-3g_ntfsprogs-2014.2.15/libfuse-lite/mount_util.c patched/libfuse-lite/mount_util.c
+--- ntfs-3g_ntfsprogs-2014.2.15/libfuse-lite/mount_util.c	2014-02-15 15:07:52.000000000 +0100
++++ patched/libfuse-lite/mount_util.c	2014-05-31 16:39:20.183377542 +0200
+@@ -17,6 +17,7 @@
+ #include <limits.h>
+ #include <sys/stat.h>
+ #include <sys/wait.h>
++#include <paths.h>
+ #ifdef __SOLARIS__
+ #else /* __SOLARIS__ */
+ #include <mntent.h>

@@ -1,0 +1,8 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = ntfs-3g_ntfsprogs-$v
+url = http://tuxera.com/opensource/ntfs-3g_ntfsprogs-$v.tgz
+mkfile = ../ntfs3g.mk
+patches = \
+	../ntfs3g-include.patch
