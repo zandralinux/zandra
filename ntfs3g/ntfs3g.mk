@@ -34,4 +34,7 @@ ntfs3g:QV:
 		--enable-really-static \
 		--enable-mount-helper \
 		--enable-static
-	make -j$nprocs LDFLAGS="-all-static $LDFLAGS"
+	make -j$nprocs install \
+		LDFLAGS="-all-static $LDFLAGS" DESTDIR="`pwd`/liba"
+	# remove .la files for now ?
+	find "`pwd`/liba" -iname "*.la" -exec rm {} \;

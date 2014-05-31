@@ -1,0 +1,8 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = fuse-$v
+url = http://softlayer-ams.dl.sourceforge.net/project/fuse/fuse-2.X/$v/fuse-$v.tar.gz
+mkfile = ../fuse.mk
+patches = \
+	../fuse-include.patch

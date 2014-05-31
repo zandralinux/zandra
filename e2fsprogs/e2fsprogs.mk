@@ -3,9 +3,13 @@ TARG = e2fsprogs
 <$mkbuild/mk.common-noinst
 
 e2fsprogs:QV:
-	CC="$CC -static" CFLAGS="-D__uint64_t=u_int64_t" ./configure --prefix="" \
-		--bindir="$BINDIR" --sbindir="$BINDIR" --libexecdir="$BINDIR" \
-		--mandir="/share/man" --disable-nls
+	CC="$CC -static" CFLAGS="-D__uint64_t=u_int64_t" ./configure \
+		--prefix="" \
+		--disable-nls \
+		--bindir="$BINDIR" \
+		--sbindir="$BINDIR" \
+		--libexecdir="$BINDIR" \
+		--mandir="$prefix/share/man"
 	make -j$nprocs
 
 install:QV:

@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = testdisk-$v
+url = http://www.cgsecurity.org/testdisk-$v.tar.bz2
+mkfile = ../testdisk.mk
