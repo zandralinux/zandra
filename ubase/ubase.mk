@@ -17,3 +17,4 @@ $LIB: $LOBJ
 	cp -f $prereq $target
 
 su: config.h
+login: config.h
