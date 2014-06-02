@@ -18,7 +18,7 @@ xorglibxcb:QV:
 #	export NEEDED_CFLAGS="-I${xorgxproto_includedir}"
 #	export NEEDED_LIBS="-L${xorgxproto_libdir}"
 	./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--enable-static

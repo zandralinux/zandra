@@ -13,7 +13,7 @@ freetype:QV:
 	export LIBPNG_CFLAGS="-I${libpng_includedir}"
 	export LIBPNG_LIBS="-L${libpng_libdir} -lpng16"
 	CC="$CC" ./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--disable-nls \

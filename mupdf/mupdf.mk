@@ -23,7 +23,7 @@ mupdf:QV:
 	# TODO: change X11_LIBS etc. depending on DEPS, don't hardcode them.
 	make -j$nprocs \
 		build="${build}" \
-		prefix="$prefix" \
+		prefix="$PREFIX" \
 		verbose="yes" \
 		CROSSCOMPILE="yes" \
 		HAVE_X11="yes" \
@@ -38,7 +38,7 @@ install:QV:
 	make -j$nprocs install \
 		DESTDIR="$ROOT" \
 		build="${build}" \
-		prefix="$prefix" \
+		prefix="$PREFIX" \
 		verbose="yes" \
 		CROSSCOMPILE="yes" \
 		HAVE_X11="yes" \

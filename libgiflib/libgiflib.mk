@@ -4,7 +4,7 @@ TARG = libgiflib
 
 libgiflib:QV:
 	CC="${CC} -static" ./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--enable-static

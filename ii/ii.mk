@@ -6,8 +6,8 @@ ii:QV:
 	# overwrite default config.mk to allow overriding some variables.
 	cp ../config.mk config.mk
 	CC="${CC} -static" make -j$nprocs LDFLAGS="$LDFLAGS" \
-		PREFIX="$prefix" DESTDIR="$ROOT"
+		PREFIX="$PREFIX" DESTDIR="$ROOT"
 
 install:QV:
 	make -j$nprocs LDFLAGS="$LDFLAGS" \
-		PREFIX="$prefix" DESTDIR="$ROOT" install
+		PREFIX="$PREFIX" DESTDIR="$ROOT" install

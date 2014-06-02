@@ -43,8 +43,8 @@ openssl:QV:
 		sslarch="arm"
 		;;
 	esac
-	./Configure "${sslarch}" --prefix="$prefix" --openssldir="$prefix"/etc/ssl \
-		--libdir="$prefix"/lib no-dso no-asm zlib enable-md2 $CFLAGS
+	./Configure "${sslarch}" --prefix="$PREFIX" --openssldir="$PREFIX"/etc/ssl \
+		--libdir="$PREFIX"/lib no-dso no-asm zlib enable-md2 $CFLAGS
 	# Clean out hardcoded flags that openssl uses
 	CFLAG=$(grep ^CFLAG= Makefile | LC_ALL=C sed \
 		-e 's:^CFLAG=::' \

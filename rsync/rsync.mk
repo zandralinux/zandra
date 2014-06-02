@@ -4,7 +4,7 @@ TARG = rsync
 
 rsync:QV:
 	CC="$CC" ./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-locale
 	make -j$nprocs

@@ -12,7 +12,7 @@ xorglibpixman:QV:
 	export PNG_CFLAGS="-I${libpng_includedir}"
 	export PNG_LIBS="-L${libpng_libdir} -lpng16 -lm -lz"
 	CC="$CC" ./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--enable-static \

@@ -13,7 +13,7 @@ fontconfig:QV:
 	export FREETYPE_CFLAGS="-I${freetype_includedir}/"
 	export FREETYPE_LIBS="-lfreetype -L${freetype_libdir}"
 	CC="${CC} -static" ./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--sysconfdir=/etc \
 		--localstatedir=/var \

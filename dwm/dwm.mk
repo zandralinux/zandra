@@ -10,7 +10,7 @@ dwm:QV:
 	cp ../config.mk config.mk
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
-	CC="${CC} -static" make -j$nprocs PREFIX="$prefix" DESTDIR="$ROOT"
+	CC="${CC} -static" make -j$nprocs PREFIX="$PREFIX" DESTDIR="$ROOT"
 
 install:QV:
-	make -j$nprocs PREFIX="$prefix" DESTDIR="$ROOT" install
+	make -j$nprocs PREFIX="$PREFIX" DESTDIR="$ROOT" install

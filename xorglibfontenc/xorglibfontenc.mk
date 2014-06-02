@@ -9,7 +9,7 @@ xorglibfontenc:QV:
 	export FONTENC_CFLAGS=" "
 	export FONTENC_LIBS=" "
 	CC="$CC" ./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--enable-static

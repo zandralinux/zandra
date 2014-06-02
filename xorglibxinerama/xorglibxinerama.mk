@@ -11,7 +11,7 @@ xorglibxinerama:QV:
 	# HAVE__XEATDATAWORDS is set, but it isn't detected with configure
 	# set set it.
 	CC="$CC" CFLAGS="$CFLAGS -DHAVE__XEATDATAWORDS=1" ./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--enable-static

@@ -14,7 +14,7 @@ xorglibx11:QV:
 	#TODO: more detailed flags
 #	export X11_CFLAGS="-I${xorgxproto_includedir}"
 #	export X11_LIBS="-L${xorgxproto_libdir}"
-	./configure --prefix="$prefix" \
+	./configure --prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--with-keysymdefdir="${xorgxproto_includedir}/X11" \
 		--disable-shared \

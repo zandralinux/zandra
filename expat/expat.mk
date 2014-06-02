@@ -4,7 +4,7 @@ TARG = expat
 
 expat:QV:
 	# TODO: $ROOT/bin/xmlwf is not staticly linked.
-	./configure --prefix="$prefix" \
+	./configure --prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--enable-static

@@ -4,7 +4,7 @@ TARG = xorgfixesproto
 
 xorgfixesproto:QV:
 	./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man"
 	make -j$nprocs
 	make install DESTDIR="`pwd`/lib"

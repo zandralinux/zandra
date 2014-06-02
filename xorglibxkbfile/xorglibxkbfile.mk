@@ -9,7 +9,7 @@ xorglibxkbfile:QV:
 	export XKBFILE_CFLAGS="-I${xorgkbproto_includedir}"
 	export XKBFILE_LIBS="-L${xorgkbproto_libdir}"
 	CC="$CC" ./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man"
 	make -j$nprocs DESTDIR="`pwd`/lib/" install
 	# remove .la files for now ?

@@ -10,7 +10,7 @@ cares:QV:
 	CC="${CC} -static" CFLAGS="" ./configure \
 		--build="${TOOLCHAIN_TRIPLET}" \
 		--host="${TOOLCHAIN_TRIPLET}" \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-werror \
 		--disable-shared \

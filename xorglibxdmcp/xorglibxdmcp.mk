@@ -12,7 +12,7 @@ xorglibxdmcp:QV:
 	# set set it.
 #	CC="$CC" CFLAGS="$CFLAGS -DHAVE__XEATDATAWORDS=1" ./configure
 	CC="$CC" ./configure \
-	--prefix="$prefix" \
+	--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--enable-static

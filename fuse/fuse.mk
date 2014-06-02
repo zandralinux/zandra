@@ -10,7 +10,7 @@ INSTALL_MAN8 = `{ ls -1 doc/*.8 }
 
 fuse:QV:
 	./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--enable-util \

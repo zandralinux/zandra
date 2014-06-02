@@ -22,7 +22,7 @@ curl:QV:
 		--bindir="$BINDIR" \
 		--sbindir="$BINDIR" \
 		--libexecdir="$BINDIR" \
-		--mandir="$prefix/share/man" \
+		--mandir="$PREFIX/share/man" \
 		--disable-shared \
 		--disable-manual \
 		--disable-ntlm-wb \

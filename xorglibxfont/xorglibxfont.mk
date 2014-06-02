@@ -15,7 +15,7 @@ xorglibxfont:QV:
 	export XFONT_CFLAGS=" "
 	export XFONT_LIBS=" "
 	CC="$CC" ./configure \
-		--prefix="$prefix" --mandir="$ROOT/share/man" \
+		--prefix="$PREFIX" --mandir="$ROOT/share/man" \
 		--disable-shared \
 		--enable-static
 	make -j$nprocs install DESTDIR="`pwd`/lib"

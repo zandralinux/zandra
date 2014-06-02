@@ -17,10 +17,10 @@ tinyxserver:QV:
 	cp ../Makefile Makefile
 	make clean
 	make -j$nprocs CC="$CC" EXTRA_CFLAGS="$EXTRA_CFLAGS" \
-		FONTDIR="$prefix/share/fonts"
+		FONTDIR="$PREFIX/share/fonts"
 
 install:QV:
 	make DESTDIR="$ROOT" BINDIR="/bin" install
-	cd "$ROOT/$prefix/share/fonts/misc"
+	cd "$ROOT/$PREFIX/share/fonts/misc"
 	mkfontscale
 	mkfontdir

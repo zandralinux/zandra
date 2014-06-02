@@ -13,9 +13,9 @@ st:QV:
 	# overwrite default config.mk to allow overriding some variables.
 	cp ../config.mk config.mk
 	CC="${CC} -static" make -j$nprocs \
-		PREFIX="$prefix" DESTDIR="$ROOT"
+		PREFIX="$PREFIX" DESTDIR="$ROOT"
 
 install:QV:
 	# NOTE: set TERMINFO to force the proper path.
-	make -j$nprocs install PREFIX="$prefix" DESTDIR="$ROOT" \
+	make -j$nprocs install PREFIX="$PREFIX" DESTDIR="$ROOT" \
 		TERMINFO="$ROOT/share/terminfo"

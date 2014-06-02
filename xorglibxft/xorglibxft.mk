@@ -19,7 +19,7 @@ xorglibxft:QV:
 	#export FONTCONFIG_CFLAGS="-I${fontconfig_includedir}"
 	#export FONTCONFIG_LIBS="-lfontconfig -L${fontconfig_libdir}"
 	CC="$CC" ./configure  \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--enable-static

@@ -6,6 +6,6 @@ TARG = xorgxcbproto
 xorgxcbproto:QV:
 	export PYTHON="python2.7"
 	./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man"
 	make -j$nprocs install DESTDIR="`pwd`/lib/"

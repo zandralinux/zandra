@@ -9,7 +9,7 @@ xorglibxau:QV:
 	export XAU_CFLAGS="-I${xorgxproto_includedir}"
 	export XAU_LIBS="-L${xorgxproto_libdir}"
 	CC="$CC" ./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man"
 	make -j$nprocs DESTDIR="`pwd`/lib/" install
 	# remove .la files for now ?

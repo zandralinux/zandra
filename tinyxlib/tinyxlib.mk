@@ -4,8 +4,8 @@ TARG = tinyxlib
 
 tinyxlib:QV:
 	make clean
-	make -j$nprocs CC="$CC" BINDIR="/bin" LIBDIR="$prefix/lib" STATIC=1 \
-		FONT_ENCODINGS_DIRECTORY="$prefix/share/fonts/encodings/encodings.dir"
+	make -j$nprocs CC="$CC" BINDIR="/bin" LIBDIR="$PREFIX/lib" STATIC=1 \
+		FONT_ENCODINGS_DIRECTORY="$PREFIX/share/fonts/encodings/encodings.dir"
 	# make symlinks for libs, just link to libX11.a like make install does.
 	for f in \
 		libXdmcp.a \

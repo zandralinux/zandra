@@ -8,7 +8,7 @@ libpng:QV:
 	export CPPFLAGS="${CFLAGS}"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	CC="${CC} -static" ./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--enable-static

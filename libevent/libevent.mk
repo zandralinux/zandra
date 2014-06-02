@@ -3,7 +3,7 @@ TARG = libevent
 <$mkbuild/mk.common
 
 libevent:QV:
-	CC="$CC" ./configure --prefix="$prefix" --mandir="$ROOT/share/man" \
+	CC="$CC" ./configure --prefix="$PREFIX" --mandir="$ROOT/share/man" \
 		 --disable-shared \
 		--enable-static
 	make -j$nprocs

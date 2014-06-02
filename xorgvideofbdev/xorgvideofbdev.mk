@@ -11,7 +11,7 @@ xorgvideofbdev:QV:
 	export XORG_CFLAGS="${CFLAGS}"
 	export XORG_LIBS="${LDFLAGS}"
 	CC="$CC" ./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--disable-pciaccess \

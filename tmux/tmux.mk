@@ -8,7 +8,7 @@ INSTALL_MAN1 = tmux.1
 tmux:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
-	CC="$CC" ./configure --prefix="$prefix" --mandir="$ROOT/share/man" \
+	CC="$CC" ./configure --prefix="$PREFIX" --mandir="$ROOT/share/man" \
 	   --disable-shared \
 	   --enable-static
 	make -j$nprocs

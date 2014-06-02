@@ -36,10 +36,10 @@ xorgserver:QV:
 	export CC="$CC -static"
 	# NOTE: xorgvideofbdev requires --enable-dga.
 	./configure \
-		--prefix="$prefix" \
-		--mandir="$ROOT/$prefix/share/man" \
+		--prefix="$PREFIX" \
+		--mandir="$ROOT/$PREFIX/share/man" \
 		--localstatedir=/var \
-		--with-fontrootdir="$prefix/share/fonts/X11" \
+		--with-fontrootdir="$PREFIX/share/fonts/X11" \
 		--with-xkb-output="/var/lib/xkb" \
 		--disable-dri \
 		--disable-dri2 \

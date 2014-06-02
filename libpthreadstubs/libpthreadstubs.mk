@@ -4,7 +4,7 @@ TARG = libpthreadstubs
 
 libpthreadstubs:QV:
 	CC="$CC" ./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--disable-shared \
 		--enable-static
 	make -j$nprocs

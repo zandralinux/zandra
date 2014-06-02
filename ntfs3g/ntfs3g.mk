@@ -28,7 +28,7 @@ INSTALL_SYMLINK = \
 
 ntfs3g:QV:
 	./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--enable-really-static \

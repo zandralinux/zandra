@@ -18,11 +18,11 @@ openssh:QV:
 	CC="${CC} -static" \
 	ac_cv_path_AR="${AR}" \
 	CFLAGS="$issue104cflags -D_BSD_SOURCE -DMISSING_FD_MASK -DMISSING_NFDBITS $CFLAGS" \
-		./configure -C --prefix="$prefix" \
-			--sbindir="$prefix"/bin --libexecdir="$prefix"/lib/ssh \
-			--sysconfdir="$prefix"/etc/ssh \
+		./configure -C --prefix="$PREFIX" \
+			--sbindir="$PREFIX"/bin --libexecdir="$PREFIX"/lib/ssh \
+			--sysconfdir="$PREFIX"/etc/ssh \
 			--with-privsep-user=nobody \
-			--with-md5-passwords --with-mantype=man --mandir="$prefix"/share/man \
+			--with-md5-passwords --with-mantype=man --mandir="$PREFIX"/share/man \
 			--disable-strip --disable-lastlog --disable-utmp --disable-utmpx --disable-btmp \
 			--disable-wtmp --disable-wtmpx --disable-pututline --disable-pututxline
 	mkdir netinet

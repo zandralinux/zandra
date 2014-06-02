@@ -9,7 +9,7 @@ e2fsprogs:QV:
 		--bindir="$BINDIR" \
 		--sbindir="$BINDIR" \
 		--libexecdir="$BINDIR" \
-		--mandir="$prefix/share/man"
+		--mandir="$PREFIX/share/man"
 	make -j$nprocs
 
 install:QV:

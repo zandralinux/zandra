@@ -10,7 +10,7 @@ xorgxkbcomp:QV:
 	export XKBCOMP_CFLAGS="${CFLAGS}"
 	export XKBCOMP_LIBS="${LDFLAGS}"
 	CC="$CC" ./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--enable-static
