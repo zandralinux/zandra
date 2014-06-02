@@ -1,8 +1,11 @@
-TARG = openssl
+LIB = openssl
 DEPS = zlib
+INSTALL_LIB = libcrypto.a libssl.a
+INSTALL_OTHER1 = `{ls include/openssl/*.h}
+INSTALL_OTHER1_DIR = /include/openssl
 # NOTE: requires atleast perl and patch as make dependencies.
 
-<$mkbuild/mk.common-noinst
+<$mkbuild/mk.common
 
 openssl:QV:
 	# disable fips in the build
