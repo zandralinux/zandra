@@ -12,7 +12,6 @@ INSTALL_SYMLINK = \
 	busybox /bin/fuser \
 	busybox /bin/gunzip \
 	busybox /bin/gzip \
-	busybox /bin/hwclock \
 	busybox /bin/ifconfig \
 	busybox /bin/ip \
 	busybox /bin/kbd_mode \
