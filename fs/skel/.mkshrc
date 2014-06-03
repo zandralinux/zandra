@@ -1,4 +1,4 @@
-PS1='# '
+PS1='$ '
 
 # C-l should clear the screen
 bind -m '^L'='^U'clear'^J''^Y'
