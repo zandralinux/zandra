@@ -82,8 +82,9 @@ For a bootable system you need at least the following packages:
 There are precompiled versions at http://morpheus.2f30.org/0.0 for the
 x86_64 architecture.
 
-We suggest using a stripped-down CRUX rootfs for building ports.  There
-is one prepackaged rootfs at http://morpheus.2f30.org/0.0/emul-x86_64.tgz.
+We  suggest using  a  stripped-down CRUX  rootfs  for building  ports.
+
+http://morpheus.2f30.org/0.0/packages/x86_64/emul.pkg.tgz.
 
 Rebuilding the kernel
 ---------------------
