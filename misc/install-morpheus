@@ -8,7 +8,7 @@ pkgdir="pkgs"
 mkdir -p "$root/var/pkg"
 mkdir -p "$pkgdir"
 # fetch packages.
-searchpkg '\.tgz$' | xargs wget -P "$pkgdir"
+searchpkg '\.tgz$' | xargs wget -c -P "$pkgdir"
 # install
 installpkg -p "$root" "$pkgdir/busybox#1.22.1.pkg.tgz"
 installpkg -p "$root" "$pkgdir/curl#7.36.0.pkg.tgz"
