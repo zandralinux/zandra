@@ -39,7 +39,7 @@ esac
 if [ -n "$HWCLOCK_PARAMS" ]; then
 	echo Saving system clock
 	[ -n "$TIMEZONE" ] && export TZ="$TIMEZONE"
-	hwclock $HWCLOCK_PARAMS
+	hwclock $HWCLOCK_PARAMS /dev/rtc0
 	unset TZ
 fi
 

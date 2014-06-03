@@ -73,7 +73,7 @@ esac
 if [ -n "$HWCLOCK_PARAMS" ]; then
 	echo Setting hwclock
 	[ -n "$TIMEZONE" ] && export TZ="$TIMEZONE"
-	hwclock $HWCLOCK_PARAMS
+	hwclock $HWCLOCK_PARAMS /dev/rtc0
 	unset TZ
 fi
 
