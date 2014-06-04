@@ -35,6 +35,12 @@ smdev -s
 echo Setting smdev as the kernel hotplug
 echo /bin/smdev > /proc/sys/kernel/hotplug
 
+# HACK!
+cd /dev
+ln -sf /proc/self/fd/0 stdin
+ln -sf /proc/self/fd/1 stdout
+cd -
+
 echo Checking filesystems
 fsck -ATa
 if [ $? -eq 1 ]; then
