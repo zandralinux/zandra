@@ -39,7 +39,7 @@ echo /bin/smdev > /proc/sys/kernel/hotplug
 cd /dev
 ln -sf /proc/self/fd/0 stdin
 ln -sf /proc/self/fd/1 stdout
-cd -
+cd - 1>/dev/null
 
 echo Checking filesystems
 fsck -ATa
