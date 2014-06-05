@@ -22,15 +22,7 @@ cli_btinfo_OBJ = cli/btinfo.o
 cli_btinfo_CFLAGS = -I./cli $libmisc_a_CFLAGS
 cli_btinfo_LDFLAGS = -L. $libmisc_a_LDFLAGS
 
-cli_btcli_OBJ = \
-	cli/btcli.o \
-	cli/add.o \
-	cli/del.o \
-	cli/list.o \
-	cli/kill.o \
-	cli/start.o \
-	cli/stop.o \
-	cli/stat.o
+cli_btcli_OBJ = `{ls cli/*.c | sed 's/.$/o/' | grep -v 'btinfo'}
 cli_btcli_CFLAGS = -I./cli $libmisc_a_CFLAGS
 cli_btcli_LDFLAGS = -L. $libmisc_a_LDFLAGS
 
