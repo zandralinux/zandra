@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = libmad-$v
+url = ftp://ftp.mars.org/pub/mpeg/libmad-$v.tar.gz
+mkfile = ../libmad.mk
