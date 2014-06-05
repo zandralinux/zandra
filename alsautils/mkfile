@@ -1,0 +1,10 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = alsa-utils-$v
+url = ftp://ftp.alsa-project.org/pub/utils/alsa-utils-$v.tar.bz2
+mkfile = ../alsautils.mk
+patches = \
+	../alsa-utils_mixer_widget.patch \
+	../alsa-utils_signal_h.patch \
+	../alsa-utils_portable-mutex.patch
