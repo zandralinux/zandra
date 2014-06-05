@@ -19,7 +19,6 @@ INSTALL_SYMLINK = \
 	busybox /bin/less \
 	busybox /bin/losetup \
 	busybox /bin/nc \
-	busybox /bin/passwd \
 	busybox /bin/ping \
 	busybox /bin/reset \
 	busybox /bin/route \
