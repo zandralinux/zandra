@@ -1,0 +1,13 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = alsa-lib-$v
+url = ftp://ftp.alsa-project.org/pub/lib/alsa-lib-$v.tar.bz2
+mkfile = ../alsalib.mk
+patches = \
+	../alsa-lib_pcm_h.patch \
+	../alsa-lib_mixed_types.patch \
+	../alsa-lib_mips_atomic.patch \
+	../alsa-lib_mask_inline.patch \
+	../alsa-lib_kernel_off_t.patch \
+	../alsa-lib-portable-mutex.patch
