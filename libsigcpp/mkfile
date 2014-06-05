@@ -1,0 +1,7 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+
+src = libsigc++-$v
+url = http://ftp.gnome.org/pub/GNOME/sources/libsigc++/2.3/libsigc++-$v.tar.xz
+mkfile = ../libsigcpp.mk
