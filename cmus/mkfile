@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = cmus-$v
+url = https://github.com/cmus/cmus/archive/v$v.tar.gz
+mkfile = ../cmus.mk
