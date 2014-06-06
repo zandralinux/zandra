@@ -1,8 +1,7 @@
 TARG = xorgprotoall
+<../deps.mk
 
-<deps.mk
-
-<$mkbuild/mk.common-noinst
+<$mkbuild/mk.common
 
 xorgprotoall:QV:
 	
