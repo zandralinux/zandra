@@ -1,9 +1,9 @@
-TARG = xorgxinit
+TARG = xorglibdrm
 DEPS = libpthreadstubs xorglibpciaccess
 
 <$mkbuild/mk.common-noinst
 
-xorgxinit:QV:
+xorglibdrm:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	export PCIACCESS_CFLAGS="${CFLAGS}"
