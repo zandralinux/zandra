@@ -8,11 +8,12 @@ xorgvideofbdev:QV:
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	export XORG_CFLAGS="${CFLAGS}"
 	export XORG_LIBS="${LDFLAGS}"
+	export PCIACCESS_CFLAGS="${CFLAGS}"
+	export PCIACCESS_LIBS="${LDFLAGS}"
 	CC="$CC" ./configure \
 		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
-		--disable-pciaccess \
 		--enable-static
 	make -j$nprocs
 
