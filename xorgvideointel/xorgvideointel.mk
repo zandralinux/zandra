@@ -1,5 +1,5 @@
 TARG = xorgvideointel
-DEPS = xorgserver xorgprotoall xorglibpixman xorglibpciaccess
+DEPS = xorgserver xorgprotoall xorglibpixman xorglibpciaccess xorglibdrm
 
 <$mkbuild/mk.common-noinst
 

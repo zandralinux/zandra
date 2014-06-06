@@ -2,5 +2,6 @@
 
 xorglibdrm_libdir = $xorglibdrm_DEPDIR/libdrm-$v/lib/lib
 xorglibdrm_includedir = $xorglibdrm_DEPDIR/libdrm-$v/lib/include
-DEPS_CFLAGS = $DEPS_CFLAGS -I${xorglibdrm_includedir}
+xorglibdrm_includedrmdir = $xorglibdrm_DEPDIR/libdrm-$v/lib/include/libdrm
+DEPS_CFLAGS = $DEPS_CFLAGS -I${xorglibdrm_includedir} -I${xorglibdrm_includedrmdir}
 DEPS_LDFLAGS = $DEPS_LDFLAGS -L${xorglibdrm_libdir} -ldrm
