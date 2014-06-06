@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = libdrm-$v
+url = http://dri.freedesktop.org/libdrm/libdrm-$v.tar.bz2
+mkfile = ../xorglibdrm.mk
