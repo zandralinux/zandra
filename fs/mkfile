@@ -26,8 +26,9 @@ INSTALL_SYMLINK = \
 	bin /sbin \
 	../tmp /var/tmp
 
-INSTALL_OTHER1 = `{find svc.d -type f}
+INSTALL_OTHER1 = svc.d/bare.sh
 INSTALL_OTHER1_DIR = /bin/svc.d
+INSTALL_OTHER1_PERMS = 755
 INSTALL_OTHER2 = `{find etc -type f}
 INSTALL_OTHER2_DIR = /etc
 INSTALL_OTHER3 = `{find skel -type f}
