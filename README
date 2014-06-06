@@ -65,22 +65,29 @@ entries.
 
 For a bootable system you need at least the following packages:
 
-	busybox
-	e2fsprogs
-	extlinux
-	file
-	fs
-	hbase
-	linux
-	mksh
-	sbase
-	sdhcp
-	sinit
-	smdev
-	ubase
+  busybox#1.22.1.pkg.tgz
+  curl#7.36.0.pkg.tgz
+  e2fsprogs#1.42.9.pkg.tgz
+  extlinux#6.02.pkg.tgz
+  file#5.17.pkg.tgz
+  fs.pkg.tgz
+  hbase.pkg.tgz
+  ii.pkg.tgz
+  libarchive#3.1.2.pkg.tgz
+  linux#3.10.32.pkg.tgz
+  mksh#R47.pkg.tgz
+  pkgtools.pkg.tgz
+  sbase.pkg.tgz
+  sdhcp.pkg.tgz
+  sinit.pkg.tgz
+  smdev.pkg.tgz
+  tmux#1.9a.pkg.tgz
+  ubase.pkg.tgz
+  vim#7.4.pkg.tgz
 
 There are precompiled versions at http://morpheus.2f30.org/0.0 for the
-x86_64 architecture.
+x86_64   architecture.   Use   the  misc/install-morpheus   script  to
+bootstrap your system.
 
 We  suggest using  a  stripped-down CRUX  rootfs  for building  ports.
 
