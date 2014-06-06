@@ -6,8 +6,6 @@ DEPS = xorgserver xorgprotoall xorglibpixman
 xorgvideointel:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
-	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
-	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	export XORG_CFLAGS="${CFLAGS}"
 	export XORG_LIBS="${LDFLAGS}"
 	CC="$CC" ./configure \
