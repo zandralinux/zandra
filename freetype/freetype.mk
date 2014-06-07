@@ -9,6 +9,8 @@ freetype:QV:
 #	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	export ZLIB_CFLAGS="-I${zlib_includedir}"
 	export ZLIB_LIBS="-L${zlib_libdir} -lzlib"
+	export HARFBUZZ_CFLAGS=" "
+	export HARFBUZZ_LDFLAGS=" "
 	# needed because build system calls libpng-config.
 	export LIBPNG_CFLAGS="-I${libpng_includedir}"
 	export LIBPNG_LIBS="-L${libpng_libdir} -lpng16"
@@ -16,13 +18,12 @@ freetype:QV:
 		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
-		--disable-nls \
 		--enable-static \
 		--with-fsspec=no \
 		--with-fsref=no \
 		--with-bzip2=no \
 		--with-ats=no \
-		--with-quickdraw-toolbo=no \
+		--with-quickdraw-toolbox=no \
 		--with-quickdraw-carbon=no \
 		--with-old-mac-fonts=no \
 		--with-harfbuzz=no \
