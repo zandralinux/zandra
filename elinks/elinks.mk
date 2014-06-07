@@ -34,13 +34,18 @@ elinks:QV:
 		--enable-static
 	# fix warnings: sys/signal.h -> signal.h
 	find . -type f -name "*.[ch]" -exec sed 's@sys/signal.h@signal.h@g' -i {} \;
-	# NOTE: LD is set to "ld", not gcc, because Makefile.lib specifies:
-	#       ld -r -o ...
+	# NOTES:
+	# - LD is set to "ld", not gcc, because Makefile.lib specifies:
+	#   ld -r -o ...
+	# - X_CFLAGS is set to blank, it's set to "/usr/include" which breaks buils
+	#   outside emul.
 	make -j$nprocs \
 		V="1" CC="${CC} -static" \
+		X_CFLAGS=" " \
 		LD="${TOOLCHAIN_TRIPLET}-ld" CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS"
 
 install:QV:
 	make -j$nprocs install DESTDIR="$ROOT" \
 		V="1" CC="${CC} -static" \
+		X_CFLAGS=" " \
 		LD="${TOOLCHAIN_TRIPLET}-ld" CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS"
