@@ -4,3 +4,8 @@
 src = openssh-$v
 url = http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-$v.tar.gz
 mkfile = ../openssh.mk
+
+# fix implicit declarations.
+patches = \
+	../openssh-configure.patch \
+	../openssh-sys_param.patch

@@ -4,3 +4,7 @@
 src = libXfont-$v
 url = http://xorg.freedesktop.org/releases/individual/lib/libXfont-$v.tar.bz2
 mkfile = ../xorglibxfont.mk
+
+# patch "error: conflicting types for ‘CacheFontPattern’"
+patches = \
+	../xorg-libxfont-const.diff

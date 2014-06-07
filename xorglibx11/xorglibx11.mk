@@ -11,10 +11,9 @@ xorglibx11:QV:
 	export BIGFONT_LIBS="-L${xorgxf86bigfontproto_libdir}"
 	export X11_CFLAGS="${CFLAGS}"
 	export X11_LIBS="${LDFLAGS}"
-	#TODO: more detailed flags
-#	export X11_CFLAGS="-I${xorgxproto_includedir}"
-#	export X11_LIBS="-L${xorgxproto_libdir}"
-	./configure --prefix="$PREFIX" \
+	#
+	./configure \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--with-keysymdefdir="${xorgxproto_includedir}/X11" \
 		--disable-shared \

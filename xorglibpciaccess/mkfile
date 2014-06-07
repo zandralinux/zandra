@@ -4,3 +4,7 @@
 src = libpciaccess-$v
 url = http://xorg.freedesktop.org/releases/individual/lib/libpciaccess-$v.tar.bz2
 mkfile = ../xorglibpciaccess.mk
+
+# fix missing include for limits.h (PATH_MAX).
+patches = \
+	"0" ../libpciaccess-limits.patch

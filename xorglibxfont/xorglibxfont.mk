@@ -4,10 +4,6 @@ DEPS = freetype zlib xorgxproto xorglibfontenc xorgxtrans xorgfontsproto
 <$mkbuild/mk.common-noinst
 
 xorglibxfont:QV:
-	# patch "error: conflicting types for ‘CacheFontPattern’"
-	patch -p1 -N --silent --dry-run < ../xorg-libxfont-const.diff && \
-		patch -p1 < ../xorg-libxfont-const.diff
-	#
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	export FREETYPE_CFLAGS="-I${freetype_includedir}"

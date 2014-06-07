@@ -6,9 +6,7 @@ DEPS = zlib
 xorglibpciaccess:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
-	# fix missing include for limits.h (PATH_MAX).
-	patch --silent --dry-run -N -p0 < ../limits.patch && \
-		patch -p0 < ../limits.patch
+	#
 	CC="$CC" ./configure \
 		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \

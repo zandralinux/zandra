@@ -8,8 +8,9 @@ xorgxinit:QV:
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	export XINIT_CFLAGS="${CFLAGS}"
 	export XINIT_LIBS="${LDFLAGS}"
-	CC="$CC" ./configure --prefix="$PREFIX"
-	make LIBS="-lX11 -lxcb -lXau -lXdmcp"
+	CC="$CC" ./configure \
+		--prefix="$PREFIX"
+	make -j$nprocs LIBS="-lX11 -lxcb -lXau -lXdmcp"
 
 install:QV:
-	make DESTDIR="$ROOT" install
+	make install DESTDIR="$ROOT"

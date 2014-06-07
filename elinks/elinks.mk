@@ -37,8 +37,8 @@ elinks:QV:
 	# NOTES:
 	# - LD is set to "ld", not gcc, because Makefile.lib specifies:
 	#   ld -r -o ...
-	# - X_CFLAGS is set to blank, it's set to "/usr/include" which breaks builds
-	#   outside emul.
+	# - X_CFLAGS is set to blank, it's set to "-I/usr/include" which breaks
+	#   builds outside emul.
 	make -j$nprocs \
 		V="1" CC="${CC} -static" \
 		X_CFLAGS=" " \

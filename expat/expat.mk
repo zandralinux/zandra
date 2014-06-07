@@ -3,7 +3,8 @@ TARG = expat
 <$mkbuild/mk.common-noinst
 
 expat:QV:
-	./configure --prefix="$PREFIX" \
+	./configure \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--enable-static

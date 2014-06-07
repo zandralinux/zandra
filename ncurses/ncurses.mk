@@ -7,7 +7,8 @@ INSTALL_MAN5 = man/terminfo.5
 
 libncurses:QV:
 	cp ../ncurses-fallback.c ncurses/fallback.c
-	CC="$CC -static" ./configure --prefix="$PREFIX" --mandir="$MANDIR" \
+	CC="$CC -static" ./configure \
+		--prefix="$PREFIX" --mandir="$MANDIR" \
 	   --datadir="$PREFIX/share" --without-tests \
 	   --with-normal --enable-sigwinch --disable-nls --without-dlsym \
 	   --without-cxx-binding --enable-widec \

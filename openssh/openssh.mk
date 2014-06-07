@@ -6,11 +6,6 @@ DEPS = zlib openssl
 openssh:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
-	# fix implicit declarations
-	patch --silent --dry-run -N -p1 < ../openssh-configure.patch && \
-		patch -p1 < ../openssh-configure.patch
-	patch --silent --dry-run -N -p1 < ../openssh-sys_param.patch && \
-		patch -p1 < ../openssh-sys_param.patch
 	# prevent from installing some things (keysign and maybe others) setuid.
 	sed -i 's@-m 4711@-m 0750@g' Makefile.in
 	# work around for issue #104 until we come up with a proper patch
@@ -18,7 +13,8 @@ openssh:QV:
 	CC="${CC} -static" \
 	ac_cv_path_AR="${AR}" \
 	CFLAGS="$issue104cflags -D_BSD_SOURCE -DMISSING_FD_MASK -DMISSING_NFDBITS $CFLAGS" \
-		./configure -C --prefix="$PREFIX" \
+		./configure -C \
+			--prefix="$PREFIX" \
 			--sbindir="$PREFIX"/bin --libexecdir="$PREFIX"/lib/ssh \
 			--sysconfdir="$PREFIX"/etc/ssh \
 			--with-privsep-user=nobody \

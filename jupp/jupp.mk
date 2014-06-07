@@ -14,6 +14,7 @@ INSTALL_SYMLINK = joe /bin/jmacs \
 	joe.1 $MANDIR/man1/jmacs.1
 
 jupp:QV:
-	sh configure --prefix="$PREFIX"
+	sh configure \
+		--prefix="$PREFIX"
 	make -j$nprocs
 	
