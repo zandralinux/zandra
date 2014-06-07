@@ -18,10 +18,18 @@ freetype:QV:
 		--disable-shared \
 		--disable-nls \
 		--enable-static \
-		--with-zlib \
-		--with-png
+		--with-fsspec=no \
+		--with-fsref=no \
+		--with-bzip2=no \
+		--with-ats=no \
+		--with-quickdraw-toolbo=no \
+		--with-quickdraw-carbon=no \
+		--with-old-mac-fonts=no \
+		--with-harfbuzz=no \
+		--with-zlib=yes \
+		--with-png=yes
 	make -j$nprocs CCexe="${HOSTCC}" # DESTDIR="`pwd`/lib"
-	make -j$nprocs CCexe="${HOSTCC}" install DESTDIR="`pwd`/lib"
+	make -j$nprocs install CCexe="${HOSTCC}" DESTDIR="`pwd`/lib"
 	# make symlink for includes, some packages depend on this (fontconfig).
 	mkdir -p "`pwd`/lib/include/freetype2/config"
 	ln -sf freetype2 "`pwd`/lib/include/freetype"
