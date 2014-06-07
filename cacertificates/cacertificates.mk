@@ -4,18 +4,13 @@ TARG = cacertificates
 <$mkbuild/mk.common-noinst
 
 cacertificates:QV:
-	# patch all the things.
-	patch -p1 -N --silent --dry-run < ../ca-certificates.patch &&
-		patch -p1 -N < ../ca-certificates.patch
+	cp ../certdata2pem.c mozilla/
 	make -j$nprocs
 
 install:QV:
-	# patch all the things.
-	patch -p1 -N --silent --dry-run < ../ca-certificates.patch &&
-		patch -p1 -N < ../ca-certificates.patch
-	make -j$nprocs DESTDIR="$ROOT" install
+	make -j$nprocs install DESTDIR="$ROOT"
 	mkdir -p "$ROOT/etc/ssl/certs"
-	( cd "$ROOT/share/ca-certificates/"
+	( cd "$ROOT/share/ca-certificates/"; \
 	  find . -name '*.crt' | sort | cut -b3- > "$ROOT/etc/ca-certificates.conf" )
 	cp sbin/update-ca-certificates .
 	sed -e 's#=/etc/#=${DESTDIR}/etc/#' -i update-ca-certificates
