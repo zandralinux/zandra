@@ -475,7 +475,7 @@
 /* #undef SHADOW_PAM_CONVERSATION */
 
 /* The default shell. */
-#define SHELL "/bin/bash"
+#define SHELL "/bin/mksh"
 
 /* Define to support S/Key logins. */
 /* #undef SKEY */
@@ -539,19 +539,19 @@
 #define VERSION "4.2.1"
 
 /* Build shadow with ACL support */
-/* #undef WITH_ACL */
+#undef WITH_ACL
 
 /* Build shadow with Extended Attributes support */
-/* #undef WITH_ATTR */
+#undef WITH_ATTR
 
 /* Define if you want to enable Audit messages */
-/* #undef WITH_AUDIT */
+#undef WITH_AUDIT
 
 /* Build shadow with SELinux support */
-/* #undef WITH_SELINUX */
+#undef WITH_SELINUX
 
 /* Build shadow with tcb support (incomplete) */
-/* #undef WITH_TCB */
+#undef WITH_TCB
 
 /* Enable large inode numbers on Mac OS X 10.5.  */
 #ifndef _DARWIN_USE_64_BIT_INODE
