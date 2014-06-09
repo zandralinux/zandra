@@ -18,3 +18,4 @@ $LIB: $LOBJ
 
 su: config.h
 login: config.h
+passwd: config.h
