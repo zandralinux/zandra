@@ -9,6 +9,7 @@ pkgdir="pkgs"
 pkgs="
 curl#7.36.0.pkg.tgz
 e2fsprogs#1.42.9.pkg.tgz
+elinks#0.12pre6.pkg.tgz
 extlinux#6.02.pkg.tgz
 file#5.17.pkg.tgz
 fs.pkg.tgz
