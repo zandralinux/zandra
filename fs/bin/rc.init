@@ -16,8 +16,6 @@ echo
 # Soft reboot on ctrl-alt-del
 ctrlaltdel -s
 
-mkdir -p /proc
-mkdir -p /sys
 mount -n -t proc -o nosuid,noexec,nodev proc /proc
 mount -n -t sysfs -o nosuid,noexec,nodev sysfs /sys
 
