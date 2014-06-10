@@ -4,13 +4,16 @@
 
 root="root"
 pkgdir="pkgs"
+
 # prepare root.
 mkdir -p "$root/var/pkg"
 mkdir -p "$pkgdir"
+
 # fetch packages.
 cd "$pkgdir"
 searchpkg '\.tgz$' | fetchpkg
 cd - 1>/dev/null
+
 # install
 installpkg -p "$root" "$pkgdir/curl#7.36.0.pkg.tgz"
 installpkg -p "$root" "$pkgdir/e2fsprogs#1.42.9.pkg.tgz"
