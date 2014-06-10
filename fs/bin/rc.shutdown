@@ -1,8 +1,5 @@
 #!/bin/sh
 
-PATH=/bin
-export PATH
-
 umask 022
 
 . /etc/rc.conf
@@ -17,7 +14,7 @@ reboot|poweroff)
 esac
 
 # Set linefeed mode to avoid staircase effect
-echo; stty onlcr
+echo; /bin/stty onlcr
 
 echo Shutting down
 
@@ -39,36 +36,36 @@ esac
 if [ -n "$HWCLOCK_PARAMS" ]; then
 	echo Saving system clock
 	[ -n "$TIMEZONE" ] && export TZ="$TIMEZONE"
-	hwclock $HWCLOCK_PARAMS /dev/rtc0
+	/bin/hwclock $HWCLOCK_PARAMS /dev/rtc0
 	unset TZ
 fi
 
 echo Storing random seed
-dd if=/dev/urandom of=/etc/random-seed count=1 bs=512 2>/dev/null
+/bin/dd if=/dev/urandom of=/etc/random-seed count=1 bs=512 2>/dev/null
 
-svc -k
+/bin/svc -k
 
-killall5 -s TERM
-sleep 3
-killall5 -s KILL
+/bin/killall5 -s TERM
+/bin/sleep 3
+/bin/killall5 -s KILL
 
 echo Remounting root as read-only
-mount -o remount,ro /
+/bin/mount -o remount,ro /
 
 echo Unmounting filesystems
-umount -a
+/bin/umount -a
 
-sync
-sleep 3
+/bin/sync
+/bin/sleep 3
 wait
 
 echo bye
 
 case "$1" in
 reboot)
-	halt -r
+	/bin/halt -r
 	;;
 poweroff)
-	halt -p
+	/bin/halt -p
 	;;
 esac
