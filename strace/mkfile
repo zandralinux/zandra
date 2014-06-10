@@ -1,0 +1,11 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = strace-$v
+url = http://cznic.dl.sourceforge.net/project/strace/strace/$v/strace-$v.tar.xz
+mkfile = ../strace.mk
+
+# shamelessly borrowed from sabotage
+patches = \
+	../strace-musl.patch \
+	../strace-kernelhdr_3.12.6.patch
