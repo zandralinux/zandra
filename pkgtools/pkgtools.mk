@@ -1,5 +1,5 @@
 TARG = pkgtools
-DEPS = libarchive
+DEPS = libarchive zlib
 
 <$mkbuild/mk.common-noinst
 
