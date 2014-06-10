@@ -33,6 +33,9 @@
 #	% svc -l	# list all services in /bin/svc.d/avail
 #	% svc -r ser	# restart service
 
+PATH=/bin
+export PATH
+
 BASEDIR="/bin/svc.d"
 BASENAME="$(basename $0)"
 
