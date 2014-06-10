@@ -16,6 +16,9 @@ INSTALL_MAN8 = man/man8/useradd.8 \
 			   man/man8/groupadd.8 \
 			   man/man8/groupdel.8
 
+INSTALL_OTHER1 = etc/login.defs
+INSTALL_OTHER1_DIR = /etc
+
 <$mkbuild/mk.default
 
 NPROC = $nprocs
