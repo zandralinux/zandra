@@ -108,7 +108,7 @@ if [ -x /bin/rc.local ]; then
 	/bin/rc.local
 fi
 
-# Enable system-wide coredumps
+echo Enabling core dumps
 ulimit -c unlimited
 
 echo
