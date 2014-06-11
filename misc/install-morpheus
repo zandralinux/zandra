@@ -22,6 +22,7 @@ mksh#R47.pkg.tgz
 pkgtools.pkg.tgz
 sbase.pkg.tgz
 sdhcp.pkg.tgz
+shadow#4.2.1.pkg.tgz
 sinit.pkg.tgz
 smdev.pkg.tgz
 tmux#1.9a.pkg.tgz
