@@ -93,6 +93,9 @@ else
 	/bin/chmod 0644 /var/log/dmesg.log
 fi
 
+echo Enabling core dumps
+ulimit -c unlimited
+
 if [ -x /bin/rc.modules ]; then
 	echo Running rc.modules
 	/bin/rc.modules
@@ -107,9 +110,6 @@ if [ -x /bin/rc.local ]; then
 	echo Running rc.local
 	/bin/rc.local
 fi
-
-echo Enabling core dumps
-ulimit -c unlimited
 
 echo
 /bin/sh -c '/bin/respawn /bin/getty /dev/tty1 linux' &>/dev/null &
