@@ -1,4 +1,8 @@
-PS1='$ '
+if ! test "$(id -u)" -eq 0; then
+	PS1='$ '
+else
+	PS1='# '
+fi
 
 # C-l should clear the screen
 bind -m '^L'='^U'clear'^J''^Y'
