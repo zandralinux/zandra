@@ -1,0 +1,7 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = mutt-$v
+#url = ftp://ftp.mutt.org/mutt/devel/mutt-$v.tar.gz
+url = https://bitbucket.org/mutt/mutt/downloads/mutt-$v.tar.gz
+mkfile = ../mutt.mk
