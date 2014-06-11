@@ -108,6 +108,9 @@ if [ -x /bin/rc.local ]; then
 	/bin/rc.local
 fi
 
+# Enable system-wide coredumps
+ulimit -c unlimited
+
 echo
 /bin/sh -c '/bin/respawn /bin/getty /dev/tty1 linux' &>/dev/null &
 /bin/sh -c '/bin/respawn /bin/getty /dev/tty2 linux' &>/dev/null &
