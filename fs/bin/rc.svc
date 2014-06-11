@@ -4,8 +4,3 @@
 
 /bin/svc -c
 /bin/svc -s
-
-if [ -x /bin/rc.local ]; then
-	echo Running rc.local
-	/bin/rc.local
-fi
