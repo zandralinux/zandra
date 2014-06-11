@@ -5,7 +5,6 @@ INSTALL_DIRS = \
 	/etc \
 	/home \
 	/mnt \
-	/opt \
 	/proc \
 	/root \
 	/share \
