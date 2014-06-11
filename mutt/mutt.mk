@@ -2,7 +2,7 @@ TARG = mutt
 DEPS = openssl ncurses
 
 INSTALL_MAN1 = `{ ls -1 doc/*.1}
-INSTALL_BIN = mutt
+INSTALL_BIN = mutt smime_keys pgpring pgpewrap
 
 <$mkbuild/mk.common
 
