@@ -1,7 +1,7 @@
 <$libnl3_DEPDIR/v.mk
 
-libnl3_libdir = $libnl3_DEPDIR/libnl-$v/lib/.libs/
-libnl3_includedir = $libnl3_DEPDIR/libnl-$v/include
+libnl3_libdir = ${libnl3_DEPDIR}/libnl-$v/lib/.libs/
+libnl3_includedir = ${libnl3_DEPDIR}/libnl-$v/include
 
 libnl3_cflags = -I${libnl3_includedir}
 libnl3_ldflags = -L${libnl3_libdir}

@@ -6,6 +6,6 @@ libnl3:QV:
 	./configure \
 		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
-		--enable-shared=no \
-		--enable-static=yes
+		--disable-shared \
+		--enable-static
 	make -j$nprocs
