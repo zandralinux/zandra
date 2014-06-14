@@ -1,0 +1,7 @@
+<$mkbuild/mk.3rdparty
+
+src = mg-openbsd
+git = git://github.com/scott-parker/mg-openbsd.git
+mkfile = ../mg.mk
+patches = \
+	../musl-fixup.patch
