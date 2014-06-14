@@ -1,0 +1,9 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = cgit-$v
+url = http://git.zx2c4.com/cgit/snapshot/cgit-$v.tar.xz
+mkfile = ../cgit.mk
+
+patches = \
+	"0" ../cgit-dlsym.patch
