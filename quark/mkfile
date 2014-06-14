@@ -1,0 +1,5 @@
+<$mkbuild/mk.3rdparty
+
+src = quark
+git = git://git.suckless.org/quark
+mkfile = ../quark.mk
