@@ -6,7 +6,7 @@ INSTALL_BIN = \
 	src/luac
 INSTALL_MAN1 = `{ ls doc/*.1 }
 
-<$mkbuild/mk.common-noinst
+<$mkbuild/mk.common
 
 lua:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
