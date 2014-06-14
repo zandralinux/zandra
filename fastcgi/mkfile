@@ -1,0 +1,9 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = fcgi-$v
+url = http://www.fastcgi.com/dist/fcgi-$v.tar.gz
+mkfile = ../fastcgi.mk
+
+patches = \
+	../fcgi-2.4.0.patch

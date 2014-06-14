@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = fcgiwrap-$v
+url = https://github.com/gnosek/fcgiwrap/archive/$v.tar.gz
+mkfile = ../fcgiwrap.mk
