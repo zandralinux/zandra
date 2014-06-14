@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = libedit-20140213-$v
+url = http://thrysoee.dk/editline/libedit-20140213-$v.tar.gz
+mkfile = ../libedit.mk
