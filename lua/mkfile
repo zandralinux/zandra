@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = lua-$v
+url = http://www.lua.org/ftp/lua-$v.tar.gz
+mkfile = ../lua.mk
