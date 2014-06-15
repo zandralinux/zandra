@@ -1,7 +1,7 @@
 # openssl is used for --with-sha1=libcrypto
 TARG = xorgserver
 DEPS = xorglibpixman xorglibx11 openssl xorglibpciaccess \
-	xorgprotoall xorglibxau  xorglibxkbfile \
+	xorgprotoall xorglibxau xorglibxkbfile \
 	xorgxtrans xorglibxfont freetype xorglibfontenc libpng zlib
 
 <$mkbuild/mk.common-noinst
@@ -12,8 +12,8 @@ xorgserver:QV:
 	# fix __uid_t and __gid_t
 	sed 's@__uid_t@uid_t@g' -i 'hw/kdrive/linux/linux.c'
 	sed 's@__gid_t@gid_t@g' -i 'hw/kdrive/linux/linux.c'
-	# dont build tests.
-	printf "all:\n\ttrue\n\ninstall:\n\ttrue\n\n" > test/Makefile.in
+	# don't build tests.
+	printf "all:\n\ttrue\ninstall:\n\ttrue\n" > test/Makefile.in
 	#
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"

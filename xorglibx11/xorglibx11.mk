@@ -1,5 +1,6 @@
 TARG = xorglibx11
-DEPS = xorgxproto xorglibxcb xorgxcbproto xorgkbproto xorginputproto xorgxf86bigfontproto xorgxtrans
+DEPS = xorgxproto xorglibxcb xorgxcbproto xorgkbproto \
+	xorginputproto xorgxf86bigfontproto xorgxtrans
 
 <$mkbuild/mk.common-noinst
 
@@ -23,6 +24,6 @@ xorglibx11:QV:
 	cp ../makekeys_Makefile src/util/Makefile
 	# make and install.
 	export HOSTCC_CFLAGS="-I${xorgxproto_includedir}"
-	make -j$nprocs install DESTDIR=`pwd`/lib
+	make -j$nprocs install DESTDIR="`pwd`/lib"
 	# remove .la files for now ?
 	find `pwd`/lib -iname "*.la" -exec rm {} \;
