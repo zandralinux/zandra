@@ -1,13 +1,10 @@
 #!/bin/sh
-#
-# you need pkgtools from http://git.2f30.org/pkgtools/
 
 root="root"
 pkgdir="pkgs"
 
 # list of important packages
-pkgs="
-curl#7.36.0.pkg.tgz
+pkgs="curl#7.36.0.pkg.tgz
 e2fsprogs#1.42.9.pkg.tgz
 elinks#0.12pre6.pkg.tgz
 extlinux#6.02.pkg.tgz
@@ -28,6 +25,14 @@ smdev.pkg.tgz
 tmux#1.9a.pkg.tgz
 ubase.pkg.tgz
 vim#7.4.pkg.tgz"
+
+# grab and build pkgtools
+git clone git://git.2f30.org/pkgtools
+cd pkgtools
+make || ( echo "missing libarchive?" 1>&2 && exit 1 )
+cd -
+PATH=$(pwd)/pkgtools:$PATH
+export PATH
 
 # prepare root
 mkdir -p "$root/var/pkg"
