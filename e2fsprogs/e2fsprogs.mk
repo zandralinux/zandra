@@ -4,13 +4,18 @@ TARG = e2fsprogs
 
 e2fsprogs:QV:
 	CC="$CC -static" CFLAGS="-D__uint64_t=u_int64_t" ./configure \
-		--prefix="" \
+		--prefix="$PREFIX" \
 		--disable-nls \
 		--bindir="$BINDIR" \
 		--sbindir="$BINDIR" \
 		--libexecdir="$BINDIR" \
 		--mandir="$PREFIX/share/man"
 	make -j$nprocs
+	# copy files for use as a dependency.
+	rm -rf libdev
+	mkdir -p libdev
+	cp -a lib libdev/
+	rm -f libdev/lib/config.h*
 
 install:QV:
 	make -j$nprocs DESTDIR="$ROOT" install
@@ -25,4 +30,3 @@ install:QV:
 	ln -s e2fsck fsck.ext3
 	ln -s e2fsck fsck.ext4
 	ln -s e2fsck fsck.ext4dev
-
