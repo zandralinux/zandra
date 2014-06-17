@@ -18,13 +18,24 @@ INSTALL_BIN = \
 	ntfsprogs/ntfsresize \
 	ntfsprogs/ntfsundelete
 
-INSTALL_MAN8 = `{ ls -1 src/*.8; ls -1 ntfsprogs/*.8 }
 INSTALL_SYMLINK = \
 	mkntfs /bin/mkfs.ntfs \
 	lowntfs-3g /bin/mount.lowntfs-3g \
-	ntfs-3g /bin/mount.ntfs-3g 
+	ntfs-3g /bin/mount.ntfs-3g
 
 <$mkbuild/mk.common
+
+# man pages are suffixed with .in, so copy those manually.
+installman8:QV:
+	i=8
+	mkdir -p ${ROOT}${PREFIX}$MANDIR/man$i
+	for f in ` ls -1 src/*.8.in; ls -1 ntfsprogs/*.$i.in`; do
+		fn=`basename $f | sed 's@.in$@@g'`
+		echo INSTALL ${ROOT}${PREFIX}$MANDIR/man$i/$fn
+		$INSTALL -m 755 $f ${ROOT}${PREFIX}$MANDIR/man$i/$fn
+	done
+
+install_man: installman8
 
 ntfs3g:QV:
 	./configure \
