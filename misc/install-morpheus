@@ -30,7 +30,7 @@ vim#7.4.pkg.tgz"
 git clone git://git.2f30.org/pkgtools
 cd pkgtools
 make || ( echo "missing libarchive?" 1>&2 && exit 1 )
-cd -
+cd - 1>/dev/null
 PATH=$(pwd)/pkgtools:$PATH
 export PATH
 
