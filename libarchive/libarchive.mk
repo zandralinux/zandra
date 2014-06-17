@@ -12,7 +12,7 @@ cpio_cpio_OBJ = `{ls cpio/*.c | sed 's/.$/o/' | grep -v '_windows.o$'}
 tar_tar_OBJ = `{ls tar/*.c | sed 's/.$/o/' | grep -v '_windows.o$'}
 
 LOCAL_BIN_LDFLAGS = -L. -L${zlib_libdir} -lz -larchive -larchive_fe
-LOCAL_CFLAGS = -I. -I${zlib_includedir} -I. -Ilibarchive -Ilibarchive_fe -DHAVE_CONFIG_H
+LOCAL_CFLAGS = -I. -Ilibarchive -Ilibarchive_fe -DHAVE_CONFIG_H
 
 <$mkbuild/mk.default
 

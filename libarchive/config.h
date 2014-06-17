@@ -455,7 +455,7 @@
 /* #undef HAVE_LIBXML_XMLWRITER_H */
 
 /* Define to 1 if you have the `z' library (-lz). */
-/* #undef HAVE_LIBZ */
+#define HAVE_LIBZ 1
 
 /* Define to 1 if you have the <limits.h> header file. */
 #define HAVE_LIMITS_H 1
@@ -688,7 +688,7 @@
 #define HAVE_STRRCHR 1
 
 /* Define to 1 if `f_namemax' is a member of `struct statfs'. */
-/* #undef HAVE_STRUCT_STATFS_F_NAMEMAX */
+#define HAVE_STRUCT_STATFS_F_NAMEMAX 1
 
 /* Define to 1 if `f_iosize' is a member of `struct statvfs'. */
 /* #undef HAVE_STRUCT_STATVFS_F_IOSIZE */
