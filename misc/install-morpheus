@@ -47,5 +47,5 @@ cd - 1>/dev/null
 
 # install packages
 for i in $pkgs; do
-	installpkg -p "$root" "$pkgdir/$i"
+	installpkg -r "$root" "$pkgdir/$i"
 done
