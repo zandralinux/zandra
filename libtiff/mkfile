@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = tiff-$v
+url = http://download.osgeo.org/libtiff/tiff-$v.tar.gz
+mkfile = ../libtiff.mk
