@@ -4,7 +4,7 @@ DEPS = libarchive zlib
 <$mkbuild/mk.common-noinst
 
 pkgtools:QV:
-	export CFLAGS="$CFLAGS $DEPS_CFLAGS -DVERSION=\\\"$v\\\""
+	export CFLAGS="$CFLAGS $DEPS_CFLAGS -DVERSION=\\\"$v\\\" -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	make -j$nprocs CC="${CC} -static" CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS" \
 		PREFIX="$PREFIX"
