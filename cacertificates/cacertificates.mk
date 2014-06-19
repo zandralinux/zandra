@@ -9,7 +9,7 @@ cacertificates:QV:
 
 install:QV:
 	make -j$nprocs install DESTDIR="$ROOT"
-	mkdir -p "$ROOT/etc/ssl/certs"
+	$INSTALL -d -m 755 "$ROOT/etc/ssl/certs"
 	( cd "$ROOT/share/ca-certificates/"; \
 	  find . -name '*.crt' | sort | cut -b3- > "$ROOT/etc/ca-certificates.conf" )
 	cp sbin/update-ca-certificates .
@@ -17,5 +17,5 @@ install:QV:
 	sed -e 's#=/share/#=${DESTDIR}/share/#' -i update-ca-certificates
 	sed -e 's#=/local/#=${DESTDIR}/local/#' -i update-ca-certificates
 	# create dir update.d, called in script update-ca-certificates.
-	mkdir -p "$ROOT/etc/ca-certificates/update.d"
+	$INSTALL -d -m 755 "$ROOT/etc/ca-certificates/update.d"
 	DESTDIR="$ROOT" sh ./update-ca-certificates --fresh

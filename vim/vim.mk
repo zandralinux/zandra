@@ -4,9 +4,10 @@ DEPS = ncurses
 <$mkbuild/mk.common-noinst
 
 $TARG:QV:
-	export CPPFLAGS="$DEPS_CFLAGS $CFLAGS" LDFLAGS="$DEPS_LDFLAGS $LDFLAGS"
+	export CPPFLAGS="$DEPS_CFLAGS $CFLAGS"
+	export LDFLAGS="$DEPS_LDFLAGS $LDFLAGS"
 	./configure \
-		--prefix=$PREFIX/ \
+		--prefix="$PREFIX/" \
 		--disable-gui \
 		--disable-nls \
 		--disable-netbeans \
@@ -17,5 +18,5 @@ $TARG:QV:
 
 install:QV:
 	make DESTDIR="$ROOT" install
-	install -m 755 -d $ROOT/$BINDIR
+	$INSTALL -d -m 755 $ROOT/$BINDIR
 	ln -sf vim $ROOT/$BINDIR/vi

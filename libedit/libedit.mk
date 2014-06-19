@@ -16,7 +16,7 @@ libedit:QV:
 		--enable-widec
 	make -j$nprocs
 	# install lib for use as a dependency.
-	make -j$nprocs install DESTDIR=`pwd`/lib
+	make -j$nprocs install DESTDIR="`pwd`/lib"
 	# remove .la files for now ?
 	find `pwd`/lib -iname "*.la" -exec rm {} \;
 	# make symlink for use as a readline replacement.

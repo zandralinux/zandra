@@ -67,4 +67,4 @@ xorgserver:QV:
 install:QV:
 	# NOTE: "-all-static" is needed.
 	make -j$nprocs install DESTDIR="$ROOT" LDFLAGS="-all-static $LDFLAGS"
-	install -m 755 -d "$ROOT/etc/X11/xorg.conf.d"
+	$INSTALL -m 755 -d "$ROOT/etc/X11/xorg.conf.d"

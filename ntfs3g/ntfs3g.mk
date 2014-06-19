@@ -28,11 +28,11 @@ INSTALL_SYMLINK = \
 # man pages are suffixed with .in, so copy those manually.
 installman8:QV:
 	i=8
-	mkdir -p ${ROOT}${PREFIX}$MANDIR/man$i
+	$INSTALL -d -m 755 ${ROOT}${PREFIX}$MANDIR/man$i
 	for f in ` ls -1 src/*.8.in; ls -1 ntfsprogs/*.$i.in`; do
 		fn=`basename $f | sed 's@.in$@@g'`
 		echo INSTALL ${ROOT}${PREFIX}$MANDIR/man$i/$fn
-		$INSTALL -m 755 $f ${ROOT}${PREFIX}$MANDIR/man$i/$fn
+		$INSTALL -m 644 $f ${ROOT}${PREFIX}$MANDIR/man$i/$fn
 	done
 
 install_man: installman8

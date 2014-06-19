@@ -33,5 +33,5 @@ nginx:QV:
 	make -j$nprocs
 
 install:QV:
-	mkdir -p "$ROOT/run/lock"
+	$INSTALL -d -m 755 "$ROOT/run/lock"
 	make -j$nprocs install DESTDIR="$ROOT"

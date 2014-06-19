@@ -5,15 +5,13 @@ DEPS = zlib libpng
 
 freetype:QV:
 	# CCexe is set to build apinames for host (needed in build).
-#	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
-#	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
-	export ZLIB_CFLAGS="-I${zlib_includedir}"
-	export ZLIB_LIBS="-L${zlib_libdir} -lzlib"
+	export ZLIB_CFLAGS="${zlib_CFLAGS}"
+	export ZLIB_LIBS="${zlib_LDFLAGS}"
 	export HARFBUZZ_CFLAGS=" "
 	export HARFBUZZ_LDFLAGS=" "
 	# needed because build system calls libpng-config.
-	export LIBPNG_CFLAGS="-I${libpng_includedir}"
-	export LIBPNG_LIBS="-L${libpng_libdir} -lpng16"
+	export LIBPNG_CFLAGS="${libpng_CFLAGS}"
+	export LIBPNG_LIBS="${libpng_LDFLAGS}"
 	CC="$CC" ./configure \
 		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
@@ -29,7 +27,7 @@ freetype:QV:
 		--with-harfbuzz=no \
 		--with-zlib=yes \
 		--with-png=yes
-	make -j$nprocs CCexe="${HOSTCC}" # DESTDIR="`pwd`/lib"
+	make -j$nprocs CCexe="${HOSTCC}"
 	make -j$nprocs install CCexe="${HOSTCC}" DESTDIR="`pwd`/lib"
 	# make symlink for includes, some packages depend on this (fontconfig).
 	mkdir -p "`pwd`/lib/include/freetype2/config"
