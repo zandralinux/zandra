@@ -9,7 +9,7 @@ elinks:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS -DVA_COPY=va_copy"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	CC="$CC -static" ./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--disable-nls \

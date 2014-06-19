@@ -23,8 +23,8 @@ INSTALL_OTHER1_DIR = /etc
 
 NPROC = $nprocs
 
-CFLAGS = 
-CPPFLAGS = 
+CFLAGS =
+CPPFLAGS =
 
 $BIN: $LIB
 

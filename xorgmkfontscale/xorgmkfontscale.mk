@@ -11,7 +11,7 @@ xorgmkfontscale:QV:
 	export X11_CFLAGS="$CFLAGS"
 	export X11_LIBS="$LDFLAGS"
 	CC="$CC" ./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--enable-static

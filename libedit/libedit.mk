@@ -9,7 +9,7 @@ libedit:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS -D__STDC_ISO_10646__"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	CC="$CC" ./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--enable-static \

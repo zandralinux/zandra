@@ -1,7 +1,7 @@
 TARG = procmail
 
-INSTALL_MAN1 = `{ ls man/*.1 } 
-INSTALL_MAN5 = `{ ls man/*.5 } 
+INSTALL_MAN1 = `{ ls man/*.1 }
+INSTALL_MAN5 = `{ ls man/*.5 }
 INSTALL_BIN = \
 	src/formail \
 	src/lockfile \

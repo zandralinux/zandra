@@ -16,7 +16,7 @@ strace:QV:
 	find -name "*.[ch]" -exec sed 's@#include <sys/sysinfo.h>@@g' -i {} \;
 	export CFLAGS="$CFLAGS -Dsigcontext_struct=sigcontext"
 	CC="$CC" ./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--enable-static \

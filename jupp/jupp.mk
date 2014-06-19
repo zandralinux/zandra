@@ -17,4 +17,3 @@ jupp:QV:
 	sh configure \
 		--prefix="$PREFIX"
 	make -j$nprocs
-	

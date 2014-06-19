@@ -5,7 +5,7 @@ TARG = xorgmkfontdir
 
 xorgmkfontdir:QV:
 	CC="$CC" ./configure \
-		--prefix="$prefix" \
+		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
 		--enable-static

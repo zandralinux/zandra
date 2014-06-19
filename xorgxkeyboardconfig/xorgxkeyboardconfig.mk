@@ -13,7 +13,7 @@ $TARG:QV:
 		--disable-runtime-deps \
 		--with-xkb-base="$PREFIX/share/X11/xkb" \
 		--with-xkb-rules-symlink=xorg \
-		--enable-static	
+		--enable-static
 	for i in po ; do
 		printf 'all:\n\ttrue\ninstall:\n\ttrue\nclean:\n\ttrue\n' > "$i"/Makefile
 	done
