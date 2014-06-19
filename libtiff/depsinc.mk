@@ -2,7 +2,7 @@
 
 libtiff_bindir = ${libtiff_DEPDIR}/tiff-$v/lib/bin
 libtiff_libdir = ${libtiff_DEPDIR}/tiff-$v/lib/lib
-libtiff_includedir = ${libtiff_DEPDIR}/libX11-$v/lib/include
+libtiff_includedir = ${libtiff_DEPDIR}/tiff-$v/lib/include
 
 libtiff_CFLAGS = -I${libtiff_includedir}
 libtiff_LDFLAGS = -L${libtiff_libdir} -ltiff
