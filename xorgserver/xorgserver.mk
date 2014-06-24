@@ -35,6 +35,7 @@ xorgserver:QV:
 	# TODO: make able to run server rootless or setuid binary?
 	export CC="$CC -static"
 	# NOTE: xorgvideofbdev requires --enable-dga.
+	# NOTE: kdrive-kbd seems broken(?).
 	./configure \
 		--prefix="$PREFIX" \
 		--mandir="$ROOT/$PREFIX/share/man" \
@@ -49,13 +50,13 @@ xorgserver:QV:
 		--disable-config-dbus \
 		--disable-config-hal \
 		--disable-shared \
+		--disable-kdrive-kbd \
 		--enable-static \
 		--enable-dga \
 		--enable-xfbdev \
 		--enable-kdrive \
-		--enable-kdrive-kbd \
+		--enable-kdrive-evdev \
 		--enable-kdrive-mouse \
-		--enable-kdrive-evdev=no \
 		--with-sha1=libcrypto
 	# NOTE: "-all-static" is needed.
 	make -j$nprocs LDFLAGS="-all-static $LDFLAGS"
