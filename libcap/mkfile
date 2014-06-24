@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = libcap-$v
+url = https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-$v.tar.xz
+mkfile = ../libcap.mk
