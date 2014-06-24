@@ -1,0 +1,7 @@
+bash_cv_must_reinstall_sighandlers=yes
+bash_cv_func_sigsetjmp=yes
+bash_cv_func_strcoll_broken=no
+bash_cv_func_ctype_nonascii=no
+ac_cv_func_strncmp_works=yes
+ac_cv_c_stack_direction=-1
+gt_cv_func_gnugettext1_libintl=yes

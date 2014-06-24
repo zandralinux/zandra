@@ -1,0 +1,16 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = gdb-$v
+url = ftp://ftp.gnu.org/gnu/gdb/gdb-$v.tar.bz2
+mkfile = ../gdb.mk
+
+patches = \
+	../patches/gdb-threaddb.patch \
+	../patches/gdb-linux_nat.patch \
+	../patches/gdb-amd64-debugreg.patch \
+	../patches/gdb-arm-gentmap.patch \
+	../patches/gdb-76-linux-low-threaddb.patch \
+	../patches/gdb-76-readline.patch \
+	../patches/gdb-76-pid_t.patch \
+	../patches/gdb-76-configure-ash.patch
