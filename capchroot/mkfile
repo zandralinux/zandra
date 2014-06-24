@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = capchroot-$v
+url = https://dev.archlinux.org/~thomas/capchroot/capchroot-$v.tar.gz
+mkfile = ../capchroot.mk
