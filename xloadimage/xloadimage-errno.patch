@@ -1,0 +1,11 @@
+--- img.c.old	2014-06-15 00:25:18.866666899 +0200
++++ img.c	2014-06-15 00:25:27.498666546 +0200
+@@ -16,6 +16,8 @@
+ #include <math.h>
+ #include "image.h"
+ 
++#include <errno.h>
++
+ extern int errno;
+ 
+ #define TRUE  1
