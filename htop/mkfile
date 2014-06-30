@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = htop-$v
+url = http://hisham.hm/htop/releases/$v/htop-$v.tar.gz
+mkfile = ../htop.mk
