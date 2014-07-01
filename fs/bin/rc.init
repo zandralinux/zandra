@@ -111,6 +111,8 @@ if [ -x /bin/rc.local ]; then
 	/bin/rc.local
 fi
 
+echo -n > /var/run/utmp
+
 echo
 /bin/sh -c '/bin/respawn /bin/getty /dev/tty1 linux' &>/dev/null &
 /bin/sh -c '/bin/respawn /bin/getty /dev/tty2 linux' &>/dev/null &
