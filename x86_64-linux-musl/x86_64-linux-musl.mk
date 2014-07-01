@@ -7,6 +7,6 @@ install:QV:
 	cd "$ROOT/bin"
 	symlinks="ar as c++ g++ gcc ld ld.bfd nm objcopy objdump ranlib strip"
 	for i in $symlinks; do
-		ln -sf /devel/x86_64-linux-musl/bin/$i $i
+		ln -sf /devel/bin/x86_64-linux-musl-$i $i
 	done
 	ln -sf /bin/gcc cc
