@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = x86_64-linux-musl
+url = http://dl.2f30.org/crossx86-x86_64-linux-musl-$v.tar.xz
+mkfile = ../x86_64-linux-musl.mk
