@@ -2,6 +2,7 @@ INSTALL_DIRS = \
 	/boot \
 	/bin \
 	/dev \
+	/devel \
 	/etc \
 	/home \
 	/mnt \
