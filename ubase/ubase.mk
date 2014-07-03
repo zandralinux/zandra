@@ -19,3 +19,6 @@ $LIB: $LOBJ
 su: config.h
 login: config.h
 passwd: config.h
+getty: config.h
+who: config.h
+uptime: config.h
