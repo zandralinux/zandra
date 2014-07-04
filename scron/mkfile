@@ -1,0 +1,5 @@
+<$mkbuild/mk.3rdparty
+
+src = scron
+git = git://git.2f30.org/scron
+mkfile = ../scron.mk
