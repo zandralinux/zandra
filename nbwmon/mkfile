@@ -1,0 +1,5 @@
+<$mkbuild/mk.3rdparty
+
+src = nbwmon
+git = git://github.com/defer-/nbwmon.git
+mkfile = ../nbwmon.mk
