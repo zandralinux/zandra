@@ -51,6 +51,8 @@ echo Remounting root as read-write
 echo Mounting filesystems
 /bin/mount -a
 
+ln -sf /proc/mounts /etc/mtab
+
 echo "Setting hostname to $HOSTNAME"
 /bin/hostname $HOSTNAME
 
