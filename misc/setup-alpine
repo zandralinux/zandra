@@ -35,7 +35,7 @@ fi
 # copy etc/resolv.conf
 mkdir -p "${installdir}/etc"
 cp /etc/resolv.conf "${installdir}/etc/resolv.conf"
-chmod 755 "${installdir}/etc/resolv.conf"
+chmod 644 "${installdir}/etc/resolv.conf"
 
 # write used mirror as apk repository.
 mkdir -p "${installdir}/etc/apk"

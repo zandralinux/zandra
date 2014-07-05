@@ -16,7 +16,7 @@ set -e -x
 
 iso="crux-3.0.iso"
 mnt="/mnt/crux"
-installdir="/home/hiltjo/cruxtest"
+installdir="/ns/crux"
 
 # mount
 dev=$(losetup -f)
@@ -33,17 +33,18 @@ tar -xJf "${mnt}/rootfs.tar.xz"
 #mkdir -p "${installdir}/pkg/"
 #cp -a "${mnt}/crux/core" "${installdir}/pkg/"
 
-# unmount
-cd /
-umount "${mnt}"
-losetup -d "${dev}"
-
 # make package dir needed by crux.
 mkdir -p "${installdir}/var/lib/pkg"
 touch "${installdir}/var/lib/pkg/db"
 
 # copy etc/resolv.conf
+mkdir -p "${installdir}/etc"
 cp /etc/resolv.conf "${installdir}/etc/resolv.conf"
-chmod 755 "${installdir}/etc/resolv.conf"
+chmod 644 "${installdir}/etc/resolv.conf"
+
+# unmount
+cd /
+umount "${mnt}"
+losetup -d "${dev}" || true
 
 # rmdir "${mnt}"
