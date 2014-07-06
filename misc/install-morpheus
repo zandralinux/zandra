@@ -1,7 +1,10 @@
 #!/bin/sh
 
-root="root"
-pkgdir="pkgs"
+set -e -x
+
+root="/ns/morpheus"
+tmpdir="$root/tmp/morpheus_install"
+pkgdir="$tmpdir/pkgs"
 
 # list of important packages
 pkgs="curl#7.36.0.pkg.tgz
@@ -26,19 +29,24 @@ tmux#1.9a.pkg.tgz
 ubase.pkg.tgz
 vim#7.4.pkg.tgz"
 
-# grab and build pkgtools
-git clone git://git.2f30.org/pkgtools
-cd pkgtools
-make || ( echo "missing libarchive?" 1>&2 && exit 1 )
-cd - 1>/dev/null
-PATH=$(pwd)/pkgtools:$PATH
-export PATH
-
 # prepare root
 mkdir -p "$root/var/pkg"
 mkdir -p "$pkgdir"
+mkdir -p "$tmpdir"
+
+# fetch pkgtools in tmpdir
+cd "$tmpdir"
+pkgtools="pkgtools.pkg.tgz"
+if ! test -f "$pkgtools"; then
+	wget "http://morpheus.2f30.org/0.0/packages/x86_64/${pkgtools}"
+fi
+if ! test -d "$tmpdir/bin"; then
+	tar -xzf "$pkgtools"
+fi
+export PATH="$tmpdir/bin:$PATH"
 
 # fetch packages
+mkdir -p "$pkgdir"
 cd "$pkgdir"
 for i in $pkgs; do
 	searchpkg "$i" | fetchpkg
@@ -49,3 +57,7 @@ cd - 1>/dev/null
 for i in $pkgs; do
 	installpkg -r "$root" "$pkgdir/$i"
 done
+
+# copy etc/resolv.conf
+cp /etc/resolv.conf "$root/etc/resolv.conf"
+chmod 644 "$root/etc/resolv.conf"
