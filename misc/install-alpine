@@ -25,12 +25,12 @@ apktools="apk-tools-static-2.4.4-r0.apk"
 if ! test -f "$apktools"; then
 	wget "${mirror}/v3.0/main/x86_64/${apktools}"
 fi
-if ! test -d "sbin"; then
+if ! test -f "sbin/apk.static"; then
 	tar -xzf "$apktools"
 fi
 
 # install in chroot.
-"${installdir}/tmp/sbin/apk.static" -X "${mirror}/v3.0/main" -U --allow-untrusted --root "${installdir}" --initdb add alpine-base
+"$tmpdir/sbin/apk.static" -X "${mirror}/v3.0/main" -U --allow-untrusted --root "${installdir}" --initdb add alpine-base
 
 # copy etc/resolv.conf
 mkdir -p "${installdir}/etc"
