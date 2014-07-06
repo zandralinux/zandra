@@ -1,3 +1,4 @@
+# make deps: bash, bc, perl
 TARG = linux bzImage.config
 INSTALL_OTHER1 = arch/x86/boot/bzImage bzImage.config System.map
 INSTALL_OTHER1_DIR = /boot
