@@ -3,33 +3,37 @@
 set -e
 
 mirror="http://mirror.nl.leaseweb.net/slackware/"
-release="slackware64-current"
-url="$mirror/$release/slackware64"
+release="slackware64-current" # "slackware-current", "slackware64-current"
+url="$mirror/$release/slackware64" # "slackware", "slackware64"
 filelist="$url/FILE_LIST"
 pkgtools="pkgtools-14.1-noarch-2.tgz"
 pkgtoolsurl="$url/a/$pkgtools"
-installdir="/ns/slackware-current"
-tmpdir="/tmp/slackware"
-pkgdir="/tmp/slackware/pkgs"
+installdir="/ns/$release"
+tmpdir="/tmp/slackware/$release"
+pkgdir="$tmpdir/pkgs"
 
 # a template file is just a plain-text file with a package per line.
 templateurl="http://git.2f30.org/templates/plain/minimal-server.template"
 templatefile="$tmpdir/template"
 
 tar113="$tmpdir/tar-1.13"
-tar113url="http://www.codemadness.nl/downloads/morpheus/slackware/tar-1.13"
-tar113checksum="9f011c843944e03dc56f30f513344ac7f73621da762520370ab4150e26475b1f1f2daec15076fa3e096e78432b51fbc55cda1db66ff7e329b0c6f55d61028d6d  tar-1.13"
+tar113url="http://www.codemadness.nl/downloads/morpheus/slackware/tar-1.13.gz"
+tar113checksum="b121b4d03e5ac37fa601f3edf44a80ad1782316442a69372ec1ab33871369780150dffe2d9c67459cbe90ea3ee33a1ea566e57a7b5d63cab08655e2b5220858a  tar-1.13"
 
 mkdir -p "$tmpdir"
 cd "$tmpdir"
 
-# get precompiled tar-1.13 required by installpkg (static x86_64 musl binary).
+# get precompiled tar-1.13 required by installpkg (static i486 glibc binary).
+# NOTE: if you want to build tar-1.13 yourself, the source is available at:
+# http://mirror.nl.leaseweb.net/slackware/slackware-current/source/a/tar/tar-1.13.tar.gz
+# build instructions:
+# ./configure --disable-nls; make CC="gcc -static"; strip src/tar; <copy src/tar>.
 if ! test -f "$tar113"; then
-	wget "${tar113url}" -O "$tar113"
+	wget "${tar113url}" -O - | gunzip -c - > "${tar113}"
 	printf '%s' "$tar113checksum" | sha512sum -c -
 fi
 
-# make sure this tar version is in $PATH and prefered.
+# make sure this tar version is in $PATH and preferred.
 export PATH="${tmpdir}:$PATH"
 chmod "755" "$tar113"
 ln -sf "$tar113" "tar"
@@ -66,19 +70,24 @@ wget "$filelist" -q -O - | grep -E -o '[^ ]*$' | grep -E '\.(txz|tgz|txt|asc)$' 
 	fi
 done
 
-# install packages.
+# install package sets in order.
 mkdir -p "$installdir"
-#cd "$pkgdir"
-cat "$templatefile" | while read -r line; do
-	f=$(find "." -name "$line-*.t?z" | sed 1q)
-	"$installpkg" --terse --root "$installdir" "$f"
+cd "$pkgdir"
+for pset in *; do
+	find "$pset" -name "*.t?z" | while read -r f; do
+		"$installpkg" --terse --root "$installdir" "$f"
+	done
 done
 
 # fix symlink references for libs.
-cd "$installdir/lib64"
+libdir="$installdir/lib64"
+if ! test -d "$libdir"; then
+	libdir="$installdir/lib"
+fi
+cd "$libdir"
 for i in *; do
-    if realpath "$i" | grep -qE '\.incoming$'; then
-        r=$(basename "$(realpath "$i" | sed -E 's@\.incoming$@@')")
+    if readlink "$i" | grep -qE '\.incoming$'; then
+        r=$(basename "$(readlink "$i" | sed -E 's@\.incoming$@@')")
         if test -L "$i"; then
             ln -sf "$r" "$i"
         fi
