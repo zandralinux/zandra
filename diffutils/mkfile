@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = diffutils-$v
+url = http://ftp.gnu.org/gnu/diffutils/diffutils-$v.tar.xz
+mkfile = ../diffutils.mk
