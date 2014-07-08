@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = bison-$v
+url = http://ftp.gnu.org/gnu/bison/bison-$v.tar.xz
+mkfile = ../bison.mk
