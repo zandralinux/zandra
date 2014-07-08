@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = sed-$v
+url = http://ftp.heanet.ie/mirrors/gnu/sed/sed-$v.tar.gz
+mkfile = ../sed.mk
