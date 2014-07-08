@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = patch-$v
+url = http://ftp.gnu.org/gnu/patch/patch-$v.tar.gz
+mkfile = ../patch.mk
