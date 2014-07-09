@@ -1,0 +1,22 @@
+#!/bin/sh
+# make tcb file structure from a /etc/shadow file.
+# Usage: cat /etc/shadow | mktcb
+# TODO: need to set group "auth" and permissions.
+# http://docs.altlinux.org/manpages/tcb.5.html
+
+umask 0077
+mkdir -p /etc/tcb
+chmod 755 /etc/tcb
+while read -r line; do
+	name=$(printf '%s' "$line" | cut -f 1 -s -d ':')
+	if test -z x"$name"; then
+		continue
+	fi
+	hash=$(printf '%s' "$line" | cut -f 2 -d ':')
+	mkdir -p "/etc/tcb/$name"
+	chown "$name:root" "/etc/tcb/$name"
+	chmod 700 "/etc/tcb/$name"
+	printf '%s\n' "$line" > "/etc/tcb/$name/shadow"
+	chown "$name:root" "/etc/tcb/$name/shadow"
+	chmod 600 "/etc/tcb/$name/shadow"
+done
