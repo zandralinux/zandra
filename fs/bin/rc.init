@@ -35,6 +35,7 @@ cd /dev
 /bin/ln -sf /proc/self/fd/0 stdin
 /bin/ln -sf /proc/self/fd/1 stdout
 /bin/ln -sf /proc/self/fd/2 stderr
+/bin/ln -sf /proc/self/fd fd
 cd - 1>/dev/null
 
 echo Checking filesystems
