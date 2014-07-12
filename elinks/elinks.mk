@@ -9,6 +9,8 @@ elinks:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS -DVA_COPY=va_copy"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	CC="$CC -static" ./configure \
+		--build="${TOOLCHAIN_TRIPLET}" \
+		--host="${HOST_TOOLCHAIN_TRIPLET}" \
 		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
@@ -37,15 +39,21 @@ elinks:QV:
 	# NOTES:
 	# - LD is set to "ld", not gcc, because Makefile.lib specifies:
 	#   ld -r -o ...
+	# use $TOOLCHAIN-ld ($LD can be set to $CC).
+	printf '%s' "$LD" | grep -q 'ld' || export LD="`$CC -dumpmachine`-ld"
 	# - X_CFLAGS is set to blank, it's set to "-I/usr/include" which breaks
 	#   builds outside emul.
 	make -j$nprocs \
 		V="1" CC="${CC} -static" \
 		X_CFLAGS=" " \
-		LD="${TOOLCHAIN_TRIPLET}-ld" CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS"
+		LD="$LD" \
+		CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS"
 
 install:QV:
+	# use $TOOLCHAIN-ld ($LD can be set to $CC).
+	printf '%s' "$LD" | grep -q 'ld' || export LD="`$CC -dumpmachine`-ld"
 	make -j$nprocs install DESTDIR="$ROOT" \
 		V="1" CC="${CC} -static" \
 		X_CFLAGS=" " \
-		LD="${TOOLCHAIN_TRIPLET}-ld" CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS"
+		LD="$LD" \
+		CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS"

@@ -1,0 +1,24 @@
+--- elinks-0.12pre6/configure
++++ configure
+@@ -2124,10 +2124,6 @@
+ if { as_var=$as_ac_File; eval "test \"\${$as_var+set}\" = set"; }; then
+   echo $ECHO_N "(cached) $ECHO_C" >&6
+ else
+-  test "$cross_compiling" = yes &&
+-  { { echo "$as_me:$LINENO: error: cannot check for file existence when cross compiling" >&5
+-echo "$as_me: error: cannot check for file existence when cross compiling" >&2;}
+-   { (exit 1); exit 1; }; }
+ if test -r ""$srcdir/$features""; then
+   eval "$as_ac_File=yes"
+ else
+@@ -2147,10 +2143,6 @@
+ if { as_var=$as_ac_File; eval "test \"\${$as_var+set}\" = set"; }; then
+   echo $ECHO_N "(cached) $ECHO_C" >&6
+ else
+-  test "$cross_compiling" = yes &&
+-  { { echo "$as_me:$LINENO: error: cannot check for file existence when cross compiling" >&5
+-echo "$as_me: error: cannot check for file existence when cross compiling" >&2;}
+-   { (exit 1); exit 1; }; }
+ if test -r ""$builddir/$features""; then
+   eval "$as_ac_File=yes"
+ else
