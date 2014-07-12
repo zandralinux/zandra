@@ -1,5 +1,5 @@
 TARG = elinks
-DEPS = zlib bzip2 openssl
+DEPS = zlib bzip2 libressl
 
 <$mkbuild/mk.common-noinst
 
