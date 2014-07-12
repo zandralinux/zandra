@@ -9,11 +9,19 @@ nginx:QV:
 	# nginx incorrectly detects GNU crypt so set: -DNGX_HAVE_GNU_CRYPT_R=0"
 	export CFLAGS="$CFLAGS -DNGX_HAVE_GNU_CRYPT_R=0"
 	export CC="${CC} -static"
+	# make nginx believe we are building pcre, but actually we
+	# use the prebuilt pcre from ports.
+	export pcre_localdir="`pwd`/pcre"
+	mkdir -p "${pcre_localdir}"
+	printf '#!/bin/sh\ntrue' > "${pcre_localdir}/configure"
+	chmod 755 "${pcre_localdir}/configure"
+	printf 'all:\n\ttrue\nlibpcre.la:\n\ttrue\ninstall:\n\ttrue\ndistclean:\n\ttrue\nclean:\n\ttrue' > "${pcre_localdir}/Makefile"
+	ln -sf "${pcre_libdir}" "${pcre_localdir}/.libs"
 	# don't rebuild pcre source, use the ports version.
 	# See: http://wiki.nginx.org/InstallOptions#Notes
 	#   --with-ld-opt="-L${pcre_libdir}"
 	#   --with-cc-opt="-I${pcre_includedir}"
-	./configure \
+	CC="$HOSTCC -static" ./configure \
 		--prefix=/etc/nginx \
 		--conf-path=/etc/nginx/nginx.conf \
 		--sbin-path=${prefix}/bin/nginx \
@@ -24,13 +32,13 @@ nginx:QV:
 		--user=http \
 		--group=http \
 		--with-file-aio \
-		--with-pcre \
-		--with-zlib=${zlib_libdir} \
-		--with-openssl=${openssl_libdir} \
+		--with-pcre="${pcre_localdir}" \
+		--with-zlib="${zlib_libdir}" \
+		--with-openssl="${openssl_libdir}" \
 		--with-ipv6 \
 		--with-ld-opt="-L${pcre_libdir}" \
 		--with-cc-opt="-I${pcre_includedir}"
-	make -j$nprocs
+	make -j$nprocs CC="$CC -static"
 
 install:QV:
 	$INSTALL -d -m 755 "$ROOT/run/lock"
