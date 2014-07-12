@@ -4,6 +4,8 @@ TARG = e2fsprogs
 
 e2fsprogs:QV:
 	CC="$CC -static" CFLAGS="-D__uint64_t=u_int64_t" ./configure \
+		--build="${TOOLCHAIN_TRIPLET}" \
+		--host="${HOST_TOOLCHAIN_TRIPLET}" \
 		--prefix="$PREFIX" \
 		--disable-nls \
 		--bindir="$BINDIR" \

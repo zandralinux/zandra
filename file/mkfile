@@ -2,5 +2,6 @@
 
 <v.mk
 src = file-$v/src
-url = $mirror/file-$v.tar.gz
+# site: http://www.darwinsys.com/file/
+url = ftp://ftp.astron.com/pub/file/file-$v.tar.gz
 mkfile = ../../file.mk

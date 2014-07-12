@@ -2,5 +2,5 @@
 
 <v.mk
 src = syslinux-$v/build
-url = $mirror/syslinux-$v.tar.xz
+url = https://www.kernel.org/pub/linux/utils/boot/syslinux/syslinux-$v.tar.xz
 mkfile = ../../extlinux.mk

@@ -20,7 +20,7 @@ CPPFLAGS =
 
 bin2c:Q:
 	echo "CC $target"
-	$CC -static -o $target ../../bin2c.c
+	$HOSTCC -static -o $target ../../bin2c.c
 
 bootsect_bin.c:Q: bin2c
 	./bin2c ../bios/core/ldlinux.bss $target syslinux_bootsect

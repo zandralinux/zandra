@@ -1,3 +1,4 @@
+# TODO: bump to version 5.19
 <../../v.mk
 BIN = file
 OBJ = `{ls *.c | sed 's/.$/o/'}
@@ -105,4 +106,8 @@ magic.mgc:Q: file
 	cd ../magic
 	mkdir -p magic
 	cp Header Localstuff Magdir/* magic/
-	../src/file -C -m magic
+	# use host file command to generate magic.mgc
+	cd magic
+	file -C -m magic
+	cp magic.mgc ../
+	cd ../
