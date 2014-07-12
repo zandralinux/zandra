@@ -12,8 +12,6 @@ gdb:QV:
 	find . -name 'configure' -exec sed -i 's,MAKEINFO="$MISSING makeinfo",MAKEINFO=true,' '{}' \;
 	# remove hardcoded -O2 -g CFLAGS which are *not* overridable (i.e. always appended, taking precedence)
 	find . -name 'configure' -exec sed -e 's/CFLAGS="-g -O2"/:/g' -e 's/CFLAGS="-O2"/:/g' -i '{}' \;
-	# fix mips build ...
-	cp ../gdb-sgidefs.h gdb/sgidefs.h
 	#
 	sh ../libibertyfix libiberty
 	#

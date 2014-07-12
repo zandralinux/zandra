@@ -1,3 +1,4 @@
+# TODO: update to 1.0.1h
 LIB = openssl
 DEPS = zlib
 INSTALL_LIB = libcrypto.a libssl.a
@@ -40,7 +41,7 @@ openssl:QV:
 		sslarch="linux-generic64"
 		;;
 	arm)
-		sslarch="arm"
+		sslarch="linux-armv4"
 		;;
 	esac
 	./Configure "${sslarch}" \

@@ -2,5 +2,5 @@
 
 <v.mk
 src = libevent-$v
-url = http://dl.2f30.org/morpheus-pkgs/$arch/0.0/libevent-$v.tar.gz
+url = http://github.com/downloads/libevent/libevent/libevent-$v.tar.gz
 mkfile = ../libevent.mk

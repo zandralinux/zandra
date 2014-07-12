@@ -2,5 +2,5 @@
 
 <v.mk
 src = zlib-$v
-url = $mirror/zlib-$v.tar.gz
+url = http://heanet.dl.sourceforge.net/project/libpng/zlib/$v/zlib-$v.tar.xz
 mkfile = ../zlib.mk

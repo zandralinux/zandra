@@ -6,6 +6,8 @@ DEPS = curl openssl zlib
 git:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
+	# https://sourceware.org/bugzilla/show_bug.cgi?id=16698
+	test x"$arch" = x"arm" && export LDFLAGS="`printf "%s" \"$LDFLAGS\" | sed 's@-Wl,--gc-sections@@g'`"
 	# NOTE: "$PREFIX/" is needed to set the proper mandir.
 	make CURL_LIBCURL="${curl_libdir}/libcurl.a ${openssl_libdir}/libssl.a ${openssl_libdir}/libcrypto.a" \
 	CC="$CC -static" \
@@ -18,6 +20,8 @@ git:QV:
 install:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
+	# https://sourceware.org/bugzilla/show_bug.cgi?id=16698
+	test x"$arch" = x"arm" && export LDFLAGS="`printf "%s" \"$LDFLAGS\" | sed 's@-Wl,--gc-sections@@g'`"
 	# NOTE: "$PREFIX/" is needed to set the proper mandir.
 	make CURL_LIBCURL="${curl_libdir}/libcurl.a ${openssl_libdir}/libssl.a ${openssl_libdir}/libcrypto.a" \
 	CC="$CC -static" \

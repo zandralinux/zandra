@@ -13,6 +13,8 @@ curl:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	CC="$CC -static" ./configure \
+		--build="${TOOLCHAIN_TRIPLET}" \
+		--host="${HOST_TOOLCHAIN_TRIPLET}" \
 		--prefix="" \
 		--bindir="$BINDIR" \
 		--sbindir="$BINDIR" \

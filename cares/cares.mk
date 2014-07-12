@@ -9,7 +9,7 @@ cares:QV:
 	export CPPFLAGS="-D_BSD_SOURCE -D_GNU_SOURCE"
 	CC="${CC} -static" CFLAGS="" ./configure \
 		--build="${TOOLCHAIN_TRIPLET}" \
-		--host="${TOOLCHAIN_TRIPLET}" \
+		--host="${HOST_TOOLCHAIN_TRIPLET}" \
 		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-werror \

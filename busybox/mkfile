@@ -2,5 +2,5 @@
 
 <v.mk
 src = busybox-$v
-url = $mirror/busybox-$v.tar.bz2
+url = http://busybox.net/downloads/busybox-$v.tar.bz2
 mkfile = ../busybox.mk

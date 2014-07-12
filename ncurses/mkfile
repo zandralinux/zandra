@@ -2,5 +2,5 @@
 
 <v.mk
 src = ncurses-$v
-url = $mirror/ncurses.tar.gz
+url = http://ftp.gnu.org/pub/gnu/ncurses/ncurses-$v.tar.gz
 mkfile = ../ncurses.mk

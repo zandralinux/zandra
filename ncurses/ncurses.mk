@@ -8,11 +8,21 @@ INSTALL_MAN5 = man/terminfo.5
 libncurses:QV:
 	cp ../ncurses-fallback.c ncurses/fallback.c
 	CC="$CC -static" ./configure \
-		--prefix="$PREFIX" --mandir="$MANDIR" \
-	   --datadir="$PREFIX/share" --without-tests \
-	   --with-normal --enable-sigwinch --disable-nls --without-dlsym \
-	   --without-cxx-binding --enable-widec \
-	   --with-fallbacks="linux vt100 xterm xterm256-color" </dev/ptmx
+		--build="$TOOLCHAIN_TRIPLET" \
+		--host="$HOST_TOOLCHAIN_TRIPLET" \
+		--prefix="$PREFIX" \
+		--mandir="$MANDIR" \
+		--datadir="$PREFIX/share" \
+		--without-tests \
+		--with-normal \
+		--enable-sigwinch \
+		--disable-nls \
+		--without-dlsym \
+		--without-cxx \
+		--without-cxx-binding \
+		--enable-widec \
+		--without-ada \
+		--with-fallbacks="linux vt100 xterm xterm256-color" </dev/ptmx
 	make -j$nprocs
 	ln -sf curses.h include/ncurses.h
 	cd lib
@@ -20,4 +30,3 @@ libncurses:QV:
 		ln -sf lib${lib}w_g.a lib${lib}_g.a
 		ln -sf lib${lib}w.a lib${lib}.a
 	done
-

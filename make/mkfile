@@ -2,5 +2,5 @@
 
 <v.mk
 src = make-$v
-url = $mirror/make-$v.tar.bz2
+url = http://ftp.gnu.org/gnu/make/make-$v.tar.bz2
 mkfile = ../make.mk

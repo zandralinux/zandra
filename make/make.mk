@@ -1,3 +1,5 @@
+# TODO: bump to 4.0.
+
 <../v.mk
 
 BIN = make

@@ -2,7 +2,7 @@
 
 <v.mk
 src = openssl-$v
-url = https://www.openssl.org/source/openssl-$v.tar.gz
+url = http://www.openssl.org/source/openssl-$v.tar.gz
 mkfile = ../openssl.mk
 patches = \
 	../openssl-1.0.0a-ldflags.patch \

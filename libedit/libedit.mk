@@ -5,10 +5,12 @@ DEPS = ncurses
 
 libedit:QV:
 	# -D__STDC_ISO_10646__ fixes error:
-	#   "wchar_t must store ISO 10646 characters".
+	#  "wchar_t must store ISO 10646 characters".
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS -D__STDC_ISO_10646__"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	CC="$CC" ./configure \
+		--build="${TOOLCHAIN_TRIPLET}" \
+		--host="${HOST_TOOLCHAIN_TRIPLET}" \
 		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
