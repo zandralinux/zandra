@@ -8,7 +8,7 @@ LIB = libmisc.a libevloop.a
 
 libmisc_a_OBJ = `{ ls misc/*.c | sed 's/.$/o/'}
 libmisc_a_CFLAGS = -I`{ echo $(pwd)/misc }
-libmisc_a_LDFLAGS = -L`{ echo $(pwd)/misc } -lmisc -L${openssl_libdir} -lssl -lcrypto
+libmisc_a_LDFLAGS = -L`{ echo $(pwd)/misc } -lmisc -L${libressl_libdir} -lssl -lcrypto
 
 libevloop_a_OBJ = evloop/timer.o evloop/timeheap.o evloop/epoll.o
 libevloop_a_CFLAGS = -I`{ echo $(pwd)/evloop }
@@ -39,10 +39,10 @@ LOCAL_CFLAGS = \
 	-D_FILE_OFFSET_BITS=64 -DEVLOOP_EPOLL \
 	-DHAVE_CLOCK_MONOTONIC \
 	-std=c99 -I. -I./cli -I./btpd ${libmisc_a_CFLAGS} ${libevloop_a_CFLAGS} \
-	-I${openssl_includedir}
-LOCAL_LDFLAGS = -L. -lm -lrt -L${openssl_libdir} -lssl -lcrypto
+	-I${libressl_includedir}
+LOCAL_LDFLAGS = -L. -lm -lrt -L${libressl_libdir} -lssl -lcrypto
 
-DEPS = openssl
+DEPS = libressl
 
 <$mkbuild/mk.default
 
