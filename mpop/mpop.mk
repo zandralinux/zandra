@@ -7,10 +7,10 @@ INSTALL_BIN = src/mpop
 INSTALL_MAN1 = `{ ls doc/*.1 }
 
 LOCAL_CFLAGS = \
-	-I. -include config.h -I${openssl_includedir}
-LOCAL_LDFLAGS = -L. -L${openssl_libdir} -lssl -lcrypto -lz
+	-I. -include config.h -I${libressl_includedir}
+LOCAL_LDFLAGS = -L. -L${libressl_libdir} -lssl -lcrypto -lz
 
-DEPS = openssl zlib
+DEPS = libressl zlib
 
 <$mkbuild/mk.default
 
