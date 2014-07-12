@@ -1,5 +1,5 @@
 TARG = git
-DEPS = curl openssl zlib
+DEPS = curl libressl zlib
 
 <$mkbuild/mk.common-noinst
 
@@ -9,7 +9,7 @@ git:QV:
 	# https://sourceware.org/bugzilla/show_bug.cgi?id=16698
 	test x"$arch" = x"arm" && export LDFLAGS="`printf "%s" \"$LDFLAGS\" | sed 's@-Wl,--gc-sections@@g'`"
 	# NOTE: "$PREFIX/" is needed to set the proper mandir.
-	make CURL_LIBCURL="${curl_libdir}/libcurl.a ${openssl_libdir}/libssl.a ${openssl_libdir}/libcrypto.a" \
+	make CURL_LIBCURL="${curl_libdir}/libcurl.a ${libressl_libdir}/libssl.a ${libressl_libdir}/libcrypto.a" \
 	CC="$CC -static" \
 		AR="$AR" \
 		prefix="$PREFIX/" gitexecdir="$PREFIX"/lib/git-core \
@@ -23,7 +23,7 @@ install:
 	# https://sourceware.org/bugzilla/show_bug.cgi?id=16698
 	test x"$arch" = x"arm" && export LDFLAGS="`printf "%s" \"$LDFLAGS\" | sed 's@-Wl,--gc-sections@@g'`"
 	# NOTE: "$PREFIX/" is needed to set the proper mandir.
-	make CURL_LIBCURL="${curl_libdir}/libcurl.a ${openssl_libdir}/libssl.a ${openssl_libdir}/libcrypto.a" \
+	make CURL_LIBCURL="${curl_libdir}/libcurl.a ${libressl_libdir}/libssl.a ${libressl_libdir}/libcrypto.a" \
 	CC="$CC -static" \
 		AR="$AR" \
 		prefix="$PREFIX/" gitexecdir="$PREFIX"/lib/git-core \
