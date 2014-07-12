@@ -1,5 +1,5 @@
 TARG = nginx
-DEPS = openssl pcre zlib
+DEPS = libressl pcre zlib
 
 <$mkbuild/mk.common-noinst
 
@@ -34,7 +34,7 @@ nginx:QV:
 		--with-file-aio \
 		--with-pcre="${pcre_localdir}" \
 		--with-zlib="${zlib_libdir}" \
-		--with-openssl="${openssl_libdir}" \
+		--with-openssl="${libressl_libdir}" \
 		--with-ipv6 \
 		--with-ld-opt="-L${pcre_libdir}" \
 		--with-cc-opt="-I${pcre_includedir}"
