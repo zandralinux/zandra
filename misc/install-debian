@@ -4,7 +4,8 @@ set -x -e
 
 arch="amd64"
 release="wheezy"
-installdir="/ns/debian-$release"
+root="/ns/debian-$release"
+test x"$1" != x"" && root="$1"
 tmpdir="/tmp/debian"
 mirror="http://ftp.nl.debian.org"
 
@@ -29,4 +30,4 @@ tar -czf ../devices.tar.gz .
 cd ../
 
 export DEBOOTSTRAP_DIR="$(pwd)"
-./debootstrap --arch "$arch" --no-check-gpg "$release" "$installdir" "$mirror/debian/"
+./debootstrap --arch "$arch" --no-check-gpg "$release" "$root" "$mirror/debian/"

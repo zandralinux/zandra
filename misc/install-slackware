@@ -8,7 +8,8 @@ url="$mirror/$release/slackware64" # "slackware", "slackware64"
 filelist="$url/FILE_LIST"
 pkgtools="pkgtools-14.1-noarch-2.tgz"
 pkgtoolsurl="$url/a/$pkgtools"
-installdir="/ns/$release"
+root="/ns/$release"
+test x"$1" != x"" && root="$1"
 tmpdir="/tmp/slackware/$release"
 pkgdir="$tmpdir/pkgs"
 
@@ -71,18 +72,18 @@ wget "$filelist" -q -O - | grep -E -o '[^ ]*$' | grep -E '\.(txz|tgz|txt|asc)$' 
 done
 
 # install package sets in order.
-mkdir -p "$installdir"
+mkdir -p "$root"
 cd "$pkgdir"
 for pset in *; do
 	find "$pset" -name "*.t?z" | while read -r f; do
-		"$installpkg" --terse --root "$installdir" "$f"
+		"$installpkg" --terse --root "$root" "$f"
 	done
 done
 
 # fix symlink references for libs.
-libdir="$installdir/lib64"
+libdir="$root/lib64"
 if ! test -d "$libdir"; then
-	libdir="$installdir/lib"
+	libdir="$root/lib"
 fi
 cd "$libdir"
 for i in *; do
@@ -95,6 +96,6 @@ for i in *; do
 done
 
 # copy /etc/resolv.conf
-mkdir -p "${installdir}/etc"
-cp /etc/resolv.conf "${installdir}/etc/resolv.conf"
-chmod 644 "${installdir}/etc/resolv.conf"
+mkdir -p "${root}/etc"
+cp /etc/resolv.conf "${root}/etc/resolv.conf"
+chmod 644 "${root}/etc/resolv.conf"

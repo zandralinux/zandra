@@ -3,6 +3,7 @@
 set -e -x
 
 root="/ns/morpheus"
+test x"$1" != x"" && root="$1"
 tmpdir="$root/tmp/morpheus_install"
 pkgdir="$tmpdir/pkgs"
 

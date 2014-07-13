@@ -16,7 +16,8 @@ set -e -x
 
 iso="crux-3.0.iso"
 mnt="/mnt/crux"
-installdir="/ns/crux"
+root="/ns/crux"
+test x"$1" != x"" && root="$1"
 
 # mount
 dev=$(losetup -f)
@@ -25,22 +26,22 @@ mkdir -p "${mnt}"
 mount -t iso9660 -o ro "${dev}" "${mnt}"
 
 # install
-mkdir -p "${installdir}"
-cd "${installdir}"
+mkdir -p "${root}"
+cd "${root}"
 tar -xJf "${mnt}/rootfs.tar.xz"
 
 # copy packages (core only).
-#mkdir -p "${installdir}/pkg/"
-#cp -a "${mnt}/crux/core" "${installdir}/pkg/"
+#mkdir -p "${root}/pkg/"
+#cp -a "${mnt}/crux/core" "${root}/pkg/"
 
 # make package dir needed by crux.
-mkdir -p "${installdir}/var/lib/pkg"
-touch "${installdir}/var/lib/pkg/db"
+mkdir -p "${root}/var/lib/pkg"
+touch "${root}/var/lib/pkg/db"
 
 # copy etc/resolv.conf
-mkdir -p "${installdir}/etc"
-cp /etc/resolv.conf "${installdir}/etc/resolv.conf"
-chmod 644 "${installdir}/etc/resolv.conf"
+mkdir -p "${root}/etc"
+cp /etc/resolv.conf "${root}/etc/resolv.conf"
+chmod 644 "${root}/etc/resolv.conf"
 
 # unmount
 cd /
