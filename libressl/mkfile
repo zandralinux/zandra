@@ -6,5 +6,4 @@ url = http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-$v.tar.gz
 mkfile = ../libressl.mk
 
 patches = \
-	../libressl-entropy-nonsense.patch \
-	../libressl-glibc.patch
+	"0" ../libressl-glibc.patch

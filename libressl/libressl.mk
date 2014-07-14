@@ -3,10 +3,6 @@ TARG = libressl
 <$mkbuild/mk.common-noinst
 
 libressl:QV:
-	# remove -Werror (mostly due to __bounded__ attribute warnings,
-	# which will make the build fail).
-	sed -i 's@-Werror@@g' configure
-	#
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	#
