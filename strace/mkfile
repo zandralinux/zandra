@@ -8,4 +8,5 @@ mkfile = ../strace.mk
 # shamelessly borrowed from sabotage
 patches = \
 	../strace-musl.patch \
-	../strace-kernelhdr_3.12.6.patch
+	../strace-kernelhdr_3.12.6.patch \
+	../strace-arm_process.patch

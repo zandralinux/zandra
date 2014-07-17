@@ -15,7 +15,12 @@ strace:QV:
 	# remove sys/sysinfo.h include.
 	find -name "*.[ch]" -exec sed 's@#include <sys/sysinfo.h>@@g' -i {} \;
 	export CFLAGS="$CFLAGS -Dsigcontext_struct=sigcontext"
+	# NOTE: --host is set to TOOLCHAIN_TRIPLET (not HOST_TOOLCHAIN_TRIPLET)
+	#       because asm include bits per arch are needed.
+	#       --build is not defined because --build should be != --host in
+	#       configure.
 	CC="$CC" ./configure \
+		--host="${TOOLCHAIN_TRIPLET}" \
 		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
