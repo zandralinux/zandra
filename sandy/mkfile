@@ -1,0 +1,5 @@
+<$mkbuild/mk.3rdparty
+
+src = sandy
+git = git://git.suckless.org/sandy
+mkfile = ../sandy.mk
