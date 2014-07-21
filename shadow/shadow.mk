@@ -12,9 +12,9 @@ LOCAL_CFLAGS = -I. -Ilib -Ilibmisc -DHAVE_CONFIG_H
 
 INSTALL_BIN = useradd userdel groupadd groupdel
 INSTALL_MAN8 = man/man8/useradd.8 \
-			   man/man8/userdel.8 \
-			   man/man8/groupadd.8 \
-			   man/man8/groupdel.8
+	man/man8/userdel.8 \
+	man/man8/groupadd.8 \
+	man/man8/groupdel.8
 
 INSTALL_OTHER1 = etc/login.defs
 INSTALL_OTHER1_DIR = /etc

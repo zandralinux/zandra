@@ -20,7 +20,7 @@ e2fsprogs:QV:
 	rm -f libdev/lib/config.h*
 
 install:QV:
-	make -j$nprocs DESTDIR="$ROOT" install
+	make -j$nprocs install DESTDIR="$ROOT"
 	cd "$ROOT""$BINDIR"
 	rm -f mkfs.ext2 mkfs.ext3 mkfs.ext4 mkfs.ext4dev
 	rm -f fsck.ext2 fsck.ext3 fsck.ext4 fsck.ext4dev

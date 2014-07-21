@@ -1,6 +1,7 @@
 <$pcre_DEPDIR/v.mk
 
-pcre_includedir = ${pcre_DEPDIR}/pcre-$v
+pcre_dir = ${pcre_DEPDIR}/pcre-$v
+pcre_includedir = ${pcre_dir}
 pcre_libdir = ${pcre_DEPDIR}/pcre-$v/.libs
 
 pcre_CFLAGS = -I${pcre_includedir}

@@ -7,6 +7,8 @@ INSTALL_MAN1 = doc/sed.1
 
 sed:QV:
 	CC="${CC} -static" ./configure \
+		--build="${TOOLCHAIN_TRIPLET}" \
+		--host="${HOST_TOOLCHAIN_TRIPLET}" \
 		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared

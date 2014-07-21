@@ -7,6 +7,7 @@ elinks:QV:
 	# TODO: enable TRE search? (--with-tre).
 	# fix VA_COPY, __va_copy is va_copy.
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS -DVA_COPY=va_copy"
+	export CPPFLAGS="$CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	CC="$CC -static" ./configure \
 		--build="${TOOLCHAIN_TRIPLET}" \
@@ -50,6 +51,9 @@ elinks:QV:
 		CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS"
 
 install:QV:
+	export CFLAGS="$CFLAGS $DEPS_CFLAGS -DVA_COPY=va_copy"
+	export CPPFLAGS="$CFLAGS"
+	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	# use $TOOLCHAIN-ld ($LD can be set to $CC).
 	printf '%s' "$LD" | grep -q 'ld' || export LD="`$CC -dumpmachine`-ld"
 	make -j$nprocs install DESTDIR="$ROOT" \

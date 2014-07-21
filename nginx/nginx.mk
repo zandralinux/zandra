@@ -8,6 +8,7 @@ nginx:QV:
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
 	# nginx incorrectly detects GNU crypt so set: -DNGX_HAVE_GNU_CRYPT_R=0"
 	export CFLAGS="$CFLAGS -DNGX_HAVE_GNU_CRYPT_R=0"
+	export BUILDCC="${CC}"
 	export CC="${CC} -static"
 	# make nginx believe we are building pcre, but actually we
 	# use the prebuilt pcre from ports.
@@ -38,8 +39,8 @@ nginx:QV:
 		--with-ipv6 \
 		--with-ld-opt="-L${pcre_libdir}" \
 		--with-cc-opt="-I${pcre_includedir}"
-	make -j$nprocs CC="$CC -static"
+	make -j$nprocs CC="$BUILDCC -static"
 
 install:QV:
 	$INSTALL -d -m 755 "$ROOT/run/lock"
-	make -j$nprocs install DESTDIR="$ROOT"
+	make -j$nprocs install CC="$CC -static" DESTDIR="$ROOT"
