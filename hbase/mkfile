@@ -3,3 +3,11 @@
 src = hbase
 git = git://git.2f30.org/hbase
 mkfile = mkfile
+
+build:V: prepare
+
+prepare:V:
+	cd hbase/yacc
+        $HOSTCC -static y1.c y2.c y3.c y4.c y5.c getopt.c -o yacchost -DPARSER=\"$LIBDIR/yaccpar\"
+	printf '%s' 'YACC = $yacc_DEPDIR/yacchost -P$yacc_DEPDIR/yaccpar' > depsinc.mk
+	cd ../../
