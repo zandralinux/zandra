@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = indent-$v
+url = http://ftp.snt.utwente.nl/pub/software/gnu/indent/indent-$v.tar.gz
+mkfile = ../indent.mk

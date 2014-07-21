@@ -8,7 +8,6 @@ NPROC = $nprocs
 <../v.mk
 
 LOCAL_CFLAGS = 
-#-DVERSION=\"$v\"
 LOCAL_LDFLAGS = 
 unifdef_LDFLAGS =
 LOCAL_BIN_LDFLAGS =
