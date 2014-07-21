@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = quvi-$v
+url = http://freefr.dl.sourceforge.net/project/quvi/0.4/quvi/quvi-$v.tar.xz
+mkfile = ../quvi.mk

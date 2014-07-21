@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = libquvi-$v
+url = http://softlayer-ams.dl.sourceforge.net/project/quvi/0.4/libquvi/libquvi-$v.tar.xz
+mkfile = ../libquvi.mk

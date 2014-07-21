@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = libquvi-scripts-$v
+url = http://cznic.dl.sourceforge.net/project/quvi/0.4/libquvi-scripts/libquvi-scripts-$v.tar.xz
+mkfile = ../libquviscripts.mk
