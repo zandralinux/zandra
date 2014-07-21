@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = unifdef-$v
+url = http://dotat.at/prog/unifdef/unifdef-$v.tar.xz
+mkfile = ../unifdef.mk
