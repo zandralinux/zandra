@@ -1,5 +1,5 @@
 TARG = rtorrent
-DEPS = ncurses zlib openssl libtorrent libsigcpp curl
+DEPS = ncurses zlib libressl libtorrent libsigcpp curl
 INSTALL_BIN = src/rtorrent
 INSTALL_MAN1 = doc/rtorrent.1
 
@@ -10,8 +10,8 @@ rtorrent:QV:
 	export CPPFLAGS="$CFLAGS"
 	export CXXFLAGS="$CFLAGS"
 	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
-	export libcurl_CFLAGS="-I${curl_includedir} -I${openssl_includedir}"
-	export libcurl_LIBS="-L${curl_libdir} -lcurl -L${openssl_libdir} -lssl -lcrypto -L${zlib_libdir} -lz"
+	export libcurl_CFLAGS="-I${curl_includedir} -I${libressl_includedir}"
+	export libcurl_LIBS="-L${curl_libdir} -lcurl -L${libressl_libdir} -lssl -lcrypto -L${zlib_libdir} -lz"
 	export sigc_CFLAGS="-I${libsigcpp_includedir} -I${libsigcpp_libdir}/sigc++-2.0/include"
 	export sigc_LIBS="-L${libsigcpp_libdir} -lsigc-2.0"
 	export libtorrent_CFLAGS="-I${libtorrent_includedir}"
