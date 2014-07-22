@@ -67,7 +67,7 @@
 #define HAVE_X11 1
 #define HAVE_XSS 0
 #define HAVE_XEXT 0
-#define HAVE_XV 0
+#define HAVE_XV 1
 #define HAVE_VDPAU 0
 #define HAVE_VDPAU_HWACCEL 1
 #define HAVE_VAAPI 0
