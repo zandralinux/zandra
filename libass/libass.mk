@@ -1,5 +1,5 @@
 TARG = libass
-DEPS = freetype libfribidi
+DEPS = fontconfig expat freetype libpng zlib libfribidi
 
 <$mkbuild/mk.common-noinst
 
@@ -22,7 +22,6 @@ libass:QV:
 		--disable-enca \
 		--disable-test \
 		--disable-harfbuzz \
-		--disable-fontconfig \
 		--enable-static
 	make -j$nprocs
 	# install lib for use as a dependency.

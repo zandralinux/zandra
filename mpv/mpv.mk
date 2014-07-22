@@ -6,7 +6,8 @@
 TARG = mpv
 INSTALL_BIN = mpv
 DEPS = xorglibxv xorglibxinerama xorglibx11 xorglibxcb xorglibxext xorglibxau \
-	 xorglibxdmcp xorgprotoall libav alsalib libass freetype libfribidi libpng zlib
+	xorglibxdmcp xorgprotoall libav alsalib \
+	libass fontconfig expat freetype libpng zlib libfribidi
 
 <$mkbuild/mk.common
 
