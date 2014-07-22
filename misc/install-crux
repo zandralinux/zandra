@@ -11,12 +11,13 @@
 # - copy static git to /bin
 
 # wget http://www.mirrorservice.org/sites/crux.nu/crux/latest/iso/crux-3.0.iso
+# wget http://serverop.de/crux/crux-3.1/iso/crux-3.1.iso
 
 set -e -x
 
-iso="crux-3.0.iso"
+iso="crux-3.1.iso"
 mnt="/mnt/crux"
-root="/ns/crux"
+root="/ns/crux-3.1"
 test x"$1" != x"" && root="$1"
 
 # mount

@@ -47,7 +47,6 @@ fi
 export PATH="$tmpdir/bin:$PATH"
 
 # fetch packages
-mkdir -p "$pkgdir"
 cd "$pkgdir"
 for i in $pkgs; do
 	searchpkg "$i" | fetchpkg
