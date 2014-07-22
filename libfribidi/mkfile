@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = fribidi-$v
+url = http://fribidi.org/download/fribidi-$v.tar.bz2
+mkfile = ../libfribidi.mk

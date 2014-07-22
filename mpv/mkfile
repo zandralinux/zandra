@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = mpv-$v
+url = https://github.com/mpv-player/mpv/archive/v$v.tar.gz
+mkfile = ../mpv.mk

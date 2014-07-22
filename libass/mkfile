@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = libass-$v
+url = https://libass.googlecode.com/files/libass-$v.tar.xz
+mkfile = ../libass.mk
