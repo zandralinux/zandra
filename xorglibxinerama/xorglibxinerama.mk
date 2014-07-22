@@ -11,6 +11,8 @@ xorglibxinerama:QV:
 	# HAVE__XEATDATAWORDS is set, but it isn't detected with configure
 	# set set it.
 	CC="$CC" CFLAGS="$CFLAGS -DHAVE__XEATDATAWORDS=1" ./configure \
+		--build="${TOOLCHAIN_TRIPLET}" \
+		--host="${HOST_TOOLCHAIN_TRIPLET}" \
 		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \

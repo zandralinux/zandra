@@ -1,4 +1,5 @@
 # make deps: python2.7 (with python 3 won't work atm (2014-04-30)).
+#            xcbgen: python-xcbgen (debian), xorg-xcb-proto (crux).
 TARG = xorglibxcb
 DEPS = xorgxcbproto xorgxproto xorglibxau xorglibxdmcp
 
@@ -18,6 +19,8 @@ xorglibxcb:QV:
 #	export NEEDED_CFLAGS="-I${xorgxproto_includedir}"
 #	export NEEDED_LIBS="-L${xorgxproto_libdir}"
 	./configure \
+        --build="${TOOLCHAIN_TRIPLET}" \
+        --host="${HOST_TOOLCHAIN_TRIPLET}" \
 		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \

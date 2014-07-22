@@ -4,6 +4,8 @@ TARG = libgiflib
 
 libgiflib:QV:
 	CC="${CC} -static" ./configure \
+		--build="${TOOLCHAIN_TRIPLET}" \
+		--host="${HOST_TOOLCHAIN_TRIPLET}" \
 		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \

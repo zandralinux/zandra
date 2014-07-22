@@ -17,6 +17,8 @@ xorglibx11:QV:
 	export X11_CFLAGS="${CFLAGS}"
 	export X11_LIBS="${LDFLAGS}"
 	./configure \
+        --build="${TOOLCHAIN_TRIPLET}" \
+        --host="${HOST_TOOLCHAIN_TRIPLET}" \
 		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--with-keysymdefdir="${xorgxproto_includedir}/X11" \

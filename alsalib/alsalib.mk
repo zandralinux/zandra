@@ -11,6 +11,8 @@ alsalib:QV:
 	sed -i 's,#if !defined(_POSIX_C_SOURCE) && !defined(_POSIX_SOURCE),#if 0,' include/global.h
 	#
 	CC="$CC -static" ./configure \
+		--build="${TOOLCHAIN_TRIPLET}" \
+		--host="${HOST_TOOLCHAIN_TRIPLET}" \
 		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \

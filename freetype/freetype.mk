@@ -13,6 +13,8 @@ freetype:QV:
 	export LIBPNG_CFLAGS="${libpng_CFLAGS}"
 	export LIBPNG_LIBS="${libpng_LDFLAGS}"
 	CC="$CC" ./configure \
+		--build="${TOOLCHAIN_TRIPLET}" \
+		--host="${HOST_TOOLCHAIN_TRIPLET}" \
 		--prefix="$PREFIX" \
 		--mandir="$ROOT/share/man" \
 		--disable-shared \
