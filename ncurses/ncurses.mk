@@ -22,6 +22,7 @@ libncurses:QV:
 		--without-cxx-binding \
 		--enable-widec \
 		--without-ada \
+		--with-terminfo-dirs="$PREFIX/etc/terminfo:$PREFIX/lib/terminfo:$PREFIX/share/terminfo" \
 		--with-fallbacks="linux vt100 xterm xterm256-color" </dev/ptmx
 	make -j$nprocs
 	ln -sf curses.h include/ncurses.h
