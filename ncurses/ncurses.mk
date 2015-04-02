@@ -2,6 +2,7 @@ TARG = libncurses
 INSTALL_BIN = progs/tic progs/tput progs/tset progs/infocmp progs/toe progs/tabs
 INSTALL_MAN1 = man/tic.1m man/tput.1 man/tset.1 man/infocmp.1m man/toe.1m man/tabs.1
 INSTALL_MAN5 = man/terminfo.5
+INSTALL_EXTRA = install_terminfo
 
 <$mkbuild/mk.common
 
@@ -31,3 +32,7 @@ libncurses:QV:
 		ln -sf lib${lib}w_g.a lib${lib}_g.a
 		ln -sf lib${lib}w.a lib${lib}.a
 	done
+
+
+install_terminfo:QV:
+	make -j$nprocs DESTDIR="$ROOT" install.data
