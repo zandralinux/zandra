@@ -1,14 +1,9 @@
 Generic stuff
 -------------
 
-  * Make morpheus self-hosting.
-  * Enable booting the image without editing the root partition name
-      (this is needed to easily boot from usb from different machines)
-
-Packages
---------
-
-  * Create an hwclock service file.
-  * Create a tinyalsa service file.
-  * Build musl from source.
-  * Build kernel with our cross-compiler.
+ * Fix broken ports.
+ * Build packages.
+ * Make a toolchain build script.
+ * Create man pages for pkgtools.
+ * Figure out what we need for the base system.
+ * Make zandra self-hosting.
