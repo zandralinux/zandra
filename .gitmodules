@@ -1,8 +1,6 @@
 [submodule "mkbuild"]
 	path = mkbuild
-	url = git://git.zandra.xyz/mkbuild
-	branch = master
+	url = git://zandra.xyz/mkbuild
 [submodule "ports"]
 	path = ports
-	url = git://git.zandra.xyz/ports
-	branch = master
+	url = git://zandra.xyz/ports
