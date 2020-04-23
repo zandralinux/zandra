@@ -1,10 +1,10 @@
 arch = x86_64
-version = 0.0
-mirror = http://dl.2f30.org/morpheus-pkgs/${arch}/${version}
+version = 0.0-testing
+mirror = http://zandra.xyz/pkgs/${arch}/${version}
 pkgdirs = $mkbuild/../ports
 nprocs = 2
 
-TOOLCHAIN_TRIPLET = ${arch}-musl-linux
+TOOLCHAIN_TRIPLET = ${arch}-linux-musl
 CC = ${TOOLCHAIN_TRIPLET}-gcc
 CXX = ${TOOLCHAIN_TRIPLET}-g++
 LD = $CC
@@ -13,7 +13,7 @@ RANLIB = ${TOOLCHAIN_TRIPLET}-ranlib
 STRIP = ${TOOLCHAIN_TRIPLET}-strip
 CPP = ${TOOLCHAIN_TRIPLET}-cpp
 
-HOST_TOOLCHAIN_TRIPLET = ${arch}-musl-linux
+HOST_TOOLCHAIN_TRIPLET = ${arch}-linux-musl
 HOSTCC = $CC -static
 # use STRIP = true instead of the above
 # if you do not want stripped binaries
