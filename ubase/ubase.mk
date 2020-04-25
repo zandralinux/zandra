@@ -1,8 +1,8 @@
-TARG = `ls *.c | sed 's/\.c//'`
+TARG = ubase
 
 <$mkbuild/mk.common-noinst
 
-$TARG:QV:
+ubase:QV:
 	cp ../config.mk config.mk
 	make -j$nprocs DESTDIR="$ROOT"
 
