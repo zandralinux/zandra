@@ -3,6 +3,8 @@
 src = hbase
 git = git://git.2f30.org/hbase
 mkfile = mkfile
+patches = \
+	../zandra.patch
 
 build:V: prepare
 
