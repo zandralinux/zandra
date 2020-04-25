@@ -9,7 +9,6 @@ TARG = \
 	hbase \
 	linux \
 	linux-firmware \
-	make \
 	mksh \
 	ns-tools \
 	sbase \
