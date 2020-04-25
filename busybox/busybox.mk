@@ -17,7 +17,6 @@ INSTALL_SYMLINK = \
 	busybox /bin/kbd_mode \
 	busybox /bin/killall \
 	busybox /bin/losetup \
-	busybox /bin/mount \
 	busybox /bin/nc \
 	busybox /bin/ping \
 	busybox /bin/reset \
