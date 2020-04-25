@@ -6,7 +6,7 @@ umask 022
 
 echo
 echo
-echo "         Morpheus booting"
+echo "         Zandra booting"
 echo
 echo
 
