@@ -1,24 +1,9 @@
-BIN = `{ls *.c | sed 's/..$//' | grep -v '^ps$'}
-OBJ = ${BIN:%=%.o}
-LIB = util.a
-LOBJ = `{ls util/*.c | sed 's/.$/o/'}
-INSTALL_BIN = `{ls *.c | sed 's/..$//' | grep -v '^ps$'}
-INSTALL_MAN1 = `{ls *.1}
-INSTALL_MAN8 = `{ls *.8}
-NPROC = $nprocs
+TARG = `ls *.c | sed 's/\.c//'`
 
-<$mkbuild/mk.common
+<$mkbuild/mk.common-noinst
 
-&:n: &.o $LIB
+$TARG:QV:
+	CC="${CC} -static" make -j$nprocs PREFIX="$PREFIX" DESTDIR="$ROOT"
 
-$LIB: $LOBJ
-
-%.h: %.def.h
-	cp -f $prereq $target
-
-su: config.h
-login: config.h
-passwd: config.h
-getty: config.h
-who: config.h
-uptime: config.h
+install:QV:
+	make -j$nprocs PREFIX="$PREFIX" DESTDIR="$ROOT" install

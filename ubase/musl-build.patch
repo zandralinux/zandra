@@ -1,0 +1,12 @@
+diff -uri ubase/util.h patched/util.h
+--- ubase/util.h	2020-04-25 00:33:48.275889446 -0400
++++ patched/util.h	2020-04-25 00:34:26.675888919 -0400
+@@ -1,6 +1,8 @@
+ /* See LICENSE file for copyright and license details. */
+ #include "arg.h"
+ 
++#include <sys/sysmacros.h>
++
+ #define UTF8_POINT(c) (((c) & 0xc0) != 0x80)
+ 
+ #undef MIN

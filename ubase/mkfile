@@ -1,5 +1,7 @@
 <$mkbuild/mk.3rdparty
 
 src = ubase
-git = git://git.2f30.org/ubase
+git = git://git.suckless.org/ubase
 mkfile = ../ubase.mk
+patches = \
+	../musl-build.patch
