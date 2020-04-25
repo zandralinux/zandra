@@ -1,0 +1,11 @@
+diff -uri syslinux-6.03/extlinux/main.c patched/extlinux/main.c
+--- syslinux-6.03/extlinux/main.c	2020-04-24 23:10:40.025957811 -0400
++++ patched/extlinux/main.c	2020-04-24 23:14:39.215954533 -0400
+@@ -38,6 +38,7 @@
+ #include <sysexits.h>
+ #include <sys/ioctl.h>
+ #include <sys/stat.h>
++#include <sys/sysmacros.h>
+ #include <sys/types.h>
+ #include <sys/mount.h>
+ #include <sys/vfs.h>

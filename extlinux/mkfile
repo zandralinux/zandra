@@ -1,6 +1,8 @@
 <$mkbuild/mk.3rdparty
 
 <v.mk
-src = syslinux-$v/build
+src = syslinux-$v
 url = https://www.kernel.org/pub/linux/utils/boot/syslinux/syslinux-$v.tar.xz
-mkfile = ../../extlinux.mk
+mkfile = ../extlinux.mk
+patches = \
+	../musl-build.patch
