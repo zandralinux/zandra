@@ -12,15 +12,10 @@ TARG = \
 	make \
 	mksh \
 	ns-tools \
-	openssh \
-	pigz \
 	sbase \
 	sdhcp \
 	sinit \
 	smdev \
-	tmux \
-	ubase \
-	xz \
-	zlib
+	ubase
 
 <$mkbuild/mk.parent
