@@ -3,3 +3,5 @@
 src = smdev
 git = git://git.2f30.org/smdev
 mkfile = ../smdev.mk
+patches = \
+	../musl-build.patch

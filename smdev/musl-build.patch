@@ -1,0 +1,12 @@
+diff -uri smdev/util.h patched/util.h
+--- smdev/util.h	2020-04-25 00:58:14.375869352 -0400
++++ patched/util.h	2020-04-25 00:58:27.045869179 -0400
+@@ -1,6 +1,8 @@
+ /* See LICENSE file for copyright and license details. */
+ #include "arg.h"
+ 
++#include <sys/sysmacros.h>
++
+ #define LEN(x) (sizeof (x) / sizeof *(x))
+ 
+ extern char *argv0;
