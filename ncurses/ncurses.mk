@@ -7,7 +7,6 @@ INSTALL_EXTRA = install_terminfo
 <$mkbuild/mk.common
 
 libncurses:QV:
-	cp ../ncurses-fallback.c ncurses/fallback.c
 	CC="$CC -static" ./configure \
 		--build="$TOOLCHAIN_TRIPLET" \
 		--host="$HOST_TOOLCHAIN_TRIPLET" \
@@ -24,7 +23,7 @@ libncurses:QV:
 		--enable-widec \
 		--without-ada \
 		--with-terminfo-dirs="$PREFIX/etc/terminfo:$PREFIX/lib/terminfo:$PREFIX/share/terminfo" \
-		--with-fallbacks="linux vt100 xterm xterm256-color" </dev/ptmx
+		--with-fallbacks="linux vt100 xterm xterm-256color" </dev/ptmx
 	make -j$nprocs
 	ln -sf curses.h include/ncurses.h
 	cd lib
