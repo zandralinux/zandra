@@ -1,5 +1,5 @@
 TARG = wpasupplicant
-DEPS = openssl libnl3 zlib
+DEPS = libressl libnl3 zlib
 
 <$mkbuild/mk.common
 

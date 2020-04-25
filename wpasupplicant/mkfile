@@ -2,5 +2,5 @@
 
 <v.mk
 src = wpa_supplicant-$v
-url = http://hostap.epitest.fi/releases/wpa_supplicant-$v.tar.gz
+url = https://w1.fi/releases/wpa_supplicant-$v.tar.gz
 mkfile = ../wpasupplicant.mk
