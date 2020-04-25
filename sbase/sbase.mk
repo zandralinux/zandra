@@ -1,8 +1,8 @@
-TARG = sbase
+TARG = `ls *.c | sed 's/\.c//'`
 
 <$mkbuild/mk.common-noinst
 
-sbase:QV:
+$TARG:QV:
 	CC="${CC} -static" make -j$nprocs PREFIX="$PREFIX" DESTDIR="$ROOT"
 
 install:QV:
