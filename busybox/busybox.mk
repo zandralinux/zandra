@@ -16,13 +16,11 @@ INSTALL_SYMLINK = \
 	busybox /bin/ip \
 	busybox /bin/kbd_mode \
 	busybox /bin/killall \
-	busybox /bin/less \
 	busybox /bin/losetup \
 	busybox /bin/nc \
 	busybox /bin/ping \
 	busybox /bin/reset \
 	busybox /bin/route \
-	busybox /bin/tac \
 	busybox /bin/telnet \
 	busybox /bin/tftp \
 	busybox /bin/tftpd \
@@ -35,11 +33,6 @@ INSTALL_SYMLINK = \
 <$mkbuild/mk.common
 
 busybox:Q:
-	# https://sourceware.org/bugzilla/show_bug.cgi?id=16698
-	if test x"$arch" = x"arm"; then
-		export LDFLAGS="`printf "%s" \"$LDFLAGS\" | sed 's@-Wl,--gc-sections@@g'`"
-		sed 's@^    check_libc_is_glibc.*$@echo ""@g' -i scripts/trylink
-	fi
-	cp ../busybox.config .config
+	make defconfig # maybe change?
 	make -j$nprocs AR="$AR" HOSTCC="$HOSTCC -static" CC="$CC" LDFLAGS="$LDFLAGS" \
 		STRIP="$STRIP" busybox
