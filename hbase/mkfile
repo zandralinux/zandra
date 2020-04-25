@@ -1,7 +1,7 @@
 <$mkbuild/mk.3rdparty
 
 src = hbase
-git = git://zandra.xyz/repos/hbase
+git = git://zandra.xyz/hbase
 mkfile = mkfile
 
 build:V: prepare
