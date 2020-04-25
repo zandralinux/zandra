@@ -2,5 +2,5 @@
 
 <v.mk
 src = linux-$v
-url = $mirror/linux-$v.tar.gz
+url = https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-$v.tar.xz
 mkfile = ../linux.mk
