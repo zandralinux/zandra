@@ -1,10 +1,8 @@
 <$mkbuild/mk.3rdparty
 
 src = hbase
-git = git://git.2f30.org/hbase
+git = git://zandra.xyz/repos/hbase
 mkfile = mkfile
-patches = \
-	../zandra.patch
 
 build:V: prepare
 
