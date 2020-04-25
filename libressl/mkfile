@@ -4,6 +4,3 @@
 src = libressl-$v
 url = http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-$v.tar.gz
 mkfile = ../libressl.mk
-
-patches = \
-	"0" ../libressl-glibc.patch
