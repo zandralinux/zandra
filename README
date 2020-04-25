@@ -1,4 +1,22 @@
-zandra - a statically linked musl based Linux distro
-====================================================
+Zandra Linux
+============
 
-More info will be put here.
+Compiling
+---------
+
+To compile the base packages, edit config.mk then do the following:
+
+    export configmk=$(pwd)/config.mk # in base directory
+    export PATH="$CROSSPATH:$PATH" # add cross compiler to $PATH
+    export mkbuild=$(pwd)/mkbuild # in base directory
+    cd ports && mk
+    
+Currently the base packages are in the process of being updated to
+their current versions (before Zandra they were last updated in 2015).
+Note that most packages on there, with the exception of a few, are
+outdated and the URLs may not even work.
+
+Installing
+----------
+
+We haven't gotten to that point yet.
