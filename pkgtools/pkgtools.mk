@@ -2,7 +2,6 @@ TARG = pkgtools
 DEPS = libarchive zlib
 
 <$mkbuild/mk.common-noinst
-<../v.mk
 
 pkgtools:QV:
 	export CFLAGS="$CFLAGS $DEPS_CFLAGS -DVERSION=\\\"$v\\\" -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64"

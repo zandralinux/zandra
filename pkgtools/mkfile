@@ -1,5 +1,7 @@
 <$mkbuild/mk.3rdparty
 
+<v.mk
+
 src = pkgtools
 git = git://git.zandra.xyz/pkgtools
 mkfile = ../pkgtools.mk
