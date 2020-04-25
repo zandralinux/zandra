@@ -4,8 +4,3 @@
 src = curl-$v
 url = http://curl.haxx.se/download/curl-$v.tar.gz
 mkfile = ../curl.mk
-
-# fix: hugehelp is not defined because we use --disable-manual.
-#      in src/tool_operate.c this is used though, so it's a bug.
-patches = \
-	"0" ../curl-fix-hugehelp.patch

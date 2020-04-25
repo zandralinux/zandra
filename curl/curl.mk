@@ -21,7 +21,6 @@ curl:QV:
 		--libexecdir="$BINDIR" \
 		--mandir="$PREFIX/share/man" \
 		--disable-shared \
-		--disable-manual \
 		--disable-ntlm-wb \
 		--disable-pop3 \
 		--disable-imap \
@@ -32,14 +31,12 @@ curl:QV:
 		--disable-rtsp \
 		--without-nss \
 		--without-libssh2 \
-		--with-ssl=${openssl_libdir} \
+		--with-ssl \
 		--enable-cares=${cares_libdir} \
 		--with-zlib=${zlib_libdir} \
 		--enable-static \
 		--enable-ipv6
 	make -j$nprocs
-	# remake static, see: http://curl.haxx.se/mail/archive-2003-03/0115.html
-	rm -f src/curl
 	make LDFLAGS="-all-static $LDFLAGS"
 	# install in ./lib for use as a dependency.
 	make install LDFLAGS="-all-static $LDFLAGS" DESTDIR="`pwd`/lib"
