@@ -1,13 +1,9 @@
-BIN = `{ls *.c | sed 's/..$//' | grep -v '^cp$\|^tar$\|^grep$'}
-OBJ = ${BIN:%=%.o}
-LIB = util.a
-LOBJ = `{ls util/*.c | sed 's/.$/o/'}
-INSTALL_BIN = `{ls *.c | sed 's/..$//' | grep -v '^cp$\|^tar$\|^grep$'}
-INSTALL_MAN1 = `{ls *.1 | grep -v '^cp\.1$\|^tar\.1$\|^grep\.1$'}
-NPROC = $nprocs
+TARG = sbase
 
-<$mkbuild/mk.common
+<$mkbuild/mk.common-noinst
 
-&:n: &.o $LIB
+sbase:QV:
+	CC="${CC} -static" make -j$nprocs PREFIX="$PREFIX" DESTDIR="$ROOT"
 
-$LIB: $LOBJ
+install:QV:
+	make -j$nprocs PREFIX="$PREFIX" DESTDIR="$ROOT" install
