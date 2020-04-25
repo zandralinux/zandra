@@ -18,7 +18,7 @@ init:QV:
 	git submodule update --remote
 
 bootable:V:
-	stuff/create-bootable "$ROOT" morpheus-$arch-$version.img
+	stuff/create-bootable "$ROOT" zandra-$arch-$version.img
 
 install:QV:
 	cd ports

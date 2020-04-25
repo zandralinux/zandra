@@ -11,12 +11,18 @@ To compile the base packages, edit config.mk then do the following:
     export mkbuild=$(pwd)/mkbuild # in base directory
     cd ports && mk
     
-Currently the base packages are in the process of being updated to
-their current versions (before Zandra they were last updated in 2015).
-Note that most packages on there, with the exception of a few, are
-outdated and the URLs may not even work.
+Currently we are in the process of updating packages to their current
+versions (before Zandra they were last updated in 2015). Note that
+most packages on there, with the exception of a few, are outdated and
+the URLs may not even work.
 
 Installing
 ----------
 
-We haven't gotten to that point yet.
+You can install to a root using the following:
+
+    export ROOT="desired root"
+    mk install
+
+A bootable image can be made using the "bootable" target. IT ASSUMES
+/dev/loop0 IS FREE SO IF IT'S NOT, DON'T RUN THE SCRIPT!!
