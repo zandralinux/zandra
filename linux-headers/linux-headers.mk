@@ -8,3 +8,5 @@ linux-headers:QV:
 
 install:QV:
 	make headers_install
+	mkdir -p $ROOT/include
+	cp -rf usr/include $ROOT/include
