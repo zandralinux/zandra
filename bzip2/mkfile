@@ -2,5 +2,5 @@
 
 <v.mk
 src = bzip2-$v
-url = http://www.bzip.org/$v/bzip2-$v.tar.gz
+url = https://sourceware.org/pub/bzip2/bzip2-$v.tar.gz
 mkfile = ../bzip2.mk
