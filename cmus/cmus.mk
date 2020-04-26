@@ -24,6 +24,7 @@ cmus:QV:
 		CONFIG_MODPLUG=n \
 		CONFIG_MIKMOD=n \
 		CONFIG_MPC=n \
+		CONFIG_MPRIS=n \
 		CONFIG_VORBIS=n \
 		CONFIG_TREMOR=n \
 		CONFIG_WAV=n \
@@ -40,6 +41,8 @@ cmus:QV:
 		CONFIG_OSS=n \
 		CONFIG_SUN=n \
 		CONFIG_WAVEOUT=n \
+		CONFIG_OPUS=n \
+		CONFIG_JACK=n \
 		USE_FALLBACK_IP=n
 	make -j$nprocs
 
