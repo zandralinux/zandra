@@ -26,6 +26,7 @@ LIBDIR = ${PREFIX}/lib
 ETCDIR = ${PREFIX}/etc
 DFLDIR = ${ETCDIR}/default
 MANDIR = ${PREFIX}/share/man
+MANPREFIX = ${PREFIX}/share/man
 
 INSTALL = /usr/bin/install
 SUM = sha512sum
