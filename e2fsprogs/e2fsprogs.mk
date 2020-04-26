@@ -10,6 +10,7 @@ e2fsprogs:QV:
 		--disable-nls \
 		--bindir="$BINDIR" \
 		--sbindir="$BINDIR" \
+		--libdir="$LIBDIR" \
 		--libexecdir="$BINDIR" \
 		--mandir="$PREFIX/share/man"
 	make -j$nprocs
