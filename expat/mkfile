@@ -2,5 +2,5 @@
 
 <v.mk
 src = expat-$v
-url = http://heanet.dl.sourceforge.net/project/expat/expat/$v/expat-$v.tar.gz
+url = https://github.com/libexpat/libexpat/releases/download/R_2_2_9/expat-2.2.9.tar.gz
 mkfile = ../expat.mk
