@@ -8,7 +8,6 @@ TARG = \
 	file \
 	hbase \
 	linux \
-	linux-firmware \
 	mksh \
 	ns-tools \
 	pkgtools \
