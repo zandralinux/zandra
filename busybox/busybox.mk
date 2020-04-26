@@ -22,7 +22,6 @@ INSTALL_SYMLINK = \
 	busybox /bin/reset \
 	busybox /bin/route \
 	busybox /bin/telnet \
-	busybox /bin/tftp \
 	busybox /bin/tftpd \
 	busybox /bin/top \
 	busybox /bin/wget \
