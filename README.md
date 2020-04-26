@@ -1,8 +1,6 @@
-Zandra Linux
-============
+# Zandra Linux
 
-Compiling
----------
+## Compiling
 
 To compile the base packages, edit config.mk then do the following:
 
@@ -16,8 +14,7 @@ versions (before Zandra they were last updated in 2015). Note that
 most packages on there, with the exception of a few, are outdated and
 the URLs may not even work.
 
-Installing
-----------
+## Installing
 
 You can install to a root using the following:
 
@@ -25,4 +22,4 @@ You can install to a root using the following:
     mk install
 
 A bootable image can be made using the "bootable" target. IT ASSUMES
-/dev/loop0 IS FREE SO IF IT'S NOT, DON'T RUN THE SCRIPT!!
+`/dev/loop0` IS FREE SO IF IT'S NOT, DON'T RUN THE SCRIPT!!
