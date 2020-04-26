@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = linux-$v
+url = https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-$v.tar.xz
+mkfile = ../linux-headers.mk
