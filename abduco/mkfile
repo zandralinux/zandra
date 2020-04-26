@@ -1,5 +1,7 @@
+<v.mk
+
 <$mkbuild/mk.3rdparty
 
-src = abduco
-git = git://repo.or.cz/abduco.git
+src = abduco-$v
+url = https://github.com/martanne/abduco/releases/download/v$v/abduco-$v.tar.gz
 mkfile = ../abduco.mk
