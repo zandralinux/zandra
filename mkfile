@@ -1,16 +1,17 @@
 TARG = \
+	fs \
 	busybox \
 	curl \
 	dropbear \
 	e2fsprogs \
 	extlinux \
 	file \
-	fs \
 	hbase \
 	linux \
 	linux-firmware \
 	mksh \
 	ns-tools \
+	pkgtools \
 	sbase \
 	sdhcp \
 	sinit \
