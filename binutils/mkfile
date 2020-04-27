@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = binutils-$v
+url = http://ftp.gnu.org/gnu/binutils/binutils-$v.tar.gz
+mkfile = ../binutils.mk
