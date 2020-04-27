@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+<v.mk
+
+src = musl-$v
+url = http://musl.libc.org/releases/musl-$v.tar.gz
+mkfile = ../musl.mk
