@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = gcc-$v
+url = http://ftp.gnu.org/gnu/gcc/gcc-$v/gcc-$v.tar.gz
+mkfile = ../gcc.mk
