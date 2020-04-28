@@ -16,7 +16,10 @@ gcc:QV:
 		--disable-bootstrap \
 		--enable-languages=c,c++ \
 		--host=$arch-linux-musl \
-		--target=$arch-linux-musl
+		--target=$arch-linux-musl \
+		--with-gmp=$gmp_includedir/.. \
+		--with-mpc=$mpc_includedir/.. \
+		--with-mpfr=$mpfr_includedir/..
 	make -j$nprocs all-gcc
 
 install:QV:
