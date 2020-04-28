@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = gmp-$v
+url = http://ftp.gnu.org/gnu/gmp/gmp-$v.tar.xz
+mkfile = ../gmp.mk

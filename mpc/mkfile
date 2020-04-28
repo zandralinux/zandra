@@ -1,0 +1,6 @@
+<$mkbuild/mk.3rdparty
+
+<v.mk
+src = mpc-$v
+url = http://ftp.gnu.org/gnu/mpc/mpc-$v.tar.gz
+mkfile = ../mpc.mk
