@@ -1,19 +1,23 @@
 TARG = gcc
-DEPS = gmp mpfr mpc
+DEPS = gmp mpfr mpc zlib
 
 <$mkbuild/mk.common-noinst
 
 gcc:QV:
-	export CFLAGS="$CFLAGS $DEPS_CFLAGS"
-	export LDFLAGS="$LDFLAGS $DEPS_LDFLAGS"
-	CC="${CC} -static" ./configure \
+	export CFLAGS="${CFLAGS} ${DEPS_CFLAGS}"
+	export LDFLAGS="-static ${LDFLAGS} ${DEPS_LDFLAGS}"
+	./configure \
 		--prefix="$PREFIX" \
-		--exec-prefix="$PREFIX" \
 		--libexecdir="$PREFIX/lib" \
-		--disable-shared \
 		--disable-multilib \
 		--disable-nls \
+		--disable-werror \
 		--disable-bootstrap \
+		--disable-libsanitizer \
+		--disable-libssp \
+		--disable-symvers \
+	    --disable-rpath \
+		--enable-threads=posix \
 		--enable-languages=c,c++ \
 		--host=$arch-linux-musl \
 		--target=$arch-linux-musl \
@@ -21,6 +25,9 @@ gcc:QV:
 		--with-mpc=$mpc_includedir/.. \
 		--with-mpfr=$mpfr_includedir/..
 	make -j$nprocs all-gcc
+	make -j$nprocs all-target-libgcc
+	make DESTDIR="lib" install-target-libgcc
 
 install:QV:
 	make DESTDIR="$ROOT" install-gcc
+	make DESTDIR="$ROOT" install-target-libgcc
