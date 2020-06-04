@@ -22,7 +22,7 @@ bootable:V:
 
 install:QV:
 	cd ports
-	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk install ROOT="${ROOT}" TARG="$TARG"
+	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk install ROOT="$ROOT" TARG="$TARG"
 
 clean:QV:
 	cd ports
