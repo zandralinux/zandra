@@ -4,14 +4,13 @@ Generic stuff
  * Fix broken ports.
  * Build packages.
  * Make a toolchain build script.
- * Create man pages for pkgtools.
+ * Finish man pages for pkgtools.
  * Figure out what we need for the base system.
  * Make Zandra self-hosting.
- * Update pkgtools (package metadata)
- * Make sure mkbuild quits on bad hash
- * Migrate to linux-libre
- * Use mawk, gnu sed, gavin's bc, sabotage lex, byacc, openbsd m4
- * Remove hbase
- * Figure out kernel modules or no by default
- * Put website back up
-
+ * Update pkgtools (package metadata) maybe.
+ * Make sure mkbuild quits on bad hash.
+ * Use mawk, gnu sed, gavin's bc, sabotage lex, byacc, openbsd m4.
+ * Look into using util-linux programs instead of e2fsprogs.
+ * Figure out kernel modules or no by default.
+ * Put website back up.
+ * Find new patch(1).
