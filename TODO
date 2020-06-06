@@ -9,7 +9,7 @@ Generic stuff
  * Make Zandra self-hosting.
  * Update pkgtools (package metadata) maybe.
  * Make sure mkbuild quits on bad hash.
- * Use mawk, gnu sed, gavin's bc, sabotage lex, byacc, openbsd m4.
+ * Use mawk, gnu sed, gavin's bc, byacc, openbsd m4, sabotage netbsd-curses.
  * Look into using util-linux programs instead of e2fsprogs.
  * Figure out kernel modules or no by default.
  * Put website back up.
