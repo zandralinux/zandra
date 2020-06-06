@@ -13,4 +13,5 @@ Generic stuff
  * Look into using util-linux programs instead of e2fsprogs.
  * Figure out kernel modules or no by default.
  * Put website back up.
- * Find new patch(1).
+ * Find new diff, lex, patch.
+ * hash check for package downloads
