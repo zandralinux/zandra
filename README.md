@@ -1,9 +1,9 @@
 # Zandra Linux
 
-Zandra Linux is a Linux distro based on
-[Morpheus Linux](http://morpheus.2f30.org). It aims to be simple,
-small, and efficient. Zandra will hopefully get to a point where
-it has a stable release cycle, with security patches of course.
+[Zandra Linux](http://zandra.xyz) is a minimal Linux distribution
+forked from [morpheus linux](http://morpheus.2f30.org). It aims to be
+simple, small, and efficient. Zandra will hopefully get to a point
+where it has a stable release cycle, with security patches of course.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ To compile the base packages, edit config.mk then do the following:
     export mkbuild=$(pwd)/mkbuild # in base directory
     mk init # initialize git submodules
     mk
-    
+
 Currently we are in the process of updating packages to their current
 versions (before Zandra they were last updated in 2015). Note that
 most ports on the testing branch, with the exception of a few, are
