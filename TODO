@@ -14,4 +14,6 @@ Generic stuff
  * Figure out kernel modules or no by default.
  * Put website back up.
  * Find new diff, lex, patch.
- * hash check for package downloads
+ * hash check for package downloads.
+ * pkgtools frontend script.
+ * install script (install base software to specified root).
