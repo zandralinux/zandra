@@ -14,6 +14,8 @@ Generic stuff
  * Figure out kernel modules or no by default.
  * Put website back up.
  * Find new diff, lex, patch.
- * hash check for package downloads.
  * pkgtools frontend script.
  * install script (install base software to specified root).
+ * c89, c99 frontend scripts.
+ * automatically add base installed packages to /var/pkg (probably should do
+   image creation based on pkgtools rather than just mkbuild).
