@@ -46,3 +46,20 @@ A bootable image can be made using the "bootable" target. IT ASSUMES
 If you would like to run Zandra on bare metal, it is recommended that
 you recompile the kernel (or edit the kernel config before building)
 with the drivers you need.
+
+## Installing packages within Zandra
+
+Connect to the internet first by turning on your network device using
+`ip` (best to read the manual first), then running `sdhcp`. If that
+worked, you can now download a package by searching for it through
+`searchpkg` piped into `fetchpkg`, then `installpkg`. A frontend is on
+the to-do list. Note that `searchpkg` uses `grep` regular expressions,
+and will return anything that matches the regex, so it is advised that
+you run `searchpkg` by itself first to make sure you are only
+downloading exactly what you want. The syntax below also works.
+
+	# note: package names end in '#', version follows
+	searchpkg '^foo#' | fetchpkg
+	installpkg foo#1.0.pkg.tgz
+
+You can remove packages by running `removepkg foo`.
