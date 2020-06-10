@@ -18,7 +18,7 @@ init:QV:
 	git submodule update --remote
 
 bootable:V:
-	stuff/create-bootable "$ROOT" zandra-$arch-$version.img
+	stuff/create-bootable "$ROOT" zandra-$version-$arch.img
 
 install:QV:
 	cd ports
