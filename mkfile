@@ -9,9 +9,9 @@ ROOT = `{pwd}/root
 all:QV:
 	cd ports
 	if test "$TARG" = ""; then
-		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk
+		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk package
 	else
-		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" TARG="$TARG" mk
+		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" TARG="$TARG" mk package
 	fi
 
 init:QV:
@@ -23,7 +23,7 @@ bootable:V:
 
 install:QV:
 	cd ports
-	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" ROOT="$ROOT" TARG="$TARG" mk install
+	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" ROOT="$ROOT" TARG="$TARG" mk installpkgs
 
 clean:QV:
 	cd ports

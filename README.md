@@ -1,6 +1,6 @@
-# Zandra Linux
+# Zandra
 
-[Zandra Linux](http://zandra.xyz) is a minimal Linux distribution
+[Zandra](http://zandra.xyz) is a minimal Linux distribution
 forked from [morpheus linux](http://morpheus.2f30.org). It aims to be
 simple, small, and efficient. Zandra will hopefully get to a point
 where it has a stable release cycle, with security patches of course.
@@ -12,6 +12,7 @@ where it has a stable release cycle, with security patches of course.
   [musl-cross-make](https://github.com/richfelker/musl-cross-make).
 * mk from [9base](http://tools.suckless.org/9base/) or
   [plan9port](https://github.com/9fans/plan9port).
+* [Zandra pkgtools](http://git.zandra.xyz/pkgtools/log.html)
 
 ## Compiling
 
@@ -40,7 +41,8 @@ Go to the directory of the package you would like to package, then run
 You can install to a root using the following:
 
     export ROOT="desired root"
-    mk install
+    mk
+	mk install
 
 A bootable image can be made using the "bootable" target. IT ASSUMES
 `/dev/loop0` IS FREE SO IF IT'S NOT, DON'T RUN THE SCRIPT!!
