@@ -11,7 +11,7 @@ all:QV:
 	if test "$TARG" = ""; then
 		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk
 	else
-		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk TARG="$TARG"
+		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" TARG="$TARG" mk
 	fi
 
 init:QV:
@@ -23,14 +23,14 @@ bootable:V:
 
 install:QV:
 	cd ports
-	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk install ROOT="$ROOT" TARG="$TARG"
+	env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" ROOT="$ROOT" TARG="$TARG" mk install
 
 clean:QV:
 	cd ports
 	if test "$TARG" = ""; then
 		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk clean
 	else
-		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk clean TARG="$TARG"
+		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" TARG="$TARG" mk clean
 	fi
 
 distclean:QV:
@@ -38,7 +38,7 @@ distclean:QV:
 	if test "$TARG" = ""; then
 		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk distclean
 	else
-		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk distclean TARG="$TARG"
+		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" TARG="$TARG" mk distclean 
 	fi
 
 fetch:QV:
@@ -46,7 +46,7 @@ fetch:QV:
 	if test "$TARG" = ""; then
 		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk fetch
 	else
-		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk fetch TARG="$TARG"
+		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" TARG="$TARG" mk fetch 
 	fi
 
 package:QV:
@@ -54,5 +54,5 @@ package:QV:
 	if test "$TARG" = ""; then
 		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk package
 	else
-		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" mk package TARG="$TARG"
+		env -i PATH="$PATH" configmk="$configmk" mkbuild="$mkbuild" TARG="$TARG" mk package 
 	fi
