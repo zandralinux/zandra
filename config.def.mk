@@ -2,7 +2,7 @@ arch = x86_64
 version = 0.0-testing
 mirror = http://zandra.xyz/pkgs/${arch}/${version}
 pkgdirs = $mkbuild/../ports
-nprocs = 2
+nprocs = 2 # change for more threads
 
 TOOLCHAIN_TRIPLET = ${arch}-linux-musl
 CC = ${TOOLCHAIN_TRIPLET}-gcc
