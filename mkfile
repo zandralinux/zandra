@@ -2,6 +2,7 @@
 
 configmk = `{pwd}/config.mk
 mkbuild = `{pwd}/mkbuild
+ROOT = `{pwd}/root
 
 <$configmk
 
