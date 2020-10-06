@@ -17,9 +17,11 @@ where it has a stable release cycle, with security patches of course.
 
 To compile the base packages, edit config.mk then do the following:
 
-    export configmk=$(pwd)/config.mk # in base directory
-    export PATH="$CROSSPATH:$PATH" # add cross compiler to $PATH
-    export mkbuild=$(pwd)/mkbuild # in base directory
+    export configmk=$(pwd)/config.mk # in zandra base directory
+    export mkbuild=$(pwd)/mkbuild # in zandra base directory
+	
+	# add cross compiler to $PATH (replace /opt/cross/bin if installed somewhere else)
+    export PATH="/opt/cross/bin:$PATH"
     mk init # initialize git submodules
     mk
 
@@ -60,6 +62,6 @@ downloading exactly what you want. The syntax below also works.
 
 	# note: package names end in '#', version follows
 	searchpkg '^foo#' | fetchpkg
-	installpkg foo#1.0.pkg.tgz
+	installpkg foo#1.0.pkg.tgz # replace with actual version
 
 You can remove packages by running `removepkg foo`.
