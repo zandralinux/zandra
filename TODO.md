@@ -7,6 +7,8 @@
 * mg
 * x11 stuff
 * linux-lts
+* nano
+* cryptsetup
 
 ## documentation
 
@@ -23,8 +25,7 @@
 ## improvements / new features
 
 * pkgtools frontend
-* use i686 instead of i486
-* put cacertificates in default install
+* use i686 instead of i486?
 * use mirror rather than push to git.zandra.xyz and github individually (prioritize git.zandra.xyz)
 * automatically update linux-firmware package monthly?
 * specify where to post issues, bug reports, questions, comments, changes
