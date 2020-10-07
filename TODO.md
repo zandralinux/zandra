@@ -9,6 +9,7 @@
 * linux-lts
 * nano
 * cryptsetup
+* dash
 
 ## documentation
 
