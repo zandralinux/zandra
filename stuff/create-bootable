@@ -21,7 +21,7 @@ root=$1
 img=$2
 mnt="/mnt/zandra"
 
-fallocate -l 1G $img || dd if=/dev/zero of=$img bs=512M count=2
+fallocate -l 10G $img || dd if=/dev/zero of=$img bs=512M count=2
 (
 cat << EOF
 o
