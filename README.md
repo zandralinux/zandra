@@ -1,6 +1,6 @@
 # Zandra
 
-[Zandra](http://zandra.xyz) is a minimal Linux distribution
+[Zandra](http://zandra.org) is a minimal Linux distribution
 forked from [morpheus linux](http://morpheus.2f30.org). It aims to be
 simple, small, and efficient. Zandra will hopefully get to a point
 where it has a stable release cycle, with security patches of course.
