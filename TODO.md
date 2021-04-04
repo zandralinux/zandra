@@ -35,8 +35,6 @@
 * use multiple ports trees and a directory based approach to package management (`pkg install core/gcc` for example)
 * ssh box for devs
 * change package filename conventions
-* completely switch to zandra.org
-* put wiki on site with auto generated updates
 * split into testing branches
 * automate package recompilation when security patches are needed (downside of static linking)
 * default to linux-lts
