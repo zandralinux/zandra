@@ -1,6 +1,6 @@
 arch = x86_64
 version = 0.0
-mirror = http://zandra.xyz/pkgs/${arch}/${version}
+mirror = http://zandra.org/pkgs/${arch}/${version}
 pkgdirs = $mkbuild/../ports
 nprocs = 2 # change for more threads
 
