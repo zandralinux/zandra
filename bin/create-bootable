@@ -38,15 +38,17 @@ EOF
 losetup -Pf $img
 partition=/dev/loop0p1
 mkfs.ext4 -L ZANDRA $partition
+resize2fs -s $partition
 mkdir -p "$mnt"
 mount $partition "$mnt"
 rmdir "$mnt/lost+found"
 
 fakeroot cp -arP "$root"/* "$mnt"
 extlinux --install "$mnt/boot"
-cat stuff/mbr.bin > /dev/loop0
+cat $STUFF/mbr.bin > /dev/loop0
 sync
 
 umount "$mnt"
 sleep 3
+umount /dev/loop0p1
 losetup -d /dev/loop0
