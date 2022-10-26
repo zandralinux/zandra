@@ -1,0 +1,5 @@
+#!/bin/sh
+
+export mkbuild="$PWD/mkbuild"
+export configmk="$PWD/config.mk"
+export PATH="$PWD/bin:$PATH"

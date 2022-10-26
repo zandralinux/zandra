@@ -1,0 +1,40 @@
+#!/bin/sh
+# create a bootable zandra image using precompiled packages
+# from the web.
+# usage: buildimg [outimg]
+
+PKGS='
+fs
+cacertificates
+busybox
+curl
+dropbear
+e2fsprogs
+extlinux
+less
+linux
+mksh
+ns-tools
+pkgtools
+sbase
+sdhcp
+sinit
+smdev
+ubase
+'
+OUTIMG="zandra-0.0-x86_64-$(date +"%m%d%Y%H%m").img"
+TMPDIR="$(mktemp -d)"
+ROOT="$TMPDIR/root"
+PKGDIR="$TMPDIR/pkg"
+mkdir $ROOT $PKGDIR
+
+
+cd $PKG
+IFS='
+'
+for p in $(echo $PKGS); do
+	searchpkg "^$p#" | fetchpkg
+	installpkg -r $ROOT $p
+done
+
+create-bootable $ROOT $OUTIMG
