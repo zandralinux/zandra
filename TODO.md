@@ -4,7 +4,6 @@
 
 * groff
 * man-db or mandoc
-* mg
 * x11 stuff
 * linux-lts
 * nano
