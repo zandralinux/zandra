@@ -18,7 +18,7 @@ where it has a stable release cycle, with security patches of course.
 
 To compile the base packages, edit config.mk to your needs and add
 necessary variables to your shell environment by running
-`source build-env` (IMPORTANT). Currently we are in the process
+`source stuff/build-env` (IMPORTANT). Currently we are in the process
 of updating packages to their current versions (before Zandra they
 were last updated in 2015). Note that most ports on the testing
 branch, with the exception of a few, are outdated and the URLs may
