@@ -10,6 +10,7 @@
 * nano
 * cryptsetup
 * dash
+* mkbuild
 
 ## documentation
 
@@ -24,17 +25,23 @@
 ## improvements / new features
 
 * pkgtools frontend
-* use mirror rather than push to git.zandra.org and github individually (prioritize git.zandra.org)
-* automatically update linux-firmware package monthly?
+* automatically update linux-firmware package monthly
 * specify where to post issues, bug reports, questions, comments, changes
 * automated pkg tarball and checksum updating via git hooks in repositories
-* add linux-lts and maybe hardened kernel
-* keep stagit or use cgit?
-* figure out crypto donations
-* figure out mailing lists
+* add linux-lts and maybe hardened kernel, then default to linux-lts
+* add donations?
+* add mailing list?
 * use multiple ports trees and a directory based approach to package management (`pkg install core/gcc` for example)
 * ssh box for devs
 * change package filename conventions
 * split into testing branches
-* automate package recompilation when security patches are needed (downside of static linking)
-* default to linux-lts
+* automate package recompilation when security patches in dependencies are needed (downside of static linking)
+	* maybe just use dynamic linking instead?
+* Remove info pages by default
+* wiki access via command line
+* fix i686
+* add arm support (rpi4)
+* automatic updates for linux-firmware
+* use testing branches
+* switch # with something else for package versions
+
